@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "handoff.schema.json",
+  "title": "SuperScout verified handoff record",
+  "description": "One gated handoff, as released (one object per JSONL line). SuperScout-7B ends its search episode by emitting a handoff document: a <files>/<repro>/<notes> tagged text block terminated by STOP. The verify-then-strip gate replays the document's reproduction claim in the task sandbox at the base commit and strips the <repro> block when the claim does not hold; this record carries the (possibly stripped) document plus the gate's verification record.",
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Benchmark instance identifier of the task the handoff belongs to."
+    },
+    "handoff_type": {
+      "type": "string",
+      "enum": ["spontaneous", "forced"],
+      "description": "How the handoff was obtained: 'spontaneous' = the model emitted it on its own; 'forced' = at turn-budget exhaustion one extra generation demanded the handoff in-dialect. Forced handoffs are tagged and never pooled with spontaneous ones in find-rate claims."
+    },
+    "handoff_text_final": {
+      "$ref": "#/$defs/handoffDocument",
+      "description": "The handoff document AFTER the gate ran: identical to the emitted document when the reproduction claim verified (or there was nothing to verify), with the entire <repro> block removed when the claim was false."
+    },
+    "verify": {
+      "$ref": "#/$defs/verifyRecord"
+    },
+    "failure_class": {
+      "type": "string",
+      "enum": [
+        "no_repro",
+        "claim_not_true",
+        "no_command",
+        "not_run",
+        "passed_stripped",
+        "missing_file",
+        "import_error",
+        "real_failure",
+        "nonzero_other"
+      ],
+      "description": "Diagnostic label attached by the gate driver, classifying WHY the replayed command failed (or why nothing ran) from the captured output: 'real_failure' = genuine bug reproduction (traceback / assertion / failed test); 'missing_file' / 'import_error' = setup error, not a bug demonstration; 'nonzero_other' = non-zero exit with unclassified output; 'passed_stripped' = command exited 0, so the claim was false and the <repro> block was stripped; 'no_repro' / 'claim_not_true' / 'no_command' / 'not_run' = nothing was verified. Only a clean exit-0 pass strips."
+    }
+  },
+  "required": ["task_id", "handoff_type", "handoff_text_final", "verify", "failure_class"],
+  "additionalProperties": false,
+  "$defs": {
+    "handoffDocument": {
+      "type": "string",
+      "description": "The handoff wire format: raw unescaped text (NOT JSON) in three XML-style tag blocks, ending with the token STOP on its own line. <files>: implicated files, ranked, one path per line. <repro> (optional; absent after a strip): three fields on 'key:' lines — 'command:' the exact command that reproduces the failure (the value may span multiple lines and is read until the next 'reproduced:'/'observed:' field), 'reproduced:' true if the observed output demonstrates the bug, otherwise false, 'observed:' the failing output observed before any fix. <notes>: free prose (findings, dead ends, build/test quirks). Consumers extract per-field, so one broken tag does not invalidate the document. The format specification caps the document at 4KB total (enforced upstream when handoffs are produced and trimmed); the gate itself does not reject oversized documents, and released records may slightly exceed the cap.",
+      "allOf": [
+        {
+          "pattern": "<files>",
+          "description": "A handoff document contains a <files> block."
+        },
+        {
+          "pattern": "STOP\\s*$",
+          "description": "A handoff document ends with the token STOP (trailing whitespace allowed)."
+        }
+      ]
+    },
+    "verifyRecord": {
+      "type": "object",
+      "description": "The record returned by verify_strip.verify_and_strip for this handoff: what was parsed out of the <repro> block, whether the command was replayed in the sandbox, and the keep/strip outcome.",
+      "properties": {
+        "has_repro": {
+          "type": "boolean",
+          "description": "True if the document contained a <repro>...</repro> block."
+        },
+        "command": {
+          "type": ["string", "null"],
+          "description": "The reproduction command extracted from the block's 'command:' field; null if absent."
+        },
+        "claim": {
+          "type": ["boolean", "null"],
+          "description": "The parsed 'reproduced:' value (true/yes -> true); null if the field is missing."
+        },
+        "ran": {
+          "type": "boolean",
+          "description": "True if the gate actually executed the command in the sandbox (only done for claim == true with a command present)."
+        },
+        "returncode": {
+          "type": ["integer", "null"],
+          "description": "Exit code of the replayed command; null if it never ran."
+        },
+        "verified": {
+          "type": ["boolean", "null"],
+          "description": "Gate verdict: true if the command failed as claimed (non-zero exit, or a failure-substring hint when hints are enabled); false if it passed; null if it never ran."
+        },
+        "stripped": {
+          "type": "boolean",
+          "description": "True if the <repro> block was removed from the forwarded handoff."
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "no_repro_block",
+            "claim_not_true",
+            "no_command_in_repro",
+            "verified_reproduces",
+            "claim_false_repro_passes"
+          ],
+          "description": "Why the gate kept or stripped: 'verified_reproduces' = claim true and the command failed (kept, verified); 'claim_false_repro_passes' = claim true but the command exited 0 (stripped); the other three = nothing to verify (kept unchanged, never run)."
+        },
+        "output_tail": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Last 1000 characters of the replayed command's output. Present only when the command ran."
+        }
+      },
+      "required": ["has_repro", "command", "claim", "ran", "returncode", "verified", "stripped", "reason"],
+      "additionalProperties": false
+    }
+  }
+}
