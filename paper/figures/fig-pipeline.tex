@@ -1,0 +1,238 @@
+% ===========================================================================
+% fig-pipeline.tex — the \sysname pipeline, end to end.
+%
+% MOUNTS AS figure*  (FULL TEXT WIDTH, spanning BOTH columns).  This is the
+% one deliberate exception to the single-column house rule: the diagram is a
+% seven-stage left-to-right narrative and is unreadable at column width.
+% Wrap it as \begin{figure*}[!t] ... \end{figure*}; wrapper/caption/label
+% live in the section file.  BODY ONLY (tikzpicture in a \resizebox).
+% Requires \input{figures/fig-style} in the preamble.
+%
+% PROVENANCE
+%   Schematic only — this figure carries NO measured numbers, so there is
+%   nothing to verify against a report. Stage names follow the system as
+%   described in internal records: verify-then-strip, the search-episode and
+%   handoff split, and the deployed router as the blend of task text and
+%   \modelname hidden states.
+%
+%   Layout note: drawn at ~19cm and \resizebox'd to the \linewidth of a
+%   figure* (~18.2cm in IEEEtran conference), i.e. scaled by ~0.96. The
+%   smallest type in the figure is \scriptsize (7pt), so the smallest labels
+%   land at ~6.7pt on paper; the \footnotesize body rows land at ~7.7pt.
+%
+%   Colour contract (fig-style.tex): cSys tints mark every component we
+%   build or train (searcher, gate, router); neutral grays mark the data
+%   artefacts that flow between them (task, handoff, patch, score); the four
+%   fixer colours (cGpt/cOpus/cFlash/cKimi) are the ones those models carry
+%   in every other figure. Shape, fill weight and stroke weight repeat those
+%   distinctions, so the figure survives grayscale printing.
+% ===========================================================================
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  x=1cm, y=1cm,
+  % ---- panels ----------------------------------------------------------
+  panel/.style={rounded corners=2.4pt, line width=0.7pt, anchor=center},
+  sysbox/.style={panel, draw=cSys!55, fill=cSys!6},
+  artbox/.style={panel, draw=gray!55, fill=gray!4},
+  pill/.style={draw=gray!55, fill=gray!8, rounded corners=5pt,
+               line width=0.7pt, align=center, inner sep=2pt},
+  % ---- type ------------------------------------------------------------
+  kick/.style={font=\scriptsize\scshape, text=gray!45!black, anchor=south},
+  systitle/.style={font=\small\bfseries, text=cSys!80!black,
+                   anchor=north west, inner sep=0pt, align=left},
+  arttitle/.style={font=\small\bfseries, text=gray!15!black,
+                   anchor=north west, inner sep=0pt, align=left},
+  body/.style={font=\footnotesize, text=gray!35!black,
+               anchor=north west, inner sep=0pt, align=left},
+  micro/.style={font=\scriptsize, text=gray!40!black,
+                anchor=north west, inner sep=0pt, align=left},
+  note/.style={font=\footnotesize\itshape, text=gray!45!black},
+  % ---- flow ------------------------------------------------------------
+  flow/.style={-{Stealth[length=2.0mm,width=1.5mm]}, gray!62,
+               line width=0.9pt, rounded corners=1.5pt},
+  fallback/.style={-{Stealth[length=2.0mm,width=1.5mm]}, gray!58,
+                   line width=0.75pt, rounded corners=2pt,
+                   dash pattern=on 1.5mm off 1.1mm},
+  hair/.style={line width=0.5pt},
+]
+
+% =========================================================================
+% Geometry.  All stage panels are 3.0cm tall and centred on y=0; the band
+% runs left to right with a uniform 2.8mm gap for the flow arrows.  Panel
+% widths and centres (total drawing width 19.04cm):
+%   task   1.50 @ 0.75  | search 2.70 @  3.13 | handoff 2.80 @  6.16
+%   gate   2.80 @ 9.24  | route  2.70 @ 12.27 | pool    3.06 @ 15.43
+%   tail   1.80 @ 18.14
+% =========================================================================
+\def\Ph{3.0}
+
+% ---- stage kickers -------------------------------------------------------
+\node[kick] at (3.13,1.64) {Search};
+\node[kick] at (6.16,1.64) {Handoff};
+\node[kick] at (9.24,1.64) {Gate};
+\node[kick] at (12.27,1.64) {Route};
+\node[kick] at (15.43,1.64) {Fix};
+
+% =========================================================================
+% 1. TASK
+% =========================================================================
+\node[pill, minimum width=1.5cm, minimum height=1.6cm] (task) at (0.75,0)
+  {{\small\bfseries Task}\\[3pt]{\footnotesize\color{gray!35!black} issue text}};
+
+% =========================================================================
+% 2. SEARCH EPISODE
+% =========================================================================
+\node[sysbox, minimum width=2.7cm, minimum height=\Ph cm] (search) at (3.13,0) {};
+\node[systitle, text width=2.4cm] (st)
+  at ([shift={(2.6mm,-2.8mm)}]search.north west) {\modelname};
+\coordinate (sa) at ([yshift=-1.6mm]st.south west);
+\draw[hair, cSys!30] (sa) -- ([xshift=-2.6mm]search.east |- sa);
+\node[body, text width=2.4cm] at ([yshift=-2.4mm]sa)
+  {explores the repo\\[1.5pt] sampled decoding\\[1.5pt] bounded turns};
+
+% search-trace motif: a short walk that ends on a committed file
+\begin{scope}[shift={(2.20,-1.16)}]
+  \draw[cSys!45, line width=0.6pt]
+    (0,0.30) -- (0.62,0.30) -- (0.62,0) -- (1.42,0) -- (1.42,0.30) -- (1.86,0.30);
+  \fill[cSys!25] (0,0.30)    circle (1.5pt);
+  \fill[cSys!45] (0.62,0)    circle (1.5pt);
+  \fill[cSys!70] (1.42,0.30) circle (1.5pt);
+  \fill[cSys]    (1.86,0.30) circle (2.1pt);
+\end{scope}
+
+% =========================================================================
+% 3. STRUCTURED HANDOFF  (document glyph, three field rows)
+% =========================================================================
+\node[artbox, minimum width=2.8cm, minimum height=\Ph cm] (hand) at (6.16,0) {};
+\node[arttitle, text width=2.5cm] (ht)
+  at ([shift={(2.6mm,-2.8mm)}]hand.north west) {Structured handoff};
+\coordinate (ha) at ([yshift=-1.6mm]ht.south west);
+\draw[hair, gray!35] (ha) -- ([xshift=-2.6mm]hand.east |- ha);
+
+\begin{scope}[shift={(5.01,0.30)}]
+  \def\dw{2.30} \def\dh{1.58} \def\df{0.28}
+  \fill[white] (0,0) -- (\dw-\df,0) -- (\dw,-\df) -- (\dw,-\dh) -- (0,-\dh) -- cycle;
+  \draw[gray!60, line width=0.6pt]
+    (0,0) -- (\dw-\df,0) -- (\dw,-\df) -- (\dw,-\dh) -- (0,-\dh) -- cycle;
+  \draw[gray!60, line width=0.6pt] (\dw-\df,0) -- (\dw-\df,-\df) -- (\dw,-\df);
+  \foreach \i/\lab in {1/implicated files, 2/repo notes, 3/repro test}{
+    \fill[cSys!45, rounded corners=0.4pt]
+      (0.18,-0.06-0.44*\i+0.05) rectangle ++(0.115,0.115);
+    \node[micro, text=gray!25!black] at (0.40,-0.06-0.44*\i+0.145) {\lab};
+  }
+\end{scope}
+
+% =========================================================================
+% 4. VERIFY-THEN-STRIP SANDBOX GATE  (funnel)
+% =========================================================================
+\node[sysbox, minimum width=2.8cm, minimum height=\Ph cm] (gate) at (9.24,0) {};
+\node[systitle, text width=2.4cm] (gt)
+  at ([shift={(2.6mm,-2.8mm)}]gate.north west) {Verify-then-strip};
+\coordinate (ga) at ([yshift=-1.6mm]gt.south west);
+\draw[hair, cSys!30] (ga) -- ([xshift=-2.6mm]gate.east |- ga);
+\node[micro] at ([yshift=-2.2mm]ga) {replays the repro claim};
+
+\begin{scope}[shift={(9.24,-0.30)}]
+  \fill[cSys!12] (-0.60,0.34) -- (0.60,0.34) -- (0.17,-0.10) -- (0.17,-0.40)
+              -- (-0.17,-0.40) -- (-0.17,-0.10) -- cycle;
+  \draw[cSys!65, line width=0.7pt]
+    (-0.60,0.34) -- (0.60,0.34) -- (0.17,-0.10) -- (0.17,-0.40)
+    -- (-0.17,-0.40) -- (-0.17,-0.10) -- cycle;
+  \node[micro, text=cSys!70!black] at (-1.14,-0.56) {$\checkmark$~replays: kept};
+  \node[micro, text=gray!50!black] at (-1.14,-0.88) {$\times$~fails: stripped};
+\end{scope}
+
+% =========================================================================
+% 5. RESUME ROUTER
+% =========================================================================
+\node[sysbox, minimum width=2.7cm, minimum height=\Ph cm] (route) at (12.27,0) {};
+\node[systitle, text width=2.4cm] (rt)
+  at ([shift={(2.6mm,-2.8mm)}]route.north west) {R\'esum\'e router};
+\coordinate (ra) at ([yshift=-1.6mm]rt.south west);
+\draw[hair, cSys!30] (ra) -- ([xshift=-2.6mm]route.east |- ra);
+\node[body, text width=2.4cm] at ([yshift=-2.4mm]ra)
+  {task text $+$ \modelname\ hidden states};
+
+% the résumé shelf it compares against
+\begin{scope}[shift={(11.07,-1.14)}]
+  \draw[gray!40, fill=white, line width=0.5pt, rounded corners=0.6pt]
+    (0.10,0.10) rectangle ++(0.40,0.50);
+  \draw[gray!52, fill=white, line width=0.5pt, rounded corners=0.6pt]
+    (0.05,0.05) rectangle ++(0.40,0.50);
+  \draw[cSys!60, fill=cSys!8, line width=0.6pt, rounded corners=0.6pt]
+    (0,0) rectangle ++(0.40,0.50);
+  \foreach \i in {1,2,3}{
+    \draw[cSys!45, line width=0.4pt] (0.08,0.50-0.125*\i) -- (0.32,0.50-0.125*\i);}
+  \node[micro, anchor=west, text width=1.65cm] at (0.62,0.28)
+    {vs.\ one r\'esum\'e per fixer};
+\end{scope}
+
+% =========================================================================
+% 6. FIXER POOL
+% =========================================================================
+\node[artbox, minimum width=3.06cm, minimum height=\Ph cm] (pool) at (15.43,0) {};
+\node[arttitle, text width=2.5cm] (pt)
+  at ([shift={(2.6mm,-2.8mm)}]pool.north west) {Fixer pool};
+\coordinate (pa) at ([yshift=-1.6mm]pt.south west);
+\draw[hair, gray!35] (pa) -- ([xshift=-2.6mm]pool.east |- pa);
+
+% chips: {row}{colour}{name}{0 = not chosen, 1 = chosen, 2 = open slot}
+\foreach \i/\col/\nm/\sel in {%
+    1/cGpt/\fxgpt/0, 2/cOpus/\fxopus/1, 3/cFlash/\fxflash/0, 4/cKimi/\fxkimi/0,
+    5/gray/{+ new fixer}/2}{
+  \coordinate (c\i) at (14.10,0.24-0.40*\i+0.40);
+  \ifcase\sel
+    % 0 — in the pool, not selected this time
+    \draw[draw=gray!35, fill=white, line width=0.55pt, rounded corners=1.6pt]
+      (c\i) rectangle ++(2.66,0.34);
+    \fill[\col!55] ([shift={(0.06,0.05)}]c\i) rectangle ++(0.09,0.24);
+    \node[anchor=west, font=\footnotesize, text=gray!42!black,
+          inner sep=0pt] at ([shift={(0.28,0.17)}]c\i) {\nm};
+  \or
+    % 1 — the fixer this task is routed to
+    \draw[draw=\col!70, fill=\col!10, line width=0.85pt, rounded corners=1.6pt]
+      (c\i) rectangle ++(2.66,0.34);
+    \fill[\col] ([shift={(0.06,0.05)}]c\i) rectangle ++(0.09,0.24);
+    \node[anchor=west, font=\footnotesize\bfseries, text=\col!72!black,
+          inner sep=0pt] at ([shift={(0.28,0.17)}]c\i) {\nm};
+  \or
+    % 2 — the open slot: a r\'esum\'e is the whole onboarding cost
+    \draw[draw=gray!45, dash pattern=on 0.9mm off 0.8mm, line width=0.55pt,
+          rounded corners=1.6pt] (c\i) rectangle ++(2.66,0.34);
+    \node[anchor=west, font=\scriptsize\itshape, text=gray!52!black,
+          inner sep=0pt] at ([shift={(0.16,0.17)}]c\i) {\nm: r\'esum\'e only};
+  \fi
+}
+\node[anchor=east, font=\scriptsize, text=cOpus!72!black, inner sep=0pt]
+  at ([shift={(-0.03,0.17)}]c2) {$\blacktriangleright$};
+
+% =========================================================================
+% 7. PATCH -> OFFICIAL SCORING
+% =========================================================================
+\node[pill, minimum width=1.8cm, minimum height=0.8cm] (patch) at (18.14,0)
+  {{\small\bfseries Patch}};
+\node[pill, minimum width=1.8cm, minimum height=1.0cm] (score) at (18.14,-1.32)
+  {{\small\bfseries Official}\\[2pt]{\small\bfseries scoring}};
+
+% =========================================================================
+% Flow
+% =========================================================================
+\draw[flow] (task)   -- (search);
+\draw[flow] (search) -- (hand);
+\draw[flow] (hand)   -- (gate);
+\draw[flow] (gate)   -- (route);
+\draw[flow] (route)  -- (pool);
+\draw[flow] (pool)   -- (patch);
+\draw[flow] (patch)  -- (score);
+
+\node[note, anchor=north, align=center, text width=3.3cm]
+  at (15.43,-1.72) {the chosen fixer gets the task $+$ surviving handoff};
+
+% =========================================================================
+% Fallback: no handoff, the router still fires
+% =========================================================================
+\draw[fallback] (search.south) -- (3.13,-2.30) -- (12.27,-2.30) -- (route.south);
+\node[note, anchor=south] at (7.70,-2.24)
+  {no handoff: the chosen fixer proceeds from the issue text alone};
+
+\end{tikzpicture}}

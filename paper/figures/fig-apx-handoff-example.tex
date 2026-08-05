@@ -1,0 +1,97 @@
+% ===========================================================================
+% fig-apx-handoff-example.tex — APPENDIX. One real handoff, in the exact form
+% the fixer received it.
+% BODY ONLY (framed verbatim listing). Wrapper/caption/label live in the
+% appendix file.
+%
+% PROVENANCE — the text below is a real record, not a reconstruction.
+%   Source: internal records, the row whose task id
+%   begins instance_qutebrowser__qutebrowser-bedc9f7fadf93f83d8dee95feeecb992
+%   2b6f063f (SWE-bench Pro, Python-266 census). The text shown is that row's
+%   post-strip injection-ready field — i.e. exactly what the routed fixer was
+%   given, after the verify-then-strip stage ran. That file is the
+%   injection-ready handoff set for the fixer stage.
+%
+%   WHY THIS ONE (selection criteria, applied in order):
+%     (1) SPONTANEOUS — the searcher stopped on its own; the record's handoff
+%         type field is "spontaneous". Forced handoffs are never shown as
+%         representative.
+%     (2) GENUINE REPRODUCTION — the record's failure class is "real_failure",
+%         i.e. one of the 50 of 249 claims that actually reproduced when
+%         replayed in the task sandbox, so nothing in the reproduction block
+%         was stripped. Its verification record reads verified true, stripped
+%         false, reason "verified_reproduces", return code 1.
+%     (3) SHORT AND CODE-FREE — 1,343 characters, no code dump; it is the
+%         fifth-shortest of the 46 spontaneous-and-genuine handoffs, and the
+%         shorter ones are less illustrative (single file, one-line notes).
+%
+%   FIDELITY — two mechanical changes, both disclosed, no content added or
+%   removed:
+%     (a) LINE WRAPPING: the reproduction block's last line and the notes
+%         paragraph are hard-wrapped at 58 columns so the listing fits an
+%         IEEE column. Only newlines were inserted; no character was added,
+%         deleted or reordered.
+%     (b) ONE CHARACTER SUBSTITUTED: the notes contain a U+2011 non-breaking
+%         hyphen in "top-level" (an artifact of the open-weights notes
+%         writer). It is rendered here as an ordinary hyphen because the
+%         document's font encoding has no glyph for it.
+%   Nothing is redacted.
+%
+%   WHAT THE READER SHOULD SEE (for the caption, all checkable against the
+%   text): four ranked candidate files; a reproduction command with its
+%   observed failure output, which survived the sandbox replay and is
+%   therefore forwarded rather than deleted; free-prose notes that record
+%   both what was found and what was searched for and not found (the grep
+%   that returned nothing) — i.e. dead ends are part of the artifact; and the
+%   terminating STOP token that ends the search episode.
+%   Handoff schema: internal records (ranked implicated files; failing
+%   reproduction with command/reproduced/observed; dead ends and repo notes;
+%   XML-style tags, raw unescaped content, <=4KB).
+% ===========================================================================
+% NOTE: the listing is delimited by rules rather than \fbox{} because a
+% verbatim environment cannot be read as a macro argument.
+\begin{minipage}{\linewidth}
+\rule{\linewidth}{0.6pt}
+\scriptsize
+\begin{verbatim}
+<files>
+qutebrowser/utils/utils.py
+qutebrowser/utils/qtutils.py
+qutebrowser/browser/downloads.py
+qutebrowser/mainwindow/tabbedbrowser.py
+</files>
+<repro>
+command: cd /app && python test_issue.py
+reproduced: true
+observed: OBSERVATION:
+SUCCESS: interpolate_color exists in utils
+Interpolation at 50%: 128:0:128
+Traceback (most recent call last):
+  File "/app/test_issue.py", line 26, in <module>
+    interp = qtutils.interpolate_color
+AttributeError: module 'qutebrowser.utils.qtutils' has no
+attribute 'interpolate_color'
+</repro>
+<notes>
+Search surfaced definitions of interpolate_color in
+qutebrowser/utils/utils.py (line 260) and references to
+utils.interpolate_color in
+qutebrowser/browser/downloads.py (line 563) and
+qutebrowser/mainwindow/tabbedbrowser.py (lines 866, 883).
+No occurrences of interpolate_color were found in
+qutebrowser/utils/qtutils.py. Grep for
+_get_color_percentage returned nothing. Attempted import
+of qutebrowser.utils.qtutils showed only top-level
+symbols, confirming the function is absent there. Running
+a custom script test_issue.py via cd /app && python
+test_issue.py raised AttributeError: module
+'qutebrowser.utils.qtutils' has no attribute
+'interpolate_color'. No build or test tooling issues
+observed; commands executed directly with python. No false
+leads beyond missing function in qtutils.
+</notes>
+STOP
+\end{verbatim}
+\vspace{-6pt}
+\rule{\linewidth}{0.6pt}
+\end{minipage}

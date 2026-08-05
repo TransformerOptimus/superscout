@@ -1,0 +1,82 @@
+% Section 8, Calibration.
+\section{Calibration on Fresh Tasks}
+\label{sec:calibration}
+
+\subsection{The Label Run}
+\label{sec:calib-labels}
+
+\sysname's router assigns each incoming task to a fixer on the basis of per-task r\'{e}sum\'{e}s and cost thresholds (\S\ref{sec:system}).
+Both mechanisms require outcome labels: which fixer solved which task, and at what price.
+Public leaderboard data supplied these labels for several languages but contained zero usable Python outcomes for any fixer in the pool.
+Benchmark contamination policies lock those results away, and Appendix~\ref{apx:bench-fresh} documents why leaderboard-derived labels mislead when applied outside their original distribution.
+We therefore collected fresh labels: 100 Python bugs drawn from 2026 repositories, each attempted by all four fixers twice, once cold and once with \modelname's handoff injected (99 of the 100 yielded a valid paired comparison).
+This paired design let every task serve as its own control, isolating the handoff's effect from task difficulty.
+
+The same 100 tasks exposed a problem with \modelname's reproduction claims.
+Replaying those claims against ground truth revealed that 32\% were genuine and 56\% demonstrably false.
+The verify-then-strip gate described in \S\ref{sec:system} was built as a direct consequence, before any benchmark contact.
+
+\subsection{The Handoff Redistributes}
+\label{sec:calib-redist}
+
+Figure~\ref{fig:redistribution} shows the paired comparison; exact rates and intervals appear in Appendix~\ref{apx:redistribution}.
+Confidence intervals here and in the appendix are 95\% percentile
+intervals from a bootstrap resampling tasks~\citep{bootstrap}.
+The handoff lifted the three weaker fixers: \fxopus rose from 48.5\% to 53.5\% ($+5.1$\,pp, $p=0.125$), \fxkimi from 52.5\% to 56.6\% ($+4.0$\,pp, $p=0.481$), and \fxflash from 55.6\% to 57.6\% ($+2.0$\,pp,
+$p=0.774$).
+The strongest fixer, \fxgpt, moved in the opposite direction, dropping from 60.6\% to 56.6\% ($-4.0$\,pp, $p=0.424$).
+Pooled across all four, the effect is $+1.8$ percentage points with a 95\% confidence interval of $[-1.0, {+}4.5]$ and $p=0.401$, not statistically significant.
+At $N{=}99$ every per-fixer test is underpowered; the confidence intervals, not the point estimates, carry the information.
+
+What the pattern does establish is that fixer rankings survive handoff conditioning, with only one adjacent flip falling within the confidence interval.
+That stability is what the router's r\'{e}sum\'{e} assumption requires.
+The pattern is consistent with redistribution rather than addition: solving ability shifts toward the cheaper models, which is exactly the shape cost-aware routing needs, though no single contrast reaches significance.
+The redistribution pattern recurs on the benchmark's router-selected subset, though that comparison is uncontrolled and serves only as corroboration; exact numbers appear in Appendix~\ref{apx:pro-handoff}.
+
+\begin{figure}[!tbp]
+  \centering
+  \input{figures/fig-redistribution}
+  \caption{\textbf{The handoff pattern is redistributive, not additive.}
+  Paired comparison ($N{=}99$ tasks, four fixers).  Open circles: solo
+  rates; filled markers: with-handoff.  Horizontal bars span the 95\%
+  CI of each paired delta, anchored at the solo rate.  The three weaker
+  fixers gain; the strongest loses.  All deltas are directional only
+  ($p>0.05$ at this sample size).}
+  \label{fig:redistribution}
+\end{figure}
+
+\subsection{The Router Design Space}
+\label{sec:calib-design}
+
+We compared four input-feature variants under an offline simulation of the capped cost protocol, pinning each to the same matched solve rate so that the bars in Figure~\ref{fig:design-space} differ only in spend.
+Variant~A, using task text alone, saves 30.5\% on total cost per solve at a matched solve rate.
+Adding \modelname's hidden states produces variant~C, the routing blend, raising the saving to 34.3\%.
+The two variants that incorporate handoff-text features tell a sharply different story: variant~B collapses to 8.0\% and variant~D to 9.4\%.
+The lesson is concrete.
+The searcher's internal state helps the router, while the handoff's text helps the fixers; feeding the handoff memo to the router actively hurts.
+
+Supporting signals reinforce this split.
+As an outcome predictor, the hidden state reaches an AUC of 0.600 (fold-stable in four of five folds), while handoff text manages only 0.510.
+A simple logistic regression beat a multi-layer perceptron in every comparison, so the simpler scorer shipped.
+The full grid appears in Appendix~\ref{apx:design-space}.
+The C-versus-A cost gap, a different quantity from the AUC separation,
+holds in only three of five folds, and the gate-level caveat of \S\ref{sec:results} applies: at deployment the hidden state's informational contribution cannot be fully separated from its threshold-shifting effect.
+On the calibration labels, the cost-aware router matched the strongest fixer's solve rate at 29\% lower total cost per solve (\$0.49 versus \$0.69).
+
+\begin{figure}[!tbp]
+  \centering
+  \input{figures/fig-design-space}
+  \caption{\textbf{Which router features buy cost savings.}
+  Held-out cost saving against an always-best-model anchor, all variants
+  pinned to the same solve rate ($.606$).  Adding \modelname's hidden
+  states (variant~C, the routing blend) lifts savings from $30.5\%$ to $34.3\%$.
+  Variants with handoff-text features (B,~D) collapse to $8$--$9\%$.
+  The C-vs-A gap is fold-fragile at $N{=}99$.}
+  \label{fig:design-space}
+\end{figure}
+
+Calibration settled four design choices: the routing blend (variant~C), the matched-point threshold ($\theta{=}0.30$), logistic regression as the scoring function, and blanket handoff injection.
+It left one question open.
+\fxgpt was the strongest fixer on these fresh tasks, a ranking the benchmark later inverted (\S\ref{sec:results}).
+
+\FloatBarrier

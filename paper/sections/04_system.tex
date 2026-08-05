@@ -1,0 +1,107 @@
+% Section 4, System.
+
+% ---- full-width pipeline figure (the paper's one two-column float) ---------
+\begin{figure*}[!t]
+\centering
+\input{figures/fig-pipeline}
+\caption{\textbf{The \sysname pipeline.}
+\modelname explores the repository and emits a structured handoff, which a
+sandbox gate verifies before a r\'esum\'e router selects one of four frontier
+fixers.  The dashed path is the fallback: when no handoff is produced, the
+chosen fixer proceeds from the issue text alone.  Adding a new fixer requires
+only a r\'esum\'e, not retraining.}
+\label{fig:pipeline}
+\end{figure*}
+
+\section{The \sysname System}
+\label{sec:system}
+
+Figure~\ref{fig:pipeline} traces a single task through the pipeline.  The task
+enters a search phase, where \modelname explores the repository and writes a
+structured handoff.  A sandbox gate then verifies the handoff's reproduction
+claims before a r\'esum\'e router selects one fixer from a pool of frontier
+models.  That fixer receives the task and the surviving handoff, produces a
+patch, and submits it to official scoring.  The entire trajectory is a single
+pass: no parallel sampling, no cross-model escalation mid-task.  When the
+searcher produces no handoff at all, the chosen fixer proceeds from the issue
+text alone; this fallback defines the floor as fixer-solo performance.
+
+\subsection{The Searcher and Its Handoff}
+\label{sec:searcher}
+
+\modelname is a 7B model built on Qwen2.5-Coder~\citep{qwen25coder}, trained
+exclusively for the search phase (\S\ref{sec:training}).  Given a task, it
+explores the repository, localizes the implicated files, attempts to write a
+failing reproduction test, and then produces a handoff document before stopping.
+The handoff is a structured artifact kept short by design, typically
+about a page of text (4\,KB).  It contains implicated
+files with line regions, ranked by confidence; a reproduction attempt specifying
+a file, command, and observed output; dead ends the searcher already tried; and
+free-form repository notes.  A verified example appears in
+Appendix~\ref{apx:handoff-example}.
+
+When the search exhausts its turn budget without committing to a handoff, a
+single extra generation step demands one.  Such handoffs are tagged
+\emph{forced} and are never pooled with spontaneous ones anywhere in this paper.
+
+\subsection{Verify-then-Strip}
+\label{sec:verify-strip}
+
+The searcher's reproduction claims are not trusted.  Before any fixer sees a
+handoff, a sandbox replays the claimed reproduction command against the
+unpatched repository.  A claim that does not genuinely fail is stripped: both
+the test file and the claim itself are removed from the handoff.  A verified
+claim, by contrast, is materialized so the fixer can use it directly.
+Calibration revealed that most reproduction claims are in fact false
+(\S\ref{sec:calibration}), and \S\ref{sec:results} quantifies the guard's
+effect at benchmark scale.  Injection is blanket: every routed fixer receives
+the surviving handoff identically.
+
+\subsection{The R\'esum\'e Router}
+\label{sec:router}
+
+\begin{table}[!tbp]
+\centering
+\caption{\textbf{The r\'esum\'e router, end to end.}  Each fixer's
+r\'esum\'e stores two embedding centroids and a base rate, computed from
+public per-task outcomes.  A logistic head per feature space scores
+$P(\text{solve})$; the router walks the pool in cheap-first order,
+stopping at the first fixer clearing~$\theta$.  Adding a new fixer
+requires only 25--50 public outcomes and no retraining.}
+\label{tab:router-recipe}
+\input{tables/tab-router-recipe}
+\end{table}
+
+Each fixer in the pool is summarized by a r\'esum\'e built from 25--50 public
+per-task outcomes.  A r\'esum\'e stores three quantities: the mean embedding of
+tasks the fixer solved, the mean embedding of tasks it failed, and a base solve
+rate.  Table~\ref{tab:router-recipe} lists the full specification.
+
+At routing time the task is embedded in two complementary feature spaces.  Its
+text is encoded by a frozen off-the-shelf embedder~\citep{qwen3embedding}.  Its
+content as \modelname experienced it is captured through the searcher's
+3{,}584-dimensional pre-decode hidden state, drawn from the fourth-from-last
+layer at the final token position.  In each feature space the router computes
+uncentered cosine similarities between the task and every r\'esum\'e's solved
+and failed centroids, their difference, and the base rate; a single logistic
+regression per feature space, shared across fixers, then scores
+$P(\text{solve})$ for each fixer from its r\'esum\'e-relative features.  The
+routing head blends the
+task-text and hidden-state feature sets by uniformly averaging their predicted
+probabilities.
+
+Routing walks the pool in cheap-first order and assigns the task to the first
+fixer whose predicted probability clears a caution threshold~$\theta$; if none
+clears it, the task falls to a designated anchor model (\S\ref{sec:setup}).  Logistic regression was chosen
+over a multi-layer perceptron during calibration, where the simpler scorer won
+repeatedly (\S\ref{sec:calibration}).
+
+\FloatBarrier
+
+\subsection{Extensibility}
+\label{sec:extensibility}
+
+Adding a new fixer requires no retraining.  A new model's r\'esum\'e consists
+of two averaged embeddings and a base rate, computed from its public outcomes.
+The embedder is frozen and \modelname is untouched; \S\ref{sec:results}
+presents a measured discussion.

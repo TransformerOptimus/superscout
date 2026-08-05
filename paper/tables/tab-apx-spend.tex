@@ -1,0 +1,81 @@
+% ===========================================================================
+% tab-apx-spend.tex — APPENDIX. Compute and API spend disclosure.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every line item. Ranges are printed as ranges wherever the
+% source gives a range; nothing is rounded into a point estimate.
+%
+%   EVALUATION ERA — internal records: "Ledger (era,
+%   against the $1,200 hard cap)", verified verbatim, item by item:
+%     probe (40 attempts)                              19.24
+%     gpt solo arm                                    151.64
+%     opus solo arm                                   201.25
+%     kimi solo arm                                    28.23
+%     union331 (system)                                86.49
+%     smoke fixers                                      1.32
+%     unrecorded (restart-killed partials, disclosed)   ~11
+%     RunPod GPU (all pods)                             ~5.9
+%     Modal compute (census, sandboxes, drivers,
+%       verify-strip)                                   ~40-55
+%     era total                                        ~$545-560
+%   The "unrecorded" line is the source's own disclosure of restart-killed
+%   partial attempts and is reproduced rather than absorbed into another row.
+%   Cross-check on the arms: internal records
+%   reports the same $151.64 and $201.25, and its addendum the same $28.23,
+%   with "Era pinned spend after three arms: $381.12".
+%
+%   LABEL-RUN ERA — internal records, verbatim:
+%     "Total era spend ~= $370 (fixer API $340.03 + Scout pod ~$4 + Modal
+%      ~$25) against the $750 ceiling / $400 signed budget", and §Spend:
+%     "phase-2 $164.70 · shakedown $11.24 · handoff arm $175.33 -> API
+%      $340.03 (episodes cross-checked to the cent vs litellm on 2 providers);
+%      + smokes/probe ~$18 · Scout pod ~$4 · Modal ~$25".
+%     NOTE: the ~$370 headline and the itemization differ by the ~$18 of
+%     smokes/probe (340.03 + 4 + 25 = $369.03 without them). The table prints
+%     the source's own ~$370 total and its three named components; the ~$18
+%     smoke/probe line is disclosed in this comment and folded into the
+%     "approximately" of the headline exactly as the source does.
+%
+%   TRAINING ERA — internal records: "Training done: 3182 steps /
+%     2.0 epochs / 760M tokens / wall 31.8h / peak VRAM 24.2GB / ~$86";
+%     the pre-run locked config projected "~31.7 h -> ~$85", and internal
+%     records confirm "SFT COMPLETE (3,182 steps, $86, loss 0.114)".
+%     Data-side notes generation was ~$9 (run-1 complete: "cost ~$9").
+%
+%   SEARCHER COST INSIDE THE EVALUATION — internal records: "266
+%     search episodes + hidden-state extraction: $1.13 GPU total (~$0.004/task,
+%     ~1.3% of system cost/task)". Reported in the caption because it is the
+%     number that matters for the economics argument.
+%
+%   DISCLOSURE RULE (sober disclosure): NO grand-total line beyond what
+%   the sources themselves state. Each era carries its own source-stated
+%   total; the eras are NOT summed into a single project budget figure, and
+%   no narrative is built on the numbers.
+% ===========================================================================
+\begin{tabular}{@{}lr@{}}
+\toprule
+Item & \$ \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Evaluation era}} \\
+Probe (40 attempts)        & 19.24 \\
+\fxgpt solo arm           & 151.64 \\
+\fxopus solo arm          & 201.25 \\
+\fxkimi solo arm         & 28.23 \\
+System arm                 & 86.49 \\
+Smoke                      & 1.32 \\
+Unrecorded partials        & $\approx$11 \\
+GPU (all pods)             & $\approx$5.9 \\
+Sandbox compute            & 40--55 \\
+\quad era total            & $\approx$545--560 \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Label-run era}} \\
+Fixer API                  & 340.03 \\
+GPU pod                    & $\approx$4 \\
+Sandbox compute            & $\approx$25 \\
+\quad era total            & $\approx$370 \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Training era}} \\
+Fine-tuning run            & $\approx$86 \\
+Corpus note generation     & $\approx$9 \\
+\bottomrule
+\end{tabular}

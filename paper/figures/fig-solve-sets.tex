@@ -1,0 +1,119 @@
+% ===========================================================================
+% fig-solve-sets.tex — two stacked panels: (a) two frontier peers nearly
+% coincide, so accuracy routing has no headroom; (b) a cheaper model's set
+% sits mostly inside the strongest model's, which is where cost routing pays.
+% BODY ONLY (tikzpicture in a \resizebox). Wrapper/caption/label live in the
+% section file; mounts as a single-column \begin{figure}[!tbp].
+% Requires \input{figures/fig-style} in the preamble.
+%
+% PROVENANCE
+%   Schematic, illustrative only, no measured quantities. Blob sizes, the
+%   crescent widths and the sliver width are drawn for legibility, not to
+%   scale; the figure carries no numbers and names no benchmark or model.
+%   The qualitative claims it illustrates (frontier peers' solve sets nearly
+%   coincide; a weaker model's solve set is largely contained in the
+%   strongest model's) are stated with their measured containment values in
+%   the body text of \S\ref{sec:problem:audit} and Appendix~\ref{apx:audit}.
+%
+%   Colour contract (fig-style.tex): the sets themselves are neutral cBase
+%   grays, since no blob is a component we build; the cSys tint marks only
+%   the region the paper acts on (route the shared region for cost). Both
+%   panels share one lightness ladder, so the nesting and the rarity of the
+%   exclusive regions survive grayscale printing:
+%   white (neither) < cBase!12 (shared) < cSys!13 (shared, acted on)
+%   < cBase!36 (solved by only one model).
+%
+% GEOMETRY NOTE
+%   Panel (a): two equal ellipses, radii (1.90, 0.86), centres 0.46 apart,
+%   so about 85% of each area is shared. The exclusive crescents are drawn
+%   wider than their true relative size, otherwise the pair reads as a
+%   single ring at print scale.
+%   Panel (b): the cheap set pokes outside the strong set only over
+%   x = 5.84 .. 6.06, a ~2mm sliver.
+%
+% LAYOUT NOTE
+%   Per-panel dashed universe boxes beat one box around both panels: a
+%   shared box left the two ellipse groups floating in a tall empty frame,
+%   and the panel kickers had nowhere to sit that did not read as a caption
+%   for the whole frame. "all tasks" names the box once, in panel (a).
+% ===========================================================================
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  x=1cm, y=1cm,
+  lbl/.style={font=\footnotesize, text=gray!25!black, align=center,
+              inner sep=0pt},
+  micro/.style={font=\scriptsize, text=gray!45!black, align=center,
+                inner sep=0pt},
+  kick/.style={font=\scriptsize\scshape, text=gray!45!black, inner sep=0pt},
+  lead/.style={gray!55, line width=0.5pt},
+  uni/.style={gray!45, line width=0.6pt, rounded corners=2.4pt,
+              dash pattern=on 1.2mm off 0.9mm},
+]
+
+% =========================================================================
+% PANEL (a) — any two frontier peers
+% =========================================================================
+\draw[uni] (0.05,3.85) rectangle (8.55,6.35);
+\node[kick, anchor=south west] at (0.05,6.45)
+  {{\upshape\bfseries (a)}~any two frontier peers};
+\node[micro, anchor=north east] at (8.40,6.22) {all tasks};
+
+\def\PA{(4.07,4.85)} \def\PB{(4.53,4.85)} \def\PR{(1.90 and 0.86)}
+
+\fill[cBase!36] \PA ellipse \PR;
+\fill[cBase!36] \PB ellipse \PR;
+\begin{scope}
+  \clip \PA ellipse \PR;
+  \fill[cBase!12] \PB ellipse \PR;
+\end{scope}
+\draw[gray!62, line width=0.7pt] \PA ellipse \PR;
+\draw[gray!62, line width=0.7pt] \PB ellipse \PR;
+
+\node[lbl] at (4.30,4.78) {solved by both};
+
+% one shared callout for the two thin crescents
+\node[micro, text width=2.6cm] at (4.30,6.00)
+  {solved by only one:\\rare};
+\draw[lead] (3.16,5.88) .. controls (2.72,5.58) and (2.50,5.34) .. (2.40,5.02);
+\draw[lead] (5.44,5.88) .. controls (5.88,5.58) and (6.10,5.34) .. (6.20,5.02);
+
+% =========================================================================
+% PANEL (b) — a cheaper model vs the strongest
+% =========================================================================
+\draw[uni] (0.05,0.05) rectangle (8.55,3.15);
+\node[kick, anchor=south west] at (0.05,3.25)
+  {{\upshape\bfseries (b)}~a cheaper model vs.\ the strongest};
+
+\def\SC{(3.45,1.40)} \def\SR{(2.40 and 1.05)}
+\def\CC{(4.80,1.32)} \def\CR{(1.26 and 0.72)}
+
+% 1. cheap set underneath — what stays visible is the sliver outside
+\fill[cBase!36] \CC ellipse \CR;
+% 2. strong set on top — covers everything it contains
+\fill[cBase!12] \SC ellipse \SR;
+% 3. the intersection, the region this paper acts on
+\begin{scope}
+  \clip \SC ellipse \SR;
+  \fill[cSys!13] \CC ellipse \CR;
+\end{scope}
+
+\draw[cBase!75, line width=0.8pt] \SC ellipse \SR;
+\draw[gray!62, line width=0.6pt]  \CC ellipse \CR;
+
+\node[lbl, text width=2.0cm] at (2.10,1.72)
+  {Strongest model's\\solve set};
+
+\node[lbl, text width=2.2cm] at (4.85,2.80)
+  {Cheaper model's\\solve set};
+\draw[lead] (4.85,2.51) -- (4.82,2.09);
+
+\node[micro, text=cSys!72!black, text width=2.1cm] at (4.78,1.28)
+  {a cheaper model\\suffices here:\\\textbf{route for cost}};
+
+\node[micro, anchor=west, text width=1.85cm] at (6.42,1.88)
+  {solved only by the\\cheaper model:\\rare};
+\draw[lead] (6.36,1.64) .. controls (6.18,1.56) and (6.06,1.50) .. (5.96,1.40);
+
+\node[micro, anchor=west] at (0.24,0.32) {solved by neither};
+
+\end{tikzpicture}}

@@ -1,0 +1,83 @@
+% ===========================================================================
+% tab-apx-design-space.tex — APPENDIX. The full router design space: four
+% feature variants x two head families, plus the separation (AUC) result the
+% cost numbers rest on.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell.
+%   Cost-saving rows. Source: internal records — the definitive 4-row
+%   comparison on the combined deployable router (LR head) and the head
+%   ablation, LR vs the project's tiny MLP on the same 4 rows. Both tables
+%   are held-out, fold-wise, N=99, every variant pinned to the SAME solve
+%   rate .606, anchor = always-best gpt at $0.406/task. Verified verbatim:
+%     variant A (task text only)                   LR +30.5% ($0.2824)
+%                                                 MLP +15.4% ($0.3435)
+%     variant B (+ handoff text)                   LR  +8.0% ($0.3734)
+%                                                 MLP  +5.3% ($0.3845)
+%     variant C (+ hidden state, deployed)         LR +34.3% ($0.2668)
+%                                                 MLP +18.7% ($0.3299)
+%     variant D (+ handoff text + hidden state)    LR  +9.4% ($0.3677)
+%                                                 MLP  +4.2% ($0.3890)
+%   Fold stability vs anchor: A 3/5, B 1/5,
+%     C 3/5, D 4/5. Brier: 0.2698 / 0.2537 / 0.2486 / 0.2505.
+%   Verbatim on the head comparison: the MLP "halves every row's saving
+%     (C drops 34.3%->18.7%, A drops 30.5%->15.4%)", is "visibly
+%     overconfident" (23% of predictions at the 0/1 extremes, reliability gap
+%     0.42 on the text-only variant), and "the row ranking is head-invariant
+%     where it matters". Recipe pin: "ship LogisticRegression (uncentered)".
+%     Same verdict in internal records.
+%   Cross-check: the two headline savings, -34.3% (blend, Brier 0.2486,
+%     3/5 folds) and -30.5% (text-only, Brier 0.2698, 3/5 folds), reproduce
+%     at the same matched solve 0.6061 in internal records.
+%
+%   Separation rows. Source: internal records,
+%   pooled AUC column, verified verbatim:
+%     pre-decode layer -4 hidden state : AUC .600, per-fold
+%       [.597, .532, .655, .639, .579], AUC-stable 4/5
+%     handoff text (the label-run baseline) : AUC .510, per-fold
+%       [.436, .439, .752, .424, .501] — "at chance and unstable"
+%     issue text : AUC .561
+%   The "stable" column is only defined for the two CANDIDATES the source
+%   fold-tests against the baseline (the hidden state and the hybrid, both
+%   4/5). No fold-stability count exists for the baseline rows themselves, so
+%   those cells are dashed rather than filled in.
+%   The same section states the honest bound the caption carries: this is an
+%   AUC-separation result, and on routing accuracy the hidden state is -3pp
+%   and only 3/5 fold-stable — the separation does not convert to picking a
+%   better fixer, it converts to pricing the gate (mechanism read:
+%   cross-fixer prediction correlation approx 0.78, "a calibrated difficulty
+%   gauge, not a per-fixer selector").
+%
+%   SANITIZED NAMING: the internal documents label these four variants with
+%   row letters; here they are named by what they contain (text-only,
+%   +handoff-text, text+hidden [deployed], all three) and the letters are
+%   kept only as compact labels matching the design-space figure.
+%
+%   NOT BANKABLE (source's own words): "even its best row holds at only
+%   3/5 fold-stability — a real ~4pp improvement that is still not bankable
+%   at N=99". The caption must not overstate this.
+% ===========================================================================
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Router features & \multicolumn{2}{c}{Saving} & Folds & Brier \\
+\cmidrule(lr){2-3}
+ & LR & MLP & & \\
+\midrule
+A\quad text only                   & 30.5\% & 15.4\% & 3/5 & 0.270 \\
+B\quad $+$ handoff text            & \phantom{0}8.0\% & \phantom{0}5.3\% & 1/5 & 0.254 \\
+C\quad $+$ hidden state \emph{(dep.)} & \textbf{34.3\%} & 18.7\% & 3/5 & \textbf{0.249} \\
+D\quad $+$ both                    & \phantom{0}9.4\% & \phantom{0}4.2\% & 4/5 & 0.251 \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Routing representation & Pooled AUC & Stable \\
+\midrule
+Hidden state (pre-decode, layer $-4$) & \textbf{0.600} & 4/5 \\
+Task text                             & 0.561 & --- \\
+Handoff text (prereg.\ baseline)      & 0.510 & --- \\
+\bottomrule
+\end{tabular}

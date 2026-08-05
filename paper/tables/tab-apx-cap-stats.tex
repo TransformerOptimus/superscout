@@ -1,0 +1,50 @@
+% ===========================================================================
+% tab-apx-cap-stats.tex — APPENDIX. What the capped evaluation tier actually
+% did: turn-cap and cost-cap incidence, and the value of auto-submission.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell.
+%   Source: internal records — per-arm cap behaviour at full scale, plus the
+%   addendum covering the cheap-fixer arm. Verified verbatim:
+%     gpt-5.2   : "Hit 50-turn cap 97 (36.5%)" | "Hit $2 cost cap 0"
+%                 | "Autosubmitted at cap 94" | "Solves rescued by
+%                 autosubmit 33" | resolved 139/266 | max attempt $1.5948
+%     opus-4.6  : "Hit 50-turn cap 46 (17.3%)" | "Hit $2 cost cap 5"
+%                 | "Autosubmitted at cap 48" | "Solves rescued by
+%                 autosubmit 24" | resolved 158/266 | max attempt $2.0889
+%     kimi-k2.5 : ADDENDUM table, "Caps | 128 step-cap (48%) · 0 cost-cap ·
+%                 126 autosubmitted"; resolved 149/266. The addendum does NOT
+%                 report a rescued-solve count for this arm, so the table
+%                 leaves that cell blank rather than inferring one.
+%   Verbatim: "on the full census the cap binds 5 times on opus, and the
+%     max attempt reaches $2.0889"; "gpt never hits the cost cap (max $1.59)
+%     — its constraint is purely the turn limit, which it hits more than
+%     twice as often as opus (36.5% vs 17.3%)".
+%   Verbatim on the value of auto-submission: "It rescued 33 gpt solves
+%     and 24 opus solves. Without it the headline would read gpt 106/266
+%     (39.8%) and opus 134/266 (50.4%)". That is the 9-13pp figure quoted in
+%     internal records ("Auto-submit at cap is worth 9-13pp: rescued 24/158 opus, 33/139 gpt solves"): 52.26-39.85 =
+%     12.4pp for gpt and 59.40-50.38 = 9.0pp for opus. Both arithmetic
+%     checks reproduce the source's range.
+%   Gold-control census, verbatim: "Full gold census — 265/266 pass (ansible
+%     95/96, openlibrary 91/91, qutebrowser 79/79)"; the single failure is a
+%     dataset artifact (a truncated fail-to-pass test id), "unwinnable for
+%     every arm equally; kept in all denominators; never a model failure".
+%
+%   PROTOCOL: capped tier = 50 turns, SILENT (no budget sentence in any
+%   prompt), $2.00 per-attempt cost limit, working diff auto-submitted at the
+%   cap.
+% ===========================================================================
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+ & \fxgpt & \fxopus & \fxkimi \\
+\midrule
+Hit 50-turn cap        & 36.5\% & 17.3\% & 48\% \\
+Hit \$2 cost cap       & 0 & 5 & 0 \\
+Max attempt cost       & \$1.59 & \$2.09 & --- \\
+Auto-submitted at cap  & 94 & 48 & 126 \\
+Solves rescued         & 33 & 24 & --- \\
+Solves                 & 139 & 158 & 149 \\
+Rate without rescue    & 39.8\% & 50.4\% & --- \\
+\bottomrule
+\end{tabular}

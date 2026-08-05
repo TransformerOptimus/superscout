@@ -1,0 +1,67 @@
+% ===========================================================================
+% tab-apx-verify-strip.tex — APPENDIX. Verify-then-strip outcomes over all
+% 266 search-phase handoffs, plus the spontaneous/forced split and the
+% label-run baseline.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell.
+%   Source: internal records (frozen; run over all
+%   266 handoffs with verify_strip_reconstruct.py against live Pro-image
+%   sandboxes). Verified verbatim:
+%     "Total handoffs processed: 266"
+%     "Claiming reproduced: true: 249/266"
+%     "Genuine reproductions (real_failure among claim=true): 50/249 (20%)"
+%     "STRIPPED as false (passed_stripped among claim=true): 174/249 (70%)"
+%   Failure-class table (all 266), verbatim:
+%     passed_stripped 174 | real_failure 50 | claim_not_true 16 |
+%     import_error 12 | nonzero_other 9 | missing_file 3 | no_repro 1 |
+%     no_command 1     (sums to 266 — checked)
+%   Spontaneous vs forced table (NEVER pooled), verbatim:
+%     spontaneous n=206, all 206 claiming, genuine 46/206 (22%),
+%       stripped 140/206 (68%)
+%     forced n=60, 43 claiming, genuine 4/43 (9%), stripped 34/43 (79%)
+%     NOTE the denominators differ by arm and the source is explicit about
+%     it: the spontaneous percentages are over all 206 handoffs (all of which
+%     claim), the forced percentages are over the 43 that claim, not over 60.
+%     The table below reproduces the source's own denominators and the
+%     caption states them.
+%   Label-run baseline row, verbatim from the same file's comparison table:
+%     "label-run baseline ... 91 claiming | 29 genuine | 32% | 51 false | 56%"
+%   Cross-check: internal records restates the
+%   same numbers ("249/266 handoffs claimed reproduced. Genuine: 50 (20%).
+%   Demonstrably false: 174 (70%) ... Forced handoffs: 9% genuine vs
+%   spontaneous 22% ... Worse than the label run's 32%/56%").
+%
+%   NEVER-POOL RULE (harness rule):
+%   spontaneous and forced handoffs are never pooled in any claim.
+% ===========================================================================
+\begin{tabular}{@{}lr@{}}
+\toprule
+Outcome of the replayed reproduction & $n$ \\
+\midrule
+Passed at base (claim stripped)     & 174 \\
+Genuinely failed (claim kept)       & \phantom{0}50 \\
+Claim not true                      & \phantom{0}16 \\
+Import error                        & \phantom{0}12 \\
+Non-zero exit, other                & \phantom{00}9 \\
+Missing file                        & \phantom{00}3 \\
+No reproduction block               & \phantom{00}1 \\
+No command                          & \phantom{00}1 \\
+\midrule
+Total                               & 266 \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Handoff set & Claiming & Genuine & Stripped \\
+\midrule
+Spontaneous ($n{=}206$) & 206 & 22\% & 68\% \\
+Forced ($n{=}60$)       & \phantom{0}43 & \phantom{0}9\% & 79\% \\
+\midrule
+All Pro handoffs ($n{=}266$) & 249 & 20\% & 70\% \\
+Label-run baseline           & \phantom{0}91 & 32\% & 56\% \\
+\bottomrule
+\end{tabular}

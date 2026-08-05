@@ -1,0 +1,71 @@
+% ===========================================================================
+% tab-apx-hyperparams.tex — APPENDIX. Supervised fine-tuning configuration
+% for \modelname, as actually run.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell. Where a planned value and a realized value differ,
+% the REALIZED value is printed and the divergence is recorded here.
+%   REALIZED source: internal records: "Locked config (measured, no
+%   further tuning)", verbatim:
+%     "Qwen2.5-Coder-7B-Instruct · LoRA r64/alpha128 all-linear · bf16 ·
+%      LR 1e-4 (cosine, 10% floor, warmup 0.03) · 2 epochs · 32k · TRUE
+%      packed blocks · mbs 1 · grad-accum 8 · grad-ckpt ON · xformers ·
+%      seed 3407 · save-steps 20 (resumable, keep-2) ... 3,182 steps
+%      (1,591/epoch)"
+%   internal records also records the adapter shape ("adapter: r64/alpha128,
+%     use_rslora=F, modules_to_save=None, base=unsloth/Qwen2.5-Coder-7B-
+%     Instruct" — i.e. no embedding or lm_head modules trained) and the
+%     realized run totals: "Training done: 3182 steps / 2.0 epochs / 760M
+%     tokens / wall 31.8h / peak VRAM 24.2GB / ~$86. Final loss 0.114 (step
+%     3182)."
+%   Per-epoch token count and packing efficiency, internal records: "Run
+%     identity": "12,723 blocks / 19,905 ex / 382,417,805 tok / 91.7% fill".
+%   PLANNED source: internal records ("bf16 LoRA — r=64, alpha=128, ALL
+%     linear projections (q/k/v/o+gate/up/down), no embed/lm_head, dropout 0,
+%     LR 1e-4-2e-4 (10x full-FT rule), 2-3 epochs, 32k ctx with sequence
+%     packing + gradient checkpointing. NOT QLoRA") and internal records ("micro-batch
+%     1x32k packed ..., grad-accum 8 ...; warmup 3%, cosine to 10% of peak;
+%     LR 1e-4 ...; 2 epochs (not 3 — behavioral overfitting precedes loss
+%     signal)"). Same recipe fixed in internal records.
+%
+%   DIVERGENCES, all resolved in favour of the realized run, none material:
+%     LR      : planned range 1e-4 to 2e-4  -> realized 1e-4 (bottom of range)
+%     Epochs  : planned 2-3                 -> realized 2 (internal records already
+%               narrowed this to 2 pre-run, with the reason stated)
+%     Packing : the plan assumed packing was active; internal records note
+%               that the library's packing import failed silently and that
+%               TRUE packing was reimplemented in the project's own
+%               preprocessing before the paid run. The 91.7% fill figure is
+%               the measured fill of that implementation, not an estimate.
+%     Attention backend: xformers, not flash-attention — internal records
+%               defers the flash-attention migration explicitly ("one-change-
+%               at-a-time before paid run").
+%   Every planned value has a realized counterpart in internal records.
+% ===========================================================================
+\begin{tabular}{@{}ll@{}}
+\toprule
+Setting & Value \\
+\midrule
+Base model        & Qwen2.5-Coder-7B-Instruct \\
+Adaptation        & LoRA, $r{=}64$, $\alpha{=}128$ \\
+Target modules    & all linear projections \\
+                  & (no embedding, no output head) \\
+Dropout           & 0 \\
+Precision         & \texttt{bf16} \\
+\midrule
+Learning rate     & $1{\times}10^{-4}$, cosine to $10\%$ \\
+Warmup            & 3\% of steps \\
+Epochs            & 2 (3,182 steps) \\
+Context           & 32k, packed blocks \\
+Micro-batch       & $1{\times}32$k \\
+Gradient accum.   & 8 \\
+Gradient ckpt.    & on \\
+Seed              & 3407 \\
+\midrule
+Tokens per epoch  & 382.4M (91.7\% fill) \\
+Wall clock        & 31.8\,h \\
+Peak memory       & 24.2\,GB \\
+Final loss        & 0.114 \\
+Cost              & \$86 \\
+\bottomrule
+\end{tabular}

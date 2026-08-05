@@ -1,0 +1,43 @@
+% ===========================================================================
+% tab-apx-bench-fresh.tex — APPENDIX. Calibration receipts: public benchmark
+% rates against freshly measured rates for the same four fixers.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell.
+%   Source: internal records table, verified
+%   verbatim (phase-2 solo data, 100 fresh post-cutoff Python tasks, against
+%   the 9-language public Multilingual leaderboard):
+%     gpt    : bench .667 (#3)  | fresh .610 [.510, .700] | gap  -5.7
+%     flash  : bench .727 (#1)  | fresh .550 [.450, .650] | gap -17.7
+%     kimi   : bench .673 (#2)  | fresh .520 [.420, .610] | gap -15.3
+%     claude : bench .720 (#1=) | fresh .480 [.380, .570] | gap -24.0
+%   Fresh ranks are the source's own ordering line: "fresh-solo order: gpt >
+%   flash > kimi > claude", i.e. gpt #1, flash #2, kimi #3, claude #4.
+%   Source's read, verbatim: "Every fixer drops; the two benchmark leaders
+%   (flash .727, claude .720) fall hardest, and the leaderboard ordering does
+%   not survive contact with unseen post-cutoff tasks — gpt was #3 on the
+%   bench and is #1 fresh".
+%   NOTE ON THE FRESH RATE FOR gpt: the benchmark-vs-fresh comparison gives
+%   .610 while the paired analysis gives .606 for the same fixer on the
+%   99-task paired subset. Both are in the same source and are not in
+%   conflict — different denominators. This table prints .610, the
+%   benchmark-vs-fresh figure.
+%
+%   FRAMING RULE (BINDING): "benchmark-vs-fresh gap =
+%   calibration receipts only, never a claim". The caption below is written
+%   to that rule: this table exists to explain why fresh labels were bought,
+%   NOT to argue that public benchmarks are inflated. Do not re-word it into
+%   a claim about benchmark integrity. The absolute levels are also
+%   language-caveated (Python-only fresh set vs a 9-language board) — the
+%   source states that only the cross-fixer ORDERING is the comparable part.
+% ===========================================================================
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Fixer & Public & Fresh (95\% CI) & Gap & Rank \\
+\midrule
+\fxflash & 0.727 & 0.550 [.450, .650] & $-17.7$ & \#1 $\rightarrow$ \#2 \\
+\fxopus  & 0.720 & 0.480 [.380, .570] & $-24.0$ & \#1 $\rightarrow$ \#4 \\
+\fxkimi  & 0.673 & 0.520 [.420, .610] & $-15.3$ & \#2 $\rightarrow$ \#3 \\
+\fxgpt   & 0.667 & 0.610 [.510, .700] & $-5.7$ & \#3 $\rightarrow$ \#1 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,414 @@
+% Appendix, sections A through N.
+
+% ============================================================================
+% A — The Prior Routing Audit
+% ============================================================================
+\section{The Prior Routing Audit}
+\label{apx:audit}
+
+The cost-routing premise of \S\ref{sec:problem} rests on a zero-cost replay of
+published per-task outcome matrices.  Table~\ref{tab:apx-audit} records the
+structural statistics behind that replay: set containment, the unique-solver
+shell, and the gap between the best learned router and always picking the
+strongest model, across three benchmarks and matched four-model pools.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{Why we do not route for accuracy.}
+Zero-cost audit of published per-task outcome matrices on matched four-model
+pools.  \emph{Containment} measures solve-set nesting; the
+\emph{unique-solver shell} is the share of routable tasks only one model
+solves.  On all three benchmarks, no learned router beat always calling the
+strongest model.  This is background motivation, not a system result.}
+\label{tab:apx-audit}
+\input{tables/tab-apx-audit}
+\end{table}
+
+
+
+% ============================================================================
+% B — Router Threshold Sweep
+% ============================================================================
+\section{Router Threshold Sweep}
+\label{apx:theta-sweep}
+
+Table~\ref{tab:apx-theta-sweep} sweeps the routing threshold $\theta$ that
+the calibration's matched-point rule selects.  At $\theta{=}0.25$ every task
+clears the cheapest fixer's gate and the router degenerates into the no-router
+ablation: 159 solves at \$0.227 per solve, identical to always calling
+\fxkimi.  Raising the threshold to the operating point $\theta{=}0.30$ diverts
+three tasks to \fxflash at a marginal cost of \$0.003 per solve, without
+changing the solve count.  Above the operating point, the router's growing
+caution pushes progressively more tasks onto expensive fixers: cost per task
+rises monotonically while the solve count ceases to be exactly measurable,
+because the diverted tasks lack a with-handoff outcome on their new fixer.
+We report those rows as bracketing intervals rather than point estimates (the
+table note details the convention).  On this benchmark, routing collapses to
+a cost-allocation decision: no threshold examined buys additional solves
+beyond the 159 that the cheapest fixer already delivers.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{The gate threshold sweep.}
+Raising $\theta$ pushes tasks off the cheapest fixer onto more expensive ones:
+cost per task rises monotonically while the solve count ceases to be exactly
+measurable, since diverted tasks lack a with-handoff outcome on their new
+fixer.  The operating point $\theta{=}0.30$ routes all but three tasks to
+\fxkimi and is the last threshold at which every number is exact.}
+\label{tab:apx-theta-sweep}
+\input{tables/tab-apx-theta-sweep}
+\end{table}
+
+
+
+% ============================================================================
+% C — Verify-then-Strip Outcome Classes
+% ============================================================================
+\section{Verify-then-Strip Outcome Classes}
+\label{apx:verify-strip}
+
+\S\ref{sec:results} reports the headline guard statistics; the full
+failure-class census behind those numbers appears in
+Table~\ref{tab:apx-verify-strip}, broken down by outcome category and by
+handoff type.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{What the verify-then-strip sandbox found in 266 handoffs.}
+\emph{Top:} outcome class of each reproduction claim, replayed before any
+fixer saw it ($50$ genuine, $174$ false and stripped).  \emph{Bottom:}
+split by handoff type; spontaneous handoffs are more than twice as likely
+to be genuine as forced ones (never pooled).  Forced-handoff percentages
+use the $43$ of $60$ that claim a reproduction as their denominator.
+The label-run row shows the same measurement on an earlier, easier task
+set.}
+\label{tab:apx-verify-strip}
+\input{tables/tab-apx-verify-strip}
+\end{table}
+
+
+
+% ============================================================================
+% D — Localization by Repository
+% ============================================================================
+\section{Localization by Repository}
+\label{apx:localization}
+
+The per-task mean localization quality reported in Table~\ref{tab:localization}
+pools three repositories that differ substantially in how many files their
+gold patches touch.  Table~\ref{tab:apx-localization-repo} disaggregates by
+repository and provides the solved-versus-unsolved cross-tab behind the
+main-text numbers.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{Localization by repository, and against outcome.}
+\emph{Top:} \modelname's file-localization quality per repository; spread
+tracks the number of gold files per task.  \emph{Bottom:} quality split
+by whether the system solved the task.  Better localization correlates
+weakly with solving ($+0.024$ recall), so localization is not a gate on
+the outcome.}
+\label{tab:apx-localization-repo}
+\input{tables/tab-apx-localization-repo}
+\end{table}
+
+
+
+% ============================================================================
+% E — Capped-Tier Statistics
+% ============================================================================
+\section{Capped-Tier Statistics}
+\label{apx:cap-stats}
+
+The protocol findings in \S\ref{sec:results} quote selected cap-binding
+rates and auto-submit rescue counts.  Table~\ref{tab:apx-cap-stats} gives
+the complete picture for all three fixer arms.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{How often the evaluation caps bound, and what
+auto-submission was worth.}  All arms ran the official capped tier ($50$
+turns, \$2.00 per attempt).  The turn cap is the binding constraint; the
+cost cap bound only five times.  Auto-submission rescued $24$ of
+\fxopus's solves and $33$ of \fxgpt's; without it, both anchors' rates
+would fall roughly $9$--$13$ points.  The gold-patch control passes on
+$265$ of $266$ tasks.}
+\label{tab:apx-cap-stats}
+\input{tables/tab-apx-cap-stats}
+\end{table}
+
+
+
+% ============================================================================
+% F — Router Design Space, Full Grid
+% ============================================================================
+\section{Router Design Space, Full Grid}
+\label{apx:design-space}
+
+The calibration analysis in \S\ref{sec:calibration} summarizes the four
+feature variants under the logistic-regression scorer.
+Table~\ref{tab:apx-design-space} extends that comparison to include the MLP
+head and provides the outcome-separation (AUC) measurements the cost numbers
+rest on.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{The complete router design space.}
+\emph{Top:} held-out cost saving for every feature-set $\times$ scorer
+combination, all pinned to solve rate $.606$.  Adding hidden states helps
+under both scorers; handoff-text features collapse savings to
+$8$--$9\%$.  The MLP halves every variant's saving.  At $N{=}99$ the
+best variant is only $3/5$ fold-stable.  \emph{Bottom:} the hidden
+state separates solved from failed tasks at AUC~$.600$, while
+handoff-text embedding sits at chance.}
+\label{tab:apx-design-space}
+\input{tables/tab-apx-design-space}
+\end{table}
+
+
+
+% ============================================================================
+% G — Redistribution, Exact Numbers
+% ============================================================================
+\section{Redistribution, Exact Numbers}
+\label{apx:redistribution}
+
+Figure~\ref{fig:redistribution} in the main text visualizes the paired
+handoff ablation; Table~\ref{tab:apx-redistribution} gives the exact per-fixer
+rates, deltas, confidence intervals, discordant-pair counts, and $p$-values
+behind that figure.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{The handoff pattern is redistributive, not additive.}
+Exact per-fixer rates, deltas, and $p$-values behind
+Figure~\ref{fig:redistribution} ($99$ paired tasks, $396$ attempts).
+The three weaker fixers gain and the strongest loses; pooled effect is
+$+1.8$\,pp with CI including zero.  No fixer reaches $p<0.05$; every
+row is directional only.  $b$~counts rescued tasks, $c$~counts broken
+ones.}
+\label{tab:apx-redistribution}
+\input{tables/tab-apx-redistribution}
+\end{table}
+
+
+
+% ============================================================================
+% H — Benchmark-Versus-Fresh Calibration Receipts
+% ============================================================================
+\section{Benchmark-Versus-Fresh Calibration Receipts}
+\label{apx:bench-fresh}
+
+The router's r\'esum\'es are built from public per-task outcomes, so the
+router inherits whatever biases those outcomes carry.  Buying fresh labels was
+not a design preference but a measured necessity.
+Table~\ref{tab:apx-bench-fresh} records the calibration receipts that
+motivated that decision: every fixer's public rate compared with its
+freshly measured rate under a single controlled harness.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{Why we bought fresh labels: public rates do not transfer
+to unseen tasks.}  Each fixer's public multilingual rate versus its freshly
+measured rate on $100$ post-cutoff Python tasks under one harness.
+Every fixer drops; the ordering does not survive.  Rates use the full
+$100$-task solo denominator; the paired analysis in
+Appendix~\ref{apx:redistribution} uses the $99$ tasks with both arms.
+These are calibration receipts, not a benchmark claim.}
+\label{tab:apx-bench-fresh}
+\input{tables/tab-apx-bench-fresh}
+\end{table}
+
+
+
+% ============================================================================
+% I — Handoff Effect on Router-Selected Benchmark Subsets
+% ============================================================================
+\section{Handoff Effect on Router-Selected Benchmark Subset}
+\label{apx:pro-handoff}
+
+The redistribution pattern observed under controlled conditions
+(\S\ref{sec:calib-redist}) also appears in the benchmark evaluation, where
+the tasks the router sends to \fxkimi were available both with and without a
+handoff.  Table~\ref{tab:apx-pro-handoff} reports that comparison.  The subset
+was selected by the router rather than randomly assigned; it remains measured,
+uncontrolled corroboration rather than a controlled experiment.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{The handoff effect on the deployment path.}
+The tasks routed to \fxkimi were also run without a handoff, giving a
+same-task comparison: the workhorse gains $3.8$\,pp on $263$ tasks.
+$b/c$ counts tasks solved only with the handoff versus only solo; the
+exact McNemar test on those discordant pairs gives $p=0.245$.  The
+router selected \emph{which} tasks enter the subset, not the
+within-task contrast, so the pairing is intact, but the subset is not
+randomly assigned and this table remains corroboration, not a
+controlled measurement.  The three tasks routed elsewhere have no solo
+arm for their fixer and are omitted.}
+\label{tab:apx-pro-handoff}
+\input{tables/tab-apx-pro-handoff}
+\end{table}
+
+
+
+% ============================================================================
+% J — Nine-Language Localization Detail
+% ============================================================================
+\section{Nine-Language Localization Detail}
+\label{apx:languages}
+
+Figure~\ref{fig:language-transfer} in the main text shows the per-language
+$F_1$ bars; Table~\ref{tab:apx-languages} gives the full precision, recall,
+$F_1$, and all-gold counts behind that figure, split by trained and
+never-trained language pools.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{Localization transfers to languages \modelname never saw
+in training.}  Per-language precision, recall, and $F_1$ of spontaneous
+handoffs against gold patch files.  The six never-trained languages
+outperform the three trained ones ($F_1$~$0.630$ vs.\ $0.455$).
+JavaScript and TypeScript are genuine soft spots; the TypeScript and C++
+cells rest on $12$ assigned tasks each, with $7$ and $8$ spontaneous
+handoffs analyzed ($\dagger$).  Multi-file recall is weak across
+all languages ($0.26$--$0.34$).  Forced handoffs excluded; searcher
+alone, one sampled draw.}
+\label{tab:apx-languages}
+\input{tables/tab-apx-languages}
+\end{table}
+
+
+
+% ============================================================================
+% K — Vault Decoding Comparison
+% ============================================================================
+\section{Vault Decoding Comparison}
+\label{apx:vault}
+
+The decoding finding reported in \S\ref{sec:decoding} is demonstrated on
+a 100-task dial subset; Table~\ref{tab:apx-vault} gives the full A/B
+comparison on the 450-task held-out vault that established the finding.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{Sampled decoding is what makes the searcher commit.}
+The same checkpoint on $450$ held-out issues, greedy versus temperature
+$0.9$.  Find rate nearly triples, from higher commitment
+($72\%$ vs.\ $21\%$) against an 18\% drop in per-handoff recall.  The
+greedy arm lost $24$ episodes to infrastructure timeouts; the
+$2.65\times$ figure adjusts for this.  The vault is excluded from all
+training data.}
+\label{tab:apx-vault}
+\input{tables/tab-apx-vault}
+\end{table}
+
+
+
+% ============================================================================
+% L — Training Hyperparameters
+% ============================================================================
+\section{Training Hyperparameters}
+\label{apx:hyperparams}
+
+\S\ref{sec:training} describes the supervised recipe at the level
+relevant to the contribution; Table~\ref{tab:apx-hyperparams} records the
+full configuration as realized in the actual training run.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{Supervised fine-tuning configuration, as run.}
+Rank-$64$ LoRA on every linear projection, trained in \code{bf16} for
+two epochs on packed $32$k-token blocks at $91.7\%$ fill; loss is on
+assistant turns only.  All values are the realized run, not the planned
+recipe.  The complete run cost \$86 of GPU time and peaked at
+$24.2$\,GB.}
+\label{tab:apx-hyperparams}
+\input{tables/tab-apx-hyperparams}
+\end{table}
+
+\paragraph{Reinforcement-learning rig.}
+We built and validated a GRPO training rig before concluding that RL was
+unnecessary (\S\ref{sec:training}).  The rig used a two-GPU topology: one GPU
+trained while the other generated rollouts, with kill-and-resume
+checkpointing so that preempted runs lost no more than a single episode.
+Exact backpropagation through long episodes was verified against ground truth
+before any paid run began.  The reward function was validated separately, by
+replaying candidate reward assignments against thousands of previously saved
+episodes and confirming agreement before committing GPU spend.  50 clean
+steps then ran flat, as reported in \S\ref{sec:training}, and the rig was
+shelved in favor of the decoding fix.
+
+
+
+% ============================================================================
+% M — A Verified Handoff, Before and After the Gate
+% ============================================================================
+\section{A Verified Handoff, Before and After the Gate}
+\label{apx:handoff-example}
+
+Figure~\ref{fig:apx-handoff-example} reproduces one real spontaneous handoff
+from the SWE-bench Pro evaluation, shown in the exact post-strip form the
+fixer received.  This handoff's reproduction claim was replayed in the task's
+own sandbox and genuinely failed, so the claim was forwarded intact rather
+than deleted.
+
+\begin{figure}[H]
+\centering
+\footnotesize
+\input{figures/fig-apx-handoff-example}
+\caption{\textbf{One real handoff, exactly as the fixer received it.}
+A spontaneous handoff from the SWE-bench Pro evaluation, reproduced
+verbatim after the verify-then-strip stage.  This reproduction claim was
+genuine and forwarded intact; $174$ of $249$ claims were false and
+stripped.  Line wrapping in the notes is ours; no content is added or
+redacted.}
+\label{fig:apx-handoff-example}
+\end{figure}
+
+
+
+% ============================================================================
+% N — Compute and Cost Disclosure
+% ============================================================================
+% Layout only: start N in a fresh column so its heading, prose and pinned
+% table stay together. Without this the heading and prose fall at the foot
+% of the previous column and Table XVIII lands alone on the next page.
+\newpage
+\section{Compute and Cost Disclosure}
+\label{apx:spend}
+
+Table~\ref{tab:apx-spend} itemizes the measured spend across the three eras
+of this project: evaluation, label collection, and training.
+The one-off cost of building the system, comprising the label run
+(${\approx}\$370$), the fine-tuning run (${\approx}\$86$), and corpus
+note generation (${\approx}\$9$), totals roughly \$465.  Against the
+\$0.62 per-task saving over the best solo fixer (\$0.757 API-only
+versus \$0.137 all-in), that sunk cost amortizes in roughly 750 tasks.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{\textbf{Measured spend.}
+Every figure is a measured value from the run ledgers.  The evaluation
+era covers all five arms plus infrastructure; the label-run era covers
+fresh per-task outcomes; the training era is the single SFT run.
+\modelname's entire evaluation contribution was \$1.13 of GPU time
+(${\sim}0.4$ cents per task).  Era totals are not summed.}
+\label{tab:apx-spend}
+\input{tables/tab-apx-spend}
+\end{table}
+
+

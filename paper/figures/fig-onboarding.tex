@@ -1,0 +1,120 @@
+% ===========================================================================
+% fig-onboarding.tex — onboarding a new fixer in three steps.
+% BODY ONLY (tikzpicture in a \resizebox). Wrapper/caption/label live in the
+% section file; mounts as a single-column \begin{figure}[!tbp].
+% Requires \input{figures/fig-style} in the preamble.
+%
+% PROVENANCE
+%   Schematic, illustrative only, no measured quantities. The only quantity
+%   drawn is the documented spec constant 25--50 public per-task outcomes,
+%   which is stated with its source in \S\ref{sec:results-onboarding} and
+%   Table~\ref{tab:router-recipe}; nothing else in the figure is a number,
+%   and no model or benchmark is named.
+%
+%   Glyph continuity: the r\'esum\'e card in step 2 and the fixer chips plus
+%   dashed open slot in step 3 repeat the glyphs used in fig-pipeline.tex
+%   (the r\'esum\'e shelf beneath the router, and the fixer-pool chips), so a
+%   reader recognises the same objects across the two figures.
+%
+%   Colour contract (fig-style.tex): cSys tints only what onboarding adds
+%   (the new r\'esum\'e, the new chip); everything already in the system is
+%   neutral gray, which is also the point of the frozen strip along the
+%   bottom. Fills differ in lightness, so the figure survives grayscale.
+% ===========================================================================
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  x=1cm, y=1cm,
+  panel/.style={rounded corners=2.2pt, line width=0.7pt, draw=gray!50,
+                fill=gray!3, anchor=center},
+  kick/.style={font=\scriptsize\scshape, text=gray!45!black, anchor=south,
+               inner sep=0pt},
+  head/.style={font=\footnotesize\bfseries, text=gray!20!black,
+               anchor=north, align=center, inner sep=0pt},
+  micro/.style={font=\scriptsize, text=gray!42!black, anchor=north,
+                align=center, inner sep=0pt},
+  flow/.style={-{Stealth[length=1.9mm,width=1.4mm]}, gray!62,
+               line width=0.9pt},
+]
+
+% =========================================================================
+% Geometry: three 2.55cm panels, 2.85cm tall, centred on y=0, with 0.50cm
+% gaps for the arrows.  Centres: 1.275 / 4.325 / 7.375; drawing width 8.65.
+% =========================================================================
+\def\Pw{2.55} \def\Ph{2.85}
+
+\node[panel, minimum width=\Pw cm, minimum height=\Ph cm] (s1) at (1.275,0) {};
+\node[panel, minimum width=\Pw cm, minimum height=\Ph cm] (s2) at (4.325,0) {};
+\node[panel, minimum width=\Pw cm, minimum height=\Ph cm] (s3) at (7.375,0) {};
+
+\node[kick] at (1.275,1.52) {Step 1};
+\node[kick] at (4.325,1.52) {Step 2};
+\node[kick] at (7.375,1.52) {Step 3};
+
+\draw[flow] (s1) -- (s2);
+\draw[flow] (s2) -- (s3);
+
+% =========================================================================
+% Shared per-panel layout: heading north-anchored at y = 1.30, glyph in the
+% band y = -0.70 .. 0.70, one-line-or-two caption north-anchored at -0.80.
+% =========================================================================
+
+% ---- Step 1 — collect a short public outcome record ---------------------
+\node[head, text width=2.35cm] at (1.275,1.30) {Collect outcomes};
+\foreach \i/\m/\c in {0/{$\times$}/{gray!68}, 1/{$\checkmark$}/{gray!58},
+                      2/{$\times$}/{gray!68}, 3/{$\checkmark$}/{gray!58}}{
+  \draw[draw=gray!45, fill=white, line width=0.5pt, rounded corners=1.2pt]
+    (0.400,-0.62+0.30*\i) rectangle ++(1.75,0.26);
+  \node[font=\scriptsize, text=\c, inner sep=0pt]
+    at (0.60,-0.49+0.30*\i) {\m};
+  \draw[gray!35, line width=0.4pt]
+    (0.80,-0.49+0.30*\i) -- (2.00,-0.49+0.30*\i);
+}
+\node[micro, text width=2.35cm] at (1.275,-0.80)
+  {25--50 public\\per-task outcomes};
+
+% ---- Step 2 — average into a résumé (glyph mirrors fig-pipeline.tex) ----
+\node[head, text width=2.35cm] at (4.325,1.30) {Average into\\a r\'esum\'e};
+\draw[gray!45, fill=white, line width=0.5pt, rounded corners=1.2pt]
+  (3.535,-0.41) rectangle ++(1.70,0.94);
+\draw[cSys!60, fill=cSys!14, line width=0.7pt, rounded corners=1.2pt]
+  (3.475,-0.47) rectangle ++(1.70,0.94);
+\fill[cSys!75] (3.635,0.24)  circle (1.9pt);
+\fill[gray!48] (3.635,-0.02) circle (1.9pt);
+\node[font=\scriptsize, text=gray!35!black, anchor=west, inner sep=0pt]
+  at (3.775,0.245) {solved};
+\node[font=\scriptsize, text=gray!35!black, anchor=west, inner sep=0pt]
+  at (3.775,-0.015) {failed};
+\draw[gray!45, line width=0.4pt] (3.615,-0.28) -- (5.035,-0.28);
+\fill[cSys!45] (3.615,-0.33) rectangle (4.265,-0.23);
+\node[micro, text width=2.4cm] at (4.325,-0.80)
+  {two centroids\\$+$ a base rate};
+
+% ---- Step 3 — routable at once (chips mirror fig-pipeline.tex) ----------
+\node[head, text width=2.35cm] at (7.375,1.30) {Routable at once};
+\foreach \i in {0,1,2}{
+  \draw[draw=gray!38, fill=white, line width=0.55pt, rounded corners=1.4pt]
+    (6.400,0.40-0.34*\i) rectangle ++(1.95,0.28);
+  \fill[gray!48] (6.480,0.46-0.34*\i) rectangle ++(0.08,0.16);
+  \node[font=\scriptsize, text=gray!45!black, anchor=west, inner sep=0pt]
+    at (6.680,0.54-0.34*\i) {existing fixer};
+}
+% the open slot, and the new fixer landing in it
+\draw[draw=gray!45, dash pattern=on 0.8mm off 0.7mm, line width=0.5pt,
+      rounded corners=1.4pt] (6.380,-0.76) rectangle ++(1.95,0.28);
+\draw[draw=cSys!70, fill=cSys!14, line width=0.85pt, rounded corners=1.4pt]
+  (6.500,-0.67) rectangle ++(1.95,0.28);
+\fill[cSys] (6.580,-0.61) rectangle ++(0.08,0.16);
+\node[font=\scriptsize\bfseries, text=cSys!72!black, anchor=west,
+      inner sep=0pt] at (6.780,-0.53) {new fixer};
+\node[micro, text width=2.45cm] at (7.375,-0.92)
+  {the router reads it};
+
+% =========================================================================
+% The frozen strip: nothing retrains
+% =========================================================================
+\draw[gray!45, fill=gray!6, line width=0.5pt, rounded corners=2.2pt]
+  (0,-2.28) rectangle (8.65,-1.72);
+\node[font=\scriptsize\itshape, text=gray!42!black] at (4.325,-2.00)
+  {searcher, embedder, scorer: all frozen, nothing retrains};
+
+\end{tikzpicture}}

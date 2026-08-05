@@ -1,0 +1,57 @@
+% ===========================================================================
+% tab-apx-localization-repo.tex — APPENDIX. Per-repository localization
+% quality, plus the localization-vs-outcome cross-tab.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell.
+%   Source: internal records, per-repo section, verified verbatim:
+%     ansible      (n=96): recall 0.472 | precision 0.846 | all-gold 10.4%
+%                          | median files named 1.0 | mean gold files 3.80
+%     openlibrary  (n=91): recall 0.574 | precision 0.766 | all-gold 28.6%
+%                          | median 2.0 | mean gold 3.58
+%     qutebrowser  (n=79): recall 0.671 | precision 0.853 | all-gold 38.0%
+%                          | median 2.0 | mean gold 2.84
+%   Localization vs outcome, derived from data/receipts/ (routing_scenarios.json
+%   decisions x outcomes_per_task.json system_union_pairs for the solved set,
+%   localization.json per-task rows for the metrics):
+%     solved   (n=159): recall 0.575 | precision 0.830 | all-gold 26.4%
+%     unsolved (n=107): recall 0.552 | precision 0.808 | all-gold 22.4%
+%     The 159/107 split is the routed cell: each task scored on its routed
+%     fixer's with-handoff episode, 159/266 solved.
+%   Overall (n=266): median files named 2.0, mean files named 2.08,
+%     mean gold files 3.44, recall 0.566, precision 0.821, all-gold 24.8%.
+%   Repo census n=96/91/79 = the Python-266 census.
+%
+%   RULE APPLIED: the cross-tab stays
+%   on the headline routed cell and is DESCRIPTIVE, not claim-bearing. The
+%   caption says so.
+%   METHOD STAMP: a single sampled draw per task
+%   at temperature 0.9, no majority vote and no best-of-n; gold files are the
+%   b-side `diff --git` paths of the gold patch, the same convention the
+%   label-run pipeline used.
+%   A spontaneous-only cut of the cross-tab removes the handoff-type confound
+%   and shows the same modest direction (recall 0.592 solved, n=130 / 0.575
+%   unsolved, n=76); not given its own row.
+% ===========================================================================
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Repository & Recall & Prec. & All-gold & Gold files \\
+\midrule
+ansible ($n{=}96$)     & 0.472 & 0.846 & 10.4\% & 3.80 \\
+openlibrary ($n{=}91$) & 0.574 & 0.766 & 28.6\% & 3.58 \\
+qutebrowser ($n{=}79$) & 0.671 & 0.853 & 38.0\% & 2.84 \\
+\midrule
+All ($n{=}266$)        & 0.566 & 0.821 & 24.8\% & 3.44 \\
+\bottomrule
+\end{tabular}
+
+\vspace{4pt}
+
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Outcome & Recall & Prec. & All-gold \\
+\midrule
+Solved ($n{=}159$)   & 0.575 & 0.830 & 26.4\% \\
+Unsolved ($n{=}107$) & 0.552 & 0.808 & 22.4\% \\
+\bottomrule
+\end{tabular}

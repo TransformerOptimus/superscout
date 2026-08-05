@@ -1,0 +1,64 @@
+% ===========================================================================
+% tab-apx-languages.tex — APPENDIX. Per-language localization quality of
+% spontaneous handoffs, across three trained and six never-trained languages.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell.
+%   Source: internal records, Table 4a (per-language)
+%   and Table 4b (trained vs never-trained aggregate). Every stamp on those
+%   tables applies here: single draw, temperature 0.9, solo searcher with no
+%   fixer in the loop, gold-patch-files metric only, SWE-bench Multilingual;
+%   spontaneous and forced are NEVER pooled and only the spontaneous arm is
+%   printed below.
+%   Table 4a SPONT columns, verified verbatim (P / R / F1, all-hit):
+%     Go         trained  n=42  spont 27 : 0.605 / 0.542 / 0.546  13/27
+%     JavaScript trained  n=31  spont 26 : 0.500 / 0.365 / 0.389   7/26
+%     TypeScript trained  n=12  spont  7 : 0.333 / 0.357 / 0.343   2/7
+%     Java       never    n=43  spont 27 : 0.722 / 0.574 / 0.612  11/27
+%     Ruby       never    n=44  spont 36 : 0.833 / 0.661 / 0.701  18/36
+%     Rust       never    n=43  spont 20 : 0.800 / 0.626 / 0.667  10/20
+%     PHP        never    n=42  spont 33 : 0.697 / 0.632 / 0.630  17/33
+%     C          never    n=30  spont 18 : 0.546 / 0.435 / 0.435   6/18
+%     C++        never    n=12  spont  8 : 0.688 / 0.813 / 0.708   6/8
+%   Table 4b, spontaneous rows, verified verbatim:
+%     trained (Go/JS/TS)              n=60  : P 0.528 R 0.444 F1 0.455
+%                                             all-hit 22/60 (37%)
+%     never-trained (6 languages)     n=142 : P 0.731 R 0.613 F1 0.630
+%                                             all-hit 68/142 (48%)
+%   Difficulty-matched control (source's difficulty-matched cut,
+%   spontaneous, single-gold-file tasks — the strata that isolate "did you
+%   name the one right file"): trained 42 tasks, recall 0.524; never-trained
+%   86 tasks, recall 0.791. (Multi-gold strata, also in the source: 0.257
+%   trained vs 0.339 never-trained — weak everywhere, quoted in the caption
+%   as the honest bound rather than tabulated.)
+%   INDICATIVE-ONLY MARK: the source stamps TypeScript and C++ (n=12 episodes
+%   each, 7 and 8 spontaneous) as indicative-only. Both rows carry a dagger
+%   here and the caption repeats the warning.
+%   Trained pool = Go, JavaScript, TypeScript (Python is absent from this
+%   task pool by construction); never-trained = Java, Ruby, Rust, PHP, C, C++
+%   (source's method note).
+%   Licensed phrasing: "transfers to six
+%   never-trained languages with localization quality equal or better,
+%   difficulty-matched; JS/TS is the trained-pool weak spot." NOT licensed:
+%   any multi-file or reproduction-quality claim. The caption respects both.
+% ===========================================================================
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Language & $n$ & P & R & $F_1$ & All-gold \\
+\midrule
+Go                  & 27 & 0.605 & 0.542 & 0.546 & 13/27 \\
+JavaScript          & 26 & 0.500 & 0.365 & 0.389 & \phantom{0}7/26 \\
+TypeScript$^{\dagger}$ & \phantom{0}7 & 0.333 & 0.357 & 0.343 & \phantom{0}2/7 \\
+\addlinespace
+\emph{trained pool} & 60 & 0.528 & 0.444 & 0.455 & 22/60 \\
+\midrule
+Java                & 27 & 0.722 & 0.574 & 0.612 & 11/27 \\
+Ruby                & 36 & 0.833 & 0.661 & 0.701 & 18/36 \\
+Rust                & 20 & 0.800 & 0.626 & 0.667 & 10/20 \\
+PHP                 & 33 & 0.697 & 0.632 & 0.630 & 17/33 \\
+C                   & 18 & 0.546 & 0.435 & 0.435 & \phantom{0}6/18 \\
+C++$^{\dagger}$     & \phantom{0}8 & 0.688 & 0.813 & 0.708 & \phantom{0}6/8 \\
+\addlinespace
+\emph{never-trained} & 142 & 0.731 & 0.613 & \textbf{0.630} & 68/142 \\
+\bottomrule
+\end{tabular}

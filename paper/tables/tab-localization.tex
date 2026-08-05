@@ -1,0 +1,31 @@
+% ===========================================================================
+% tab-localization.tex — \modelname file localization quality on Pro-266.
+% BODY ONLY (tabular). Wrapper/caption/label live in the section file.
+%
+% PROVENANCE — every cell.
+%   Source: internal records.
+%     overall row (n=266)      = overall: mean recall 0.566,
+%                                mean precision 0.821, all-gold-hit 24.8%
+%     spontaneous row (n=206)  = spontaneous vs forced,
+%                                spontaneous column: 0.586 / 0.833 / 28.2%
+%     forced row (n=60)        = forced column: 0.499 / 0.780 / 13.3%
+%   Method (single sampled draw, temp 0.9, no majority vote; gold = b-side
+%   `diff --git` paths of `gold_patch`) = the source's method and caveats.
+%
+%   RULE APPLIED: the per-repo breakdown (ansible / openlibrary /
+%   qutebrowser) is APPENDIX-ONLY and is
+%   deliberately omitted here.
+%   Spontaneous and forced are NEVER pooled in the row-level breakdown; the
+%   overall row pools them only for the single top-line number, per the
+%   source's own rule.
+% ===========================================================================
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Handoff type & Recall & Precision & All-gold \\
+\midrule
+Overall ($n{=}266$)      & 0.566 & 0.821 & 24.8\% \\
+\midrule
+Spontaneous ($n{=}206$)  & \textbf{0.586} & \textbf{0.833} & \textbf{28.2\%} \\
+Forced ($n{=}60$)        & 0.499 & 0.780 & 13.3\% \\
+\bottomrule
+\end{tabular}

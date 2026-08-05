@@ -1,0 +1,88 @@
+% Section 3, Problem Setup and Metrics.
+\section{Problem Setup and Metrics}
+\label{sec:problem}
+
+\subsection{Task and Cost Model}
+\label{sec:problem:task}
+
+We study repo-level issue resolution: given the text of an issue and a
+snapshot of the repository, the system must produce a source-code patch
+whose correctness is judged by held-out tests~\citep{swebench,swebenchpro}.
+Frontier language models already solve these tasks at high rates, but their
+per-task cost is substantial.  Strong open-weights models are far cheaper
+yet less reliable.  In a deployment that selects from a pool of candidate
+\emph{fixer} models, the natural question is whether one can retain the
+strongest model's effectiveness while spending less.
+
+To answer that question we adopt a single yardstick, defined before any
+experiment: \textbf{total cost per solve at a matched solve rate}.
+``Total'' means every system component's spend, including searcher GPU
+time, verification sandboxes, and fixer API calls, not just the final
+model invocation.  A system claims a cost improvement only if its solve
+rate matches that of the best individual model.
+
+This metric exposes a trivial lower bound.  Any point on the line segment
+between a cheap model's (cost, accuracy) and a strong model's (cost,
+accuracy) is achievable by randomly splitting traffic between the two, a
+strategy we call \emph{blind mixing}.  A routing system is interesting
+only if it operates above that segment.  We describe the operational
+details of the blind-mixing line in~\S\ref{sec:setup}.
+
+\subsection{Why Accuracy-Only Routing Is Insufficient}
+\label{sec:problem:audit}
+
+Before building \sysname we replayed a set of learned routers over the
+publicly available per-task results of three SWE-coding benchmarks:
+SWE-bench Verified~\citep{swebenchverified}, SWE-bench
+Multilingual~\citep{swebenchmultilingual}, and SWE-bench
+Pro~\citep{swebenchpro}.  The replay incurs zero model cost, and the
+routers span four families: embedding retrieval ($k$-NN), trained heads
+(logistic and MLP), clustering, and a language-rule baseline.  Two
+findings shaped the design that followed.
+
+First, solve sets are strongly nested: the tasks a weaker model solves
+are largely a subset of those the strongest model solves.  Measured as set
+containment, the overlap is 0.941, 0.912, and 0.773 across the three
+benchmarks.  Nor is this an artifact of comparing cheap models with
+frontier ones: replaying pools built from frontier models alone, one per
+lab, leaves containment at 0.90 to 0.93.  These models are generally
+strong rather than complementary specialists, so an accuracy-oriented
+router has almost no room to combine their strengths.
+Figure~\ref{fig:solve-sets} sketches the consequence: between any two
+models the accuracy prize is only a thin sliver, while the large shared
+region is where a cheaper model would have sufficed all along.
+
+\begin{figure}[!tbp]
+\centering
+\input{figures/fig-solve-sets}
+\caption{\textbf{Solve sets are nearly nested (schematic).} (a)~Even two
+frontier peers solve almost the same tasks, so accuracy routing has little
+to win. (b)~A cheaper model's set sits mostly inside the strongest
+model's; that shared region is where routing for cost pays.}
+\label{fig:solve-sets}
+\end{figure}
+
+Second, no learned router we tested exceeded the solve rate of
+always picking the strongest model; every observed gap fell within noise.
+Taken together, these results suggest a plain conclusion: routing for
+\emph{accuracy} has little headroom on current issue-resolution
+benchmarks.  Routing for \emph{cost}, by contrast, does not require
+complementary skills at all.  It requires only the ability to predict when
+a cheaper model will suffice.  Full audit tables appear in Appendix~\ref{apx:audit}.
+
+\subsection{Goal}
+\label{sec:problem:goal}
+
+Our objective inverts the premise of prior routing work.  Rather than
+seeking accuracy gains by combining models, we aim to match the strongest
+available model's solve rate at a materially lower total cost per solve.
+
+The thesis is that routing should happen \emph{after} engaging with the
+problem, not from the task text alone.  In \sysname a small searcher
+model first explores the repository; both its explicit work product (a
+structured handoff) and its internal representation of the task (hidden
+states) then inform the routing decision.
+The evaluation partly supports this thesis: the engagement's payoff
+arrives through the handoff more than through the routing decision
+(\S\ref{sec:results}).
+\S\ref{sec:system} details the architecture.

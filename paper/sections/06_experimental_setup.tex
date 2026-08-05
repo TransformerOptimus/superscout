@@ -1,0 +1,80 @@
+% Section 6, Experimental Setup.
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Benchmark and Protocol}
+\label{sec:setup-bench}
+
+We evaluate on SWE-bench Pro~\citep{swebenchpro}, using the full Python
+slice: all 266 tasks, a census rather than a sample.  These span three
+repositories: 96 from ansible, 91 from openlibrary, and 79 from
+qutebrowser, out of 731 tasks in the public set.  We chose Pro because
+its tasks are harder and less saturated than earlier SWE-bench variants,
+and because all 11 of its repositories were excluded from \modelname's
+training data from day one via the contamination blocklist of
+\S\ref{sec:training}.
+
+Our protocol matches the benchmark's official capped budget tier
+exactly: a 50-LLM-call turn cap and a \$2.00 per-attempt cost limit.
+The cap is silent; the agent is never told a budget exists.
+Source-code inspection of the official scaffold found no budget
+sentence in any prompt; when the cap is exhausted, the current working
+diff is auto-submitted.  Task input follows the scaffold's exact
+three-field concatenation of problem statement, requirements, and
+interface.  For 105/266 tasks a byte-lossless JSON decode of
+double-serialized fields was applied; this deviation is logged.  Fixer
+prompts are byte-identical to the SWE-bench Multilingual leaderboard
+templates~\citep{swebenchmultilingual}, and a single task-text
+definition is used throughout, for the searcher, every fixer, and the
+router embedding alike.
+
+\subsection{Frozen System Configuration}
+\label{sec:setup-frozen}
+
+The searcher, gate, r\'esum\'es, embedder, and router weights were
+frozen before first contact with the benchmark.  \modelname serves at
+temperature~0.9, single draw, with pinned sampling parameters,
+per-episode cache isolation, a serving-health canary gate, and a 40-turn
+search budget.  The handoff policy is blanket injection: every routed
+fixer receives the surviving handoff identically.  Verify-then-strip
+runs first on every reproduction claim (mechanism in
+\S\ref{sec:system}).  The router's logistic head was fit on all
+calibration data (recipe in Table~\ref{tab:router-recipe}) and operates
+at caution threshold $\theta{=}0.30$.  This threshold was initially
+calibrated against solo-fixer outcomes; because the handoff
+systematically lifts inexpensive fixers, it was recalibrated on the
+99-task lab set using with-handoff outcomes via the pre-existing
+matched-point rule.  The router's benchmark result is evaluated by
+routing each task and scoring it against that fixer's measured episode
+under the official capped protocol; every one of the 266 routed picks
+has a real measured episode behind it.
+
+\subsection{Arms, Baselines, and Cost Accounting}
+\label{sec:setup-arms}
+
+Four measured arms run fully paired on the same 266 tasks: three solo
+fixers (\fxopus~\citep{opus46}, \fxgpt~\citep{gpt52}, and
+\fxkimi~\citep{kimik25}) and the \sysname fixer runs with injected
+handoffs.  Both frontier models were run in full as solo baselines
+because our calibration study and a small paid probe disagreed about
+which was stronger; the resolution is itself a result
+(\S\ref{sec:results}).  At the calibrated operating point
+($\theta{=}0.30$) the router's fallback never fires, so anchor choice is
+moot.
+
+Two baselines anchor interpretation.  The strongest-solo baseline is the
+single fixer with the highest solve rate.  The blind-mixing line traces
+the accuracy-versus-cost segment produced by randomly assigning each
+task to \fxkimi or \fxopus in varying proportions; a system point above
+this line does something smarter than chance mixing.
+
+Cost accounting is deliberately conservative against \sysname.  System
+costs are all-in: routed-fixer API spend plus \modelname's entire GPU
+bill plus verify-then-strip sandbox infrastructure, all amortized per
+task.  Solo arms count only their pure fixer API spend.  We report total
+cost per solve at a matched solve rate; measured spend is disclosed in
+Appendix~\ref{apx:spend}.  Scoring uses the benchmark's
+official harness; a gold-patch control passes 265/266 tasks.  The single
+failure stems from a dataset artifact (a truncated test-spec
+identifier) that is unwinnable for every arm equally and is kept in all
+denominators.

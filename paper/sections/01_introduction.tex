@@ -1,0 +1,81 @@
+% Section 1, Introduction.
+\section{Introduction}
+\label{sec:intro}
+
+Frontier-model agents now resolve real repository issues, from locating
+bugs to generating patches~\citep{swebench}, but each solve carries a
+real per-task price.  Strong open-weights models cost a fraction yet
+close fewer tasks.  Any team deploying an issue-solving system therefore
+faces a standing choice between the expensive best model and cheaper
+alternatives.  Existing LLM routers~\citep{routellm,frugalgpt} make
+that choice from the task text alone, before anything has engaged with
+the actual repository.
+
+Replaying learned routers over the public per-task results of three SWE
+benchmarks reveals that solve sets are largely nested: models that solve
+more tasks nearly always subsume the solve sets of weaker ones, and no
+router reliably improves on always selecting the strongest
+model~(\S\ref{sec:problem}).  Routing for accuracy therefore offers
+little headroom.  Routing for \emph{cost}, by contrast, only requires
+predicting when a cheaper model will suffice.
+
+\begin{figure}[!tbp]
+\centering
+\input{figures/fig-cost-solve}
+\caption{\textbf{Cost per solve versus solve rate on SWE-bench Pro
+(Python-266).}  The dashed curve is the blind-mixing line (random
+cost-blind mix of \fxkimi and \fxopus).  \sysname matches \fxopus at
+about a fifth of its cost per solve, well above the line.  The system
+point is all-in; solo points are fixer API only.  The $x$-axis is
+logarithmic.}
+\label{fig:cost-solve}
+\end{figure}
+
+\sysname routes \emph{after} scouting, a pattern we call
+\emph{scrouting}.  A 7B searcher,
+\modelname, first explores the repository and produces a structured
+handoff: a list of implicated files, diagnostic notes, and a candidate
+reproduction test.  These claims pass through a sandbox verification
+step, and claims that do not check out are stripped before a downstream
+model ever sees them.
+A r\'esum\'e router then selects among four frontier fixers using the
+task text together with the searcher's own hidden states; adding a new
+fixer requires no retraining.
+
+Figure~\ref{fig:cost-solve} compares \sysname to solo frontier models on
+SWE-bench Pro's full Python slice~\citep{swebenchpro} (266 tasks),
+matching the benchmark's official capped budget tier exactly.  \sysname
+matches the best single frontier model's solve rate, resolving 159 of
+266 tasks versus 158, at \$0.230 total cost per solve compared to
+\$1.274: about a fifth.  The configuration sits above the blind-mixing
+line (the accuracy/cost segment any random split of traffic between a
+cheap and a strong model would achieve).  The searcher's contribution to
+system cost is negligible: \modelname's entire GPU bill for the
+evaluation was \$1.13.
+
+A paired calibration study on 100 fresh tasks points to why this cost
+reduction holds: the handoff appears to redistribute rather than add
+solving ability, lifting the three cheaper fixers while slightly hurting
+the strongest, and the
+searcher's hidden states improve cost routing where the handoff's own
+text does not~(\S\ref{sec:calibration}).
+
+We make five contributions:
+\begin{itemize}
+  \item An engage-then-route architecture with a trained searcher whose
+    verified handoff is consumed by the chosen fixer.
+  \item A zero-cost replay audit of published per-task outcomes on three
+    SWE benchmarks showing that solve sets are largely nested and that no
+    learned router reliably beats always calling the strongest model,
+    which motivates routing for cost rather than accuracy.
+  \item Routing features drawn from the searcher's hidden states, with a
+    r\'esum\'e-based $N$-way pool where adding a new fixer requires no
+    retraining.
+  \item A matched-protocol evaluation on SWE-bench Pro's Python census
+    showing frontier-matching accuracy at about a fifth of the total
+    cost per solve.
+  \item A paired calibration study measuring the handoff's
+    redistribution pattern and the router's feature design space, plus a
+    verification gate that strips the searcher's false reproduction
+    claims.
+\end{itemize}

@@ -1,0 +1,46 @@
+% ===========================================================================
+% fig-style.tex — shared colour / marker scheme for EVERY main-paper figure.
+% \input this ONCE from the preamble of main.tex (after tikz + pgfplots).
+%
+% House rule: the palette is defined here and nowhere else. Each series also
+% gets a distinct marker AND line style so the figures survive grayscale
+% printing.
+%
+%   \sysname / deployed .. cSys   (blue!70!black)    mark *
+%   opus / claude ........ cOpus  (red!70!black)     mark square*
+%   gpt .................. cGpt   (teal!70!black)    mark triangle*
+%   kimi ................. cKimi  (violet!70!black)  mark diamond*
+%   flash ................ cFlash (orange!70!black)  mark pentagon*
+%   greedy / baseline .... cBase  (gray)             mark o
+% ===========================================================================
+% The pipeline diagram needs the calc library for coordinate arithmetic; the
+% rest of the libraries are already loaded in main.tex's preamble.
+\usetikzlibrary{calc}
+% Hatching, so bar charts stay readable in grayscale.
+\usetikzlibrary{patterns}
+
+\colorlet{cSys}{blue!70!black}
+\colorlet{cOpus}{red!70!black}
+\colorlet{cGpt}{teal!70!black}
+\colorlet{cKimi}{violet!70!black}
+\colorlet{cFlash}{orange!70!black}
+\colorlet{cBase}{gray}
+
+% Common axis furniture: footnotesize ticks/legend, small titles, framed
+% legend in gray!50, light horizontal grid.
+\pgfplotsset{
+  paperaxis/.style={
+    width=0.80\linewidth,
+    height=5.2cm,
+    tick label style={font=\footnotesize},
+    label style={font=\footnotesize},
+    title style={font=\small},
+    legend style={font=\footnotesize, draw=gray!50, fill=white,
+                  fill opacity=0.9, text opacity=1, rounded corners=1pt},
+    every axis plot/.append style={line width=0.7pt},
+    grid style={gray!25, line width=0.3pt},
+    axis line style={gray!60},
+    tick style={gray!60},
+  },
+  papermark/.style={mark size=2.6pt},
+}

@@ -1,0 +1,16 @@
+% Section 10, Conclusion.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\sysname shows that engaging with the repository before dispatch pays, though not where we expected: the verified handoff, not the routing decision, carries the result.
+A small trained searcher, \modelname, explores the repository and writes a structured handoff whose reproduction claims are verified in a sandbox (false claims are stripped), and whose hidden states feed a r\'{e}sum\'{e} router that selects the downstream fixer.
+On the benchmark's full Python slice, this pipeline solves 159 of 266 problems, matching the best single frontier model (158 of 266) at about a fifth of the total cost per solve, with the searcher's own compute contributing a rounding error to the budget.
+
+Two mechanism-level findings underpin this result.
+The handoff appears to redistribute rather than add ability, lifting the three cheaper fixers while slightly hurting the strongest, a directional pattern at $N{=}99$.
+The searcher's hidden states, meanwhile, change which tasks the router trusts to the cheap model, yet feeding the handoff's text directly to the router hurts it.
+Because adding a new fixer requires no retraining, the system is built for a model market that changes quarter by quarter.
+
+Natural next steps include wider benchmark coverage across languages and problem domains.
+Equally valuable would be measuring how quickly a newly released fixer can be onboarded into the live pipeline without retraining the searcher or the router.

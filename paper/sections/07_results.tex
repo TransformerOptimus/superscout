@@ -1,0 +1,197 @@
+% Section 7, Results.
+\section{Results}
+\label{sec:results}
+
+% ---------------------------------------------------------------------------
+% 7.1  Headline
+% ---------------------------------------------------------------------------
+\subsection{Headline}
+\label{sec:results-headline}
+
+\begin{table}[!tbp]
+\centering
+\caption{\textbf{Main results on SWE-bench Pro (Python-266).}
+\sysname matches the pool's best single model (\fxopus) at about a fifth
+of its cost per solve; 159 versus 158 is a one-task gap at $n{=}266$, a
+match, not a win.  The last row is the no-router ablation, which ties
+the routed system on this benchmark (\S\ref{sec:results-headline}).}
+\label{tab:main-results}
+\input{tables/tab-main-results}
+\end{table}
+
+Table~\ref{tab:main-results} summarizes the primary evaluation.
+\sysname solves 159 of 266 tasks (59.77\%) at a total cost per solve of
+\$0.230.  The pool's best single model, \fxopus run solo, solves 158 of
+266 (59.40\%) at \$1.274 per solve.  \sysname matches this ceiling at
+about a fifth of the cost per solve.  The one-task gap between 159 and
+158 at $n{=}266$ is not a meaningful difference; it is a match.
+
+The no-router ablation sends every task to \fxkimi with the handoff and
+no routing decision at all, also solving 159 of 266 at \$0.227 per
+solve.  The calibrated router concentrates 263 of 266 tasks on the
+cheapest fixer and adds no solves over this ablation; its three
+diversions to \fxflash~\citep{gemini3flash} cost \$0.003 per solve,
+insurance rather than accuracy.  On this benchmark, then, the handoff
+carries the result and routing collapses to cost allocation.  Whether
+blanket assignment to one cheap fixer reaches parity is a property of
+this pool and benchmark, not a general rule: in deployment that answer
+is not known in advance, and the router is the component that predicts
+it, from free public data, before any spend.  The ablation is ex-ante
+specifiable too, but only hindsight shows it reaches parity; the router
+turns that gamble into a calibrated decision.  Both
+system rows sit above the blind-mixing line defined in
+\S\ref{sec:setup} by $+$3.60 percentage points at their respective cost
+points (visible in Figure~\ref{fig:cost-solve}).  \modelname's entire
+GPU bill for all 266 search episodes was \$1.13, under half a cent per
+task.
+
+Why were both frontier models run in full as solo baselines?  Our
+calibration study and a small paid probe disagreed about which was
+stronger.  On the fresh calibration tasks (\S\ref{sec:calibration}),
+\fxgpt was the strongest solo fixer at 60.6\% solve rate.  A small paid
+probe of 15 tasks per fixer leaned the other way: \fxopus solved two
+more tasks, but $p{=}0.625$, well below the pre-declared decision bar,
+while inverting the calibration prior.  Both were therefore run in full.
+The complete paired comparison resolved the question: \fxopus beats
+\fxgpt by $+$7.14 percentage points on the same 266 tasks, with 44
+tasks solved only by \fxopus versus 25 solved only by \fxgpt (exact
+McNemar test~\citep{mcnemar}, $p{=}0.029$).
+
+One further observation from the solo baselines deserves note.
+\fxkimi solo resolves 149 of 266 tasks (56.02\%) at \$0.106 per task,
+dominating \fxgpt solo (139/266, 52.26\%, \$0.570 per task) on both
+axes, gaining $+$3.76 percentage points of accuracy at roughly one fifth
+of the per-task cost.
+
+% ---------------------------------------------------------------------------
+% 7.2  Component Analysis
+% ---------------------------------------------------------------------------
+\subsection{Component Analysis}
+\label{sec:results-components}
+
+\paragraph{Localization quality.}
+
+\begin{table}[!tbp]
+\centering
+\caption{\textbf{\modelname's file localization on SWE-bench Pro
+(Python-266).}  Per-task mean recall and precision against the gold
+patch's file set.  Spontaneous and forced handoffs are reported
+separately.  All numbers are from a single sampled draw at
+temperature~$0.9$ (no majority vote).}
+\label{tab:localization}
+\input{tables/tab-localization}
+\end{table}
+
+Table~\ref{tab:localization} reports the quality of \modelname's file
+localization.
+Against a mean of 3.44 gold files per task, the searcher names a median
+of 2.0 files, achieving per-task mean recall of 0.566 and precision of
+0.821; in 24.8\% of tasks every gold file appears in the handoff.
+Spontaneous handoffs ($n{=}206$) localize substantially better than
+forced ones ($n{=}60$) across the board: recall 0.586 versus 0.499,
+precision 0.833 versus 0.780, and all-gold rate 28.2\% versus 13.3\%.
+This gap is unsurprising: tasks that exhaust the turn budget are
+typically harder.  It underscores why the two handoff types are
+never pooled when reporting component behavior (per-repository detail in Appendix~\ref{apx:localization}).
+
+\paragraph{Verify-then-strip guard.}
+Of 266 handoffs, 249 included a claimed verified reproduction of the
+bug.  Replaying every claim inside the task sandbox revealed that only
+50 of them (20\%) were genuine, while 174 (70\%) were demonstrably
+false.  The guard stripped every false claim before any fixer saw it.
+Forced handoffs overclaimed more aggressively: just 9\% of their
+reproduction claims were genuine, compared with 22\% for spontaneous
+handoffs.
+These benchmark rates are worse than those observed during calibration
+(32\% genuine, 56\% false; \S\ref{sec:calibration}), consistent with
+harder tasks producing more overclaiming.
+The guard neutralizes this overclaiming before any fixer sees it: 174
+fixer prompts were stripped of confident misinformation that would
+otherwise have been treated as ground truth (full outcome classes in
+Appendix~\ref{apx:verify-strip}); we did not run a pass-through arm, so
+the guard's contribution to the headline is an inference from this
+claim census rather than a measurement (\S\ref{sec:limitations}).
+
+\paragraph{Protocol findings.}
+The auto-submit-at-cap mechanism rescued 24 of \fxopus's 158 solves and
+33 of \fxgpt's 139.  Without it, both frontier models' solve rates would read
+roughly 9--13 percentage points lower.
+The 50-call cap binds often: it was reached in 36.5\% of \fxgpt
+attempts, 17.3\% of \fxopus attempts, and 48\% of \fxkimi attempts.
+The \$2 cost cap bound only 5 times (all \fxopus, maximum \$2.09).
+The gold-control census confirmed 265 of 266 tasks
+(\S\ref{sec:setup}) (full cap statistics in Appendix~\ref{apx:cap-stats}).
+
+\paragraph{Router behaviour.}
+
+\begin{figure}[!tbp]
+\centering
+\input{figures/fig-gate-probability}
+\caption{\textbf{Two feature spaces, two very different confidence
+distributions at the routing gate ($\theta{=}0.30$).}  Histograms of
+$P(\text{solve})$ for \fxkimi (cheapest fixer) across all $266$ tasks.
+The task-text head spans nearly the full unit interval (sd~$0.20$),
+while the hidden-state head concentrates tightly (sd~$0.07$, support
+entirely above~$\theta$).  Their blend, the routing head, gates $263$ of
+$266$ tasks to the cheapest fixer.}
+\label{fig:gate-probability}
+\end{figure}
+
+The router sends 263 of 266 tasks to \fxkimi: the first fixer in
+cheap-to-expensive order whose blended solve probability clears
+$\theta{=}0.30$ receives the task.
+Figure~\ref{fig:gate-probability} reveals how the two underlying feature
+spaces distribute that probability.  The task-text head spreads wide
+(sd~$0.20$, support $0.08$--$0.97$), while the hidden-state head
+concentrates tightly (sd~$0.07$, support $0.40$--$0.74$) and sits
+entirely above the threshold.
+Because that support lies entirely above $\theta$, part of the
+hidden-state head's effect at the gate is mechanical: blending shrinks
+the text head's predictions toward the state head's near-constant mean,
+which by itself admits more tasks to the cheapest fixer.  We did not
+run a matched shrinkage control, so the feature's informational
+contribution cannot be fully separated from this threshold-shifting
+effect; the held-out separation gap (AUC $0.600$ versus $0.561$ for
+task text at $N{=}99$, Appendix~\ref{apx:design-space}) is suggestive
+rather than decisive.
+The hidden state's contribution is not boosting accuracy per se but
+shifting \emph{when} the cheap model is trusted, consistent with its
+cost-side rather than accuracy-side value observed during
+calibration~(\S\ref{sec:calibration}).
+
+\FloatBarrier
+
+% ---------------------------------------------------------------------------
+% 7.3  Onboarding
+% ---------------------------------------------------------------------------
+\subsection{Onboarding a New Fixer}
+\label{sec:results-onboarding}
+
+\begin{figure}[!tbp]
+\centering
+\input{figures/fig-onboarding}
+\caption{\textbf{Onboarding a fixer costs a r\'esum\'e, not a training
+run.} A short public outcome record averages into two centroids and a base
+rate, and the router reads that r\'esum\'e at inference time. No component
+is retrained.}
+\label{fig:onboarding}
+\end{figure}
+
+Adding a new fixer requires no retraining.
+A fixer's \emph{r\'esum\'e} consists of two averaged embeddings (one
+over its solved tasks, one over its failed tasks) plus a base solve
+rate, all buildable from 25--50 public per-task outcomes
+(Table~\ref{tab:router-recipe}).
+The embedder is frozen infrastructure and \modelname never retrains; the
+router simply reads each new r\'esum\'e at inference time
+(Figure~\ref{fig:onboarding}).
+This design keeps the pool extensible: a fixer released tomorrow can be
+routed to as soon as a short public-benchmark run produces its outcome
+record.
+Appendix~\ref{apx:bench-fresh} bounds what such public outcomes can
+carry: on our fresh calibration tasks every fixer's public rate drops
+and the public ordering does not survive.
+A r\'esum\'e built from public outcomes is therefore a cold-start
+device, adequate for admitting a new fixer to the pool but not for
+fine-grained ranking, and the thresholds used in this paper were
+calibrated on freshly measured labels for exactly this reason.

@@ -1,0 +1,111 @@
+% ===========================================================================
+% tab-training-data.tex — composition of the frozen \modelname SFT set (§5).
+% BODY ONLY (tabular). Wrapper/caption/label live in the section file.
+%
+% PROVENANCE — every cell. All numbers are the REALIZED built set, not the
+% planning targets; where the two differ the divergence is stated below.
+%
+%   COUNTS
+%     19,911 = the frozen dataset as built and pushed.
+%       internal records, "Final counts": "Set: 19,911
+%       (size preserved) - Shelf: 9,478"; internal records
+%       "SFT DATASET FROZEN: sft_set_clean.jsonl final (19,911 ...)".
+%     19,905 = the EFFECTIVE training count, and the number this table
+%       reports as "examples trained on". Two load-time drops were applied
+%       after the freeze, both deliberate, both leaving the HF file
+%       untouched:
+%         internal records: "malformed 9 rows ... drop 3 phantom-tool
+%         rows -> 19,908 at load";
+%         internal records: 3 further rows carrying a stray off-dialect
+%         tool-call wrapper dropped at load -> "Effective training count
+%         19,905. HF file untouched."
+%       Independently confirmed by the run's own dataset fingerprint,
+%       internal records: "Run identity": "dataset_hash: 87762bd2f14b
+%       (fp 2f0092f6373a2882 - 12,723 blocks / 19,905 ex / 382,417,805 tok /
+%       91.7% fill)".
+%     Shelf 9,478 = internal records, same line (the 3rd-best trace per
+%       bug, held as an underfit lever; NEVER trained on).
+%
+%   LANGUAGE MIX — realized, from internal records "Language
+%   mix (unchanged)": Go 7,304 (36.7%) - Python 7,417 (37.3%) - TypeScript
+%   3,932 (19.7%) - JavaScript 1,258 (6.3%). The same four percentages
+%   appear in internal records.
+%     DIVERGENCE FROM PLAN (stated, not silently reconciled): the target in
+%     internal records is "Language mix ~ Pro: ~38% Go / 36% Py / 25%
+%     TS-JS". The realized set is 36.7 / 37.3 / 26.0 (TS+JS) --- close, and
+%     internal records report "Residual Go loss: ZERO net loss", so the Go
+%     shortfall never bit. This table prints the REALIZED numbers.
+%     The counts sum over the 19,911-example built set; the 6 load-time
+%     drops are not attributed to a language in any source, so percentages
+%     are quoted against 19,911 exactly as the source computes them.
+%
+%   SOURCE DATASETS — internal records ("Sources: Open-SWE-Traces
+%   (primary; only Go/TS source; blocklist-CLEAN) - nebius-rebench-openhands
+%   - SWE-Hero (filter 73 rows)") and internal records,
+%   which names them nvidia/Open-SWE-Traces (207,489 trajectories),
+%   nebius/SWE-rebench-openhands (67,074, Python), nvidia/SWE-Hero-openhands
+%   (34,269, Python) and states "Open-SWE-Traces is the load-bearing source
+%   --- the only one with Go/TS/JS. nebius + SWE-Hero are Python top-ups".
+%   Per-source example counts in the FINAL set are not broken out in any
+%   frozen document, so this table names the sources and their roles and
+%   does not invent a per-source split.
+%     A per-source example count for the final 19,905 is not recorded
+%     anywhere; one would have to be recomputed from the frozen set.
+%
+%   DEDUP RULE — internal records: "per issue keep the
+%   2 best successful traces, quality-ranked (repro present > efficient >
+%   shortest; source-model diversity as tiebreak); 3rd-best trace saved as
+%   the named 'shelf'". Ratified internally ("2 best
+%   traces per bug (~21k demos; 2v3 adds retellings, not distinct bugs)").
+%
+%   BLOCKLIST — internal records: "The 23-repo blocklist (excluded from
+%   ALL training/RL/label data)": Pro-11 (ansible/ansible,
+%   internetarchive/openlibrary, flipt-io/flipt, qutebrowser/qutebrowser,
+%   gravitational/teleport, protonmail/webclients, future-architect/vuls,
+%   navidrome/navidrome, element-hq/element-web, NodeBB/NodeBB,
+%   tutao/tutanota) + Verified-12 (astropy, django, matplotlib, seaborn,
+%   flask, requests, xarray, pylint, pytest, scikit-learn, sphinx, sympy).
+%   Enforcement measured, not asserted: internal records, "Sanity gate ---
+%   PASSED": "0 vault hits - 0 blocklist hits".
+%
+%   HELD-OUT VAULT — 450 issues (Go 200 / TS 150 / Py 100, 306 repos),
+%   internal records ("Held-out vault BUILT ... vault IDs = mandatory
+%   exclusion list for all training sets"). Also 0 hits at the gate.
+%
+%   REPRO VALIDITY — internal records: "Repro-validity: 84.9% -> 97.67%
+%   (464/19,911 false, all Go)"; the 464 are kept with honest
+%   reproduced:false labels (internal ruling).
+%
+%   TOKENS / PACKING — internal records, "Run identity" (same fingerprint):
+%   382,417,805 tokens per epoch packed into 12,723 blocks of 32k at 91.7%
+%   fill.
+% ===========================================================================
+\begin{tabular}{@{}lr@{}}
+\toprule
+Component & Value \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Corpus}} \\
+Examples trained on          & 19,905 \\
+Built / frozen set           & 19,911 \\
+Held-back shelf (untrained)  & 9,478 \\
+Tokens per epoch             & 382.4M \\
+Packed 32k blocks (fill)     & 12,723 (91.7\%) \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Language mix}} \\
+Go                           & 7,304 (36.7\%) \\
+Python                       & 7,417 (37.3\%) \\
+TypeScript                   & 3,932 (19.7\%) \\
+JavaScript                   & 1,258 \phantom{0}(6.3\%) \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Trace sources}} \\
+Open-SWE-Traces              & Go/TS/JS + Py \\
+SWE-rebench-openhands        & Python \\
+SWE-Hero-openhands           & Python \\
+\midrule
+\multicolumn{2}{@{}l}{\emph{Filters}} \\
+Traces kept per issue        & top 2 \\
+Verified reproduction        & 97.7\% \\
+Excluded repositories        & 23 \\
+Excluded held-out issues     & 450 \\
+\bottomrule
+\end{tabular}

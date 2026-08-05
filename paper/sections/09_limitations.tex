@@ -1,0 +1,76 @@
+% Section 9, Limitations.
+\section{Limitations}
+\label{sec:limitations}
+
+Our headline result rests on a single benchmark's Python slice,
+comprising 266 tasks.  While the searcher's localization ability
+transfers across languages (\S\ref{sec:training}), that evidence covers
+the searcher alone, not the full routed system.  Cross-benchmark
+generality remains untested, and the ablation finding, that blanket
+assignment to the cheapest fixer ties the routed system, is a property
+of this task pool; it need not transfer to other pools or benchmarks.
+The 266 tasks themselves span three repositories, with per-repository
+recall ranging from 0.472 to 0.671
+(Appendix~\ref{apx:localization}); the effective diversity is
+closer to three codebases than to 266 independent draws.
+
+At $n{=}266$ the headline is a one-task edge, which is precisely why we
+claim a \emph{match} and nothing stronger.  The robustness evidence is
+structural: both the routed system and the no-router ablation sit
+$+3.60$ percentage points above the blind-mixing line, so on this pool
+the margin over random traffic splitting is carried by the handoff
+rather than by the routing decision.  Like the ablation finding itself,
+this attribution is specific to this pool and benchmark and can change
+with either.
+
+The calibration label run uses $n{=}100$ tasks.  No handoff contrast in
+this paper reaches statistical significance, on the calibration labels
+or on the benchmark subset; the mechanism rests on the consistency of
+the pattern across two independent settings, not on any single test.
+
+The benchmark-side handoff comparisons themselves come from
+router-selected subsets rather than random assignment, so they carry
+observational caveats.  The controlled reference point is the paired
+calibration study on held-out tasks (\S\ref{sec:calibration}).
+
+Contamination control is one-sided.  The searcher's training corpus
+excludes a 23-repository blocklist covering every SWE-bench Pro and
+SWE-bench Verified repository, enforced by a programmatic gate on the
+frozen training file.  No such control is possible on the fixer side:
+the three evaluation repositories are public, we have no visibility
+into the four fixers' training data, and differential fixer-side
+contamination would distort the relative solve rates that the
+r\'esum\'es and the calibration are fit to.
+
+We also did not run a pass-through arm in which fixers receive the
+handoff with its unverified reproduction claims intact, so the guard's
+contribution to the headline solve rate is asserted from the claim
+census (\S\ref{sec:results}) rather than measured; a pass-through
+ablation is future work.
+
+All costs are provider list prices recorded at measurement time.
+Prices drift, and one fixer was served as a quantized build through a
+pinned provider, so cost conclusions are snapshots rather than stable
+constants.  The cost-accounting asymmetry described in
+\S\ref{sec:setup} (all-in for the system versus API-only for solo
+baselines) is conservative in our disfavor, but it is still an
+accounting choice that readers should weigh.
+
+\modelname achieves an overall localization recall of 0.566, a moderate
+figure drawn from a single sampled inference pass whose variance is
+uncharacterized.  The system-level result shows that this recall
+suffices for effective routing; it does not establish \modelname as a
+state-of-the-art localizer.
+
+All absolute solve rates reported here are specific to the capped,
+silent-budget, auto-submit evaluation tier defined in
+\S\ref{sec:setup}.  Under other tiers these numbers would change.  Our
+protocol comparisons (\S\ref{sec:results}) show that such tier choices
+are worth percentage points of solve rate, underscoring the relativity
+of any single absolute figure.
+
+Finally, the hidden-state features that drive routing are tied to the
+exact \modelname checkpoint.  Retraining the searcher would require
+re-extracting hidden states and refitting the router heads.  The
+zero-retrain onboarding property applies to adding new fixers, not to
+changing the searcher itself.

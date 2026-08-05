@@ -1,0 +1,139 @@
+% Section 5, Training the Searcher.
+\section{Training the Searcher}
+\label{sec:training}
+
+\subsection{Data and Supervised Training}
+\label{sec:training-data}
+
+\modelname is trained on search-phase demonstrations sliced from openly licensed
+agent trajectories produced by other systems. Each demonstration captures one
+complete search episode: the agent explores a repository, localizes the fault,
+and writes a failing reproduction, with a synthesized handoff-emission turn
+appended as the final supervised target. Within that synthesized turn, the
+file list is extracted deterministically from the trace and the reproduction
+record is copied verbatim; only the free-form notes are written by a model,
+the open-weights gpt-oss-120b~\citep{gptoss}. Traces are drawn from three public
+sources (\dataset{Open-SWE-Traces}~\citep{openswetraces},
+\dataset{SWE-rebench-openhands}~\citep{nebiusrebench,swerebench}, and
+\dataset{SWE-Hero}~\citep{swehero}; the latter two are trajectories of
+the OpenHands scaffold~\citep{openhands}) and then success-filtered
+against the gold patch, keeping only trajectories that actually found the right files.
+Deduplication retains the two highest quality-ranked traces per issue, so the
+corpus counts distinct bugs rather than retellings of the same fix.
+
+The resulting dataset contains 19{,}911 examples. Six rows carrying malformed
+tool-call wrappers are dropped at load time, giving the 19{,}905 examples
+actually trained on. The realized language mix is Python 37.3\%, Go 36.7\%,
+TypeScript 19.7\%, and JavaScript 6.3\%.
+Table~\ref{tab:training-data} summarizes the corpus composition.
+
+\begin{table}[!tbp]
+\centering
+\caption{\textbf{Composition of \modelname's supervised search corpus.}
+Each example is a full search trajectory with a synthesized
+handoff-emission turn as the final supervised step; loss is on assistant
+turns only.  Traces are success-filtered and deduplicated to two per
+issue.  The 23 evaluation repositories and 450 held-out vault issues are
+excluded; both exclusions were verified by a programmatic gate.}
+\label{tab:training-data}
+\input{tables/tab-training-data}
+\end{table}
+
+Contamination control was decided on day one: a 23-repository blocklist
+covering all 11 SWE-bench Pro repositories and 12 SWE-bench
+Verified~\citep{swebenchverified} repositories is excluded from every
+training and calibration set. A
+programmatic gate verified zero blocklist hits in the frozen file.
+
+We fine-tune Qwen2.5-Coder-7B~\citep{qwen25coder} with
+LoRA~\citep{lora} on a single GPU. Before training, the base model's
+localization rate is near zero; the search behavior is entirely learned from
+the demonstrations above. Hyperparameters are reported in Appendix~\ref{apx:hyperparams}.
+
+\subsection{Decoding Matters More Than Expected}
+\label{sec:decoding}
+
+The most consequential training-era finding was not about the training itself
+but about inference. On a 450-task held-out exam, greedy decoding finds the
+right files at a rate of 0.1104. A single sampled draw at temperature 0.9
+reaches 0.3058, a 2.65$\times$ gain after matching for infrastructure timeouts.
+
+\begin{figure}[!tbp]
+\input{figures/fig-decoding}
+\caption{\textbf{Sampled decoding is what makes the searcher useful.}
+\textbf{Left:} switching from greedy to temperature $0.9$ raises the
+find rate from $0.110$ to $0.306$ ($2.65\times$, $n{=}426$ of $450$).
+\textbf{Right:} on a separate 100-task dial set, commitment rises
+$3.03\times$ while per-handoff quality holds at $0.96\times$; on the
+exam itself emission rises $3.4\times$ against an 18\% per-handoff
+recall cost (Appendix~\ref{apx:vault}).  The two panels use different
+task sets; the right panel is a mechanism check, not a replication.}
+\label{fig:decoding}
+\end{figure}
+
+The exam's own decomposition shows what sampling buys and what it
+spends: the searcher's emission rate rises from 0.213 to 0.718
+(3.4$\times$), while recall per emitted handoff falls from 0.517 to
+0.426, an 18\% quality cost (Appendix~\ref{apx:vault}). Sampling trades
+a slice of per-handoff quality for a much larger gain in willingness to
+commit, a strongly net-positive exchange. A separate 100-task dial set
+shows the same mechanism with commitment up 3.03$\times$ and per-handoff
+quality flat at 0.96$\times$ (Figure~\ref{fig:decoding}); the quality
+cost visible on the exam does not appear there, so the dial set is a
+mechanism check, not a replication. Greedy decoding, it turns out,
+makes the searcher reluctant to declare a result; sampling at moderate
+temperature recovers ability the model already has. The shipped
+configuration is therefore a single sampled draw at temperature 0.9
+(\S\ref{sec:setup}).
+
+\subsection{Language Transfer}
+\label{sec:language-transfer}
+
+\modelname is trained on four languages (Go, Python, TypeScript, JavaScript),
+yet \sysname is deployed against repositories in languages the searcher has
+never seen. On the nine-language SWE-bench Multilingual
+evaluation~\citep{swebenchmultilingual}, which contains no Python and so
+covers three of the four training languages
+(Figure~\ref{fig:language-transfer}), spontaneous-handoff localization quality
+is higher on the six never-trained languages (file-level $F_1 = 0.630$) than on
+the three trained ones ($F_1 = 0.455$). The inversion survives a
+difficulty-matched control restricted to single-gold-file tasks, where recall
+on never-trained languages reaches 0.791 versus 0.524 for the trained pool.
+JavaScript and TypeScript account for much of the trained pool's lower average;
+the TypeScript and C++ cells each rest on 12 assigned tasks, of which 7 and 8
+respectively produced the spontaneous handoffs analyzed, and are indicative
+only (full per-language table in Appendix~\ref{apx:languages}).
+
+\begin{figure}[!tbp]
+\input{figures/fig-language-transfer}
+\caption{\textbf{Localization transfers to languages \modelname was never
+trained on.}  Per-language file-level $F_1$ of spontaneous handoffs
+(searcher alone, single draw, SWE-bench Multilingual).  Solid bars:
+three trained languages; hatched: six never-trained.  Dashed lines mark
+pooled aggregates ($0.455$ trained, $0.630$ never-trained).
+The TypeScript and C++ cells (12 assigned tasks each; 7 and 8
+spontaneous handoffs analyzed) are indicative only.}
+\label{fig:language-transfer}
+\end{figure}
+
+The contrast carries a confound: JavaScript and TypeScript are at once the
+trained pool's weakest cells and its smallest training slices, and both may be
+structurally harder to localize in (dynamic imports, build artifacts)
+independently of training exposure, so the trained-versus-never-trained
+comparison should not be read as causal.
+Our hypothesis for the pattern, and it is a hypothesis, is that \modelname
+learned a search method, not a language-specific vocabulary. The exploration
+strategies it relies on (reading directory trees, tracing imports, scanning
+test files) are structural operations that generalize across languages; the
+specific tokens involved matter less than the strategy of following them.
+
+\medskip
+\noindent\textbf{Reinforcement learning.}\quad
+We built and validated a GRPO~\citep{grpo} training rig and ran 50 clean
+steps. Learning was flat. A trace-level autopsy showed that the reward signal
+was real but aimed at a behavior already near its ceiling after supervised
+training: the model could localize when it chose to commit, and sampling had
+already recovered that commitment. We shelved RL in favor of the decoding fix
+described above; rig details are in Appendix~\ref{apx:hyperparams}.
+
+\FloatBarrier

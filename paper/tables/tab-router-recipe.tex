@@ -1,0 +1,43 @@
+% ===========================================================================
+% tab-router-recipe.tex — the deployed resume router, end to end (§4).
+% BODY ONLY (tabular). Wrapper/caption/label live in the section file.
+% Provenance: code/router/router_spec.json (embedder pin, resume definition,
+% feature recipe, hidden-state key, head, route rule and cheap order).
+%
+% Notes for editing:
+%   - The embedder is frozen infrastructure: one exact model and revision
+%     computes every embedding in the system and is never fine-tuned.
+%   - Features are listed uncentered and are computed per feature space.
+%   - Wording rule: phrase onboarding as "adding a new FIXER requires no
+%     retraining", never a bare "without retraining".
+% ===========================================================================
+\begin{tabular}{@{}ll@{}}
+\toprule
+Component & Specification \\
+\midrule
+Embedder      & Qwen3-Embedding-0.6B \\
+              & frozen \\
+              & 4096-token cap, $L_2$-normalized \\
+\addlinespace
+R\'esum\'e     & per fixer: mean embedding of \\
+              & solved, mean of failed, base rate \\
+              & from 25--50 public outcomes \\
+\addlinespace
+Features      & $\cos(x,s)$, $\cos(x,f)$, \\
+              & $\cos(x,s){-}\cos(x,f)$, $p$, \\
+              & $\cos(x,s){\cdot}p$, \\
+              & $(\cos(x,s){-}\cos(x,f)){\cdot}p$ \\
+              & uncentered, per feature space \\
+\addlinespace
+Hidden state  & \modelname\ layer $-4$, pre-decode \\
+              & final-position state (3584-d) \\
+\addlinespace
+Scorer        & logistic regression per space, \\
+              & uniform probability average, \\
+              & $\theta{=}0.30$, cheapest-adequate \\
+\addlinespace
+New fixer     & 25--50 public outcomes; \\
+              & no retraining of \modelname, \\
+              & the embedder, or the scorer \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,42 @@
+% ===========================================================================
+% tab-main-results.tex — main results, SWE-bench Pro Python-266.
+% BODY ONLY (tabular): the table wrapper, \caption and \label live in the
+% section file that includes this.
+% Provenance: data/receipts/outcomes_per_task.json.
+%
+% "vs. mix" = percentage points above the blind-mixing line, i.e. the linear
+%   interpolation between the two solo endpoints, \fxkimi ($0.106138/task,
+%   56.0150%) -> \fxopus ($0.756586/task, 59.3985%) in ($/task, solve-rate)
+%   space, evaluated at the row's own $/task; row rates use the exact
+%   fraction 159/266, not the rounded 59.77%.
+% Bolding: best value per column; genuine ties are bolded on both rows.
+%   Wording rule: "matches", never "beats" — 159 vs 158 is one task at n=266.
+% Layout: wide table. House rule is a smaller font plus tighter \tabcolsep
+%   kept local to this tabular, never \resizebox. The first column is a
+%   fixed-width paragraph column so the two long system labels wrap instead
+%   of pushing the tabular past the text column.
+% ===========================================================================
+\begingroup\footnotesize\setlength{\tabcolsep}{2pt}%
+\begin{tabular}{@{}p{1.20in}rrrrr@{}}
+\toprule
+System & Solves/266 & Rate & \$/task & \$/solve & vs.\ mix \\
+\midrule
+\raggedright\sysname (router, $\theta{=}0.30$)
+  & \textbf{159} & \textbf{59.77\%} & \$0.137 & \$0.230 & $+3.60$ \\
+\midrule
+\fxopus solo  & 158 & 59.40\% & \$0.757 & \$1.274 & --- \\
+\fxkimi solo  & 149 & 56.02\% & \textbf{\$0.106} & \textbf{\$0.190} & --- \\
+\fxgpt solo   & 139 & 52.26\% & \$0.570 & \$1.091 & --- \\
+\midrule
+\raggedright No-router ablation (\fxkimi $+$ handoff)
+  & \textbf{159} & \textbf{59.77\%} & \$0.136 & \$0.227 & $+3.60$ \\
+\bottomrule
+\multicolumn{6}{@{}p{0.97\linewidth}@{}}{\footnotesize Solves are out of
+$n{=}266$, top to bottom: 159, 158, 149, 139, 159. The \sysname row and the
+ablation row share one all-in cost convention: fixer API spend plus the
+\modelname searcher's GPU bill plus verify-then-strip sandbox infrastructure,
+amortized over 266 tasks. Solo rows are fixer API spend only. ``vs.\ mix'' is
+percentage points above the \fxkimi--\fxopus blind-mixing line at the row's
+own \$/task.}
+\end{tabular}%
+\endgroup

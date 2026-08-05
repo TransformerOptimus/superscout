@@ -1,0 +1,87 @@
+% Section 2, Related Work.
+
+\section{Related Work}
+\label{sec:related}
+
+SWE-agent~\citep{sweagent} introduced the agent-computer-interface paradigm
+for autonomous issue resolution in real repositories.
+Agentless~\citep{agentless} showed that a fixed pipeline, with no agent
+autonomy at all, can achieve competitive resolve rates.
+SWE-smith~\citep{swesmith} addresses data scarcity by synthesizing
+large-scale training corpora for such agents, while
+SWE-Gym~\citep{swegym} and R2E-Gym~\citep{r2egym} supply executable
+training environments built from real repositories.
+The community evaluates these systems on
+SWE-bench~\citep{swebench} and its harder successor
+SWE-bench Pro~\citep{swebenchpro}.
+
+A parallel line of work trains small models specifically for code
+localization.
+SWE-Fixer~\citep{swefixer} trains a 7B retriever whose output feeds one
+fixed larger editor.
+LocAgent~\citep{locagent} and SweRank~\citep{swerank} similarly train
+compact models to identify fault locations within a repository.
+These systems produce exactly the kind of evidence a router could consume,
+yet none of them routes: the localizer's output terminates in a single,
+predetermined consumer.
+
+LLM routing has been studied along two axes.
+Cost-quality routers such as RouteLLM~\citep{routellm},
+FrugalGPT~\citep{frugalgpt}, and Hybrid LLM~\citep{hybridllm} learn to
+dispatch queries to cheaper or stronger models based on predicted difficulty.
+Profile-based selectors take a complementary approach, building per-model
+signatures from benchmark outcomes or learned
+embeddings and matching incoming queries against
+them~\citep{shnitzer,embedllm,iclrouter}.
+Both families share a structural property: they decide from the task prompt,
+and optionally from model profiles, before any system has engaged with the
+concrete problem instance.
+
+Several concurrent efforts address routing in code-generation settings.
+SWE-Router~\citep{swerouter} probes each issue with a weak model and then
+escalates between exactly two models; on escalation the strong model restarts
+from scratch, so the probe's work is not consumed.
+Its theoretical analysis of trajectory-conditioned routing nonetheless
+supports the design direction we pursue.
+CodeRescue~\citep{coderescue} routes among recovery actions (reflect,
+replan, or escalate) inside a single agent's trajectory rather than among
+fixer models.
+TRACE-Router~\citep{tracerouter} formulates model selection as a contextual
+bandit over an N-way pool, though it is evaluated outside software
+engineering.
+Self-play SWE-RL~\citep{selfplayswerl} trains solvers via self-play and
+evaluates on SWE-bench Pro but does not route.
+As Table~\ref{tab:capability-matrix} summarizes, \sysname is distinct in
+combining a trained searcher, a handoff the fixer actually consumes (after
+verification), an N-way fixer pool where adding a new fixer requires no
+retraining, and routing features drawn from the searcher's hidden states.
+
+\begin{table}[!tbp]
+\centering
+\caption{\textbf{Capability comparison of \sysname with related routing and
+localization systems.}
+Columns: \emph{Searcher}, a model trained to scout the repository before
+any fix is attempted;
+\emph{Handoff}, the searcher's work product is consumed by the downstream
+fixer rather than discarded;
+\emph{$N$-way}, selection over a pool of more than two fixers;
+\emph{Onboard}, adding a new fixer requires no retraining of any learned
+component;
+\emph{States}, routing features include the searcher's internal hidden
+states.
+Concurrent code-routing work escalates between a fixed pair and discards
+the cheap model's evidence on escalation;
+profile-based routers select from the task prompt alone, before any
+exploration;
+trained small localizers produce evidence a router could use but perform no
+routing.
+$\checkmark^{\dagger}$: SWE-Fixer's retriever feeds one fixed larger editor,
+while LocAgent and SweRank stop at localization.
+Rows: SWE-Router~\citep{swerouter}, CodeRescue~\citep{coderescue},
+TRACE-Router~\citep{tracerouter},
+profile routers~\citep{embedllm,iclrouter,shnitzer},
+small localizers~\citep{swefixer,locagent,swerank}.}
+\label{tab:capability-matrix}
+\input{tables/tab-capability-matrix}
+\end{table}
+\FloatBarrier

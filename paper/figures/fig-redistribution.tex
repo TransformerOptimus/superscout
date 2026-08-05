@@ -1,0 +1,109 @@
+% ===========================================================================
+% fig-redistribution.tex — paired solo -> with-handoff solve rate per fixer,
+% label-run paired-100.
+% BODY ONLY (tikzpicture). Wrapper/caption/label live in the section file.
+% Requires \input{figures/fig-style} in the preamble.
+%
+% PROVENANCE — every number.
+%   Source: internal records, the DIRECTIONAL-ONLY handoff section, the paired
+%   table (N=99 paired tasks, same task / same fixer, Delta = handoff - solo):
+%
+%     fixer    solo    handoff   Delta pp (95% CI)      McNemar p
+%     claude   48.5    53.5      +5.1  [ 0.0, 10.1]     0.125
+%     kimi     52.5    56.6      +4.0  [-4.0, 12.1]     0.481
+%     flash    55.6    57.6      +2.0  [-5.1,  9.1]     0.774
+%     gpt      60.6    56.6      -4.0  [-11.1, 3.0]     0.424
+%     pooled   54.3    56.1      +1.8  [-1.0,  4.5]     0.401
+%
+%   Absolute solo and handoff rates ARE present in that table, so nothing is
+%   derived here beyond one addition, stated explicitly:
+%   THE PLOTTED INTERVAL is the published paired-DELTA CI anchored at the
+%   published solo rate, i.e. [solo + CI_low, solo + CI_high]:
+%     claude  [48.5, 58.6]   kimi  [48.5, 64.6]   flash [50.5, 64.7]
+%     gpt     [49.5, 63.6]   pooled[53.3, 58.8]
+%   The source reports NO CI on the absolute rates themselves; the interval
+%   must therefore always be described as a delta CI, never as a CI on the
+%   handoff rate. No other arithmetic was performed.
+%
+%   Scope stamp (binding, from the same file's header): N=99 paired / 100
+%   solo, Python-only, label run. "N=99-100 underpowers every per-fixer
+%   significance test — read the CIs, not the point estimates." No fixer
+%   reaches p<0.05; every effect is DIRECTIONAL-ONLY.
+% ===========================================================================
+\begin{tikzpicture}
+\begin{axis}[
+  paperaxis,
+  width=0.80\linewidth,
+  height=5.2cm,
+  xmin=44, xmax=70,
+  xtick={45,50,55,60,65},
+  xticklabel={\pgfmathprintnumber{\tick}\%},
+  xlabel={Solve rate (paired, $N{=}99$)},
+  symbolic y coords={{claude},{kimi},{flash},{gpt},{pooled}},
+  ytick=data,
+  % internal symbolic-coordinate keys above stay bare identifiers for
+  % pgfplots bookkeeping; the RENDERED tick labels go through the fixer
+  % macros so no bare family name ever reaches the page.
+  yticklabels={\fxopus,\fxkimi,\fxflash,\fxgpt,pooled},
+  y dir=reverse,
+  enlarge y limits=0.16,
+  xmajorgrids=true,
+  legend style={at={(0.5,-0.26)}, anchor=north, legend columns=2,
+                /tikz/every even column/.append style={column sep=6pt}},
+  legend cell align=left,
+]
+
+% ---- paired-delta 95% CI, anchored at the solo rate --------------------
+% [solo + CI_low, solo + CI_high]; see the provenance block above.
+\draw[gray!45, line width=0.6pt] (axis cs:48.5,{claude}) -- (axis cs:58.6,{claude});
+\draw[gray!45, line width=0.6pt] (axis cs:48.5,{kimi})   -- (axis cs:64.6,{kimi});
+\draw[gray!45, line width=0.6pt] (axis cs:50.5,{flash})  -- (axis cs:64.7,{flash});
+\draw[gray!45, line width=0.6pt] (axis cs:49.5,{gpt})    -- (axis cs:63.6,{gpt});
+\draw[gray!45, line width=0.6pt] (axis cs:53.3,{pooled}) -- (axis cs:58.8,{pooled});
+% end caps
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:48.5,{claude}) -- ([yshift=-2.2pt] axis cs:48.5,{claude});
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:58.6,{claude}) -- ([yshift=-2.2pt] axis cs:58.6,{claude});
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:48.5,{kimi})   -- ([yshift=-2.2pt] axis cs:48.5,{kimi});
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:64.6,{kimi})   -- ([yshift=-2.2pt] axis cs:64.6,{kimi});
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:50.5,{flash})  -- ([yshift=-2.2pt] axis cs:50.5,{flash});
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:64.7,{flash})  -- ([yshift=-2.2pt] axis cs:64.7,{flash});
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:49.5,{gpt})    -- ([yshift=-2.2pt] axis cs:49.5,{gpt});
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:63.6,{gpt})    -- ([yshift=-2.2pt] axis cs:63.6,{gpt});
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:53.3,{pooled}) -- ([yshift=-2.2pt] axis cs:53.3,{pooled});
+\draw[gray!45, line width=0.6pt] ([yshift=2.2pt] axis cs:58.8,{pooled}) -- ([yshift=-2.2pt] axis cs:58.8,{pooled});
+
+% ---- solo -> handoff connectors ---------------------------------------
+\draw[-{Stealth[length=2.0mm]}, black!65, line width=0.7pt] (axis cs:48.5,{claude}) -- (axis cs:53.5,{claude});
+\draw[-{Stealth[length=2.0mm]}, black!65, line width=0.7pt] (axis cs:52.5,{kimi})   -- (axis cs:56.6,{kimi});
+\draw[-{Stealth[length=2.0mm]}, black!65, line width=0.7pt] (axis cs:55.6,{flash})  -- (axis cs:57.6,{flash});
+\draw[-{Stealth[length=2.0mm]}, black!65, line width=0.7pt] (axis cs:60.6,{gpt})    -- (axis cs:56.6,{gpt});
+\draw[-{Stealth[length=2.0mm]}, black!65, line width=0.7pt] (axis cs:54.3,{pooled}) -- (axis cs:56.1,{pooled});
+
+% ---- solo (open, gray) -------------------------------------------------
+\addplot[only marks, papermark, color=cBase, mark=o, mark options={fill=white}]
+  coordinates {(48.5,{claude}) (52.5,{kimi}) (55.6,{flash})
+               (60.6,{gpt}) (54.3,{pooled})};
+\addlegendentry{solo}
+
+% ---- with handoff (filled, per-fixer colour + distinct marker) ---------
+\addplot[only marks, papermark, color=cOpus, mark=square*]
+  coordinates {(53.5,{claude})};
+\addlegendentry{with handoff}
+\addplot[only marks, papermark, color=cKimi, mark=diamond*, forget plot]
+  coordinates {(56.6,{kimi})};
+\addplot[only marks, papermark, color=cFlash, mark=pentagon*, forget plot]
+  coordinates {(57.6,{flash})};
+\addplot[only marks, papermark, color=cGpt, mark=triangle*, forget plot]
+  coordinates {(56.6,{gpt})};
+\addplot[only marks, papermark, color=cSys, mark=*, forget plot]
+  coordinates {(56.1,{pooled})};
+
+% ---- delta labels ------------------------------------------------------
+\node[font=\scriptsize, text=cOpus,  anchor=west] at (axis cs:59.2,{claude}) {$+5.1$};
+\node[font=\scriptsize, text=cKimi,  anchor=west] at (axis cs:65.2,{kimi})   {$+4.0$};
+\node[font=\scriptsize, text=cFlash, anchor=west] at (axis cs:65.3,{flash})  {$+2.0$};
+\node[font=\scriptsize, text=cGpt,   anchor=west] at (axis cs:64.2,{gpt})    {$-4.0$};
+\node[font=\scriptsize, text=cSys,   anchor=west] at (axis cs:59.4,{pooled}) {$+1.8$};
+
+\end{axis}
+\end{tikzpicture}

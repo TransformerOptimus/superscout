@@ -1,0 +1,61 @@
+% ===========================================================================
+% tab-apx-vault.tex — APPENDIX. Sampled versus greedy decoding for the
+% searcher, on the 450-task held-out vault.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell.
+%   Source: internal records (the 450-vault
+%   milestone comparison, run A = temperature 0.9, run B = greedy, same
+%   checkpoint, same 450 tasks). Verified verbatim from the metric table:
+%     n                450 / 450
+%     find_rate        0.3058 / 0.1104   (A/B 2.77x raw)
+%     emission         0.7178 / 0.2133
+%     handoffs         323 / 96
+%     recall/handoff   0.4261 / 0.5173
+%     precision        0.6428 / 0.7257
+%     files/handoff    1.93 / 2.05
+%     wrong-commit     0.195 / 0.1354
+%     all-files-hit    71 / 27
+%     malformed        0 / 0
+%   Error bars, verbatim: "find_rate = 0.3058  95% CI [0.2731, 0.3371]
+%     half-width +-0.032" (bootstrap 1000x over the 450 tasks, seed 0).
+%   Timeout sensitivity, verbatim: "RAW A=0.3058 B=0.1104 ratio 2.77x /
+%     MATCHED A=0.3091 B=0.1166 ratio 2.65x (n=426)" — the greedy arm lost 24
+%     episodes to infrastructure wall-timeouts, which are dropped from BOTH
+%     arms for the matched figure.
+%   THE QUOTABLE MULTIPLIER IS 2.65x, NEVER 5.7x. Two separate internal
+%     retractions bind this:
+%     (a) internal records: "the 0.0631
+%         comparator was ONE CONTAMINATED RUN ... DO NOT USE; 5.7x claim
+%         RETRACTED";
+%     (b) internal records: the honest multiplier is 2.65x (timeout-matched,
+%         dropping 24 greedy-arm timeouts from both arms; raw 2.77x is not
+%         quoted, since greedy timeouts flatter us).
+%     The raw 2.77x is deliberately NOT the headline for the same reason.
+%   Decomposition (quoted in the caption): "commitment
+%     3.37x x per-handoff quality 0.82x — the vault charges a real quality
+%     give-back". The quality give-back is visible in this table's own
+%     recall-per-handoff and precision rows, which both fall.
+%   Vault construction: 450 issues, Go 200 / TS 150 / Py 100 over 306 repos,
+%     deterministic selection, and the vault ids are a mandatory exclusion
+%     list for every training set.
+% ===========================================================================
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Metric ($n{=}450$) & Sampled & Greedy \\
+\midrule
+Find rate            & 0.306 & 0.110 \\
+\quad 95\% CI        & [.273, .337] & --- \\
+\quad timeout-matched ratio & \multicolumn{2}{r}{$2.65\times$ ($n{=}426$)} \\
+\addlinespace
+Emission rate        & 0.718 & 0.213 \\
+Handoffs emitted     & 323 & \phantom{0}96 \\
+\addlinespace
+Recall per handoff   & 0.426 & 0.517 \\
+Precision            & 0.643 & 0.726 \\
+Files per handoff    & 1.93 & 2.05 \\
+All-gold handoffs    & \phantom{0}71 & \phantom{0}27 \\
+\addlinespace
+Malformed            & \phantom{00}0 & \phantom{00}0 \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,44 @@
+% ===========================================================================
+% tab-apx-audit.tex — APPENDIX. The zero-cost audit of public per-task
+% outcome matrices that motivated this work.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell.
+%   Source: internal records, "Master table (structural stats
+%   at matched 4-model realistic pools; routing deltas pooled over LORO)".
+%   Column order in the source is Verified | Multilingual | Pro. Verified
+%   verbatim:
+%     mean containment (Guttman)          0.941 | 0.912 | 0.773
+%     unique-solver shell (% of routable) 21.5% | 20.8% | 30.8%
+%     best router - always-strongest      -0.006 (p=.66) ns | +0.010 (p=.24)
+%                                         ns | -0.004 (p=.90) ns
+%   Supporting rows from the same table, used in the caption:
+%     best single model 0.768 | 0.726 | 0.449
+%   Source's own reading, verbatim: "the harder the benchmark, the LESS
+%     nested ... and the bigger the genuinely-complementary shell"; and the
+%     decisive line, "But — the decisive twist — routing still does not win on
+%     Pro. Best router (ours-KNN) ties always-strongest (-0.004, p=0.90) ...
+%     always-strongest is unbeaten on all three matrices."
+%   Comparability note the source insists on: containment and shell are
+%     computed on identical 4-model pools so the model-count confound is
+%     removed ("mean-over-all-4-subsets containment = 0.934 / 0.888 / 0.773").
+%
+%   FRAMING RULE (BINDING): "accuracy-routing-beats-always-best = background only (v1
+%   finding: impossible without specialist pools)". This table is background
+%   motivation and nothing else. It must NOT be presented as a contribution,
+%   a baseline comparison, or a result of this system: it is a prior,
+%   zero-cost audit of published outcome matrices that explains why this work
+%   routes for COST at matched accuracy rather than for accuracy.
+% ===========================================================================
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+ & Verified & Multiling. & Pro \\
+\midrule
+Best single model      & 0.768 & 0.726 & 0.449 \\
+Mean containment       & 0.941 & 0.912 & 0.773 \\
+Unique-solver shell    & 21.5\% & 20.8\% & 30.8\% \\
+\addlinespace
+Best router $-$ best model & $-0.006$ & $+0.010$ & $-0.004$ \\
+\quad $p$              & 0.66 & 0.24 & 0.90 \\
+\bottomrule
+\end{tabular}

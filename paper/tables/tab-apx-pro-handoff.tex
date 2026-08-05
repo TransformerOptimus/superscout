@@ -1,0 +1,33 @@
+% ===========================================================================
+% tab-apx-pro-handoff.tex — APPENDIX. Deployment-path corroboration of the
+% handoff effect, on the router-selected subset of the Pro evaluation.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file.
+%
+% PROVENANCE — every cell. Derived from data/receipts/:
+%   routing_scenarios.json `decisions` (theta = 0.30) gives the routed subset:
+%     263 tasks -> kimi-k2-5, 3 -> gemini-3-flash.
+%   outcomes_per_task.json:
+%     with handoff = system_union_pairs[task]["kimi-k2-5"].resolved
+%       -> 158/263 = 60.1%
+%     solo, same tasks = solo[task]["kimi"].resolved
+%       -> 148/263 = 56.3%
+%     delta = +3.8pp
+%     discordant pairs: handoff-only b=35, solo-only c=25 (both 123,
+%       neither 80); exact two-sided McNemar on b+c=60 -> p = 0.245
+%   Whole-benchmark anchors from the same file: Kimi K2.5 with handoff
+%   159/266, solo 149/266.
+%
+%   WHY ONE ROW: the 3 tasks routed to Gemini 3 Flash have no solo Flash arm,
+%   so they cannot form a paired subset; the caption's footnote says so.
+%   The subset is router-selected, not randomly assigned, so the paired
+%   label-run comparison stays the controlled citation and this table is
+%   corroboration only; the McNemar p is printed with that caveat in the
+%   caption.
+% ===========================================================================
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Fixer & Routed $n$ & Handoff & Solo & $\Delta$ & $b/c$ & $p$ \\
+\midrule
+\fxkimi & 263 & 60.1\% & 56.3\% & $+3.8$ & 35/25 & 0.245 \\
+\bottomrule
+\end{tabular}

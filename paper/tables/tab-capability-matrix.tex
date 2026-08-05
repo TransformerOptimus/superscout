@@ -1,0 +1,119 @@
+% ===========================================================================
+% tab-capability-matrix.tex — related-work capability matrix (Section 2).
+% BODY ONLY (tabular). Wrapper/caption/label live in the section file.
+%
+% PROVENANCE — every cell.
+%   Ground truth for the three code-routing competitors = the scoop-check
+%   entries in internal records (each paper was READ
+%   IN FULL before the verdict was written).
+%
+%   SWE-Router (arXiv 2607.00053, ICML26 DL4Code workshop) — internal
+%   scoop-check entry:
+%     trained searcher   = NO. Their probe is the WEAK FIXER run for K=3
+%                          turns; the trained 7B is a value head reading the
+%                          partial trajectory, not a searcher. Entry lists
+%                          "trained-7B searcher" under "Untouched by them".
+%     consumed handoff   = NO. "on escalation the strong model RESTARTS FROM
+%                          SCRATCH (probe discarded) ... their probe is
+%                          thrown away — citable gap".
+%     N-way pool         = NO. "binary continue-vs-escalate", "per-pair
+%                          value head".
+%     zero-retrain onb.  = NO. "fresh rollouts + retraining per model".
+%     hidden states      = NO. Entry: "hidden states (text-only)".
+%
+%   CodeRescue (arXiv 2607.19338, preprint) — internal scoop-check entry:
+%     trained searcher   = NO. "a 4B router picks among 3 fixed ACTIONS
+%                          (reflect/replan/escalate)"; entry lists "no
+%                          searcher/handoff/resumes/hidden-states".
+%     consumed handoff   = NO (same clause).
+%     N-way pool         = NO. "action-routing not model-routing, binary
+%                          cheap/strong pair not N-way pool"; also
+%                          "function-level not repo-level".
+%     zero-retrain onb.  = NO. "their fixed 3-way head structurally cannot
+%                          admit a new model without retraining".
+%     hidden states      = NO (same "no ... hidden-states" clause).
+%
+%   TRACE-Router (arXiv 2607.22465) — internal records characterises it
+%   only as "task-level bandit routing, non-SWE, low risk", and the
+%   competitive-map summary states that NONE of the three has "a
+%   trained searcher, consumed handoff, resume N-way pool, zero-retraining
+%   onboarding, handoff-conditioned labels, hidden-state features, or a Pro
+%   eval". That licenses four of its five cells directly.
+%     N-way pool cell WEB-VERIFIED: their framework is defined
+%     over "a pool of K candidate LLM backends" (arbitrary K) and §4.6
+%     demonstrates a 4-arm experiment, though headline results use pairs.
+%     Check mark stands (arxiv.org/abs/2607.22465).
+%
+%   Profile-based routers (EmbedLLM / ICL-Router / Shnitzer, one collapsed
+%   row) — internal records (positioning, scoop-checked):
+%     "Novelty wedge = multi-fixer selection AFTER a dedicated reconnaissance
+%      phase, via an explicit handoff. Cite & differentiate: ... EmbedLLM/
+%      ICL-Router/Shnitzer (profiles-from-outcomes concept — NOT ours to
+%      claim)".
+%     trained searcher   = NO  (the wedge sentence: they route without any
+%                          reconnaissance phase; nothing is trained to search)
+%     consumed handoff   = NO  (same sentence — no handoff exists to consume)
+%     N-way pool         = YES (the profiles-from-outcomes concept is a
+%                          many-model profile bank; internal records credits the concept
+%                          to them explicitly)
+%     zero-retrain onb.  = YES (same concept: a new model joins by having its
+%                          outcome profile built; internal records describes our own
+%                          resume mechanism as the same idea and calls the
+%                          concept "NOT ours to claim")
+%     hidden states      = NO
+%     hidden-states cell WEB-VERIFIED: EmbedLLM routes on a
+%     correctness-matrix factorization + question text embeddings
+%     (arxiv.org/abs/2410.02223); ICL-Router on profiling-derived in-context
+%     vectors (arxiv.org/abs/2510.09719); Shnitzer on input-text embeddings
+%     over benchmark outcomes (arxiv.org/abs/2309.15789, corroborated from
+%     abstract; verbatim methods quote not pulled -- recheck only if a
+%     reviewer contests). None access the routed models' activations; the
+%     cross stands.
+%
+%   Small localizers (SWE-Fixer / LocAgent / SweRank, one collapsed row) —
+%   internal records: "SWE-Fixer/LocAgent/Kimi-Dev (small localizers/
+%   test-writers, no routing)"; internal records names SweRank-7B as the published
+%   small-model localization baseline row.
+%     trained searcher   = YES (that is exactly what they are — trained small
+%                          localizers; internal records cites LocAgent as "closest
+%                          task, LoRA on Qwen2.5-Coder")
+%     consumed handoff   = MIXED, marked with a dagger. internal records
+%                          (exam-menu sweep) records "SWE-Fixer (7B retr+72B
+%                          editor) 32.8" — its retrieval output IS consumed
+%                          by a fixed larger editor, but LocAgent and SweRank
+%                          stop at localization. The dagger and the caption
+%                          carry the distinction rather than hiding it.
+%     N-way pool         = NO  ("no routing")
+%     zero-retrain onb.  = NO  (no pool to onboard into)
+%     hidden states      = NO  (retrieval/agent text pipelines)
+%
+%   \sysname row — all five are ours by construction:
+%     trained searcher   = internal records (\modelname performs the
+%                          search phase, SFT-trained)
+%     consumed handoff   = harness rules (verify-then-strip, then the
+%                          handoff is injected into the fixer prompt)
+%     N-way pool         = four fixers, internal pool ruling plus the
+%                          router spec's "pool" field
+%     zero-retrain onb.  = internal records: "onboard new fixer from 25-50 outcomes,
+%                          zero retraining"
+%     hidden states      = the deployed head blends a task-text head with a
+%                          \modelname pre-decode hidden-state head
+%
+%   WORDING RULE APPLIED: the
+%   onboarding column is phrased "adding a new FIXER requires no retraining",
+%   never a bare "without retraining" (that phrase collides with CodeRescue's
+%   budget-knob usage).
+% ===========================================================================
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+System & Searcher & Handoff & $N$-way & Onboard & States \\
+\midrule
+SWE-Router      & $\times$     & $\times$ & $\times$     & $\times$     & $\times$ \\
+CodeRescue      & $\times$     & $\times$ & $\times$     & $\times$     & $\times$ \\
+TRACE-Router    & $\times$     & $\times$ & $\checkmark$ & $\times$     & $\times$ \\
+Profile routers & $\times$     & $\times$ & $\checkmark$ & $\checkmark$ & $\times$ \\
+Small localizers & $\checkmark$ & $\checkmark^{\dagger}$ & $\times$ & $\times$ & $\times$ \\
+\midrule
+\textbf{\sysname} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\bottomrule
+\end{tabular}

@@ -1,0 +1,189 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+% --- Citation style ---------------------------------------------------------
+% natbib (numeric, ordered by appearance, compressed runs) so \citep{...} /
+% \citet{...} work in the section files. `unsrtnat` is the natbib-compatible
+% IEEE-style numeric-by-order bibstyle.
+\PassOptionsToPackage{numbers,sort&compress}{natbib}
+\usepackage{natbib}
+
+% --- Core packages ----------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{xspace}
+\usepackage{microtype}
+\usepackage[hypcap=true]{caption}
+\usepackage{hyperref}
+
+% --- Algorithms / units -----------------------------------------------------
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{siunitx}
+
+% --- TikZ / pgfplots (figures drawn inline; no external image files) --------
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric, arrows.meta, fit}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+% Shared figure palette + axis style (cSys/cOpus/cGpt/cKimi/cFlash/cBase,
+% `paperaxis`); every figure in figures/ depends on it.
+\input{figures/fig-style}
+
+% --- Float discipline -------------------------------------------------------
+\usepackage{placeins}
+% `float` provides the [H] placement used by every appendix float, which pins
+% the table/figure at the exact point it is written instead of letting it
+% migrate to a column top or a later page.
+\usepackage{float}
+
+% --- Column balancing -------------------------------------------------------
+% `balance` evens out the two columns wherever \balance is issued: on the
+% last main-body page (before the references \clearpage) and on the final
+% appendix page. NOTE: flushend was removed — it patches the same output
+% routine and silently defeats \balance.
+\usepackage{balance}
+
+% --- Section heading typography --------------------------------------------
+% Bold + Arabic + left-aligned instead of the IEEE default (Roman numerals,
+% small caps, centered). Styling only.
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\large\bfseries}{\thesection}{0.8em}{}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{\thesubsection}{0.8em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\itshape}{\thesubsubsection}{0.8em}{}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+
+% --- Line spacing: 4% extra to relieve the IEEE 10pt density ---------------
+\linespread{1.04}
+
+% --- Tighter float spacing -------------------------------------------------
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{0pt}
+
+% ===========================================================================
+% --- Naming macros ---------------------------------------------------------
+% \sysname is the full system (searcher + verify-then-strip + router);
+% \modelname is the trained 7B searcher. Every mention in the body MUST go
+% through these macros so a rename stays a one-line change. Never hard-code
+% a system or model name in sections/.
+% ===========================================================================
+\newcommand{\sysname}{SuperScout\xspace}
+\newcommand{\modelname}{SuperScout-7B\xspace}
+
+% --- Fixer model names -------------------------------------------------------
+% Every fixer-model mention in rendered text (tables, captions, figure/plot
+% labels, legends) MUST go through these macros. Never a bare family name
+% ("opus", "gpt", "kimi", "flash", etc.) anywhere in rendered output.
+\newcommand{\fxgpt}{GPT-5.2\xspace}
+\newcommand{\fxopus}{Claude Opus 4.6\xspace}
+\newcommand{\fxflash}{Gemini 3 Flash\xspace}
+\newcommand{\fxkimi}{Kimi K2.5\xspace}
+% Short variants for tight in-plot labels ONLY (version kept, vendor
+% dropped). Prose, captions, and tables use the full macros above.
+\newcommand{\fxgptS}{GPT-5.2\xspace}
+\newcommand{\fxopusS}{Opus 4.6\xspace}
+\newcommand{\fxkimiS}{Kimi K2.5\xspace}
+
+% --- Formatting macros ------------------------------------------------------
+% \semibold is plain \textbf on the Times font (stroke tricks break the
+% IEEEtran title block).
+\newcommand{\semibold}[1]{\textbf{#1}}
+% Inline code / identifiers.
+\newcommand{\code}[1]{\texttt{#1}}
+% Metric and dataset names, so their typography is changeable in one place.
+\newcommand{\metric}[1]{\textsc{#1}}
+\newcommand{\dataset}[1]{\textsc{#1}}
+% Drafting marker; delete every occurrence before submission.
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+% ===========================================================================
+\title{Scrouting: Cost-Aware Routing of Coding Agents by Scouting the
+Repository First%
+\thanks{Model and data: \url{https://huggingface.co/SuperAGI/SuperScout-7B}
+(weights), \url{https://huggingface.co/datasets/SuperAGI/superscout-sft-search}
+(training corpus),
+\url{https://huggingface.co/datasets/SuperAGI/superscout-router-features}
+(router features). Code and data:
+\url{https://github.com/TransformerOptimus/superscout}.}}
+
+\author{%
+\IEEEauthorblockN{\textbf{Ishaan Bhola}}
+\IEEEauthorblockA{SuperAGI Research}
+\and
+\IEEEauthorblockN{\textbf{Adithyan Krishnan}}
+\IEEEauthorblockA{SuperAGI Research}
+\and
+\IEEEauthorblockN{\textbf{Mukunda NS}}
+\IEEEauthorblockA{SuperAGI Research}
+}
+
+\begin{document}
+
+% Activates the IEEEtranBSTCTL entry in references.bib: IEEE house rule of
+% "et al." after six authors (first author shown). Renders nothing.
+\bstctlcite{BSTcontrol}
+
+\maketitle
+
+\input{sections/00_abstract}
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_problem_setup}
+\input{sections/04_system}
+\input{sections/05_training}
+\input{sections/06_experimental_setup}
+\input{sections/07_results}
+\input{sections/08_calibration}
+\input{sections/09_limitations}
+\input{sections/10_conclusion}
+
+% References start on a fresh page; \clearpage also flushes any pending
+% floats so nothing from the main body or appendix interleaves with the
+% bibliography. \balance evens out the two columns of the final body page.
+\balance
+\clearpage
+\bibliographystyle{IEEEtranN}
+\bibliography{references}
+
+% Appendix likewise starts on its own page, so its floats can only land on
+% appendix pages.
+\clearpage
+% \balance swaps the output routine globally and stays in force for every
+% later page, so the one issued before the references was still balancing
+% the appendix. Turn it off here: with pinned floats an unbreakable table
+% cannot be split, so balancing pushed whole tables into the right column
+% and left the left one nearly empty.
+\nobalance
+% Appendix floats are pinned with [H], so leftover vertical space must be
+% allowed to collect at column bottoms rather than being stretched between
+% sections. Applies from here to the end of the document only.
+\raggedbottom
+% Appendix typography one step down (10pt -> 9pt body, footnotesize captions).
+% Standard venue practice for supplementary material; scoped to the appendix
+% only because it is issued after the references \clearpage. Float bodies are
+% shrunk a further step with \footnotesize inside each wrapper in
+% sections/99_appendix.tex.
+\small
+\captionsetup{font=footnotesize}
+\appendices
+\input{sections/99_appendix}
+% NOTE: the final \balance was removed. Balancing is incompatible with the
+% pinned ([H]) appendix layout (see \nobalance above); \raggedbottom gives
+% the intended ragged last page instead.
+
+\end{document}

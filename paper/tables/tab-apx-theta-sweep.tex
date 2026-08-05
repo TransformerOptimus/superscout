@@ -1,0 +1,48 @@
+% ===========================================================================
+% tab-apx-theta-sweep.tex — APPENDIX. Gate threshold sweep: what the router
+% does to routing, solves and cost as theta moves.
+% BODY ONLY (tabular). Wrapper/caption/label live in the appendix file; the
+% appendix wrapper supplies \footnotesize, so this body sets no font size,
+% only a tighter \tabcolsep (eight columns in one 3.5in text column).
+% Provenance: code/router/router_spec.json, data/receipts/outcomes_per_task.json.
+%
+% Convention: exact rows (0.25, 0.30) print a point solve count; bounded rows
+%   print the bracketing interval [lo, hi] and NEVER a bare midpoint, here or
+%   in caption or prose. The star marks a $/solve computed from a solo-filled
+%   point estimate of the solve count; $/task carries no star because it is
+%   fixed by the routing split. theta = 0.30 is the operating point. Above the
+%   operating point, tasks passing no gate go to the most capable fixer
+%   (stated in the note); at 0.25/0.30 the fall-through never fires.
+% ===========================================================================
+\begingroup\setlength{\tabcolsep}{2pt}%
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+& \multicolumn{4}{c}{Routing split (tasks)} & & & \\
+\cmidrule(lr){2-5}
+$\theta$
+  & \parbox[b]{0.42in}{\raggedleft\fxkimi}
+  & \parbox[b]{0.42in}{\raggedleft\fxflash}
+  & \parbox[b]{0.42in}{\raggedleft\fxgpt}
+  & \parbox[b]{0.42in}{\raggedleft\fxopus}
+  & Solves & \$/task & \$/solve \\
+\midrule
+$0.25$              & 266 &  0 &  0 &  0 & 159        & \$0.136 & \$0.227 \\
+$0.30^{\dagger}$    & 263 &  3 &  0 &  0 & 159        & \$0.137 & \$0.230 \\
+$0.35$              & 236 & 19 & 10 &  1 & [149, 169] & \$0.154 & \$0.272$^{*}$ \\
+$0.40$              & 203 & 34 & 28 &  1 & [132, 179] & \$0.178 & \$0.337$^{*}$ \\
+$0.50$              & 124 & 34 & 72 & 36 & [94, 196]  & \$0.334 & \$0.672$^{*}$ \\
+\bottomrule
+\multicolumn{8}{@{}p{0.97\linewidth}@{}}{\footnotesize $^{\dagger}$Operating
+point: the threshold used for every \sysname number in the paper.
+$^{*}$\$/solve from a solo-filled point estimate of the solve count, since
+tasks routed to a fixer with no measured with-handoff outcome take that
+fixer's solo outcome; rows whose solve count is not measured exactly report
+the bracketing interval instead, and no midpoint. Rows above the operating
+point send tasks that pass no gate to the most capable fixer (\fxopus); at the
+operating point every task passes at least one gate, so the fall-through never
+fires. Solves are out of $n{=}266$.
+All rows use the board's cost convention: measured fixer API spend plus a
+pinned \$5.13 of searcher GPU and sandbox infrastructure, amortized over 266
+tasks.}
+\end{tabular}%
+\endgroup
