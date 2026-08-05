@@ -1,0 +1,30 @@
+{
+ "all_pass": true,
+ "failures": [],
+ "checks": {
+  "client_tail_identity": {
+   "pass": true,
+   "detail": "engine_http.PINNED == episode.SAMPLING -> True; tail={'top_p': 1.0, 'top_k': -1, 'repetition_penalty': 1.0, 'presence_penalty': 0.0, 'frequency_penalty': 0.0}; == colocate.PINNED -> True"
+  },
+  "client_resolved_spec": {
+   "pass": true,
+   "detail": "resolved={'temperature': 0.9, 'max_tokens': 2048, 'stop': ['<|im_end|>'], 'top_p': 1.0, 'top_k': -1, 'repetition_penalty': 1.0, 'presence_penalty': 0.0, 'frequency_penalty': 0.0}"
+  },
+  "wire_payload_pinned": {
+   "pass": true,
+   "detail": "missing/wrong=[]; cache_salt='salt-abc'; model='SuperScout-7B'"
+  },
+  "cache_salt_accepted": {
+   "pass": true,
+   "detail": "HTTP 200, sample reply 'ok'"
+  },
+  "no_server_override": {
+   "pass": true,
+   "detail": "--generation-config vllm present=True; greedy repeat identical=True"
+  },
+  "driver_stamps_sampling": {
+   "pass": true,
+   "detail": "driver.py references sampling; e.g. 'print(\"[run4] sampling=\" + json.dumps(engine.sampling), flush=True)'"
+  }
+ }
+}

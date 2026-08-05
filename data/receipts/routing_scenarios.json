@@ -1,0 +1,6166 @@
+{
+ "note": "Per-task routing receipt for the SuperScout router at its calibrated operating point theta = 0.30. The router is the released blend head (code/router/router_head.npz + router_spec.json); every probability and decision below recomputes deterministically from those artifacts over the released feature arrays.",
+ "configuration": "blend",
+ "theta": 0.3,
+ "theta_calibration": "Calibrated on the 99-task label-run with-handoff outcomes via the matched-point rule (weights and resumes unchanged from the freeze); no evaluation-benchmark data in the selection.",
+ "cheap_order": [
+  "kimi-k2-5",
+  "gemini-3-flash",
+  "gpt-5-2-high",
+  "claude-4-6-opus"
+ ],
+ "anchor": "gpt-5-2-high",
+ "route_rule": "first fixer in cheap_order with p_blend >= theta, else anchor",
+ "n_tasks": 266,
+ "routing_distribution": {
+  "kimi-k2-5": 263,
+  "gemini-3-flash": 3,
+  "gpt-5-2-high": 0,
+  "claude-4-6-opus": 0
+ },
+ "fallback_fires": 0,
+ "fallback_note": "no task fell through to the anchor at theta = 0.30, so the anchor choice does not affect this cell",
+ "cell_router": {
+  "solved": 159,
+  "n_tasks": 266,
+  "rate_pct": 59.77,
+  "fixer_cost_usd": 31.42,
+  "total_cost_usd": 36.55,
+  "cost_per_task_usd": 0.1374,
+  "cost_per_solve_usd": 0.2299
+ },
+ "reference_no_router_kimi": {
+  "note": "blanket Kimi K2.5 + handoff on all 266 tasks (no router), same composition convention",
+  "solved": 159,
+  "n_tasks": 266,
+  "rate_pct": 59.77,
+  "fixer_cost_usd": 31.0,
+  "total_cost_usd": 36.13,
+  "cost_per_task_usd": 0.1358,
+  "cost_per_solve_usd": 0.2272
+ },
+ "cost_convention": "fixer cost = sum of the routed fixer's episode cost_usd_pinned over the 266 tasks (outcomes_per_task.json system_union_pairs); total cost adds the searcher-side flat $5.13 once (not per task); cost_per_task = total / 266; cost_per_solve = total / solved",
+ "decisions": {
+  "instance_ansible__ansible-0ea40e09d1b35bcb69ff4d9cecf3d0defa4b36e8-v30a923fb5c164d6cd18280c02422f75e611e8fb2": "kimi-k2-5",
+  "instance_ansible__ansible-0fd88717c953b92ed8a50495d55e630eb5d59166-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-106909db8b730480615f4a33de0eb5b710944e78-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-11c1777d56664b1acb56b387a1ad6aeadef1391d-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-12734fa21c08a0ce8c84e533abdc560db2eb1955-v7eee2454f617569fd6889f2211f75bc02a35f9f8": "kimi-k2-5",
+  "instance_ansible__ansible-164881d871964aa64e0f911d03ae270acbad253c-v390e508d27db7a51eece36bb6d9698b63a5b638a": "kimi-k2-5",
+  "instance_ansible__ansible-185d41031660a676c43fbb781cd1335902024bfe-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-189fcb37f973f0b1d52b555728208eeb9a6fce83-v906c969b551b346ef54a2c0b41e04f632b7b73c2": "kimi-k2-5",
+  "instance_ansible__ansible-1a4644ff15355fd696ac5b9d074a566a80fe7ca3-v30a923fb5c164d6cd18280c02422f75e611e8fb2": "kimi-k2-5",
+  "instance_ansible__ansible-1b70260d5aa2f6c9782fd2b848e8d16566e50d85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-1c06c46cc14324df35ac4f39a45fb3ccd602195d-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-1ee70fc272aff6bf3415357c6e13c5de5b928d9b-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-29aea9ff3466e4cd2ed00524b9e56738d568ce8b-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-34db57a47f875d11c4068567b9ec7ace174ec4cf-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-379058e10f3dbc0fdcaf80394bd09b18927e7d33-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-3889ddeb4b780ab4bac9ca2e75f8c1991bcabe83-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-395e5e20fab9cad517243372fa3c3c5d9e09ab2a-v7eee2454f617569fd6889f2211f75bc02a35f9f8": "kimi-k2-5",
+  "instance_ansible__ansible-39bd8b99ec8c6624207bf3556ac7f9626dad9173-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-3b823d908e8a5d17674f8c26d337d3114b7493b1-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-3db08adbb1cc6aa9941be5e0fc810132c6e1fa4b-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf": "kimi-k2-5",
+  "instance_ansible__ansible-415e08c2970757472314e515cb63a51ad825c45e-v7eee2454f617569fd6889f2211f75bc02a35f9f8": "kimi-k2-5",
+  "instance_ansible__ansible-42355d181a11b51ebfc56f6f4b3d9c74e01cb13b-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-489156378c8e97374a75a544c7c9c2c0dd8146d1-v390e508d27db7a51eece36bb6d9698b63a5b638a": "kimi-k2-5",
+  "instance_ansible__ansible-4c5ce5a1a9e79a845aff4978cfeb72a0d4ecf7d6-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-502270c804c33d3bc963930dc85e0f4ca359674d-v7eee2454f617569fd6889f2211f75bc02a35f9f8": "kimi-k2-5",
+  "instance_ansible__ansible-5260527c4a71bfed99d803e687dd19619423b134-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-5640093f1ca63fd6af231cc8a7fb7d40e1907b8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-5c225dc0f5bfa677addeac100a8018df3f3a9db1-v173091e2e36d38c978002990795f66cfc0af30ad": "kimi-k2-5",
+  "instance_ansible__ansible-5d253a13807e884b7ce0b6b57a963a45e2f0322c-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-5e369604e1930b1a2e071fecd7ec5276ebd12cb1-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-5e88cd9972f10b66dd97e1ee684c910c6a2dd25e-v906c969b551b346ef54a2c0b41e04f632b7b73c2": "kimi-k2-5",
+  "instance_ansible__ansible-5f4e332e3762999d94af27746db29ff1729252c1-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-622a493ae03bd5e5cf517d336fc426e9d12208c7-v906c969b551b346ef54a2c0b41e04f632b7b73c2": "kimi-k2-5",
+  "instance_ansible__ansible-6cc97447aac5816745278f3735af128afb255c81-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-709484969c8a4ffd74b839a673431a8c5caa6457-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-748f534312f2073a25a87871f5bd05882891b8c4-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-77658704217d5f166404fc67997203c25381cb6e-v390e508d27db7a51eece36bb6d9698b63a5b638a": "kimi-k2-5",
+  "instance_ansible__ansible-7e1a347695c7987ae56ef1b6919156d9254010ad-v390e508d27db7a51eece36bb6d9698b63a5b638a": "kimi-k2-5",
+  "instance_ansible__ansible-811093f0225caa4dd33890933150a81c6a6d5226-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-8127abbc298cabf04aaa89a478fc5e5e3432a6fc-v30a923fb5c164d6cd18280c02422f75e611e8fb2": "kimi-k2-5",
+  "instance_ansible__ansible-83909bfa22573777e3db5688773bda59721962ad-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-83fb24b923064d3576d473747ebbe62e4535c9e3-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-9142be2f6cabbe6597c9254c5bb9186d17036d55-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-935528e22e5283ee3f63a8772830d3d01f55ed8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-942424e10b2095a173dbd78e7128f52f7995849b-v30a923fb5c164d6cd18280c02422f75e611e8fb2": "kimi-k2-5",
+  "instance_ansible__ansible-949c503f2ef4b2c5d668af0492a5c0db1ab86140-v0f01c69f1e2528b935359cfe578530722bca2c59": "gemini-3-flash",
+  "instance_ansible__ansible-9759e0ca494de1fd5fc2df2c5d11c57adbe6007c-v1055803c3a812189a1133297f7f5468579283f86": "gemini-3-flash",
+  "instance_ansible__ansible-984216f52e76b904e5b0fa0fb956ab4f1e0a7751-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f": "kimi-k2-5",
+  "instance_ansible__ansible-a02e22e902a69aeb465f16bf03f7f5a91b2cb828-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-a1569ea4ca6af5480cf0b7b3135f5e12add28a44-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-a20a52701402a12f91396549df04ac55809f68e9-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-a26c325bd8f6e2822d9d7e62f77a424c1db4fbf6-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-a6e671db25381ed111bbad0ab3e7d97366395d05-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-a7d2a4e03209cff1e97e59fd54bb2b05fdbdbec6-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-b2a289dcbb702003377221e25f62c8a3608f0e89-v173091e2e36d38c978002990795f66cfc0af30ad": "kimi-k2-5",
+  "instance_ansible__ansible-b5e0293645570f3f404ad1dbbe5f006956ada0df-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-b6290e1d156af608bd79118d209a64a051c55001-v390e508d27db7a51eece36bb6d9698b63a5b638a": "kimi-k2-5",
+  "instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-b8025ac160146319d2b875be3366b60c852dd35d-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-be59caa59bf47ca78a4760eb7ff38568372a8260-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2": "kimi-k2-5",
+  "instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2": "kimi-k2-5",
+  "instance_ansible__ansible-c616e54a6e23fa5616a1d56d243f69576164ef9b-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-cb94c0cc550df9e98f1247bc71d8c2b861c75049-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-cd473dfb2fdbc97acf3293c134b21cbbcfa89ec3-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-cd9c4eb5a6b2bfaf4a6709f001ce3d0c92c1eed2-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-d2f80991180337e2be23d6883064a67dcbaeb662-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-d58e69c82d7edd0583dd8e78d76b075c33c3151e-v173091e2e36d38c978002990795f66cfc0af30ad": "kimi-k2-5",
+  "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-d6d2251929c84c3aa883bad7db0f19cc9ff0339e-v30a923fb5c164d6cd18280c02422f75e611e8fb2": "kimi-k2-5",
+  "instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a": "kimi-k2-5",
+  "instance_ansible__ansible-d9f1866249756efc264b00ff7497e92c11a9885f-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-de01db08d00c8d2438e1ba5989c313ba16a145b0-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "gemini-3-flash",
+  "instance_ansible__ansible-de5858f48dc9e1ce9117034e0d7e76806f420ca8-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-deb54e4c5b32a346f1f0b0a14f1c713d2cc2e961-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-e0c91af45fa9af575d10fd3e724ebc59d2b2d6ac-v30a923fb5c164d6cd18280c02422f75e611e8fb2": "kimi-k2-5",
+  "instance_ansible__ansible-e22e103cdf8edc56ff7d9b848a58f94f1471a263-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-e40889e7112ae00a21a2c74312b330e67a766cc0-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-e64c6c1ca50d7d26a8e7747d8eb87642e767cd74-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2": "kimi-k2-5",
+  "instance_ansible__ansible-ea04e0048dbb3b63f876aad7020e1de8eee9f362-v1055803c3a812189a1133297f7f5468579283f86": "kimi-k2-5",
+  "instance_ansible__ansible-ecea15c508f0e081525be036cf76bbb56dbcdd9d-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-ed6581e4db2f1bec5a772213c3e186081adc162d-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-eea46a0d1b99a6dadedbb6a3502d599235fa7ec3-v390e508d27db7a51eece36bb6d9698b63a5b638a": "kimi-k2-5",
+  "instance_ansible__ansible-f02a62db509dc7463fab642c9c3458b9bc3476cc-v390e508d27db7a51eece36bb6d9698b63a5b638a": "kimi-k2-5",
+  "instance_ansible__ansible-f327e65d11bb905ed9f15996024f857a95592629-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-f86c58e2d235d8b96029d102c71ee2dfafd57997-v0f01c69f1e2528b935359cfe578530722bca2c59": "kimi-k2-5",
+  "instance_ansible__ansible-f8ef34672b961a95ec7282643679492862c688ec-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_ansible__ansible-fb144c44144f8bd3542e71f5db62b6d322c7bd85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-03095f2680f7516fca35a58e665bf2a41f006273-v8717e18970bcdc4e0d2cea3b1527752b21e74866": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-08ac40d050a64e1d2646ece4959af0c42bf6b7b5-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-09865f5fb549694d969f0a8e49b9d204ef1853ca-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-0a90f9f0256e4f933523e9842799e39f95ae29ce-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-0d13e6b4bf80bced6c0946b969b9a1b6963f6bce-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-111347e9583372e8ef91c82e0612ea437ae3a9c9-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-11838fad1028672eb975c79d8984f03348500173-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-123e6e5e1c85b9c07d1e98f70bfc480bc8016890-v2733ff199fb72f0d033a30dc62cb0a4742e3a7f4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-1351c59fd43689753de1fca32c78d539a116ffc1-v29f82c9cf21d57b242f8d8b0e541525d259e2d63": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-1894cb48d6e7fb498295a5d3ed0596f6f603b784-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-1be7de788a444f6255e89c10ef6aa608550604a8-v29f82c9cf21d57b242f8d8b0e541525d259e2d63": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-25858f9f0c165df25742acf8309ce909773f0cdd-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-2abe28b472ffed563a87cfe83685b161b35263b0-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-2fe532a33635aab7a9bfea5d977f6a72b280a30c-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-308a35d6999427c02b1dbf5211c033ad3b352556-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-30bc73a1395fba2300087c7f307e54bb5372b60a-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-3aeec6afed9198d734b7ee1293f03ca94ff970e1-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-3c48b4bb782189e0858e6c3fc7956046cf3e1cfb-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-3f580a5f244c299d936d73d9e327ba873b6401d9-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-3f7db6bbbcc7c418b3db72d157c6aed1d45b2ccf-v430f20c722405e462d9ef44dee7d34c41e76fe7a": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-427f1f4eddfc54735ca451779d4f95bf683d1b0e-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-431442c92887a3aece3f8aa771dd029738a80eb1-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-43f9e7e0d56a4f1d487533543c17040a029ac501-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-4a5d2a7d24c9e4c11d3069220c0685b736d5ecde-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-4b7ea2977be2747496ba792a678940baa985f7ea-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-53d376b148897466bb86d5accb51912bbbe9a8ed-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-53e02a22972e9253aeded0e1981e6845e1e521fe-vfa6ff903cb27f336e17654595dd900fa943dcd91": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-58999808a17a26b387f8237860a7a524d1e2d262-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-5c6c22f3d2edf2f1b10f5dc335e32cb6a5f40341-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-5de7de19211e71b29b2f2ba3b1dff2fe065d660f-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-5fb312632097be7e9ac6ab657964af115224d15d-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-60725705782832a2cb22e17c49697948a42a9d03-v298a7a812ceed28c4c18355a091f1b268fe56d86": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-62d2243131a9c7e6aee00d1e9c5660fd5b594e89-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-6a117fab6c963b74dc1ba907d838e74f76d34a4b-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-6afdb09df692223c3a31df65cfa92f15e5614c01-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-6e889f4a733c9f8ce9a9bd2ec6a934413adcedb9-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-6fdbbeee4c0a7e976ff3e46fb1d36f4eb110c428-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-72321288ea790a3ace9e36f1c05b68c93f7eec43-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-757fcf46c70530739c150c57b37d6375f155dc97-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-77c16d530b4d5c0f33d68bead2c6b329aee9b996-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-798055d1a19b8fa0983153b709f460be97e33064-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-798a582540019363d14b2090755cc7b89a350788-v430f20c722405e462d9ef44dee7d34c41e76fe7a": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-7bf3238533070f2d24bafbb26eedf675d51941f6-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-7c8dc180281491ccaa1b4b43518506323750d1e4-v298a7a812ceed28c4c18355a091f1b268fe56d86": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-7edd1ef09d91fe0b435707633c5cc9af41dedddf-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-7f6b722a10f822171501d027cad60afe53337732-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-7f7e53aa4cf74a4f8549a5bcd4810c527e2f6d7e-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-89e4b4431fe7506c365a6f6eb6f6d048d04c044c-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-8a5a63af6e0be406aa6c8c9b6d5f28b2f1b6af5a-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-8a9d9d323dfcf2a5b4f38d70b1108b030b20ebf3-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-910b08570210509f3bcfebf35c093a48243fe754-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-91efee627df01e32007abf2d6ebf73f9d9053076-vbee42ad1b72fb23c6a1c874868a720b370983ed2": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-92db3454aeaa02f89b4cdbc3103f7e95c9759f92-v2c55207218fb8a0138425cbf7d9675272e240b90": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-9bdfd29fac883e77dcbc4208cab28c06fd963ab2-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-9c392b60e2c6fa1d68cb68084b4b4ff04d0cb35c-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-9cd47f4dc21e273320d9e30d889c864f8cb20ccf-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-a48fd6ba9482c527602bc081491d9e8ae6e8226c-vfa6ff903cb27f336e17654595dd900fa943dcd91": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-a7b7dc5735a1b3a9824376b1b469b556dd413981-va4315b5dc369c1ef66ae22f9ae4267aa3114e1b3": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-acdddc590d0b3688f8f6386f43709049622a6e19-vfa6ff903cb27f336e17654595dd900fa943dcd91": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-b4f7c185ae5f1824ac7f3a18e8adf6a4b468459c-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-b67138b316b1e9c11df8a4a8391fe5cc8e75ff9f-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-ba3abfb6af6e722185d3715929ab0f3e5a134eed-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-bb152d23c004f3d68986877143bb0f83531fe401-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-bdba0af0f6cbaca8b5fc3be2a3080f38156d9c92-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-c05ccf2cd8baa81609434e0e35c4a63bc0da5a25-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-c12943be1db80cf1114bc267ddf4f9933aca9b28-v2c55207218fb8a0138425cbf7d9675272e240b90": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-c4eebe6677acc4629cb541a98d5e91311444f5d4-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-c506c1b0b678892af5cb22c1c1dbc35d96787a0a-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-c8996ecc40803b9155935fd7ff3b8e7be6c1437c-ve8fc82d8aae8463b752a211156c5b7b59f349237": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-d109cc7e6e161170391f98f9a6fa1d02534c18e4-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-d40ec88713dc95ea791b252f92d2f7b75e107440-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-d8162c226a9d576f094dc1830c4c1ffd0be2dd17-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-dbbd9d539c6d4fd45d5be9662aa19b6d664b5137-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-de6ae10512f1b5ef585c8341b451bc49c9fd4996-vfa6ff903cb27f336e17654595dd900fa943dcd91": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-e010b2a13697de70170033902ba2e27a1e1acbe9-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-e1e502986a3b003899a8347ac8a7ff7b08cbfc39-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-e390c1212055dd84a262a798e53487e771d3fb64-v8717e18970bcdc4e0d2cea3b1527752b21e74866": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-e8084193a895d8ee81200f49093389a3887479ce-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-f0341c0ba81c790241b782f5103ce5c9a6edf8e3-ve8fc82d8aae8463b752a211156c5b7b59f349237": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-f343c08f89c772f7ba6c0246f384b9e6c3dc0add-v08d8e8889ec945ab821fb156c04c7d2e2810debb": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-f3b26c2c0721f8713353fe4b341230332e30008d-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-f8cc11d9c1575fdba5ac66aee0befca970da8d64-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-fad4a40acf5ff5f06cd7441a5c7baf41a7d81fe4-vfa6ff903cb27f336e17654595dd900fa943dcd91": "kimi-k2-5",
+  "instance_internetarchive__openlibrary-fdbc0d8f418333c7e575c40b661b582c301ef7ac-v13642507b4fc1f8d234172bf8129942da2c2ca26": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-01d1d1494411380d97cac14614a829d3a69cecaf-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-0aa57e4f7243024fa4bba8853306691b5dbd77b3-v5149fcda2a9a6fe1d35dfed1bade1444a11ef271": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-0b621cb0ce2b54d3f93d8d41d8ff4257888a87e5-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-0d2afd58f3d0e34af21cee7d8a3fc9d855594e9f-vnan": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-0fc6d1109d041c69a68a896db87cf1b8c194cef7-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-16de05407111ddd82fa12e54389d532362489da9-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-1943fa072ec3df5a87e18a23b0916f134c131016-vafb3e8e01b31319c66c4e666b8a3b1d8ba55db24": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-1a9e74bfaf9a9db2a510dc14572d33ded6040a57-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-1af602b258b97aaba69d2585ed499d95e2303ac2-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-21b426b6a20ec1cc5ecad770730641750699757b-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-233cb1cc48635130e5602549856a6fa4ab4c087f-v35616345bb8052ea303186706cec663146f0f184": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-2dd8966fdcf11972062c540b7a787e4d0de8d372-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-2e961080a85d660148937ee8f0f6b3445a8f2c01-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-305e7c96d5e2fdb3b248b27dfb21042fb2b7e0b8-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-322834d0e6bf17e5661145c9f085b41215c280e8-v488d33dd1b2540b234cbb0468af6b6614941ce8f": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-34a13afd36b5e529d553892b1cd8b9d5ce8881c4-vafb3e8e01b31319c66c4e666b8a3b1d8ba55db24": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-35168ade46184d7e5b91dfa04ca42fe2abd82717-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-36ade4bba504eb96f05d32ceab9972df7eb17bcc-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-394bfaed6544c952c6b3463751abab3176ad4997-vafb3e8e01b31319c66c4e666b8a3b1d8ba55db24": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-3d01c201b8aa54dd71d4f801b1dd12feb4c0a08a-v5fc38aaf22415ab0b70567368332beee7955b367": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-3fd8e12949b8feda401930574facf09dd4180bba": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-44e64199ed38003253f0296badd4a447645067b6-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-46e6839e21d9ff72abb6c5d49d5abaa5a8da8a81-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-473a15f7908f2bb6d670b0e908ab34a28d8cf7e2-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-479aa075ac79dc975e2e949e188a328e95bf78ff-vc2f56a753b62a190ddb23cd330c257b9cf560d12": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-50efac08f623644a85441bbe02ab9347d2b71a9d-v9f8e9d96c85c85a605e382f1510bd08563afc566": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-52708364b5f91e198defb022d1a5b4b3ebd9b563-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-5cef49ff3074f9eab1da6937a141a39a20828502-v02ad04386d5238fe2d1a1be450df257370de4b6a": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-5e0d6dc1483cb3336ea0e3dcbd4fe4aa00fc1742-v5149fcda2a9a6fe1d35dfed1bade1444a11ef271": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-5fdc83e5da6222fe61163395baaad7ae57fa2cb4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-66cfa15c372fa9e613ea5a82d3b03e4609399fb6-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-6b320dc18662580e1313d2548fdd6231d2a97e6d-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-6dd402c0d0f7665d32a74c43c5b4cf5dc8aff28d-v5fc38aaf22415ab0b70567368332beee7955b367": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-70248f256f93ed9b1984494d0a1a919ddd774892-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-77c3557995704a683cdb67e2a3055f7547fa22c3-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-7b603dd6bf195e3e723ce08ff64a82b406e3f6b6-v9f8e9d96c85c85a605e382f1510bd08563afc566": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-7f9713b20f623fc40473b7167a082d6db0f0fd40-va0fd88aac89cde702ec1ba84877234da33adce8a": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-85b867fe8d4378c8e371f055c70452f546055854-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-8cd06741bb56cdca49f5cdc0542da97681154315-v5149fcda2a9a6fe1d35dfed1bade1444a11ef271": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-8d05f0282a271bfd45e614238bd1b555c58b3fc1-v35616345bb8052ea303186706cec663146f0f184": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-8f46ba3f6dc7b18375f7aa63c48a1fe461190430-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-96b997802e942937e81d2b8a32d08f00d3f4bc4e-v5fc38aaf22415ab0b70567368332beee7955b367": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-99029144b5109bb1b2a53964a7c129e009980cd9-va0fd88aac89cde702ec1ba84877234da33adce8a": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-996487c43e4fcc265b541f9eca1e7930e3c5cf05-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-9b71c1ea67a9e7eb70dd83214d881c2031db6541-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-9ed748effa8f3bcd804612d9291da017b514e12f-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-a25e8a09873838ca9efefd36ea8a45170bbeb95c-vc2f56a753b62a190ddb23cd330c257b9cf560d12": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-a84ecfb80a00f8ab7e341372560458e3f9cfffa2-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-bedc9f7fadf93f83d8dee95feeecb9922b6f063f-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-bf045f7ec7c27709ea3ef61cf41a24e8fdd2e7da-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-c09e1439f145c66ee3af574386e277dd2388d094-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-c0be28ebee3e1837aaf3f30ec534ccd6d038f129-v9f8e9d96c85c85a605e382f1510bd08563afc566": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-c580ebf0801e5a3ecabc54f327498bb753c6d5f2-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-cc360cd4a34a126274c7b51f3b63afbaf3e05a02-v5fc38aaf22415ab0b70567368332beee7955b367": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-cf06f4e3708f886032d4d2a30108c2fddb042d81-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-de4a1c1a2839b5b49c3d4ce21d39de48d24e2091-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-deeb15d6f009b3ca0c3bd503a7cef07462bd16b4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-e15d26630934d0b6415ed2295ac42fd570a57620-va0fd88aac89cde702ec1ba84877234da33adce8a": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-e34dfc68647d087ca3175d9ad3f023c30d8c9746-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-e5340c449f23608803c286da0563b62f58ba25b0-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-e57b6e0eeeb656eb2c84d6547d5a0a7333ecee85-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-e64622cd2df5b521342cf4a62e0d4cb8f8c9ae5a-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-e70f5b03187bdd40e8bf70f5f3ead840f52d1f42-v02ad04386d5238fe2d1a1be450df257370de4b6a": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-ebfe9b7aa0c4ba9d451f993e08955004aaec4345-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-ec2dcfce9eee9f808efc17a1b99e227fc4421dea-v5149fcda2a9a6fe1d35dfed1bade1444a11ef271": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-ed19d7f58b2664bb310c7cb6b52c5b9a06ea60b2-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-ef5ba1a0360b39f9eff027fbdc57f363597c3c3b-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-f631cd4422744160d9dcf7a0455da532ce973315-v35616345bb8052ea303186706cec663146f0f184": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-f7753550f2c1dcb2348e4779fd5287166754827e-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-f8e7fea0becae25ae20606f1422068137189fe9e": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-f91ace96223cac8161c16dd061907e138fe85111-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-fcfa069a06ade76d91bac38127f3235c13d78eb1-v5fc38aaf22415ab0b70567368332beee7955b367": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-fea33d607fde83cf505b228238cf365936437a63-v9f8e9d96c85c85a605e382f1510bd08563afc566": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-fec187c2cb53d769c2682b35ca77858a811414a8-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5",
+  "instance_qutebrowser__qutebrowser-ff1c025ad3210506fc76e1f604d8c8c27637d88e-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": "kimi-k2-5"
+ },
+ "probability_vectors": {
+  "instance_ansible__ansible-0ea40e09d1b35bcb69ff4d9cecf3d0defa4b36e8-v30a923fb5c164d6cd18280c02422f75e611e8fb2": {
+   "gpt-5-2-high": {
+    "p_text": 0.568363,
+    "p_state": 0.692378,
+    "p_blend": 0.630371
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.47816,
+    "p_state": 0.547912,
+    "p_blend": 0.513036
+   },
+   "gemini-3-flash": {
+    "p_text": 0.326151,
+    "p_state": 0.570675,
+    "p_blend": 0.448413
+   },
+   "kimi-k2-5": {
+    "p_text": 0.213086,
+    "p_state": 0.559126,
+    "p_blend": 0.386106
+   }
+  },
+  "instance_ansible__ansible-0fd88717c953b92ed8a50495d55e630eb5d59166-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.607069,
+    "p_state": 0.690744,
+    "p_blend": 0.648906
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.603449,
+    "p_state": 0.564784,
+    "p_blend": 0.584116
+   },
+   "gemini-3-flash": {
+    "p_text": 0.621994,
+    "p_state": 0.573597,
+    "p_blend": 0.597795
+   },
+   "kimi-k2-5": {
+    "p_text": 0.570516,
+    "p_state": 0.608932,
+    "p_blend": 0.589724
+   }
+  },
+  "instance_ansible__ansible-106909db8b730480615f4a33de0eb5b710944e78-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.567973,
+    "p_state": 0.612458,
+    "p_blend": 0.590215
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.18668,
+    "p_state": 0.464443,
+    "p_blend": 0.325561
+   },
+   "gemini-3-flash": {
+    "p_text": 0.221493,
+    "p_state": 0.524168,
+    "p_blend": 0.372831
+   },
+   "kimi-k2-5": {
+    "p_text": 0.382565,
+    "p_state": 0.53686,
+    "p_blend": 0.459712
+   }
+  },
+  "instance_ansible__ansible-11c1777d56664b1acb56b387a1ad6aeadef1391d-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.814428,
+    "p_state": 0.555403,
+    "p_blend": 0.684915
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.430267,
+    "p_state": 0.446578,
+    "p_blend": 0.438422
+   },
+   "gemini-3-flash": {
+    "p_text": 0.559675,
+    "p_state": 0.480616,
+    "p_blend": 0.520145
+   },
+   "kimi-k2-5": {
+    "p_text": 0.457581,
+    "p_state": 0.46566,
+    "p_blend": 0.46162
+   }
+  },
+  "instance_ansible__ansible-12734fa21c08a0ce8c84e533abdc560db2eb1955-v7eee2454f617569fd6889f2211f75bc02a35f9f8": {
+   "gpt-5-2-high": {
+    "p_text": 0.293507,
+    "p_state": 0.555028,
+    "p_blend": 0.424267
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.232078,
+    "p_state": 0.450722,
+    "p_blend": 0.3414
+   },
+   "gemini-3-flash": {
+    "p_text": 0.162285,
+    "p_state": 0.496573,
+    "p_blend": 0.329429
+   },
+   "kimi-k2-5": {
+    "p_text": 0.128288,
+    "p_state": 0.502489,
+    "p_blend": 0.315388
+   }
+  },
+  "instance_ansible__ansible-164881d871964aa64e0f911d03ae270acbad253c-v390e508d27db7a51eece36bb6d9698b63a5b638a": {
+   "gpt-5-2-high": {
+    "p_text": 0.527869,
+    "p_state": 0.667365,
+    "p_blend": 0.597617
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.609628,
+    "p_state": 0.53102,
+    "p_blend": 0.570324
+   },
+   "gemini-3-flash": {
+    "p_text": 0.319837,
+    "p_state": 0.539049,
+    "p_blend": 0.429443
+   },
+   "kimi-k2-5": {
+    "p_text": 0.441438,
+    "p_state": 0.537158,
+    "p_blend": 0.489298
+   }
+  },
+  "instance_ansible__ansible-185d41031660a676c43fbb781cd1335902024bfe-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.797143,
+    "p_state": 0.652432,
+    "p_blend": 0.724788
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.498287,
+    "p_state": 0.494398,
+    "p_blend": 0.496342
+   },
+   "gemini-3-flash": {
+    "p_text": 0.444621,
+    "p_state": 0.546852,
+    "p_blend": 0.495736
+   },
+   "kimi-k2-5": {
+    "p_text": 0.476287,
+    "p_state": 0.553448,
+    "p_blend": 0.514868
+   }
+  },
+  "instance_ansible__ansible-189fcb37f973f0b1d52b555728208eeb9a6fce83-v906c969b551b346ef54a2c0b41e04f632b7b73c2": {
+   "gpt-5-2-high": {
+    "p_text": 0.648236,
+    "p_state": 0.550324,
+    "p_blend": 0.59928
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.400795,
+    "p_state": 0.410502,
+    "p_blend": 0.405649
+   },
+   "gemini-3-flash": {
+    "p_text": 0.320382,
+    "p_state": 0.500719,
+    "p_blend": 0.41055
+   },
+   "kimi-k2-5": {
+    "p_text": 0.512006,
+    "p_state": 0.497098,
+    "p_blend": 0.504552
+   }
+  },
+  "instance_ansible__ansible-1a4644ff15355fd696ac5b9d074a566a80fe7ca3-v30a923fb5c164d6cd18280c02422f75e611e8fb2": {
+   "gpt-5-2-high": {
+    "p_text": 0.396435,
+    "p_state": 0.636747,
+    "p_blend": 0.516591
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.22301,
+    "p_state": 0.487891,
+    "p_blend": 0.355451
+   },
+   "gemini-3-flash": {
+    "p_text": 0.304345,
+    "p_state": 0.530909,
+    "p_blend": 0.417627
+   },
+   "kimi-k2-5": {
+    "p_text": 0.221139,
+    "p_state": 0.491423,
+    "p_blend": 0.356281
+   }
+  },
+  "instance_ansible__ansible-1b70260d5aa2f6c9782fd2b848e8d16566e50d85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.898547,
+    "p_state": 0.587265,
+    "p_blend": 0.742906
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.566173,
+    "p_state": 0.427859,
+    "p_blend": 0.497016
+   },
+   "gemini-3-flash": {
+    "p_text": 0.665563,
+    "p_state": 0.549842,
+    "p_blend": 0.607703
+   },
+   "kimi-k2-5": {
+    "p_text": 0.733993,
+    "p_state": 0.551166,
+    "p_blend": 0.64258
+   }
+  },
+  "instance_ansible__ansible-1bd7dcf339dd8b6c50bc16670be2448a206f4fdb-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.60921,
+    "p_state": 0.587598,
+    "p_blend": 0.598404
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.553329,
+    "p_state": 0.432839,
+    "p_blend": 0.493084
+   },
+   "gemini-3-flash": {
+    "p_text": 0.606206,
+    "p_state": 0.505925,
+    "p_blend": 0.556065
+   },
+   "kimi-k2-5": {
+    "p_text": 0.496826,
+    "p_state": 0.481511,
+    "p_blend": 0.489168
+   }
+  },
+  "instance_ansible__ansible-1c06c46cc14324df35ac4f39a45fb3ccd602195d-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.269198,
+    "p_state": 0.430178,
+    "p_blend": 0.349688
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.185663,
+    "p_state": 0.327806,
+    "p_blend": 0.256734
+   },
+   "gemini-3-flash": {
+    "p_text": 0.237071,
+    "p_state": 0.535431,
+    "p_blend": 0.386251
+   },
+   "kimi-k2-5": {
+    "p_text": 0.370054,
+    "p_state": 0.434335,
+    "p_blend": 0.402194
+   }
+  },
+  "instance_ansible__ansible-1ee70fc272aff6bf3415357c6e13c5de5b928d9b-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.551224,
+    "p_state": 0.443656,
+    "p_blend": 0.49744
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.284381,
+    "p_state": 0.360743,
+    "p_blend": 0.322562
+   },
+   "gemini-3-flash": {
+    "p_text": 0.320861,
+    "p_state": 0.475917,
+    "p_blend": 0.398389
+   },
+   "kimi-k2-5": {
+    "p_text": 0.29951,
+    "p_state": 0.411448,
+    "p_blend": 0.355479
+   }
+  },
+  "instance_ansible__ansible-29aea9ff3466e4cd2ed00524b9e56738d568ce8b-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.540772,
+    "p_state": 0.599893,
+    "p_blend": 0.570333
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.482734,
+    "p_state": 0.465788,
+    "p_blend": 0.474261
+   },
+   "gemini-3-flash": {
+    "p_text": 0.397272,
+    "p_state": 0.495475,
+    "p_blend": 0.446373
+   },
+   "kimi-k2-5": {
+    "p_text": 0.407445,
+    "p_state": 0.49156,
+    "p_blend": 0.449503
+   }
+  },
+  "instance_ansible__ansible-34db57a47f875d11c4068567b9ec7ace174ec4cf-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.678053,
+    "p_state": 0.6845,
+    "p_blend": 0.681277
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.508309,
+    "p_state": 0.566705,
+    "p_blend": 0.537507
+   },
+   "gemini-3-flash": {
+    "p_text": 0.773634,
+    "p_state": 0.583306,
+    "p_blend": 0.67847
+   },
+   "kimi-k2-5": {
+    "p_text": 0.539918,
+    "p_state": 0.591987,
+    "p_blend": 0.565952
+   }
+  },
+  "instance_ansible__ansible-379058e10f3dbc0fdcaf80394bd09b18927e7d33-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.786575,
+    "p_state": 0.439781,
+    "p_blend": 0.613178
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.571535,
+    "p_state": 0.337242,
+    "p_blend": 0.454389
+   },
+   "gemini-3-flash": {
+    "p_text": 0.371451,
+    "p_state": 0.542581,
+    "p_blend": 0.457016
+   },
+   "kimi-k2-5": {
+    "p_text": 0.434357,
+    "p_state": 0.444594,
+    "p_blend": 0.439475
+   }
+  },
+  "instance_ansible__ansible-3889ddeb4b780ab4bac9ca2e75f8c1991bcabe83-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.86548,
+    "p_state": 0.618603,
+    "p_blend": 0.742042
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.392486,
+    "p_state": 0.479885,
+    "p_blend": 0.436186
+   },
+   "gemini-3-flash": {
+    "p_text": 0.752768,
+    "p_state": 0.520985,
+    "p_blend": 0.636876
+   },
+   "kimi-k2-5": {
+    "p_text": 0.698378,
+    "p_state": 0.481962,
+    "p_blend": 0.59017
+   }
+  },
+  "instance_ansible__ansible-395e5e20fab9cad517243372fa3c3c5d9e09ab2a-v7eee2454f617569fd6889f2211f75bc02a35f9f8": {
+   "gpt-5-2-high": {
+    "p_text": 0.698928,
+    "p_state": 0.5788,
+    "p_blend": 0.638864
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.695979,
+    "p_state": 0.423377,
+    "p_blend": 0.559678
+   },
+   "gemini-3-flash": {
+    "p_text": 0.538144,
+    "p_state": 0.521887,
+    "p_blend": 0.530016
+   },
+   "kimi-k2-5": {
+    "p_text": 0.384829,
+    "p_state": 0.526004,
+    "p_blend": 0.455417
+   }
+  },
+  "instance_ansible__ansible-39bd8b99ec8c6624207bf3556ac7f9626dad9173-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.568651,
+    "p_state": 0.426967,
+    "p_blend": 0.497809
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.741475,
+    "p_state": 0.330144,
+    "p_blend": 0.53581
+   },
+   "gemini-3-flash": {
+    "p_text": 0.752231,
+    "p_state": 0.520346,
+    "p_blend": 0.636288
+   },
+   "kimi-k2-5": {
+    "p_text": 0.574941,
+    "p_state": 0.425185,
+    "p_blend": 0.500063
+   }
+  },
+  "instance_ansible__ansible-3b823d908e8a5d17674f8c26d337d3114b7493b1-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.596241,
+    "p_state": 0.576609,
+    "p_blend": 0.586425
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.521923,
+    "p_state": 0.462276,
+    "p_blend": 0.4921
+   },
+   "gemini-3-flash": {
+    "p_text": 0.497135,
+    "p_state": 0.493341,
+    "p_blend": 0.495238
+   },
+   "kimi-k2-5": {
+    "p_text": 0.516597,
+    "p_state": 0.441249,
+    "p_blend": 0.478923
+   }
+  },
+  "instance_ansible__ansible-3db08adbb1cc6aa9941be5e0fc810132c6e1fa4b-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.611233,
+    "p_state": 0.582927,
+    "p_blend": 0.59708
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.459847,
+    "p_state": 0.470628,
+    "p_blend": 0.465238
+   },
+   "gemini-3-flash": {
+    "p_text": 0.608369,
+    "p_state": 0.49489,
+    "p_blend": 0.55163
+   },
+   "kimi-k2-5": {
+    "p_text": 0.547156,
+    "p_state": 0.476303,
+    "p_blend": 0.511729
+   }
+  },
+  "instance_ansible__ansible-40ade1f84b8bb10a63576b0ac320c13f57c87d34-v6382ea168a93d80a64aab1fbd8c4f02dc5ada5bf": {
+   "gpt-5-2-high": {
+    "p_text": 0.522409,
+    "p_state": 0.816095,
+    "p_blend": 0.669252
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.415302,
+    "p_state": 0.667171,
+    "p_blend": 0.541237
+   },
+   "gemini-3-flash": {
+    "p_text": 0.571958,
+    "p_state": 0.680768,
+    "p_blend": 0.626363
+   },
+   "kimi-k2-5": {
+    "p_text": 0.347732,
+    "p_state": 0.658006,
+    "p_blend": 0.502869
+   }
+  },
+  "instance_ansible__ansible-415e08c2970757472314e515cb63a51ad825c45e-v7eee2454f617569fd6889f2211f75bc02a35f9f8": {
+   "gpt-5-2-high": {
+    "p_text": 0.52764,
+    "p_state": 0.559951,
+    "p_blend": 0.543796
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.309781,
+    "p_state": 0.403588,
+    "p_blend": 0.356685
+   },
+   "gemini-3-flash": {
+    "p_text": 0.423847,
+    "p_state": 0.503437,
+    "p_blend": 0.463642
+   },
+   "kimi-k2-5": {
+    "p_text": 0.462394,
+    "p_state": 0.492989,
+    "p_blend": 0.477692
+   }
+  },
+  "instance_ansible__ansible-42355d181a11b51ebfc56f6f4b3d9c74e01cb13b-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.849606,
+    "p_state": 0.614224,
+    "p_blend": 0.731915
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.715909,
+    "p_state": 0.483458,
+    "p_blend": 0.599683
+   },
+   "gemini-3-flash": {
+    "p_text": 0.518535,
+    "p_state": 0.517759,
+    "p_blend": 0.518147
+   },
+   "kimi-k2-5": {
+    "p_text": 0.673748,
+    "p_state": 0.477236,
+    "p_blend": 0.575492
+   }
+  },
+  "instance_ansible__ansible-489156378c8e97374a75a544c7c9c2c0dd8146d1-v390e508d27db7a51eece36bb6d9698b63a5b638a": {
+   "gpt-5-2-high": {
+    "p_text": 0.722636,
+    "p_state": 0.562142,
+    "p_blend": 0.642389
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.631848,
+    "p_state": 0.424988,
+    "p_blend": 0.528418
+   },
+   "gemini-3-flash": {
+    "p_text": 0.483027,
+    "p_state": 0.490514,
+    "p_blend": 0.486771
+   },
+   "kimi-k2-5": {
+    "p_text": 0.413749,
+    "p_state": 0.461249,
+    "p_blend": 0.437499
+   }
+  },
+  "instance_ansible__ansible-4c5ce5a1a9e79a845aff4978cfeb72a0d4ecf7d6-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.814696,
+    "p_state": 0.446796,
+    "p_blend": 0.630746
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.311882,
+    "p_state": 0.337197,
+    "p_blend": 0.324539
+   },
+   "gemini-3-flash": {
+    "p_text": 0.504041,
+    "p_state": 0.515155,
+    "p_blend": 0.509598
+   },
+   "kimi-k2-5": {
+    "p_text": 0.442499,
+    "p_state": 0.437168,
+    "p_blend": 0.439833
+   }
+  },
+  "instance_ansible__ansible-502270c804c33d3bc963930dc85e0f4ca359674d-v7eee2454f617569fd6889f2211f75bc02a35f9f8": {
+   "gpt-5-2-high": {
+    "p_text": 0.634424,
+    "p_state": 0.59039,
+    "p_blend": 0.612407
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.501407,
+    "p_state": 0.457827,
+    "p_blend": 0.479617
+   },
+   "gemini-3-flash": {
+    "p_text": 0.472787,
+    "p_state": 0.510683,
+    "p_blend": 0.491735
+   },
+   "kimi-k2-5": {
+    "p_text": 0.626682,
+    "p_state": 0.485885,
+    "p_blend": 0.556283
+   }
+  },
+  "instance_ansible__ansible-5260527c4a71bfed99d803e687dd19619423b134-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.483688,
+    "p_state": 0.581637,
+    "p_blend": 0.532662
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.586109,
+    "p_state": 0.431559,
+    "p_blend": 0.508834
+   },
+   "gemini-3-flash": {
+    "p_text": 0.660694,
+    "p_state": 0.501783,
+    "p_blend": 0.581238
+   },
+   "kimi-k2-5": {
+    "p_text": 0.712219,
+    "p_state": 0.478259,
+    "p_blend": 0.595239
+   }
+  },
+  "instance_ansible__ansible-5640093f1ca63fd6af231cc8a7fb7d40e1907b8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.591811,
+    "p_state": 0.715684,
+    "p_blend": 0.653748
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.33406,
+    "p_state": 0.600414,
+    "p_blend": 0.467237
+   },
+   "gemini-3-flash": {
+    "p_text": 0.348641,
+    "p_state": 0.604657,
+    "p_blend": 0.476649
+   },
+   "kimi-k2-5": {
+    "p_text": 0.293563,
+    "p_state": 0.630228,
+    "p_blend": 0.461896
+   }
+  },
+  "instance_ansible__ansible-5c225dc0f5bfa677addeac100a8018df3f3a9db1-v173091e2e36d38c978002990795f66cfc0af30ad": {
+   "gpt-5-2-high": {
+    "p_text": 0.724008,
+    "p_state": 0.54542,
+    "p_blend": 0.634714
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.579524,
+    "p_state": 0.422478,
+    "p_blend": 0.501001
+   },
+   "gemini-3-flash": {
+    "p_text": 0.410899,
+    "p_state": 0.502398,
+    "p_blend": 0.456648
+   },
+   "kimi-k2-5": {
+    "p_text": 0.416446,
+    "p_state": 0.510841,
+    "p_blend": 0.463643
+   }
+  },
+  "instance_ansible__ansible-5d253a13807e884b7ce0b6b57a963a45e2f0322c-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.556676,
+    "p_state": 0.622165,
+    "p_blend": 0.58942
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.499829,
+    "p_state": 0.491801,
+    "p_blend": 0.495815
+   },
+   "gemini-3-flash": {
+    "p_text": 0.634427,
+    "p_state": 0.511258,
+    "p_blend": 0.572843
+   },
+   "kimi-k2-5": {
+    "p_text": 0.510302,
+    "p_state": 0.509715,
+    "p_blend": 0.510008
+   }
+  },
+  "instance_ansible__ansible-5e369604e1930b1a2e071fecd7ec5276ebd12cb1-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.835718,
+    "p_state": 0.824592,
+    "p_blend": 0.830155
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.658956,
+    "p_state": 0.653148,
+    "p_blend": 0.656052
+   },
+   "gemini-3-flash": {
+    "p_text": 0.832117,
+    "p_state": 0.693277,
+    "p_blend": 0.762697
+   },
+   "kimi-k2-5": {
+    "p_text": 0.614207,
+    "p_state": 0.701325,
+    "p_blend": 0.657766
+   }
+  },
+  "instance_ansible__ansible-5e88cd9972f10b66dd97e1ee684c910c6a2dd25e-v906c969b551b346ef54a2c0b41e04f632b7b73c2": {
+   "gpt-5-2-high": {
+    "p_text": 0.686464,
+    "p_state": 0.592787,
+    "p_blend": 0.639626
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.378642,
+    "p_state": 0.438817,
+    "p_blend": 0.40873
+   },
+   "gemini-3-flash": {
+    "p_text": 0.526638,
+    "p_state": 0.5227,
+    "p_blend": 0.524669
+   },
+   "kimi-k2-5": {
+    "p_text": 0.464239,
+    "p_state": 0.520258,
+    "p_blend": 0.492249
+   }
+  },
+  "instance_ansible__ansible-5f4e332e3762999d94af27746db29ff1729252c1-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.284967,
+    "p_state": 0.612772,
+    "p_blend": 0.44887
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.202235,
+    "p_state": 0.502149,
+    "p_blend": 0.352192
+   },
+   "gemini-3-flash": {
+    "p_text": 0.207133,
+    "p_state": 0.509263,
+    "p_blend": 0.358198
+   },
+   "kimi-k2-5": {
+    "p_text": 0.404964,
+    "p_state": 0.507399,
+    "p_blend": 0.456182
+   }
+  },
+  "instance_ansible__ansible-622a493ae03bd5e5cf517d336fc426e9d12208c7-v906c969b551b346ef54a2c0b41e04f632b7b73c2": {
+   "gpt-5-2-high": {
+    "p_text": 0.459355,
+    "p_state": 0.647039,
+    "p_blend": 0.553197
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.320018,
+    "p_state": 0.51555,
+    "p_blend": 0.417784
+   },
+   "gemini-3-flash": {
+    "p_text": 0.535851,
+    "p_state": 0.548887,
+    "p_blend": 0.542369
+   },
+   "kimi-k2-5": {
+    "p_text": 0.340883,
+    "p_state": 0.567752,
+    "p_blend": 0.454317
+   }
+  },
+  "instance_ansible__ansible-6cc97447aac5816745278f3735af128afb255c81-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.447541,
+    "p_state": 0.614241,
+    "p_blend": 0.530891
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.30514,
+    "p_state": 0.471309,
+    "p_blend": 0.388224
+   },
+   "gemini-3-flash": {
+    "p_text": 0.177042,
+    "p_state": 0.523182,
+    "p_blend": 0.350112
+   },
+   "kimi-k2-5": {
+    "p_text": 0.171795,
+    "p_state": 0.486243,
+    "p_blend": 0.329019
+   }
+  },
+  "instance_ansible__ansible-709484969c8a4ffd74b839a673431a8c5caa6457-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.366298,
+    "p_state": 0.581522,
+    "p_blend": 0.47391
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.557389,
+    "p_state": 0.437407,
+    "p_blend": 0.497398
+   },
+   "gemini-3-flash": {
+    "p_text": 0.631275,
+    "p_state": 0.512464,
+    "p_blend": 0.57187
+   },
+   "kimi-k2-5": {
+    "p_text": 0.334107,
+    "p_state": 0.513816,
+    "p_blend": 0.423962
+   }
+  },
+  "instance_ansible__ansible-748f534312f2073a25a87871f5bd05882891b8c4-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.522893,
+    "p_state": 0.651141,
+    "p_blend": 0.587017
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.146181,
+    "p_state": 0.535367,
+    "p_blend": 0.340774
+   },
+   "gemini-3-flash": {
+    "p_text": 0.272924,
+    "p_state": 0.539038,
+    "p_blend": 0.405981
+   },
+   "kimi-k2-5": {
+    "p_text": 0.160546,
+    "p_state": 0.565974,
+    "p_blend": 0.36326
+   }
+  },
+  "instance_ansible__ansible-77658704217d5f166404fc67997203c25381cb6e-v390e508d27db7a51eece36bb6d9698b63a5b638a": {
+   "gpt-5-2-high": {
+    "p_text": 0.624187,
+    "p_state": 0.581044,
+    "p_blend": 0.602615
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.598821,
+    "p_state": 0.441792,
+    "p_blend": 0.520306
+   },
+   "gemini-3-flash": {
+    "p_text": 0.535064,
+    "p_state": 0.519859,
+    "p_blend": 0.527461
+   },
+   "kimi-k2-5": {
+    "p_text": 0.582264,
+    "p_state": 0.501369,
+    "p_blend": 0.541816
+   }
+  },
+  "instance_ansible__ansible-7e1a347695c7987ae56ef1b6919156d9254010ad-v390e508d27db7a51eece36bb6d9698b63a5b638a": {
+   "gpt-5-2-high": {
+    "p_text": 0.837389,
+    "p_state": 0.539122,
+    "p_blend": 0.688256
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.597237,
+    "p_state": 0.420816,
+    "p_blend": 0.509026
+   },
+   "gemini-3-flash": {
+    "p_text": 0.675587,
+    "p_state": 0.483303,
+    "p_blend": 0.579445
+   },
+   "kimi-k2-5": {
+    "p_text": 0.735498,
+    "p_state": 0.466486,
+    "p_blend": 0.600992
+   }
+  },
+  "instance_ansible__ansible-811093f0225caa4dd33890933150a81c6a6d5226-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.891395,
+    "p_state": 0.585736,
+    "p_blend": 0.738565
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.71328,
+    "p_state": 0.429058,
+    "p_blend": 0.571169
+   },
+   "gemini-3-flash": {
+    "p_text": 0.703264,
+    "p_state": 0.525132,
+    "p_blend": 0.614198
+   },
+   "kimi-k2-5": {
+    "p_text": 0.688073,
+    "p_state": 0.514665,
+    "p_blend": 0.601369
+   }
+  },
+  "instance_ansible__ansible-8127abbc298cabf04aaa89a478fc5e5e3432a6fc-v30a923fb5c164d6cd18280c02422f75e611e8fb2": {
+   "gpt-5-2-high": {
+    "p_text": 0.798661,
+    "p_state": 0.471501,
+    "p_blend": 0.635081
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.46603,
+    "p_state": 0.384415,
+    "p_blend": 0.425222
+   },
+   "gemini-3-flash": {
+    "p_text": 0.764801,
+    "p_state": 0.472299,
+    "p_blend": 0.61855
+   },
+   "kimi-k2-5": {
+    "p_text": 0.586665,
+    "p_state": 0.428723,
+    "p_blend": 0.507694
+   }
+  },
+  "instance_ansible__ansible-83909bfa22573777e3db5688773bda59721962ad-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.47387,
+    "p_state": 0.538952,
+    "p_blend": 0.506411
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.234743,
+    "p_state": 0.39669,
+    "p_blend": 0.315716
+   },
+   "gemini-3-flash": {
+    "p_text": 0.372424,
+    "p_state": 0.484641,
+    "p_blend": 0.428532
+   },
+   "kimi-k2-5": {
+    "p_text": 0.357958,
+    "p_state": 0.460104,
+    "p_blend": 0.409031
+   }
+  },
+  "instance_ansible__ansible-83fb24b923064d3576d473747ebbe62e4535c9e3-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.86771,
+    "p_state": 0.56706,
+    "p_blend": 0.717385
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.502152,
+    "p_state": 0.45705,
+    "p_blend": 0.479601
+   },
+   "gemini-3-flash": {
+    "p_text": 0.6891,
+    "p_state": 0.501099,
+    "p_blend": 0.595099
+   },
+   "kimi-k2-5": {
+    "p_text": 0.581901,
+    "p_state": 0.51821,
+    "p_blend": 0.550055
+   }
+  },
+  "instance_ansible__ansible-9142be2f6cabbe6597c9254c5bb9186d17036d55-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.727053,
+    "p_state": 0.723794,
+    "p_blend": 0.725424
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.217272,
+    "p_state": 0.584289,
+    "p_blend": 0.40078
+   },
+   "gemini-3-flash": {
+    "p_text": 0.274268,
+    "p_state": 0.588579,
+    "p_blend": 0.431424
+   },
+   "kimi-k2-5": {
+    "p_text": 0.281286,
+    "p_state": 0.543516,
+    "p_blend": 0.412401
+   }
+  },
+  "instance_ansible__ansible-935528e22e5283ee3f63a8772830d3d01f55ed8c-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.53438,
+    "p_state": 0.597476,
+    "p_blend": 0.565928
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.472834,
+    "p_state": 0.468318,
+    "p_blend": 0.470576
+   },
+   "gemini-3-flash": {
+    "p_text": 0.46413,
+    "p_state": 0.52074,
+    "p_blend": 0.492435
+   },
+   "kimi-k2-5": {
+    "p_text": 0.539124,
+    "p_state": 0.54327,
+    "p_blend": 0.541197
+   }
+  },
+  "instance_ansible__ansible-942424e10b2095a173dbd78e7128f52f7995849b-v30a923fb5c164d6cd18280c02422f75e611e8fb2": {
+   "gpt-5-2-high": {
+    "p_text": 0.714327,
+    "p_state": 0.45548,
+    "p_blend": 0.584903
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.612155,
+    "p_state": 0.368855,
+    "p_blend": 0.490505
+   },
+   "gemini-3-flash": {
+    "p_text": 0.81795,
+    "p_state": 0.47064,
+    "p_blend": 0.644295
+   },
+   "kimi-k2-5": {
+    "p_text": 0.626618,
+    "p_state": 0.418802,
+    "p_blend": 0.52271
+   }
+  },
+  "instance_ansible__ansible-949c503f2ef4b2c5d668af0492a5c0db1ab86140-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.129885,
+    "p_state": 0.556189,
+    "p_blend": 0.343037
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.11281,
+    "p_state": 0.407447,
+    "p_blend": 0.260129
+   },
+   "gemini-3-flash": {
+    "p_text": 0.089993,
+    "p_state": 0.521832,
+    "p_blend": 0.305913
+   },
+   "kimi-k2-5": {
+    "p_text": 0.078716,
+    "p_state": 0.518869,
+    "p_blend": 0.298792
+   }
+  },
+  "instance_ansible__ansible-9759e0ca494de1fd5fc2df2c5d11c57adbe6007c-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.635934,
+    "p_state": 0.421611,
+    "p_blend": 0.528772
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.195113,
+    "p_state": 0.323904,
+    "p_blend": 0.259509
+   },
+   "gemini-3-flash": {
+    "p_text": 0.199389,
+    "p_state": 0.507008,
+    "p_blend": 0.353198
+   },
+   "kimi-k2-5": {
+    "p_text": 0.180494,
+    "p_state": 0.414888,
+    "p_blend": 0.297691
+   }
+  },
+  "instance_ansible__ansible-984216f52e76b904e5b0fa0fb956ab4f1e0a7751-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.824123,
+    "p_state": 0.594815,
+    "p_blend": 0.709469
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.597439,
+    "p_state": 0.432878,
+    "p_blend": 0.515158
+   },
+   "gemini-3-flash": {
+    "p_text": 0.325399,
+    "p_state": 0.537142,
+    "p_blend": 0.431271
+   },
+   "kimi-k2-5": {
+    "p_text": 0.427436,
+    "p_state": 0.52815,
+    "p_blend": 0.477793
+   }
+  },
+  "instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f": {
+   "gpt-5-2-high": {
+    "p_text": 0.619998,
+    "p_state": 0.449568,
+    "p_blend": 0.534783
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.308158,
+    "p_state": 0.365797,
+    "p_blend": 0.336977
+   },
+   "gemini-3-flash": {
+    "p_text": 0.389888,
+    "p_state": 0.472279,
+    "p_blend": 0.431084
+   },
+   "kimi-k2-5": {
+    "p_text": 0.195019,
+    "p_state": 0.4125,
+    "p_blend": 0.303759
+   }
+  },
+  "instance_ansible__ansible-a02e22e902a69aeb465f16bf03f7f5a91b2cb828-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.695511,
+    "p_state": 0.432213,
+    "p_blend": 0.563862
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.236909,
+    "p_state": 0.331625,
+    "p_blend": 0.284267
+   },
+   "gemini-3-flash": {
+    "p_text": 0.405739,
+    "p_state": 0.511929,
+    "p_blend": 0.458834
+   },
+   "kimi-k2-5": {
+    "p_text": 0.339699,
+    "p_state": 0.420343,
+    "p_blend": 0.380021
+   }
+  },
+  "instance_ansible__ansible-a1569ea4ca6af5480cf0b7b3135f5e12add28a44-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.880135,
+    "p_state": 0.433061,
+    "p_blend": 0.656598
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.501434,
+    "p_state": 0.336872,
+    "p_blend": 0.419153
+   },
+   "gemini-3-flash": {
+    "p_text": 0.85539,
+    "p_state": 0.531645,
+    "p_blend": 0.693518
+   },
+   "kimi-k2-5": {
+    "p_text": 0.750218,
+    "p_state": 0.436824,
+    "p_blend": 0.593521
+   }
+  },
+  "instance_ansible__ansible-a20a52701402a12f91396549df04ac55809f68e9-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.651816,
+    "p_state": 0.637571,
+    "p_blend": 0.644694
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.477205,
+    "p_state": 0.489346,
+    "p_blend": 0.483275
+   },
+   "gemini-3-flash": {
+    "p_text": 0.32407,
+    "p_state": 0.521783,
+    "p_blend": 0.422927
+   },
+   "kimi-k2-5": {
+    "p_text": 0.424734,
+    "p_state": 0.503418,
+    "p_blend": 0.464076
+   }
+  },
+  "instance_ansible__ansible-a26c325bd8f6e2822d9d7e62f77a424c1db4fbf6-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.506159,
+    "p_state": 0.467023,
+    "p_blend": 0.486591
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.261965,
+    "p_state": 0.38576,
+    "p_blend": 0.323862
+   },
+   "gemini-3-flash": {
+    "p_text": 0.316482,
+    "p_state": 0.466202,
+    "p_blend": 0.391342
+   },
+   "kimi-k2-5": {
+    "p_text": 0.484951,
+    "p_state": 0.414692,
+    "p_blend": 0.449821
+   }
+  },
+  "instance_ansible__ansible-a6e671db25381ed111bbad0ab3e7d97366395d05-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.690595,
+    "p_state": 0.570531,
+    "p_blend": 0.630563
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.739054,
+    "p_state": 0.46565,
+    "p_blend": 0.602352
+   },
+   "gemini-3-flash": {
+    "p_text": 0.652524,
+    "p_state": 0.476679,
+    "p_blend": 0.564601
+   },
+   "kimi-k2-5": {
+    "p_text": 0.531523,
+    "p_state": 0.45574,
+    "p_blend": 0.493631
+   }
+  },
+  "instance_ansible__ansible-a7d2a4e03209cff1e97e59fd54bb2b05fdbdbec6-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.860932,
+    "p_state": 0.439125,
+    "p_blend": 0.650029
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.764932,
+    "p_state": 0.355051,
+    "p_blend": 0.559991
+   },
+   "gemini-3-flash": {
+    "p_text": 0.669524,
+    "p_state": 0.485211,
+    "p_blend": 0.577367
+   },
+   "kimi-k2-5": {
+    "p_text": 0.564278,
+    "p_state": 0.417486,
+    "p_blend": 0.490882
+   }
+  },
+  "instance_ansible__ansible-b2a289dcbb702003377221e25f62c8a3608f0e89-v173091e2e36d38c978002990795f66cfc0af30ad": {
+   "gpt-5-2-high": {
+    "p_text": 0.650575,
+    "p_state": 0.54394,
+    "p_blend": 0.597257
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.263425,
+    "p_state": 0.402146,
+    "p_blend": 0.332785
+   },
+   "gemini-3-flash": {
+    "p_text": 0.206649,
+    "p_state": 0.479075,
+    "p_blend": 0.342862
+   },
+   "kimi-k2-5": {
+    "p_text": 0.210115,
+    "p_state": 0.455365,
+    "p_blend": 0.33274
+   }
+  },
+  "instance_ansible__ansible-b5e0293645570f3f404ad1dbbe5f006956ada0df-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.671724,
+    "p_state": 0.551321,
+    "p_blend": 0.611523
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.374721,
+    "p_state": 0.441139,
+    "p_blend": 0.40793
+   },
+   "gemini-3-flash": {
+    "p_text": 0.556829,
+    "p_state": 0.516795,
+    "p_blend": 0.536812
+   },
+   "kimi-k2-5": {
+    "p_text": 0.624529,
+    "p_state": 0.523781,
+    "p_blend": 0.574155
+   }
+  },
+  "instance_ansible__ansible-b6290e1d156af608bd79118d209a64a051c55001-v390e508d27db7a51eece36bb6d9698b63a5b638a": {
+   "gpt-5-2-high": {
+    "p_text": 0.705837,
+    "p_state": 0.570957,
+    "p_blend": 0.638397
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.692829,
+    "p_state": 0.426014,
+    "p_blend": 0.559422
+   },
+   "gemini-3-flash": {
+    "p_text": 0.510193,
+    "p_state": 0.511619,
+    "p_blend": 0.510906
+   },
+   "kimi-k2-5": {
+    "p_text": 0.657929,
+    "p_state": 0.513667,
+    "p_blend": 0.585798
+   }
+  },
+  "instance_ansible__ansible-b748edea457a4576847a10275678127895d2f02f-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.395198,
+    "p_state": 0.582963,
+    "p_blend": 0.489081
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.089127,
+    "p_state": 0.4588,
+    "p_blend": 0.273963
+   },
+   "gemini-3-flash": {
+    "p_text": 0.145424,
+    "p_state": 0.498635,
+    "p_blend": 0.32203
+   },
+   "kimi-k2-5": {
+    "p_text": 0.176741,
+    "p_state": 0.48847,
+    "p_blend": 0.332605
+   }
+  },
+  "instance_ansible__ansible-b8025ac160146319d2b875be3366b60c852dd35d-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.360931,
+    "p_state": 0.457316,
+    "p_blend": 0.409124
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.147932,
+    "p_state": 0.367456,
+    "p_blend": 0.257694
+   },
+   "gemini-3-flash": {
+    "p_text": 0.180489,
+    "p_state": 0.477116,
+    "p_blend": 0.328802
+   },
+   "kimi-k2-5": {
+    "p_text": 0.219295,
+    "p_state": 0.420469,
+    "p_blend": 0.319882
+   }
+  },
+  "instance_ansible__ansible-be2c376ab87e3e872ca21697508f12c6909cf85a-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.845259,
+    "p_state": 0.668085,
+    "p_blend": 0.756672
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.646026,
+    "p_state": 0.505219,
+    "p_blend": 0.575623
+   },
+   "gemini-3-flash": {
+    "p_text": 0.485899,
+    "p_state": 0.554738,
+    "p_blend": 0.520319
+   },
+   "kimi-k2-5": {
+    "p_text": 0.676242,
+    "p_state": 0.559335,
+    "p_blend": 0.617788
+   }
+  },
+  "instance_ansible__ansible-be59caa59bf47ca78a4760eb7ff38568372a8260-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.778742,
+    "p_state": 0.764318,
+    "p_blend": 0.77153
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.352944,
+    "p_state": 0.645857,
+    "p_blend": 0.4994
+   },
+   "gemini-3-flash": {
+    "p_text": 0.585075,
+    "p_state": 0.655589,
+    "p_blend": 0.620332
+   },
+   "kimi-k2-5": {
+    "p_text": 0.503538,
+    "p_state": 0.678166,
+    "p_blend": 0.590852
+   }
+  },
+  "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2": {
+   "gpt-5-2-high": {
+    "p_text": 0.514569,
+    "p_state": 0.44202,
+    "p_blend": 0.478295
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.19874,
+    "p_state": 0.355387,
+    "p_blend": 0.277063
+   },
+   "gemini-3-flash": {
+    "p_text": 0.420499,
+    "p_state": 0.478524,
+    "p_blend": 0.449512
+   },
+   "kimi-k2-5": {
+    "p_text": 0.39814,
+    "p_state": 0.412908,
+    "p_blend": 0.405524
+   }
+  },
+  "instance_ansible__ansible-bf98f031f3f5af31a2d78dc2f0a58fe92ebae0bb-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.40101,
+    "p_state": 0.57311,
+    "p_blend": 0.48706
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.440569,
+    "p_state": 0.457946,
+    "p_blend": 0.449258
+   },
+   "gemini-3-flash": {
+    "p_text": 0.355452,
+    "p_state": 0.49018,
+    "p_blend": 0.422816
+   },
+   "kimi-k2-5": {
+    "p_text": 0.384954,
+    "p_state": 0.484942,
+    "p_blend": 0.434948
+   }
+  },
+  "instance_ansible__ansible-c1f2df47538b884a43320f53e787197793b105e8-v906c969b551b346ef54a2c0b41e04f632b7b73c2": {
+   "gpt-5-2-high": {
+    "p_text": 0.804306,
+    "p_state": 0.569386,
+    "p_blend": 0.686846
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.476221,
+    "p_state": 0.419554,
+    "p_blend": 0.447887
+   },
+   "gemini-3-flash": {
+    "p_text": 0.541516,
+    "p_state": 0.516194,
+    "p_blend": 0.528855
+   },
+   "kimi-k2-5": {
+    "p_text": 0.444115,
+    "p_state": 0.511122,
+    "p_blend": 0.477619
+   }
+  },
+  "instance_ansible__ansible-c616e54a6e23fa5616a1d56d243f69576164ef9b-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.8256,
+    "p_state": 0.5762,
+    "p_blend": 0.7009
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.397811,
+    "p_state": 0.440753,
+    "p_blend": 0.419282
+   },
+   "gemini-3-flash": {
+    "p_text": 0.3868,
+    "p_state": 0.496867,
+    "p_blend": 0.441834
+   },
+   "kimi-k2-5": {
+    "p_text": 0.355569,
+    "p_state": 0.452357,
+    "p_blend": 0.403963
+   }
+  },
+  "instance_ansible__ansible-cb94c0cc550df9e98f1247bc71d8c2b861c75049-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.336545,
+    "p_state": 0.548851,
+    "p_blend": 0.442698
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.348406,
+    "p_state": 0.398788,
+    "p_blend": 0.373597
+   },
+   "gemini-3-flash": {
+    "p_text": 0.6016,
+    "p_state": 0.49406,
+    "p_blend": 0.54783
+   },
+   "kimi-k2-5": {
+    "p_text": 0.374307,
+    "p_state": 0.478982,
+    "p_blend": 0.426644
+   }
+  },
+  "instance_ansible__ansible-cd473dfb2fdbc97acf3293c134b21cbbcfa89ec3-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.532657,
+    "p_state": 0.54015,
+    "p_blend": 0.536404
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.285045,
+    "p_state": 0.396104,
+    "p_blend": 0.340575
+   },
+   "gemini-3-flash": {
+    "p_text": 0.281776,
+    "p_state": 0.498352,
+    "p_blend": 0.390064
+   },
+   "kimi-k2-5": {
+    "p_text": 0.258156,
+    "p_state": 0.473069,
+    "p_blend": 0.365612
+   }
+  },
+  "instance_ansible__ansible-cd9c4eb5a6b2bfaf4a6709f001ce3d0c92c1eed2-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.343477,
+    "p_state": 0.605281,
+    "p_blend": 0.474379
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.225601,
+    "p_state": 0.506364,
+    "p_blend": 0.365982
+   },
+   "gemini-3-flash": {
+    "p_text": 0.450074,
+    "p_state": 0.52623,
+    "p_blend": 0.488152
+   },
+   "kimi-k2-5": {
+    "p_text": 0.161276,
+    "p_state": 0.554901,
+    "p_blend": 0.358088
+   }
+  },
+  "instance_ansible__ansible-d2f80991180337e2be23d6883064a67dcbaeb662-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.497389,
+    "p_state": 0.608092,
+    "p_blend": 0.55274
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.054171,
+    "p_state": 0.475068,
+    "p_blend": 0.264619
+   },
+   "gemini-3-flash": {
+    "p_text": 0.139968,
+    "p_state": 0.521089,
+    "p_blend": 0.330528
+   },
+   "kimi-k2-5": {
+    "p_text": 0.162071,
+    "p_state": 0.479105,
+    "p_blend": 0.320588
+   }
+  },
+  "instance_ansible__ansible-d30fc6c0b359f631130b0e979d9a78a7b3747d48-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.812729,
+    "p_state": 0.574735,
+    "p_blend": 0.693732
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.628548,
+    "p_state": 0.471708,
+    "p_blend": 0.550128
+   },
+   "gemini-3-flash": {
+    "p_text": 0.577659,
+    "p_state": 0.49585,
+    "p_blend": 0.536754
+   },
+   "kimi-k2-5": {
+    "p_text": 0.704589,
+    "p_state": 0.489237,
+    "p_blend": 0.596913
+   }
+  },
+  "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.453501,
+    "p_state": 0.572336,
+    "p_blend": 0.512918
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.358394,
+    "p_state": 0.426337,
+    "p_blend": 0.392365
+   },
+   "gemini-3-flash": {
+    "p_text": 0.210984,
+    "p_state": 0.536385,
+    "p_blend": 0.373684
+   },
+   "kimi-k2-5": {
+    "p_text": 0.267218,
+    "p_state": 0.547954,
+    "p_blend": 0.407586
+   }
+  },
+  "instance_ansible__ansible-d58e69c82d7edd0583dd8e78d76b075c33c3151e-v173091e2e36d38c978002990795f66cfc0af30ad": {
+   "gpt-5-2-high": {
+    "p_text": 0.516509,
+    "p_state": 0.586884,
+    "p_blend": 0.551696
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.370558,
+    "p_state": 0.446528,
+    "p_blend": 0.408543
+   },
+   "gemini-3-flash": {
+    "p_text": 0.383295,
+    "p_state": 0.500937,
+    "p_blend": 0.442116
+   },
+   "kimi-k2-5": {
+    "p_text": 0.472803,
+    "p_state": 0.457872,
+    "p_blend": 0.465338
+   }
+  },
+  "instance_ansible__ansible-d62496fe416623e88b90139dc7917080cb04ce70-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.51056,
+    "p_state": 0.720573,
+    "p_blend": 0.615566
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.397833,
+    "p_state": 0.545376,
+    "p_blend": 0.471605
+   },
+   "gemini-3-flash": {
+    "p_text": 0.444748,
+    "p_state": 0.583976,
+    "p_blend": 0.514362
+   },
+   "kimi-k2-5": {
+    "p_text": 0.689528,
+    "p_state": 0.569476,
+    "p_blend": 0.629502
+   }
+  },
+  "instance_ansible__ansible-d6d2251929c84c3aa883bad7db0f19cc9ff0339e-v30a923fb5c164d6cd18280c02422f75e611e8fb2": {
+   "gpt-5-2-high": {
+    "p_text": 0.916803,
+    "p_state": 0.621923,
+    "p_blend": 0.769363
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.778596,
+    "p_state": 0.456177,
+    "p_blend": 0.617387
+   },
+   "gemini-3-flash": {
+    "p_text": 0.815223,
+    "p_state": 0.532154,
+    "p_blend": 0.673688
+   },
+   "kimi-k2-5": {
+    "p_text": 0.78675,
+    "p_state": 0.505312,
+    "p_blend": 0.646031
+   }
+  },
+  "instance_ansible__ansible-d72025be751c894673ba85caa063d835a0ad3a8c-v390e508d27db7a51eece36bb6d9698b63a5b638a": {
+   "gpt-5-2-high": {
+    "p_text": 0.626487,
+    "p_state": 0.437548,
+    "p_blend": 0.532018
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.528807,
+    "p_state": 0.335968,
+    "p_blend": 0.432387
+   },
+   "gemini-3-flash": {
+    "p_text": 0.48176,
+    "p_state": 0.521803,
+    "p_blend": 0.501782
+   },
+   "kimi-k2-5": {
+    "p_text": 0.561197,
+    "p_state": 0.428997,
+    "p_blend": 0.495097
+   }
+  },
+  "instance_ansible__ansible-d9f1866249756efc264b00ff7497e92c11a9885f-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.521162,
+    "p_state": 0.430444,
+    "p_blend": 0.475803
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.256538,
+    "p_state": 0.336354,
+    "p_blend": 0.296446
+   },
+   "gemini-3-flash": {
+    "p_text": 0.182744,
+    "p_state": 0.506626,
+    "p_blend": 0.344685
+   },
+   "kimi-k2-5": {
+    "p_text": 0.226414,
+    "p_state": 0.428899,
+    "p_blend": 0.327657
+   }
+  },
+  "instance_ansible__ansible-de01db08d00c8d2438e1ba5989c313ba16a145b0-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.728772,
+    "p_state": 0.445622,
+    "p_blend": 0.587197
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.199308,
+    "p_state": 0.346932,
+    "p_blend": 0.27312
+   },
+   "gemini-3-flash": {
+    "p_text": 0.271896,
+    "p_state": 0.556106,
+    "p_blend": 0.414001
+   },
+   "kimi-k2-5": {
+    "p_text": 0.123288,
+    "p_state": 0.451457,
+    "p_blend": 0.287372
+   }
+  },
+  "instance_ansible__ansible-de5858f48dc9e1ce9117034e0d7e76806f420ca8-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.627483,
+    "p_state": 0.602702,
+    "p_blend": 0.615093
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.275406,
+    "p_state": 0.443787,
+    "p_blend": 0.359596
+   },
+   "gemini-3-flash": {
+    "p_text": 0.307429,
+    "p_state": 0.541112,
+    "p_blend": 0.42427
+   },
+   "kimi-k2-5": {
+    "p_text": 0.21055,
+    "p_state": 0.533966,
+    "p_blend": 0.372258
+   }
+  },
+  "instance_ansible__ansible-deb54e4c5b32a346f1f0b0a14f1c713d2cc2e961-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.403348,
+    "p_state": 0.44616,
+    "p_blend": 0.424754
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.175687,
+    "p_state": 0.365529,
+    "p_blend": 0.270608
+   },
+   "gemini-3-flash": {
+    "p_text": 0.234753,
+    "p_state": 0.472344,
+    "p_blend": 0.353548
+   },
+   "kimi-k2-5": {
+    "p_text": 0.325849,
+    "p_state": 0.40763,
+    "p_blend": 0.366739
+   }
+  },
+  "instance_ansible__ansible-e0c91af45fa9af575d10fd3e724ebc59d2b2d6ac-v30a923fb5c164d6cd18280c02422f75e611e8fb2": {
+   "gpt-5-2-high": {
+    "p_text": 0.62661,
+    "p_state": 0.858005,
+    "p_blend": 0.742307
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.42115,
+    "p_state": 0.723199,
+    "p_blend": 0.572175
+   },
+   "gemini-3-flash": {
+    "p_text": 0.40124,
+    "p_state": 0.732007,
+    "p_blend": 0.566623
+   },
+   "kimi-k2-5": {
+    "p_text": 0.347048,
+    "p_state": 0.706409,
+    "p_blend": 0.526729
+   }
+  },
+  "instance_ansible__ansible-e22e103cdf8edc56ff7d9b848a58f94f1471a263-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.531579,
+    "p_state": 0.610242,
+    "p_blend": 0.57091
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.359825,
+    "p_state": 0.493061,
+    "p_blend": 0.426443
+   },
+   "gemini-3-flash": {
+    "p_text": 0.62225,
+    "p_state": 0.520483,
+    "p_blend": 0.571366
+   },
+   "kimi-k2-5": {
+    "p_text": 0.371619,
+    "p_state": 0.524356,
+    "p_blend": 0.447988
+   }
+  },
+  "instance_ansible__ansible-e40889e7112ae00a21a2c74312b330e67a766cc0-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.551253,
+    "p_state": 0.45737,
+    "p_blend": 0.504312
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.177098,
+    "p_state": 0.368426,
+    "p_blend": 0.272762
+   },
+   "gemini-3-flash": {
+    "p_text": 0.236996,
+    "p_state": 0.471809,
+    "p_blend": 0.354402
+   },
+   "kimi-k2-5": {
+    "p_text": 0.196902,
+    "p_state": 0.418638,
+    "p_blend": 0.30777
+   }
+  },
+  "instance_ansible__ansible-e64c6c1ca50d7d26a8e7747d8eb87642e767cd74-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.153294,
+    "p_state": 0.664984,
+    "p_blend": 0.409139
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.517877,
+    "p_state": 0.518361,
+    "p_blend": 0.518119
+   },
+   "gemini-3-flash": {
+    "p_text": 0.225397,
+    "p_state": 0.555654,
+    "p_blend": 0.390525
+   },
+   "kimi-k2-5": {
+    "p_text": 0.317648,
+    "p_state": 0.556674,
+    "p_blend": 0.437161
+   }
+  },
+  "instance_ansible__ansible-e9e6001263f51103e96e58ad382660df0f3d0e39-v30a923fb5c164d6cd18280c02422f75e611e8fb2": {
+   "gpt-5-2-high": {
+    "p_text": 0.460536,
+    "p_state": 0.434878,
+    "p_blend": 0.447707
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.298027,
+    "p_state": 0.333127,
+    "p_blend": 0.315577
+   },
+   "gemini-3-flash": {
+    "p_text": 0.64161,
+    "p_state": 0.53163,
+    "p_blend": 0.58662
+   },
+   "kimi-k2-5": {
+    "p_text": 0.351633,
+    "p_state": 0.434705,
+    "p_blend": 0.393169
+   }
+  },
+  "instance_ansible__ansible-ea04e0048dbb3b63f876aad7020e1de8eee9f362-v1055803c3a812189a1133297f7f5468579283f86": {
+   "gpt-5-2-high": {
+    "p_text": 0.551886,
+    "p_state": 0.639009,
+    "p_blend": 0.595448
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.5652,
+    "p_state": 0.470033,
+    "p_blend": 0.517617
+   },
+   "gemini-3-flash": {
+    "p_text": 0.285923,
+    "p_state": 0.536671,
+    "p_blend": 0.411297
+   },
+   "kimi-k2-5": {
+    "p_text": 0.444584,
+    "p_state": 0.551901,
+    "p_blend": 0.498242
+   }
+  },
+  "instance_ansible__ansible-ecea15c508f0e081525be036cf76bbb56dbcdd9d-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.723084,
+    "p_state": 0.58533,
+    "p_blend": 0.654207
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.228298,
+    "p_state": 0.449461,
+    "p_blend": 0.338879
+   },
+   "gemini-3-flash": {
+    "p_text": 0.374611,
+    "p_state": 0.531972,
+    "p_blend": 0.453292
+   },
+   "kimi-k2-5": {
+    "p_text": 0.270786,
+    "p_state": 0.525702,
+    "p_blend": 0.398244
+   }
+  },
+  "instance_ansible__ansible-ed6581e4db2f1bec5a772213c3e186081adc162d-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.887624,
+    "p_state": 0.793931,
+    "p_blend": 0.840777
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.499465,
+    "p_state": 0.674654,
+    "p_blend": 0.587059
+   },
+   "gemini-3-flash": {
+    "p_text": 0.507822,
+    "p_state": 0.689102,
+    "p_blend": 0.598462
+   },
+   "kimi-k2-5": {
+    "p_text": 0.412462,
+    "p_state": 0.699541,
+    "p_blend": 0.556001
+   }
+  },
+  "instance_ansible__ansible-eea46a0d1b99a6dadedbb6a3502d599235fa7ec3-v390e508d27db7a51eece36bb6d9698b63a5b638a": {
+   "gpt-5-2-high": {
+    "p_text": 0.68677,
+    "p_state": 0.482625,
+    "p_blend": 0.584697
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.54573,
+    "p_state": 0.375742,
+    "p_blend": 0.460736
+   },
+   "gemini-3-flash": {
+    "p_text": 0.628544,
+    "p_state": 0.483552,
+    "p_blend": 0.556048
+   },
+   "kimi-k2-5": {
+    "p_text": 0.623481,
+    "p_state": 0.437849,
+    "p_blend": 0.530665
+   }
+  },
+  "instance_ansible__ansible-f02a62db509dc7463fab642c9c3458b9bc3476cc-v390e508d27db7a51eece36bb6d9698b63a5b638a": {
+   "gpt-5-2-high": {
+    "p_text": 0.309047,
+    "p_state": 0.442744,
+    "p_blend": 0.375896
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.415315,
+    "p_state": 0.343126,
+    "p_blend": 0.37922
+   },
+   "gemini-3-flash": {
+    "p_text": 0.505503,
+    "p_state": 0.498496,
+    "p_blend": 0.502
+   },
+   "kimi-k2-5": {
+    "p_text": 0.28521,
+    "p_state": 0.426098,
+    "p_blend": 0.355654
+   }
+  },
+  "instance_ansible__ansible-f327e65d11bb905ed9f15996024f857a95592629-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.637636,
+    "p_state": 0.452381,
+    "p_blend": 0.545009
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.223651,
+    "p_state": 0.368548,
+    "p_blend": 0.296099
+   },
+   "gemini-3-flash": {
+    "p_text": 0.306032,
+    "p_state": 0.473843,
+    "p_blend": 0.389937
+   },
+   "kimi-k2-5": {
+    "p_text": 0.250076,
+    "p_state": 0.413204,
+    "p_blend": 0.33164
+   }
+  },
+  "instance_ansible__ansible-f86c58e2d235d8b96029d102c71ee2dfafd57997-v0f01c69f1e2528b935359cfe578530722bca2c59": {
+   "gpt-5-2-high": {
+    "p_text": 0.713634,
+    "p_state": 0.452266,
+    "p_blend": 0.58295
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.366927,
+    "p_state": 0.372257,
+    "p_blend": 0.369592
+   },
+   "gemini-3-flash": {
+    "p_text": 0.621414,
+    "p_state": 0.473205,
+    "p_blend": 0.547309
+   },
+   "kimi-k2-5": {
+    "p_text": 0.73533,
+    "p_state": 0.415338,
+    "p_blend": 0.575334
+   }
+  },
+  "instance_ansible__ansible-f8ef34672b961a95ec7282643679492862c688ec-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.427508,
+    "p_state": 0.448858,
+    "p_blend": 0.438183
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.39868,
+    "p_state": 0.362738,
+    "p_blend": 0.380709
+   },
+   "gemini-3-flash": {
+    "p_text": 0.276393,
+    "p_state": 0.465038,
+    "p_blend": 0.370716
+   },
+   "kimi-k2-5": {
+    "p_text": 0.333736,
+    "p_state": 0.40242,
+    "p_blend": 0.368078
+   }
+  },
+  "instance_ansible__ansible-fb144c44144f8bd3542e71f5db62b6d322c7bd85-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5": {
+   "gpt-5-2-high": {
+    "p_text": 0.774682,
+    "p_state": 0.615483,
+    "p_blend": 0.695083
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.336347,
+    "p_state": 0.483474,
+    "p_blend": 0.40991
+   },
+   "gemini-3-flash": {
+    "p_text": 0.537229,
+    "p_state": 0.497311,
+    "p_blend": 0.51727
+   },
+   "kimi-k2-5": {
+    "p_text": 0.76714,
+    "p_state": 0.497285,
+    "p_blend": 0.632213
+   }
+  },
+  "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.48369,
+    "p_state": 0.794591,
+    "p_blend": 0.63914
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.204433,
+    "p_state": 0.665496,
+    "p_blend": 0.434964
+   },
+   "gemini-3-flash": {
+    "p_text": 0.244116,
+    "p_state": 0.689364,
+    "p_blend": 0.46674
+   },
+   "kimi-k2-5": {
+    "p_text": 0.289597,
+    "p_state": 0.68519,
+    "p_blend": 0.487394
+   }
+  },
+  "instance_internetarchive__openlibrary-03095f2680f7516fca35a58e665bf2a41f006273-v8717e18970bcdc4e0d2cea3b1527752b21e74866": {
+   "gpt-5-2-high": {
+    "p_text": 0.812926,
+    "p_state": 0.822084,
+    "p_blend": 0.817505
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.75072,
+    "p_state": 0.673227,
+    "p_blend": 0.711974
+   },
+   "gemini-3-flash": {
+    "p_text": 0.609762,
+    "p_state": 0.675923,
+    "p_blend": 0.642842
+   },
+   "kimi-k2-5": {
+    "p_text": 0.584889,
+    "p_state": 0.669032,
+    "p_blend": 0.626961
+   }
+  },
+  "instance_internetarchive__openlibrary-08ac40d050a64e1d2646ece4959af0c42bf6b7b5-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.718353,
+    "p_state": 0.636086,
+    "p_blend": 0.67722
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.454299,
+    "p_state": 0.488445,
+    "p_blend": 0.471372
+   },
+   "gemini-3-flash": {
+    "p_text": 0.539288,
+    "p_state": 0.531923,
+    "p_blend": 0.535605
+   },
+   "kimi-k2-5": {
+    "p_text": 0.675448,
+    "p_state": 0.495681,
+    "p_blend": 0.585564
+   }
+  },
+  "instance_internetarchive__openlibrary-09865f5fb549694d969f0a8e49b9d204ef1853ca-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.506268,
+    "p_state": 0.601477,
+    "p_blend": 0.553872
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.247884,
+    "p_state": 0.47022,
+    "p_blend": 0.359052
+   },
+   "gemini-3-flash": {
+    "p_text": 0.245161,
+    "p_state": 0.493678,
+    "p_blend": 0.36942
+   },
+   "kimi-k2-5": {
+    "p_text": 0.485828,
+    "p_state": 0.46376,
+    "p_blend": 0.474794
+   }
+  },
+  "instance_internetarchive__openlibrary-0a90f9f0256e4f933523e9842799e39f95ae29ce-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": {
+   "gpt-5-2-high": {
+    "p_text": 0.704168,
+    "p_state": 0.608224,
+    "p_blend": 0.656196
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.38586,
+    "p_state": 0.491284,
+    "p_blend": 0.438572
+   },
+   "gemini-3-flash": {
+    "p_text": 0.585026,
+    "p_state": 0.504493,
+    "p_blend": 0.54476
+   },
+   "kimi-k2-5": {
+    "p_text": 0.638058,
+    "p_state": 0.468518,
+    "p_blend": 0.553288
+   }
+  },
+  "instance_internetarchive__openlibrary-0d13e6b4bf80bced6c0946b969b9a1b6963f6bce-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": {
+   "gpt-5-2-high": {
+    "p_text": 0.743409,
+    "p_state": 0.627937,
+    "p_blend": 0.685673
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.373764,
+    "p_state": 0.476474,
+    "p_blend": 0.425119
+   },
+   "gemini-3-flash": {
+    "p_text": 0.495109,
+    "p_state": 0.528353,
+    "p_blend": 0.511731
+   },
+   "kimi-k2-5": {
+    "p_text": 0.726377,
+    "p_state": 0.49381,
+    "p_blend": 0.610094
+   }
+  },
+  "instance_internetarchive__openlibrary-0dc5b20fa186f9714f8a838178597e69f549d026-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59": {
+   "gpt-5-2-high": {
+    "p_text": 0.646943,
+    "p_state": 0.430995,
+    "p_blend": 0.538969
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.389954,
+    "p_state": 0.334086,
+    "p_blend": 0.36202
+   },
+   "gemini-3-flash": {
+    "p_text": 0.473182,
+    "p_state": 0.531366,
+    "p_blend": 0.502274
+   },
+   "kimi-k2-5": {
+    "p_text": 0.728004,
+    "p_state": 0.432935,
+    "p_blend": 0.58047
+   }
+  },
+  "instance_internetarchive__openlibrary-111347e9583372e8ef91c82e0612ea437ae3a9c9-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59": {
+   "gpt-5-2-high": {
+    "p_text": 0.694805,
+    "p_state": 0.630103,
+    "p_blend": 0.662454
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.599959,
+    "p_state": 0.480069,
+    "p_blend": 0.540014
+   },
+   "gemini-3-flash": {
+    "p_text": 0.534432,
+    "p_state": 0.523415,
+    "p_blend": 0.528924
+   },
+   "kimi-k2-5": {
+    "p_text": 0.744537,
+    "p_state": 0.474017,
+    "p_blend": 0.609277
+   }
+  },
+  "instance_internetarchive__openlibrary-11838fad1028672eb975c79d8984f03348500173-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.711034,
+    "p_state": 0.617768,
+    "p_blend": 0.664401
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.535963,
+    "p_state": 0.486345,
+    "p_blend": 0.511154
+   },
+   "gemini-3-flash": {
+    "p_text": 0.635511,
+    "p_state": 0.525408,
+    "p_blend": 0.580459
+   },
+   "kimi-k2-5": {
+    "p_text": 0.804179,
+    "p_state": 0.474209,
+    "p_blend": 0.639194
+   }
+  },
+  "instance_internetarchive__openlibrary-123e6e5e1c85b9c07d1e98f70bfc480bc8016890-v2733ff199fb72f0d033a30dc62cb0a4742e3a7f4": {
+   "gpt-5-2-high": {
+    "p_text": 0.51106,
+    "p_state": 0.60444,
+    "p_blend": 0.55775
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.618758,
+    "p_state": 0.476746,
+    "p_blend": 0.547752
+   },
+   "gemini-3-flash": {
+    "p_text": 0.532315,
+    "p_state": 0.507243,
+    "p_blend": 0.519779
+   },
+   "kimi-k2-5": {
+    "p_text": 0.476191,
+    "p_state": 0.467539,
+    "p_blend": 0.471865
+   }
+  },
+  "instance_internetarchive__openlibrary-1351c59fd43689753de1fca32c78d539a116ffc1-v29f82c9cf21d57b242f8d8b0e541525d259e2d63": {
+   "gpt-5-2-high": {
+    "p_text": 0.629726,
+    "p_state": 0.582804,
+    "p_blend": 0.606265
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.791955,
+    "p_state": 0.443713,
+    "p_blend": 0.617834
+   },
+   "gemini-3-flash": {
+    "p_text": 0.724394,
+    "p_state": 0.485819,
+    "p_blend": 0.605107
+   },
+   "kimi-k2-5": {
+    "p_text": 0.74615,
+    "p_state": 0.452193,
+    "p_blend": 0.599172
+   }
+  },
+  "instance_internetarchive__openlibrary-1894cb48d6e7fb498295a5d3ed0596f6f603b784-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.692357,
+    "p_state": 0.592808,
+    "p_blend": 0.642582
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.440439,
+    "p_state": 0.473271,
+    "p_blend": 0.456855
+   },
+   "gemini-3-flash": {
+    "p_text": 0.429585,
+    "p_state": 0.502765,
+    "p_blend": 0.466175
+   },
+   "kimi-k2-5": {
+    "p_text": 0.406063,
+    "p_state": 0.457268,
+    "p_blend": 0.431665
+   }
+  },
+  "instance_internetarchive__openlibrary-1be7de788a444f6255e89c10ef6aa608550604a8-v29f82c9cf21d57b242f8d8b0e541525d259e2d63": {
+   "gpt-5-2-high": {
+    "p_text": 0.717985,
+    "p_state": 0.462587,
+    "p_blend": 0.590286
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.533557,
+    "p_state": 0.373733,
+    "p_blend": 0.453645
+   },
+   "gemini-3-flash": {
+    "p_text": 0.572941,
+    "p_state": 0.474921,
+    "p_blend": 0.523931
+   },
+   "kimi-k2-5": {
+    "p_text": 0.685247,
+    "p_state": 0.418032,
+    "p_blend": 0.551639
+   }
+  },
+  "instance_internetarchive__openlibrary-25858f9f0c165df25742acf8309ce909773f0cdd-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.804733,
+    "p_state": 0.558545,
+    "p_blend": 0.681639
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.510668,
+    "p_state": 0.421284,
+    "p_blend": 0.465976
+   },
+   "gemini-3-flash": {
+    "p_text": 0.499924,
+    "p_state": 0.493425,
+    "p_blend": 0.496675
+   },
+   "kimi-k2-5": {
+    "p_text": 0.475968,
+    "p_state": 0.482985,
+    "p_blend": 0.479476
+   }
+  },
+  "instance_internetarchive__openlibrary-2abe28b472ffed563a87cfe83685b161b35263b0-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.408495,
+    "p_state": 0.605204,
+    "p_blend": 0.506849
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.325701,
+    "p_state": 0.443969,
+    "p_blend": 0.384835
+   },
+   "gemini-3-flash": {
+    "p_text": 0.311567,
+    "p_state": 0.514156,
+    "p_blend": 0.412861
+   },
+   "kimi-k2-5": {
+    "p_text": 0.465805,
+    "p_state": 0.495028,
+    "p_blend": 0.480417
+   }
+  },
+  "instance_internetarchive__openlibrary-2fe532a33635aab7a9bfea5d977f6a72b280a30c-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.276537,
+    "p_state": 0.427458,
+    "p_blend": 0.351998
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.298072,
+    "p_state": 0.330523,
+    "p_blend": 0.314297
+   },
+   "gemini-3-flash": {
+    "p_text": 0.351269,
+    "p_state": 0.525703,
+    "p_blend": 0.438486
+   },
+   "kimi-k2-5": {
+    "p_text": 0.404303,
+    "p_state": 0.427916,
+    "p_blend": 0.41611
+   }
+  },
+  "instance_internetarchive__openlibrary-308a35d6999427c02b1dbf5211c033ad3b352556-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.943597,
+    "p_state": 0.5932,
+    "p_blend": 0.768399
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.803253,
+    "p_state": 0.456613,
+    "p_blend": 0.629933
+   },
+   "gemini-3-flash": {
+    "p_text": 0.707474,
+    "p_state": 0.518776,
+    "p_blend": 0.613125
+   },
+   "kimi-k2-5": {
+    "p_text": 0.776586,
+    "p_state": 0.522727,
+    "p_blend": 0.649656
+   }
+  },
+  "instance_internetarchive__openlibrary-30bc73a1395fba2300087c7f307e54bb5372b60a-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": {
+   "gpt-5-2-high": {
+    "p_text": 0.589047,
+    "p_state": 0.58544,
+    "p_blend": 0.587243
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.486475,
+    "p_state": 0.452529,
+    "p_blend": 0.469502
+   },
+   "gemini-3-flash": {
+    "p_text": 0.547574,
+    "p_state": 0.504927,
+    "p_blend": 0.526251
+   },
+   "kimi-k2-5": {
+    "p_text": 0.451354,
+    "p_state": 0.460032,
+    "p_blend": 0.455693
+   }
+  },
+  "instance_internetarchive__openlibrary-322d7a46cdc965bfabbf9500e98fde098c9d95b2-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.822843,
+    "p_state": 0.62328,
+    "p_blend": 0.723061
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.716979,
+    "p_state": 0.473956,
+    "p_blend": 0.595467
+   },
+   "gemini-3-flash": {
+    "p_text": 0.683259,
+    "p_state": 0.523864,
+    "p_blend": 0.603562
+   },
+   "kimi-k2-5": {
+    "p_text": 0.630296,
+    "p_state": 0.479177,
+    "p_blend": 0.554737
+   }
+  },
+  "instance_internetarchive__openlibrary-3aeec6afed9198d734b7ee1293f03ca94ff970e1-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.56505,
+    "p_state": 0.745982,
+    "p_blend": 0.655516
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.296634,
+    "p_state": 0.579267,
+    "p_blend": 0.437951
+   },
+   "gemini-3-flash": {
+    "p_text": 0.17908,
+    "p_state": 0.606489,
+    "p_blend": 0.392784
+   },
+   "kimi-k2-5": {
+    "p_text": 0.277909,
+    "p_state": 0.579324,
+    "p_blend": 0.428617
+   }
+  },
+  "instance_internetarchive__openlibrary-3c48b4bb782189e0858e6c3fc7956046cf3e1cfb-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59": {
+   "gpt-5-2-high": {
+    "p_text": 0.673104,
+    "p_state": 0.584369,
+    "p_blend": 0.628736
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.354156,
+    "p_state": 0.481052,
+    "p_blend": 0.417604
+   },
+   "gemini-3-flash": {
+    "p_text": 0.477582,
+    "p_state": 0.522078,
+    "p_blend": 0.49983
+   },
+   "kimi-k2-5": {
+    "p_text": 0.647362,
+    "p_state": 0.542484,
+    "p_blend": 0.594923
+   }
+  },
+  "instance_internetarchive__openlibrary-3f580a5f244c299d936d73d9e327ba873b6401d9-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.759561,
+    "p_state": 0.571427,
+    "p_blend": 0.665494
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.867692,
+    "p_state": 0.455746,
+    "p_blend": 0.661719
+   },
+   "gemini-3-flash": {
+    "p_text": 0.753191,
+    "p_state": 0.495565,
+    "p_blend": 0.624378
+   },
+   "kimi-k2-5": {
+    "p_text": 0.766552,
+    "p_state": 0.493808,
+    "p_blend": 0.63018
+   }
+  },
+  "instance_internetarchive__openlibrary-3f7db6bbbcc7c418b3db72d157c6aed1d45b2ccf-v430f20c722405e462d9ef44dee7d34c41e76fe7a": {
+   "gpt-5-2-high": {
+    "p_text": 0.585474,
+    "p_state": 0.606122,
+    "p_blend": 0.595798
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.140968,
+    "p_state": 0.508889,
+    "p_blend": 0.324928
+   },
+   "gemini-3-flash": {
+    "p_text": 0.321575,
+    "p_state": 0.530039,
+    "p_blend": 0.425807
+   },
+   "kimi-k2-5": {
+    "p_text": 0.364388,
+    "p_state": 0.539901,
+    "p_blend": 0.452145
+   }
+  },
+  "instance_internetarchive__openlibrary-427f1f4eddfc54735ca451779d4f95bf683d1b0e-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.682874,
+    "p_state": 0.436523,
+    "p_blend": 0.559699
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.472655,
+    "p_state": 0.351958,
+    "p_blend": 0.412306
+   },
+   "gemini-3-flash": {
+    "p_text": 0.706554,
+    "p_state": 0.482834,
+    "p_blend": 0.594694
+   },
+   "kimi-k2-5": {
+    "p_text": 0.644116,
+    "p_state": 0.41041,
+    "p_blend": 0.527263
+   }
+  },
+  "instance_internetarchive__openlibrary-431442c92887a3aece3f8aa771dd029738a80eb1-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": {
+   "gpt-5-2-high": {
+    "p_text": 0.894278,
+    "p_state": 0.464397,
+    "p_blend": 0.679337
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.823841,
+    "p_state": 0.376455,
+    "p_blend": 0.600148
+   },
+   "gemini-3-flash": {
+    "p_text": 0.735534,
+    "p_state": 0.484904,
+    "p_blend": 0.610219
+   },
+   "kimi-k2-5": {
+    "p_text": 0.841076,
+    "p_state": 0.426262,
+    "p_blend": 0.633669
+   }
+  },
+  "instance_internetarchive__openlibrary-43f9e7e0d56a4f1d487533543c17040a029ac501-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.710597,
+    "p_state": 0.571248,
+    "p_blend": 0.640923
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.541607,
+    "p_state": 0.42635,
+    "p_blend": 0.483979
+   },
+   "gemini-3-flash": {
+    "p_text": 0.347043,
+    "p_state": 0.521796,
+    "p_blend": 0.434419
+   },
+   "kimi-k2-5": {
+    "p_text": 0.553503,
+    "p_state": 0.513748,
+    "p_blend": 0.533625
+   }
+  },
+  "instance_internetarchive__openlibrary-4a5d2a7d24c9e4c11d3069220c0685b736d5ecde-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.503506,
+    "p_state": 0.583764,
+    "p_blend": 0.543635
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.415465,
+    "p_state": 0.438497,
+    "p_blend": 0.426981
+   },
+   "gemini-3-flash": {
+    "p_text": 0.274941,
+    "p_state": 0.517686,
+    "p_blend": 0.396314
+   },
+   "kimi-k2-5": {
+    "p_text": 0.21687,
+    "p_state": 0.502084,
+    "p_blend": 0.359477
+   }
+  },
+  "instance_internetarchive__openlibrary-4b7ea2977be2747496ba792a678940baa985f7ea-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.751027,
+    "p_state": 0.600273,
+    "p_blend": 0.67565
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.645665,
+    "p_state": 0.466395,
+    "p_blend": 0.55603
+   },
+   "gemini-3-flash": {
+    "p_text": 0.68133,
+    "p_state": 0.544246,
+    "p_blend": 0.612788
+   },
+   "kimi-k2-5": {
+    "p_text": 0.796812,
+    "p_state": 0.547655,
+    "p_blend": 0.672234
+   }
+  },
+  "instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866": {
+   "gpt-5-2-high": {
+    "p_text": 0.779219,
+    "p_state": 0.885774,
+    "p_blend": 0.832497
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.802687,
+    "p_state": 0.753365,
+    "p_blend": 0.778026
+   },
+   "gemini-3-flash": {
+    "p_text": 0.655168,
+    "p_state": 0.759536,
+    "p_blend": 0.707352
+   },
+   "kimi-k2-5": {
+    "p_text": 0.551698,
+    "p_state": 0.736208,
+    "p_blend": 0.643953
+   }
+  },
+  "instance_internetarchive__openlibrary-53d376b148897466bb86d5accb51912bbbe9a8ed-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.728848,
+    "p_state": 0.429343,
+    "p_blend": 0.579096
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.497077,
+    "p_state": 0.328724,
+    "p_blend": 0.412901
+   },
+   "gemini-3-flash": {
+    "p_text": 0.591482,
+    "p_state": 0.518718,
+    "p_blend": 0.5551
+   },
+   "kimi-k2-5": {
+    "p_text": 0.701037,
+    "p_state": 0.424604,
+    "p_blend": 0.56282
+   }
+  },
+  "instance_internetarchive__openlibrary-53e02a22972e9253aeded0e1981e6845e1e521fe-vfa6ff903cb27f336e17654595dd900fa943dcd91": {
+   "gpt-5-2-high": {
+    "p_text": 0.864909,
+    "p_state": 0.595386,
+    "p_blend": 0.730147
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.762749,
+    "p_state": 0.442693,
+    "p_blend": 0.602721
+   },
+   "gemini-3-flash": {
+    "p_text": 0.764693,
+    "p_state": 0.534749,
+    "p_blend": 0.649721
+   },
+   "kimi-k2-5": {
+    "p_text": 0.739933,
+    "p_state": 0.539361,
+    "p_blend": 0.639647
+   }
+  },
+  "instance_internetarchive__openlibrary-58999808a17a26b387f8237860a7a524d1e2d262-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.354189,
+    "p_state": 0.709404,
+    "p_blend": 0.531797
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.367975,
+    "p_state": 0.566962,
+    "p_blend": 0.467468
+   },
+   "gemini-3-flash": {
+    "p_text": 0.388263,
+    "p_state": 0.585148,
+    "p_blend": 0.486706
+   },
+   "kimi-k2-5": {
+    "p_text": 0.334825,
+    "p_state": 0.542723,
+    "p_blend": 0.438774
+   }
+  },
+  "instance_internetarchive__openlibrary-5c6c22f3d2edf2f1b10f5dc335e32cb6a5f40341-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": {
+   "gpt-5-2-high": {
+    "p_text": 0.713682,
+    "p_state": 0.646797,
+    "p_blend": 0.680239
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.522326,
+    "p_state": 0.525597,
+    "p_blend": 0.523962
+   },
+   "gemini-3-flash": {
+    "p_text": 0.568548,
+    "p_state": 0.540723,
+    "p_blend": 0.554635
+   },
+   "kimi-k2-5": {
+    "p_text": 0.719439,
+    "p_state": 0.570403,
+    "p_blend": 0.644921
+   }
+  },
+  "instance_internetarchive__openlibrary-5de7de19211e71b29b2f2ba3b1dff2fe065d660f-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.652499,
+    "p_state": 0.464661,
+    "p_blend": 0.55858
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.513949,
+    "p_state": 0.379406,
+    "p_blend": 0.446678
+   },
+   "gemini-3-flash": {
+    "p_text": 0.594255,
+    "p_state": 0.475125,
+    "p_blend": 0.53469
+   },
+   "kimi-k2-5": {
+    "p_text": 0.632748,
+    "p_state": 0.427769,
+    "p_blend": 0.530258
+   }
+  },
+  "instance_internetarchive__openlibrary-5fb312632097be7e9ac6ab657964af115224d15d-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.432517,
+    "p_state": 0.476027,
+    "p_blend": 0.454272
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.263539,
+    "p_state": 0.390815,
+    "p_blend": 0.327177
+   },
+   "gemini-3-flash": {
+    "p_text": 0.269795,
+    "p_state": 0.467526,
+    "p_blend": 0.36866
+   },
+   "kimi-k2-5": {
+    "p_text": 0.297714,
+    "p_state": 0.426896,
+    "p_blend": 0.362305
+   }
+  },
+  "instance_internetarchive__openlibrary-60725705782832a2cb22e17c49697948a42a9d03-v298a7a812ceed28c4c18355a091f1b268fe56d86": {
+   "gpt-5-2-high": {
+    "p_text": 0.629456,
+    "p_state": 0.598104,
+    "p_blend": 0.61378
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.394733,
+    "p_state": 0.457657,
+    "p_blend": 0.426195
+   },
+   "gemini-3-flash": {
+    "p_text": 0.513549,
+    "p_state": 0.512126,
+    "p_blend": 0.512837
+   },
+   "kimi-k2-5": {
+    "p_text": 0.513325,
+    "p_state": 0.521535,
+    "p_blend": 0.51743
+   }
+  },
+  "instance_internetarchive__openlibrary-62d2243131a9c7e6aee00d1e9c5660fd5b594e89-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.746566,
+    "p_state": 0.443,
+    "p_blend": 0.594783
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.781281,
+    "p_state": 0.353745,
+    "p_blend": 0.567513
+   },
+   "gemini-3-flash": {
+    "p_text": 0.905443,
+    "p_state": 0.464872,
+    "p_blend": 0.685157
+   },
+   "kimi-k2-5": {
+    "p_text": 0.735487,
+    "p_state": 0.410687,
+    "p_blend": 0.573087
+   }
+  },
+  "instance_internetarchive__openlibrary-630221ab686c64e75a2ce253c893c033e4814b2e-v93c53c13d5f9b383ebb411ee7750b49dcd1a34c6": {
+   "gpt-5-2-high": {
+    "p_text": 0.741019,
+    "p_state": 0.493614,
+    "p_blend": 0.617316
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.556306,
+    "p_state": 0.39847,
+    "p_blend": 0.477388
+   },
+   "gemini-3-flash": {
+    "p_text": 0.821307,
+    "p_state": 0.492456,
+    "p_blend": 0.656881
+   },
+   "kimi-k2-5": {
+    "p_text": 0.628444,
+    "p_state": 0.455204,
+    "p_blend": 0.541824
+   }
+  },
+  "instance_internetarchive__openlibrary-6a117fab6c963b74dc1ba907d838e74f76d34a4b-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.804929,
+    "p_state": 0.573814,
+    "p_blend": 0.689372
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.471118,
+    "p_state": 0.44667,
+    "p_blend": 0.458894
+   },
+   "gemini-3-flash": {
+    "p_text": 0.694509,
+    "p_state": 0.506018,
+    "p_blend": 0.600263
+   },
+   "kimi-k2-5": {
+    "p_text": 0.623222,
+    "p_state": 0.499017,
+    "p_blend": 0.56112
+   }
+  },
+  "instance_internetarchive__openlibrary-6afdb09df692223c3a31df65cfa92f15e5614c01-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.837337,
+    "p_state": 0.556411,
+    "p_blend": 0.696874
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.526151,
+    "p_state": 0.420791,
+    "p_blend": 0.473471
+   },
+   "gemini-3-flash": {
+    "p_text": 0.811786,
+    "p_state": 0.516622,
+    "p_blend": 0.664204
+   },
+   "kimi-k2-5": {
+    "p_text": 0.617516,
+    "p_state": 0.513338,
+    "p_blend": 0.565427
+   }
+  },
+  "instance_internetarchive__openlibrary-6e889f4a733c9f8ce9a9bd2ec6a934413adcedb9-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.658244,
+    "p_state": 0.575325,
+    "p_blend": 0.616784
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.38801,
+    "p_state": 0.438653,
+    "p_blend": 0.413332
+   },
+   "gemini-3-flash": {
+    "p_text": 0.322023,
+    "p_state": 0.482737,
+    "p_blend": 0.40238
+   },
+   "kimi-k2-5": {
+    "p_text": 0.447368,
+    "p_state": 0.469248,
+    "p_blend": 0.458308
+   }
+  },
+  "instance_internetarchive__openlibrary-6fdbbeee4c0a7e976ff3e46fb1d36f4eb110c428-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.873636,
+    "p_state": 0.610739,
+    "p_blend": 0.742187
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.63171,
+    "p_state": 0.47965,
+    "p_blend": 0.55568
+   },
+   "gemini-3-flash": {
+    "p_text": 0.679503,
+    "p_state": 0.551605,
+    "p_blend": 0.615554
+   },
+   "kimi-k2-5": {
+    "p_text": 0.623336,
+    "p_state": 0.559372,
+    "p_blend": 0.591354
+   }
+  },
+  "instance_internetarchive__openlibrary-72321288ea790a3ace9e36f1c05b68c93f7eec43-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.822625,
+    "p_state": 0.599633,
+    "p_blend": 0.711129
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.744543,
+    "p_state": 0.487973,
+    "p_blend": 0.616258
+   },
+   "gemini-3-flash": {
+    "p_text": 0.746633,
+    "p_state": 0.530988,
+    "p_blend": 0.638811
+   },
+   "kimi-k2-5": {
+    "p_text": 0.856777,
+    "p_state": 0.564679,
+    "p_blend": 0.710728
+   }
+  },
+  "instance_internetarchive__openlibrary-757fcf46c70530739c150c57b37d6375f155dc97-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.770183,
+    "p_state": 0.635633,
+    "p_blend": 0.702908
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.481334,
+    "p_state": 0.494499,
+    "p_blend": 0.487916
+   },
+   "gemini-3-flash": {
+    "p_text": 0.525072,
+    "p_state": 0.529295,
+    "p_blend": 0.527184
+   },
+   "kimi-k2-5": {
+    "p_text": 0.678497,
+    "p_state": 0.500319,
+    "p_blend": 0.589408
+   }
+  },
+  "instance_internetarchive__openlibrary-77c16d530b4d5c0f33d68bead2c6b329aee9b996-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.702412,
+    "p_state": 0.544367,
+    "p_blend": 0.623389
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.269465,
+    "p_state": 0.403351,
+    "p_blend": 0.336408
+   },
+   "gemini-3-flash": {
+    "p_text": 0.254921,
+    "p_state": 0.489988,
+    "p_blend": 0.372454
+   },
+   "kimi-k2-5": {
+    "p_text": 0.452381,
+    "p_state": 0.471504,
+    "p_blend": 0.461942
+   }
+  },
+  "instance_internetarchive__openlibrary-798055d1a19b8fa0983153b709f460be97e33064-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.552704,
+    "p_state": 0.565519,
+    "p_blend": 0.559112
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.426478,
+    "p_state": 0.452766,
+    "p_blend": 0.439622
+   },
+   "gemini-3-flash": {
+    "p_text": 0.279667,
+    "p_state": 0.480871,
+    "p_blend": 0.380269
+   },
+   "kimi-k2-5": {
+    "p_text": 0.288942,
+    "p_state": 0.452873,
+    "p_blend": 0.370907
+   }
+  },
+  "instance_internetarchive__openlibrary-798a582540019363d14b2090755cc7b89a350788-v430f20c722405e462d9ef44dee7d34c41e76fe7a": {
+   "gpt-5-2-high": {
+    "p_text": 0.945342,
+    "p_state": 0.547662,
+    "p_blend": 0.746502
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.703689,
+    "p_state": 0.41886,
+    "p_blend": 0.561275
+   },
+   "gemini-3-flash": {
+    "p_text": 0.741911,
+    "p_state": 0.486495,
+    "p_blend": 0.614203
+   },
+   "kimi-k2-5": {
+    "p_text": 0.732371,
+    "p_state": 0.464147,
+    "p_blend": 0.598259
+   }
+  },
+  "instance_internetarchive__openlibrary-7bf3238533070f2d24bafbb26eedf675d51941f6-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.630788,
+    "p_state": 0.552909,
+    "p_blend": 0.591848
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.591458,
+    "p_state": 0.420837,
+    "p_blend": 0.506147
+   },
+   "gemini-3-flash": {
+    "p_text": 0.815412,
+    "p_state": 0.513713,
+    "p_blend": 0.664562
+   },
+   "kimi-k2-5": {
+    "p_text": 0.577574,
+    "p_state": 0.509001,
+    "p_blend": 0.543288
+   }
+  },
+  "instance_internetarchive__openlibrary-7c8dc180281491ccaa1b4b43518506323750d1e4-v298a7a812ceed28c4c18355a091f1b268fe56d86": {
+   "gpt-5-2-high": {
+    "p_text": 0.596438,
+    "p_state": 0.735345,
+    "p_blend": 0.665892
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.38659,
+    "p_state": 0.623009,
+    "p_blend": 0.504799
+   },
+   "gemini-3-flash": {
+    "p_text": 0.529016,
+    "p_state": 0.634804,
+    "p_blend": 0.58191
+   },
+   "kimi-k2-5": {
+    "p_text": 0.6601,
+    "p_state": 0.668236,
+    "p_blend": 0.664168
+   }
+  },
+  "instance_internetarchive__openlibrary-7cbfb812ef0e1f9716e2d6e85d538a96fcb79d13-vfa6ff903cb27f336e17654595dd900fa943dcd91": {
+   "gpt-5-2-high": {
+    "p_text": 0.795927,
+    "p_state": 0.827823,
+    "p_blend": 0.811875
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.832597,
+    "p_state": 0.708038,
+    "p_blend": 0.770318
+   },
+   "gemini-3-flash": {
+    "p_text": 0.823617,
+    "p_state": 0.723923,
+    "p_blend": 0.77377
+   },
+   "kimi-k2-5": {
+    "p_text": 0.612641,
+    "p_state": 0.731045,
+    "p_blend": 0.671843
+   }
+  },
+  "instance_internetarchive__openlibrary-7edd1ef09d91fe0b435707633c5cc9af41dedddf-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": {
+   "gpt-5-2-high": {
+    "p_text": 0.858827,
+    "p_state": 0.586152,
+    "p_blend": 0.72249
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.599544,
+    "p_state": 0.439844,
+    "p_blend": 0.519694
+   },
+   "gemini-3-flash": {
+    "p_text": 0.734948,
+    "p_state": 0.499873,
+    "p_blend": 0.61741
+   },
+   "kimi-k2-5": {
+    "p_text": 0.652781,
+    "p_state": 0.465871,
+    "p_blend": 0.559326
+   }
+  },
+  "instance_internetarchive__openlibrary-7f6b722a10f822171501d027cad60afe53337732-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.722736,
+    "p_state": 0.612414,
+    "p_blend": 0.667575
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.286237,
+    "p_state": 0.495612,
+    "p_blend": 0.390924
+   },
+   "gemini-3-flash": {
+    "p_text": 0.568917,
+    "p_state": 0.52107,
+    "p_blend": 0.544994
+   },
+   "kimi-k2-5": {
+    "p_text": 0.602486,
+    "p_state": 0.530612,
+    "p_blend": 0.566549
+   }
+  },
+  "instance_internetarchive__openlibrary-7f7e53aa4cf74a4f8549a5bcd4810c527e2f6d7e-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.681715,
+    "p_state": 0.582566,
+    "p_blend": 0.63214
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.547196,
+    "p_state": 0.452708,
+    "p_blend": 0.499952
+   },
+   "gemini-3-flash": {
+    "p_text": 0.65429,
+    "p_state": 0.518009,
+    "p_blend": 0.586149
+   },
+   "kimi-k2-5": {
+    "p_text": 0.637086,
+    "p_state": 0.502481,
+    "p_blend": 0.569784
+   }
+  },
+  "instance_internetarchive__openlibrary-89e4b4431fe7506c365a6f6eb6f6d048d04c044c-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.608677,
+    "p_state": 0.639077,
+    "p_blend": 0.623877
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.548358,
+    "p_state": 0.493578,
+    "p_blend": 0.520968
+   },
+   "gemini-3-flash": {
+    "p_text": 0.415708,
+    "p_state": 0.537354,
+    "p_blend": 0.476531
+   },
+   "kimi-k2-5": {
+    "p_text": 0.532059,
+    "p_state": 0.502451,
+    "p_blend": 0.517255
+   }
+  },
+  "instance_internetarchive__openlibrary-8a5a63af6e0be406aa6c8c9b6d5f28b2f1b6af5a-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.453455,
+    "p_state": 0.800642,
+    "p_blend": 0.627049
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.194837,
+    "p_state": 0.678427,
+    "p_blend": 0.436632
+   },
+   "gemini-3-flash": {
+    "p_text": 0.350489,
+    "p_state": 0.703153,
+    "p_blend": 0.526821
+   },
+   "kimi-k2-5": {
+    "p_text": 0.17634,
+    "p_state": 0.7034,
+    "p_blend": 0.43987
+   }
+  },
+  "instance_internetarchive__openlibrary-8a9d9d323dfcf2a5b4f38d70b1108b030b20ebf3-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.38493,
+    "p_state": 0.598954,
+    "p_blend": 0.491942
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.057862,
+    "p_state": 0.469788,
+    "p_blend": 0.263825
+   },
+   "gemini-3-flash": {
+    "p_text": 0.337692,
+    "p_state": 0.506966,
+    "p_blend": 0.422329
+   },
+   "kimi-k2-5": {
+    "p_text": 0.221173,
+    "p_state": 0.463731,
+    "p_blend": 0.342452
+   }
+  },
+  "instance_internetarchive__openlibrary-910b08570210509f3bcfebf35c093a48243fe754-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.400526,
+    "p_state": 0.63129,
+    "p_blend": 0.515908
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.255011,
+    "p_state": 0.487194,
+    "p_blend": 0.371103
+   },
+   "gemini-3-flash": {
+    "p_text": 0.303688,
+    "p_state": 0.53508,
+    "p_blend": 0.419384
+   },
+   "kimi-k2-5": {
+    "p_text": 0.2648,
+    "p_state": 0.492728,
+    "p_blend": 0.378764
+   }
+  },
+  "instance_internetarchive__openlibrary-91efee627df01e32007abf2d6ebf73f9d9053076-vbee42ad1b72fb23c6a1c874868a720b370983ed2": {
+   "gpt-5-2-high": {
+    "p_text": 0.577998,
+    "p_state": 0.625796,
+    "p_blend": 0.601897
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.472184,
+    "p_state": 0.462939,
+    "p_blend": 0.467561
+   },
+   "gemini-3-flash": {
+    "p_text": 0.745839,
+    "p_state": 0.527142,
+    "p_blend": 0.63649
+   },
+   "kimi-k2-5": {
+    "p_text": 0.621986,
+    "p_state": 0.538395,
+    "p_blend": 0.58019
+   }
+  },
+  "instance_internetarchive__openlibrary-92db3454aeaa02f89b4cdbc3103f7e95c9759f92-v2c55207218fb8a0138425cbf7d9675272e240b90": {
+   "gpt-5-2-high": {
+    "p_text": 0.748973,
+    "p_state": 0.576301,
+    "p_blend": 0.662637
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.635033,
+    "p_state": 0.443418,
+    "p_blend": 0.539225
+   },
+   "gemini-3-flash": {
+    "p_text": 0.843189,
+    "p_state": 0.508872,
+    "p_blend": 0.67603
+   },
+   "kimi-k2-5": {
+    "p_text": 0.797059,
+    "p_state": 0.481186,
+    "p_blend": 0.639123
+   }
+  },
+  "instance_internetarchive__openlibrary-9bdfd29fac883e77dcbc4208cab28c06fd963ab2-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": {
+   "gpt-5-2-high": {
+    "p_text": 0.867979,
+    "p_state": 0.756664,
+    "p_blend": 0.812321
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.790396,
+    "p_state": 0.634834,
+    "p_blend": 0.712615
+   },
+   "gemini-3-flash": {
+    "p_text": 0.85288,
+    "p_state": 0.654587,
+    "p_blend": 0.753733
+   },
+   "kimi-k2-5": {
+    "p_text": 0.823214,
+    "p_state": 0.679276,
+    "p_blend": 0.751245
+   }
+  },
+  "instance_internetarchive__openlibrary-9c392b60e2c6fa1d68cb68084b4b4ff04d0cb35c-v2d9a6c849c60ed19fd0858ce9e40b7cc8e097e59": {
+   "gpt-5-2-high": {
+    "p_text": 0.39347,
+    "p_state": 0.570728,
+    "p_blend": 0.482099
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.590079,
+    "p_state": 0.427952,
+    "p_blend": 0.509016
+   },
+   "gemini-3-flash": {
+    "p_text": 0.187739,
+    "p_state": 0.513178,
+    "p_blend": 0.350459
+   },
+   "kimi-k2-5": {
+    "p_text": 0.516528,
+    "p_state": 0.508274,
+    "p_blend": 0.512401
+   }
+  },
+  "instance_internetarchive__openlibrary-9cd47f4dc21e273320d9e30d889c864f8cb20ccf-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.541,
+    "p_state": 0.607274,
+    "p_blend": 0.574137
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.16783,
+    "p_state": 0.45642,
+    "p_blend": 0.312125
+   },
+   "gemini-3-flash": {
+    "p_text": 0.155177,
+    "p_state": 0.5147,
+    "p_blend": 0.334938
+   },
+   "kimi-k2-5": {
+    "p_text": 0.280784,
+    "p_state": 0.489665,
+    "p_blend": 0.385224
+   }
+  },
+  "instance_internetarchive__openlibrary-a48fd6ba9482c527602bc081491d9e8ae6e8226c-vfa6ff903cb27f336e17654595dd900fa943dcd91": {
+   "gpt-5-2-high": {
+    "p_text": 0.716498,
+    "p_state": 0.600809,
+    "p_blend": 0.658653
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.67764,
+    "p_state": 0.475141,
+    "p_blend": 0.576391
+   },
+   "gemini-3-flash": {
+    "p_text": 0.756173,
+    "p_state": 0.508764,
+    "p_blend": 0.632468
+   },
+   "kimi-k2-5": {
+    "p_text": 0.769658,
+    "p_state": 0.464691,
+    "p_blend": 0.617175
+   }
+  },
+  "instance_internetarchive__openlibrary-a7b7dc5735a1b3a9824376b1b469b556dd413981-va4315b5dc369c1ef66ae22f9ae4267aa3114e1b3": {
+   "gpt-5-2-high": {
+    "p_text": 0.887585,
+    "p_state": 0.428451,
+    "p_blend": 0.658018
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.716994,
+    "p_state": 0.330401,
+    "p_blend": 0.523697
+   },
+   "gemini-3-flash": {
+    "p_text": 0.751648,
+    "p_state": 0.51319,
+    "p_blend": 0.632419
+   },
+   "kimi-k2-5": {
+    "p_text": 0.870803,
+    "p_state": 0.42122,
+    "p_blend": 0.646011
+   }
+  },
+  "instance_internetarchive__openlibrary-acdddc590d0b3688f8f6386f43709049622a6e19-vfa6ff903cb27f336e17654595dd900fa943dcd91": {
+   "gpt-5-2-high": {
+    "p_text": 0.773288,
+    "p_state": 0.573906,
+    "p_blend": 0.673597
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.766109,
+    "p_state": 0.421435,
+    "p_blend": 0.593772
+   },
+   "gemini-3-flash": {
+    "p_text": 0.619867,
+    "p_state": 0.508669,
+    "p_blend": 0.564268
+   },
+   "kimi-k2-5": {
+    "p_text": 0.648922,
+    "p_state": 0.478321,
+    "p_blend": 0.563622
+   }
+  },
+  "instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.30008,
+    "p_state": 0.577942,
+    "p_blend": 0.439011
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.275428,
+    "p_state": 0.447692,
+    "p_blend": 0.36156
+   },
+   "gemini-3-flash": {
+    "p_text": 0.328975,
+    "p_state": 0.499192,
+    "p_blend": 0.414084
+   },
+   "kimi-k2-5": {
+    "p_text": 0.215155,
+    "p_state": 0.453888,
+    "p_blend": 0.334522
+   }
+  },
+  "instance_internetarchive__openlibrary-b4f7c185ae5f1824ac7f3a18e8adf6a4b468459c-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.78808,
+    "p_state": 0.599676,
+    "p_blend": 0.693878
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.925411,
+    "p_state": 0.479578,
+    "p_blend": 0.702494
+   },
+   "gemini-3-flash": {
+    "p_text": 0.735889,
+    "p_state": 0.529617,
+    "p_blend": 0.632753
+   },
+   "kimi-k2-5": {
+    "p_text": 0.60964,
+    "p_state": 0.536026,
+    "p_blend": 0.572833
+   }
+  },
+  "instance_internetarchive__openlibrary-b67138b316b1e9c11df8a4a8391fe5cc8e75ff9f-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.526964,
+    "p_state": 0.599226,
+    "p_blend": 0.563095
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.494441,
+    "p_state": 0.46866,
+    "p_blend": 0.481551
+   },
+   "gemini-3-flash": {
+    "p_text": 0.406325,
+    "p_state": 0.509353,
+    "p_blend": 0.457839
+   },
+   "kimi-k2-5": {
+    "p_text": 0.581718,
+    "p_state": 0.467857,
+    "p_blend": 0.524787
+   }
+  },
+  "instance_internetarchive__openlibrary-ba3abfb6af6e722185d3715929ab0f3e5a134eed-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": {
+   "gpt-5-2-high": {
+    "p_text": 0.450856,
+    "p_state": 0.610114,
+    "p_blend": 0.530485
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.115243,
+    "p_state": 0.492902,
+    "p_blend": 0.304072
+   },
+   "gemini-3-flash": {
+    "p_text": 0.226566,
+    "p_state": 0.521445,
+    "p_blend": 0.374006
+   },
+   "kimi-k2-5": {
+    "p_text": 0.281408,
+    "p_state": 0.536318,
+    "p_blend": 0.408863
+   }
+  },
+  "instance_internetarchive__openlibrary-bb152d23c004f3d68986877143bb0f83531fe401-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.664228,
+    "p_state": 0.469,
+    "p_blend": 0.566614
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.530943,
+    "p_state": 0.368666,
+    "p_blend": 0.449805
+   },
+   "gemini-3-flash": {
+    "p_text": 0.576313,
+    "p_state": 0.490894,
+    "p_blend": 0.533603
+   },
+   "kimi-k2-5": {
+    "p_text": 0.639035,
+    "p_state": 0.444958,
+    "p_blend": 0.541997
+   }
+  },
+  "instance_internetarchive__openlibrary-bdba0af0f6cbaca8b5fc3be2a3080f38156d9c92-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.591424,
+    "p_state": 0.554975,
+    "p_blend": 0.5732
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.361239,
+    "p_state": 0.423151,
+    "p_blend": 0.392195
+   },
+   "gemini-3-flash": {
+    "p_text": 0.656815,
+    "p_state": 0.496405,
+    "p_blend": 0.57661
+   },
+   "kimi-k2-5": {
+    "p_text": 0.488946,
+    "p_state": 0.498278,
+    "p_blend": 0.493612
+   }
+  },
+  "instance_internetarchive__openlibrary-c05ccf2cd8baa81609434e0e35c4a63bc0da5a25-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.534588,
+    "p_state": 0.577911,
+    "p_blend": 0.55625
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.292325,
+    "p_state": 0.438006,
+    "p_blend": 0.365165
+   },
+   "gemini-3-flash": {
+    "p_text": 0.476387,
+    "p_state": 0.498467,
+    "p_blend": 0.487427
+   },
+   "kimi-k2-5": {
+    "p_text": 0.428666,
+    "p_state": 0.491558,
+    "p_blend": 0.460112
+   }
+  },
+  "instance_internetarchive__openlibrary-c12943be1db80cf1114bc267ddf4f9933aca9b28-v2c55207218fb8a0138425cbf7d9675272e240b90": {
+   "gpt-5-2-high": {
+    "p_text": 0.756327,
+    "p_state": 0.604193,
+    "p_blend": 0.68026
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.62568,
+    "p_state": 0.473735,
+    "p_blend": 0.549708
+   },
+   "gemini-3-flash": {
+    "p_text": 0.718312,
+    "p_state": 0.506349,
+    "p_blend": 0.612331
+   },
+   "kimi-k2-5": {
+    "p_text": 0.897996,
+    "p_state": 0.48129,
+    "p_blend": 0.689643
+   }
+  },
+  "instance_internetarchive__openlibrary-c4eebe6677acc4629cb541a98d5e91311444f5d4-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.646351,
+    "p_state": 0.433563,
+    "p_blend": 0.539957
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.238561,
+    "p_state": 0.332052,
+    "p_blend": 0.285306
+   },
+   "gemini-3-flash": {
+    "p_text": 0.394294,
+    "p_state": 0.5198,
+    "p_blend": 0.457047
+   },
+   "kimi-k2-5": {
+    "p_text": 0.271186,
+    "p_state": 0.43158,
+    "p_blend": 0.351383
+   }
+  },
+  "instance_internetarchive__openlibrary-c506c1b0b678892af5cb22c1c1dbc35d96787a0a-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.798308,
+    "p_state": 0.595937,
+    "p_blend": 0.697123
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.594182,
+    "p_state": 0.449648,
+    "p_blend": 0.521915
+   },
+   "gemini-3-flash": {
+    "p_text": 0.87556,
+    "p_state": 0.502461,
+    "p_blend": 0.689011
+   },
+   "kimi-k2-5": {
+    "p_text": 0.620986,
+    "p_state": 0.496057,
+    "p_blend": 0.558522
+   }
+  },
+  "instance_internetarchive__openlibrary-c8996ecc40803b9155935fd7ff3b8e7be6c1437c-ve8fc82d8aae8463b752a211156c5b7b59f349237": {
+   "gpt-5-2-high": {
+    "p_text": 0.399312,
+    "p_state": 0.443753,
+    "p_blend": 0.421532
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.496542,
+    "p_state": 0.356938,
+    "p_blend": 0.42674
+   },
+   "gemini-3-flash": {
+    "p_text": 0.438016,
+    "p_state": 0.505212,
+    "p_blend": 0.471614
+   },
+   "kimi-k2-5": {
+    "p_text": 0.549272,
+    "p_state": 0.42373,
+    "p_blend": 0.486501
+   }
+  },
+  "instance_internetarchive__openlibrary-d109cc7e6e161170391f98f9a6fa1d02534c18e4-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.862051,
+    "p_state": 0.587555,
+    "p_blend": 0.724803
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.619867,
+    "p_state": 0.440734,
+    "p_blend": 0.530301
+   },
+   "gemini-3-flash": {
+    "p_text": 0.760847,
+    "p_state": 0.499601,
+    "p_blend": 0.630224
+   },
+   "kimi-k2-5": {
+    "p_text": 0.658085,
+    "p_state": 0.463863,
+    "p_blend": 0.560974
+   }
+  },
+  "instance_internetarchive__openlibrary-d40ec88713dc95ea791b252f92d2f7b75e107440-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.441459,
+    "p_state": 0.60576,
+    "p_blend": 0.523609
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.120726,
+    "p_state": 0.476211,
+    "p_blend": 0.298469
+   },
+   "gemini-3-flash": {
+    "p_text": 0.233726,
+    "p_state": 0.507848,
+    "p_blend": 0.370787
+   },
+   "kimi-k2-5": {
+    "p_text": 0.341186,
+    "p_state": 0.460556,
+    "p_blend": 0.400871
+   }
+  },
+  "instance_internetarchive__openlibrary-d8162c226a9d576f094dc1830c4c1ffd0be2dd17-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c": {
+   "gpt-5-2-high": {
+    "p_text": 0.570944,
+    "p_state": 0.472015,
+    "p_blend": 0.521479
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.289741,
+    "p_state": 0.386358,
+    "p_blend": 0.33805
+   },
+   "gemini-3-flash": {
+    "p_text": 0.459473,
+    "p_state": 0.494348,
+    "p_blend": 0.476911
+   },
+   "kimi-k2-5": {
+    "p_text": 0.407735,
+    "p_state": 0.434053,
+    "p_blend": 0.420894
+   }
+  },
+  "instance_internetarchive__openlibrary-dbbd9d539c6d4fd45d5be9662aa19b6d664b5137-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.835471,
+    "p_state": 0.414597,
+    "p_blend": 0.625034
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.561323,
+    "p_state": 0.328377,
+    "p_blend": 0.44485
+   },
+   "gemini-3-flash": {
+    "p_text": 0.608864,
+    "p_state": 0.50801,
+    "p_blend": 0.558437
+   },
+   "kimi-k2-5": {
+    "p_text": 0.365345,
+    "p_state": 0.411995,
+    "p_blend": 0.38867
+   }
+  },
+  "instance_internetarchive__openlibrary-de6ae10512f1b5ef585c8341b451bc49c9fd4996-vfa6ff903cb27f336e17654595dd900fa943dcd91": {
+   "gpt-5-2-high": {
+    "p_text": 0.6653,
+    "p_state": 0.587651,
+    "p_blend": 0.626475
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.246264,
+    "p_state": 0.429081,
+    "p_blend": 0.337672
+   },
+   "gemini-3-flash": {
+    "p_text": 0.471008,
+    "p_state": 0.537922,
+    "p_blend": 0.504465
+   },
+   "kimi-k2-5": {
+    "p_text": 0.419674,
+    "p_state": 0.549551,
+    "p_blend": 0.484613
+   }
+  },
+  "instance_internetarchive__openlibrary-e010b2a13697de70170033902ba2e27a1e1acbe9-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.637474,
+    "p_state": 0.590144,
+    "p_blend": 0.613809
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.441031,
+    "p_state": 0.429369,
+    "p_blend": 0.4352
+   },
+   "gemini-3-flash": {
+    "p_text": 0.626774,
+    "p_state": 0.513271,
+    "p_blend": 0.570022
+   },
+   "kimi-k2-5": {
+    "p_text": 0.513685,
+    "p_state": 0.494529,
+    "p_blend": 0.504107
+   }
+  },
+  "instance_internetarchive__openlibrary-e1e502986a3b003899a8347ac8a7ff7b08cbfc39-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.650478,
+    "p_state": 0.566067,
+    "p_blend": 0.608272
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.286928,
+    "p_state": 0.414315,
+    "p_blend": 0.350622
+   },
+   "gemini-3-flash": {
+    "p_text": 0.291982,
+    "p_state": 0.502946,
+    "p_blend": 0.397464
+   },
+   "kimi-k2-5": {
+    "p_text": 0.435443,
+    "p_state": 0.482457,
+    "p_blend": 0.45895
+   }
+  },
+  "instance_internetarchive__openlibrary-e390c1212055dd84a262a798e53487e771d3fb64-v8717e18970bcdc4e0d2cea3b1527752b21e74866": {
+   "gpt-5-2-high": {
+    "p_text": 0.720824,
+    "p_state": 0.67549,
+    "p_blend": 0.698157
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.497973,
+    "p_state": 0.560538,
+    "p_blend": 0.529255
+   },
+   "gemini-3-flash": {
+    "p_text": 0.684933,
+    "p_state": 0.556605,
+    "p_blend": 0.620769
+   },
+   "kimi-k2-5": {
+    "p_text": 0.694465,
+    "p_state": 0.588154,
+    "p_blend": 0.641309
+   }
+  },
+  "instance_internetarchive__openlibrary-e8084193a895d8ee81200f49093389a3887479ce-ve8c8d62a2b60610a3c4631f5f23ed866bada9818": {
+   "gpt-5-2-high": {
+    "p_text": 0.619628,
+    "p_state": 0.589259,
+    "p_blend": 0.604444
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.5855,
+    "p_state": 0.49094,
+    "p_blend": 0.53822
+   },
+   "gemini-3-flash": {
+    "p_text": 0.623718,
+    "p_state": 0.522015,
+    "p_blend": 0.572866
+   },
+   "kimi-k2-5": {
+    "p_text": 0.651861,
+    "p_state": 0.52871,
+    "p_blend": 0.590285
+   }
+  },
+  "instance_internetarchive__openlibrary-f0341c0ba81c790241b782f5103ce5c9a6edf8e3-ve8fc82d8aae8463b752a211156c5b7b59f349237": {
+   "gpt-5-2-high": {
+    "p_text": 0.53951,
+    "p_state": 0.642449,
+    "p_blend": 0.59098
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.266372,
+    "p_state": 0.491915,
+    "p_blend": 0.379143
+   },
+   "gemini-3-flash": {
+    "p_text": 0.215716,
+    "p_state": 0.51929,
+    "p_blend": 0.367503
+   },
+   "kimi-k2-5": {
+    "p_text": 0.378782,
+    "p_state": 0.50219,
+    "p_blend": 0.440486
+   }
+  },
+  "instance_internetarchive__openlibrary-f343c08f89c772f7ba6c0246f384b9e6c3dc0add-v08d8e8889ec945ab821fb156c04c7d2e2810debb": {
+   "gpt-5-2-high": {
+    "p_text": 0.672311,
+    "p_state": 0.826175,
+    "p_blend": 0.749243
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.509622,
+    "p_state": 0.695688,
+    "p_blend": 0.602655
+   },
+   "gemini-3-flash": {
+    "p_text": 0.673704,
+    "p_state": 0.707647,
+    "p_blend": 0.690676
+   },
+   "kimi-k2-5": {
+    "p_text": 0.808106,
+    "p_state": 0.681381,
+    "p_blend": 0.744744
+   }
+  },
+  "instance_internetarchive__openlibrary-f3b26c2c0721f8713353fe4b341230332e30008d-v0f5aece3601a5b4419f7ccec1dbda2071be28ee4": {
+   "gpt-5-2-high": {
+    "p_text": 0.258879,
+    "p_state": 0.625591,
+    "p_blend": 0.442235
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.288753,
+    "p_state": 0.484045,
+    "p_blend": 0.386399
+   },
+   "gemini-3-flash": {
+    "p_text": 0.208952,
+    "p_state": 0.527322,
+    "p_blend": 0.368137
+   },
+   "kimi-k2-5": {
+    "p_text": 0.275269,
+    "p_state": 0.487589,
+    "p_blend": 0.381429
+   }
+  },
+  "instance_internetarchive__openlibrary-f8cc11d9c1575fdba5ac66aee0befca970da8d64-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.682718,
+    "p_state": 0.602701,
+    "p_blend": 0.64271
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.232063,
+    "p_state": 0.460841,
+    "p_blend": 0.346452
+   },
+   "gemini-3-flash": {
+    "p_text": 0.521319,
+    "p_state": 0.513251,
+    "p_blend": 0.517285
+   },
+   "kimi-k2-5": {
+    "p_text": 0.527647,
+    "p_state": 0.476046,
+    "p_blend": 0.501847
+   }
+  },
+  "instance_internetarchive__openlibrary-fad4a40acf5ff5f06cd7441a5c7baf41a7d81fe4-vfa6ff903cb27f336e17654595dd900fa943dcd91": {
+   "gpt-5-2-high": {
+    "p_text": 0.703457,
+    "p_state": 0.613623,
+    "p_blend": 0.65854
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.384736,
+    "p_state": 0.44795,
+    "p_blend": 0.416343
+   },
+   "gemini-3-flash": {
+    "p_text": 0.403867,
+    "p_state": 0.541189,
+    "p_blend": 0.472528
+   },
+   "kimi-k2-5": {
+    "p_text": 0.588531,
+    "p_state": 0.534678,
+    "p_blend": 0.561605
+   }
+  },
+  "instance_internetarchive__openlibrary-fdbc0d8f418333c7e575c40b661b582c301ef7ac-v13642507b4fc1f8d234172bf8129942da2c2ca26": {
+   "gpt-5-2-high": {
+    "p_text": 0.605741,
+    "p_state": 0.446945,
+    "p_blend": 0.526343
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.706709,
+    "p_state": 0.364918,
+    "p_blend": 0.535814
+   },
+   "gemini-3-flash": {
+    "p_text": 0.599234,
+    "p_state": 0.46172,
+    "p_blend": 0.530477
+   },
+   "kimi-k2-5": {
+    "p_text": 0.75547,
+    "p_state": 0.40534,
+    "p_blend": 0.580405
+   }
+  },
+  "instance_qutebrowser__qutebrowser-01d1d1494411380d97cac14614a829d3a69cecaf-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.782935,
+    "p_state": 0.444598,
+    "p_blend": 0.613766
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.518997,
+    "p_state": 0.352472,
+    "p_blend": 0.435734
+   },
+   "gemini-3-flash": {
+    "p_text": 0.504412,
+    "p_state": 0.539936,
+    "p_blend": 0.522174
+   },
+   "kimi-k2-5": {
+    "p_text": 0.384516,
+    "p_state": 0.444092,
+    "p_blend": 0.414304
+   }
+  },
+  "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": {
+   "gpt-5-2-high": {
+    "p_text": 0.786776,
+    "p_state": 0.444401,
+    "p_blend": 0.615588
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.900743,
+    "p_state": 0.34966,
+    "p_blend": 0.625201
+   },
+   "gemini-3-flash": {
+    "p_text": 0.558789,
+    "p_state": 0.540698,
+    "p_blend": 0.549744
+   },
+   "kimi-k2-5": {
+    "p_text": 0.672581,
+    "p_state": 0.44907,
+    "p_blend": 0.560826
+   }
+  },
+  "instance_qutebrowser__qutebrowser-0aa57e4f7243024fa4bba8853306691b5dbd77b3-v5149fcda2a9a6fe1d35dfed1bade1444a11ef271": {
+   "gpt-5-2-high": {
+    "p_text": 0.426718,
+    "p_state": 0.44637,
+    "p_blend": 0.436544
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.479724,
+    "p_state": 0.363806,
+    "p_blend": 0.421765
+   },
+   "gemini-3-flash": {
+    "p_text": 0.429074,
+    "p_state": 0.478186,
+    "p_blend": 0.45363
+   },
+   "kimi-k2-5": {
+    "p_text": 0.243927,
+    "p_state": 0.413031,
+    "p_blend": 0.328479
+   }
+  },
+  "instance_qutebrowser__qutebrowser-0b621cb0ce2b54d3f93d8d41d8ff4257888a87e5-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.51879,
+    "p_state": 0.776383,
+    "p_blend": 0.647587
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.282453,
+    "p_state": 0.646474,
+    "p_blend": 0.464463
+   },
+   "gemini-3-flash": {
+    "p_text": 0.496625,
+    "p_state": 0.653038,
+    "p_blend": 0.574832
+   },
+   "kimi-k2-5": {
+    "p_text": 0.153838,
+    "p_state": 0.643854,
+    "p_blend": 0.398846
+   }
+  },
+  "instance_qutebrowser__qutebrowser-0d2afd58f3d0e34af21cee7d8a3fc9d855594e9f-vnan": {
+   "gpt-5-2-high": {
+    "p_text": 0.610944,
+    "p_state": 0.553917,
+    "p_blend": 0.58243
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.645003,
+    "p_state": 0.424208,
+    "p_blend": 0.534606
+   },
+   "gemini-3-flash": {
+    "p_text": 0.601371,
+    "p_state": 0.517814,
+    "p_blend": 0.559592
+   },
+   "kimi-k2-5": {
+    "p_text": 0.402417,
+    "p_state": 0.518413,
+    "p_blend": 0.460415
+   }
+  },
+  "instance_qutebrowser__qutebrowser-0fc6d1109d041c69a68a896db87cf1b8c194cef7-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.688323,
+    "p_state": 0.597739,
+    "p_blend": 0.643031
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.358636,
+    "p_state": 0.437375,
+    "p_blend": 0.398006
+   },
+   "gemini-3-flash": {
+    "p_text": 0.838707,
+    "p_state": 0.518218,
+    "p_blend": 0.678463
+   },
+   "kimi-k2-5": {
+    "p_text": 0.60508,
+    "p_state": 0.496289,
+    "p_blend": 0.550684
+   }
+  },
+  "instance_qutebrowser__qutebrowser-16de05407111ddd82fa12e54389d532362489da9-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.459108,
+    "p_state": 0.467153,
+    "p_blend": 0.463131
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.291176,
+    "p_state": 0.385407,
+    "p_blend": 0.338292
+   },
+   "gemini-3-flash": {
+    "p_text": 0.433443,
+    "p_state": 0.47402,
+    "p_blend": 0.453732
+   },
+   "kimi-k2-5": {
+    "p_text": 0.231764,
+    "p_state": 0.425918,
+    "p_blend": 0.328841
+   }
+  },
+  "instance_qutebrowser__qutebrowser-1943fa072ec3df5a87e18a23b0916f134c131016-vafb3e8e01b31319c66c4e666b8a3b1d8ba55db24": {
+   "gpt-5-2-high": {
+    "p_text": 0.709097,
+    "p_state": 0.595725,
+    "p_blend": 0.652411
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.655531,
+    "p_state": 0.454464,
+    "p_blend": 0.554997
+   },
+   "gemini-3-flash": {
+    "p_text": 0.61949,
+    "p_state": 0.541704,
+    "p_blend": 0.580597
+   },
+   "kimi-k2-5": {
+    "p_text": 0.484915,
+    "p_state": 0.54106,
+    "p_blend": 0.512988
+   }
+  },
+  "instance_qutebrowser__qutebrowser-1a9e74bfaf9a9db2a510dc14572d33ded6040a57-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.777703,
+    "p_state": 0.624368,
+    "p_blend": 0.701035
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.509914,
+    "p_state": 0.513337,
+    "p_blend": 0.511626
+   },
+   "gemini-3-flash": {
+    "p_text": 0.712681,
+    "p_state": 0.538978,
+    "p_blend": 0.62583
+   },
+   "kimi-k2-5": {
+    "p_text": 0.514821,
+    "p_state": 0.557535,
+    "p_blend": 0.536178
+   }
+  },
+  "instance_qutebrowser__qutebrowser-1af602b258b97aaba69d2585ed499d95e2303ac2-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.955362,
+    "p_state": 0.628761,
+    "p_blend": 0.792061
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.763098,
+    "p_state": 0.507359,
+    "p_blend": 0.635229
+   },
+   "gemini-3-flash": {
+    "p_text": 0.943602,
+    "p_state": 0.512882,
+    "p_blend": 0.728242
+   },
+   "kimi-k2-5": {
+    "p_text": 0.970164,
+    "p_state": 0.474863,
+    "p_blend": 0.722513
+   }
+  },
+  "instance_qutebrowser__qutebrowser-21b426b6a20ec1cc5ecad770730641750699757b-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.40012,
+    "p_state": 0.59563,
+    "p_blend": 0.497875
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.609985,
+    "p_state": 0.452863,
+    "p_blend": 0.531424
+   },
+   "gemini-3-flash": {
+    "p_text": 0.294394,
+    "p_state": 0.534641,
+    "p_blend": 0.414517
+   },
+   "kimi-k2-5": {
+    "p_text": 0.327255,
+    "p_state": 0.540504,
+    "p_blend": 0.433879
+   }
+  },
+  "instance_qutebrowser__qutebrowser-233cb1cc48635130e5602549856a6fa4ab4c087f-v35616345bb8052ea303186706cec663146f0f184": {
+   "gpt-5-2-high": {
+    "p_text": 0.513033,
+    "p_state": 0.57834,
+    "p_blend": 0.545686
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.41558,
+    "p_state": 0.44747,
+    "p_blend": 0.431525
+   },
+   "gemini-3-flash": {
+    "p_text": 0.542703,
+    "p_state": 0.530574,
+    "p_blend": 0.536639
+   },
+   "kimi-k2-5": {
+    "p_text": 0.411659,
+    "p_state": 0.541792,
+    "p_blend": 0.476726
+   }
+  },
+  "instance_qutebrowser__qutebrowser-2dd8966fdcf11972062c540b7a787e4d0de8d372-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.627962,
+    "p_state": 0.562646,
+    "p_blend": 0.595304
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.550391,
+    "p_state": 0.425984,
+    "p_blend": 0.488188
+   },
+   "gemini-3-flash": {
+    "p_text": 0.68831,
+    "p_state": 0.49511,
+    "p_blend": 0.59171
+   },
+   "kimi-k2-5": {
+    "p_text": 0.469032,
+    "p_state": 0.494289,
+    "p_blend": 0.48166
+   }
+  },
+  "instance_qutebrowser__qutebrowser-2e961080a85d660148937ee8f0f6b3445a8f2c01-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.594519,
+    "p_state": 0.577605,
+    "p_blend": 0.586062
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.377805,
+    "p_state": 0.457637,
+    "p_blend": 0.417721
+   },
+   "gemini-3-flash": {
+    "p_text": 0.357424,
+    "p_state": 0.488295,
+    "p_blend": 0.42286
+   },
+   "kimi-k2-5": {
+    "p_text": 0.251577,
+    "p_state": 0.475099,
+    "p_blend": 0.363338
+   }
+  },
+  "instance_qutebrowser__qutebrowser-305e7c96d5e2fdb3b248b27dfb21042fb2b7e0b8-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.867382,
+    "p_state": 0.456072,
+    "p_blend": 0.661727
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.612289,
+    "p_state": 0.378336,
+    "p_blend": 0.495312
+   },
+   "gemini-3-flash": {
+    "p_text": 0.870815,
+    "p_state": 0.467139,
+    "p_blend": 0.668977
+   },
+   "kimi-k2-5": {
+    "p_text": 0.575908,
+    "p_state": 0.417003,
+    "p_blend": 0.496456
+   }
+  },
+  "instance_qutebrowser__qutebrowser-322834d0e6bf17e5661145c9f085b41215c280e8-v488d33dd1b2540b234cbb0468af6b6614941ce8f": {
+   "gpt-5-2-high": {
+    "p_text": 0.595702,
+    "p_state": 0.59785,
+    "p_blend": 0.596776
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.391796,
+    "p_state": 0.448785,
+    "p_blend": 0.42029
+   },
+   "gemini-3-flash": {
+    "p_text": 0.390931,
+    "p_state": 0.505703,
+    "p_blend": 0.448317
+   },
+   "kimi-k2-5": {
+    "p_text": 0.21412,
+    "p_state": 0.502383,
+    "p_blend": 0.358252
+   }
+  },
+  "instance_qutebrowser__qutebrowser-34a13afd36b5e529d553892b1cd8b9d5ce8881c4-vafb3e8e01b31319c66c4e666b8a3b1d8ba55db24": {
+   "gpt-5-2-high": {
+    "p_text": 0.433744,
+    "p_state": 0.551069,
+    "p_blend": 0.492406
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.548784,
+    "p_state": 0.435754,
+    "p_blend": 0.492269
+   },
+   "gemini-3-flash": {
+    "p_text": 0.447362,
+    "p_state": 0.492731,
+    "p_blend": 0.470046
+   },
+   "kimi-k2-5": {
+    "p_text": 0.543336,
+    "p_state": 0.4959,
+    "p_blend": 0.519618
+   }
+  },
+  "instance_qutebrowser__qutebrowser-35168ade46184d7e5b91dfa04ca42fe2abd82717-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.276952,
+    "p_state": 0.585,
+    "p_blend": 0.430976
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.092109,
+    "p_state": 0.446965,
+    "p_blend": 0.269537
+   },
+   "gemini-3-flash": {
+    "p_text": 0.08229,
+    "p_state": 0.522166,
+    "p_blend": 0.302228
+   },
+   "kimi-k2-5": {
+    "p_text": 0.081176,
+    "p_state": 0.525987,
+    "p_blend": 0.303582
+   }
+  },
+  "instance_qutebrowser__qutebrowser-36ade4bba504eb96f05d32ceab9972df7eb17bcc-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.742378,
+    "p_state": 0.661908,
+    "p_blend": 0.702143
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.509346,
+    "p_state": 0.50163,
+    "p_blend": 0.505488
+   },
+   "gemini-3-flash": {
+    "p_text": 0.786852,
+    "p_state": 0.543902,
+    "p_blend": 0.665377
+   },
+   "kimi-k2-5": {
+    "p_text": 0.656862,
+    "p_state": 0.50754,
+    "p_blend": 0.582201
+   }
+  },
+  "instance_qutebrowser__qutebrowser-394bfaed6544c952c6b3463751abab3176ad4997-vafb3e8e01b31319c66c4e666b8a3b1d8ba55db24": {
+   "gpt-5-2-high": {
+    "p_text": 0.533311,
+    "p_state": 0.830778,
+    "p_blend": 0.682045
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.260194,
+    "p_state": 0.675822,
+    "p_blend": 0.468008
+   },
+   "gemini-3-flash": {
+    "p_text": 0.204973,
+    "p_state": 0.72374,
+    "p_blend": 0.464356
+   },
+   "kimi-k2-5": {
+    "p_text": 0.153537,
+    "p_state": 0.69716,
+    "p_blend": 0.425349
+   }
+  },
+  "instance_qutebrowser__qutebrowser-3d01c201b8aa54dd71d4f801b1dd12feb4c0a08a-v5fc38aaf22415ab0b70567368332beee7955b367": {
+   "gpt-5-2-high": {
+    "p_text": 0.806184,
+    "p_state": 0.772008,
+    "p_blend": 0.789096
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.590699,
+    "p_state": 0.648308,
+    "p_blend": 0.619504
+   },
+   "gemini-3-flash": {
+    "p_text": 0.540853,
+    "p_state": 0.673632,
+    "p_blend": 0.607242
+   },
+   "kimi-k2-5": {
+    "p_text": 0.525002,
+    "p_state": 0.683899,
+    "p_blend": 0.60445
+   }
+  },
+  "instance_qutebrowser__qutebrowser-3e21c8214a998cb1058defd15aabb24617a76402-v5fc38aaf22415ab0b70567368332beee7955b367": {
+   "gpt-5-2-high": {
+    "p_text": 0.866124,
+    "p_state": 0.590954,
+    "p_blend": 0.728539
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.923365,
+    "p_state": 0.441002,
+    "p_blend": 0.682183
+   },
+   "gemini-3-flash": {
+    "p_text": 0.893882,
+    "p_state": 0.491865,
+    "p_blend": 0.692874
+   },
+   "kimi-k2-5": {
+    "p_text": 0.807974,
+    "p_state": 0.464094,
+    "p_blend": 0.636034
+   }
+  },
+  "instance_qutebrowser__qutebrowser-3fd8e12949b8feda401930574facf09dd4180bba": {
+   "gpt-5-2-high": {
+    "p_text": 0.751986,
+    "p_state": 0.559303,
+    "p_blend": 0.655645
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.608161,
+    "p_state": 0.43855,
+    "p_blend": 0.523356
+   },
+   "gemini-3-flash": {
+    "p_text": 0.725649,
+    "p_state": 0.505236,
+    "p_blend": 0.615443
+   },
+   "kimi-k2-5": {
+    "p_text": 0.596123,
+    "p_state": 0.497367,
+    "p_blend": 0.546745
+   }
+  },
+  "instance_qutebrowser__qutebrowser-44e64199ed38003253f0296badd4a447645067b6-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.596031,
+    "p_state": 0.597489,
+    "p_blend": 0.59676
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.208433,
+    "p_state": 0.450052,
+    "p_blend": 0.329243
+   },
+   "gemini-3-flash": {
+    "p_text": 0.142325,
+    "p_state": 0.535805,
+    "p_blend": 0.339065
+   },
+   "kimi-k2-5": {
+    "p_text": 0.104395,
+    "p_state": 0.558793,
+    "p_blend": 0.331594
+   }
+  },
+  "instance_qutebrowser__qutebrowser-46e6839e21d9ff72abb6c5d49d5abaa5a8da8a81-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.548533,
+    "p_state": 0.600874,
+    "p_blend": 0.574703
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.33248,
+    "p_state": 0.448914,
+    "p_blend": 0.390697
+   },
+   "gemini-3-flash": {
+    "p_text": 0.285318,
+    "p_state": 0.508492,
+    "p_blend": 0.396905
+   },
+   "kimi-k2-5": {
+    "p_text": 0.18733,
+    "p_state": 0.489497,
+    "p_blend": 0.338414
+   }
+  },
+  "instance_qutebrowser__qutebrowser-473a15f7908f2bb6d670b0e908ab34a28d8cf7e2-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.465051,
+    "p_state": 0.441269,
+    "p_blend": 0.45316
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.286814,
+    "p_state": 0.340767,
+    "p_blend": 0.313791
+   },
+   "gemini-3-flash": {
+    "p_text": 0.466964,
+    "p_state": 0.521554,
+    "p_blend": 0.494259
+   },
+   "kimi-k2-5": {
+    "p_text": 0.23494,
+    "p_state": 0.433209,
+    "p_blend": 0.334075
+   }
+  },
+  "instance_qutebrowser__qutebrowser-479aa075ac79dc975e2e949e188a328e95bf78ff-vc2f56a753b62a190ddb23cd330c257b9cf560d12": {
+   "gpt-5-2-high": {
+    "p_text": 0.581689,
+    "p_state": 0.593832,
+    "p_blend": 0.58776
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.374803,
+    "p_state": 0.456696,
+    "p_blend": 0.415749
+   },
+   "gemini-3-flash": {
+    "p_text": 0.272932,
+    "p_state": 0.501419,
+    "p_blend": 0.387176
+   },
+   "kimi-k2-5": {
+    "p_text": 0.197112,
+    "p_state": 0.478627,
+    "p_blend": 0.337869
+   }
+  },
+  "instance_qutebrowser__qutebrowser-50efac08f623644a85441bbe02ab9347d2b71a9d-v9f8e9d96c85c85a605e382f1510bd08563afc566": {
+   "gpt-5-2-high": {
+    "p_text": 0.322955,
+    "p_state": 0.542624,
+    "p_blend": 0.43279
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.472253,
+    "p_state": 0.427598,
+    "p_blend": 0.449925
+   },
+   "gemini-3-flash": {
+    "p_text": 0.413723,
+    "p_state": 0.482892,
+    "p_blend": 0.448307
+   },
+   "kimi-k2-5": {
+    "p_text": 0.222548,
+    "p_state": 0.477677,
+    "p_blend": 0.350113
+   }
+  },
+  "instance_qutebrowser__qutebrowser-52708364b5f91e198defb022d1a5b4b3ebd9b563-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.26589,
+    "p_state": 0.572607,
+    "p_blend": 0.419248
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.10926,
+    "p_state": 0.430034,
+    "p_blend": 0.269647
+   },
+   "gemini-3-flash": {
+    "p_text": 0.327073,
+    "p_state": 0.538687,
+    "p_blend": 0.43288
+   },
+   "kimi-k2-5": {
+    "p_text": 0.102212,
+    "p_state": 0.551968,
+    "p_blend": 0.32709
+   }
+  },
+  "instance_qutebrowser__qutebrowser-54bcdc1eefa86cc20790973d6997b60c3bba884c-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.643372,
+    "p_state": 0.543804,
+    "p_blend": 0.593588
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.190095,
+    "p_state": 0.427088,
+    "p_blend": 0.308591
+   },
+   "gemini-3-flash": {
+    "p_text": 0.238703,
+    "p_state": 0.501614,
+    "p_blend": 0.370159
+   },
+   "kimi-k2-5": {
+    "p_text": 0.182598,
+    "p_state": 0.498524,
+    "p_blend": 0.340561
+   }
+  },
+  "instance_qutebrowser__qutebrowser-5cef49ff3074f9eab1da6937a141a39a20828502-v02ad04386d5238fe2d1a1be450df257370de4b6a": {
+   "gpt-5-2-high": {
+    "p_text": 0.580903,
+    "p_state": 0.526933,
+    "p_blend": 0.553918
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.45092,
+    "p_state": 0.404212,
+    "p_blend": 0.427566
+   },
+   "gemini-3-flash": {
+    "p_text": 0.757539,
+    "p_state": 0.486263,
+    "p_blend": 0.621901
+   },
+   "kimi-k2-5": {
+    "p_text": 0.349364,
+    "p_state": 0.48223,
+    "p_blend": 0.415797
+   }
+  },
+  "instance_qutebrowser__qutebrowser-5e0d6dc1483cb3336ea0e3dcbd4fe4aa00fc1742-v5149fcda2a9a6fe1d35dfed1bade1444a11ef271": {
+   "gpt-5-2-high": {
+    "p_text": 0.899999,
+    "p_state": 0.442887,
+    "p_blend": 0.671443
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.929788,
+    "p_state": 0.344268,
+    "p_blend": 0.637028
+   },
+   "gemini-3-flash": {
+    "p_text": 0.887174,
+    "p_state": 0.526216,
+    "p_blend": 0.706695
+   },
+   "kimi-k2-5": {
+    "p_text": 0.834144,
+    "p_state": 0.441436,
+    "p_blend": 0.63779
+   }
+  },
+  "instance_qutebrowser__qutebrowser-5fdc83e5da6222fe61163395baaad7ae57fa2cb4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.559767,
+    "p_state": 0.613581,
+    "p_blend": 0.586674
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.408754,
+    "p_state": 0.471209,
+    "p_blend": 0.439981
+   },
+   "gemini-3-flash": {
+    "p_text": 0.29628,
+    "p_state": 0.518921,
+    "p_blend": 0.4076
+   },
+   "kimi-k2-5": {
+    "p_text": 0.493178,
+    "p_state": 0.483515,
+    "p_blend": 0.488346
+   }
+  },
+  "instance_qutebrowser__qutebrowser-66cfa15c372fa9e613ea5a82d3b03e4609399fb6-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.487444,
+    "p_state": 0.454661,
+    "p_blend": 0.471053
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.300783,
+    "p_state": 0.367319,
+    "p_blend": 0.334051
+   },
+   "gemini-3-flash": {
+    "p_text": 0.434662,
+    "p_state": 0.480876,
+    "p_blend": 0.457769
+   },
+   "kimi-k2-5": {
+    "p_text": 0.27783,
+    "p_state": 0.423628,
+    "p_blend": 0.350729
+   }
+  },
+  "instance_qutebrowser__qutebrowser-6b320dc18662580e1313d2548fdd6231d2a97e6d-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.321964,
+    "p_state": 0.771671,
+    "p_blend": 0.546817
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.422873,
+    "p_state": 0.660833,
+    "p_blend": 0.541853
+   },
+   "gemini-3-flash": {
+    "p_text": 0.275148,
+    "p_state": 0.681082,
+    "p_blend": 0.478115
+   },
+   "kimi-k2-5": {
+    "p_text": 0.230082,
+    "p_state": 0.68977,
+    "p_blend": 0.459926
+   }
+  },
+  "instance_qutebrowser__qutebrowser-6dd402c0d0f7665d32a74c43c5b4cf5dc8aff28d-v5fc38aaf22415ab0b70567368332beee7955b367": {
+   "gpt-5-2-high": {
+    "p_text": 0.670792,
+    "p_state": 0.643716,
+    "p_blend": 0.657254
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.701342,
+    "p_state": 0.527993,
+    "p_blend": 0.614667
+   },
+   "gemini-3-flash": {
+    "p_text": 0.568404,
+    "p_state": 0.548218,
+    "p_blend": 0.558311
+   },
+   "kimi-k2-5": {
+    "p_text": 0.606684,
+    "p_state": 0.550841,
+    "p_blend": 0.578762
+   }
+  },
+  "instance_qutebrowser__qutebrowser-70248f256f93ed9b1984494d0a1a919ddd774892-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.602545,
+    "p_state": 0.574558,
+    "p_blend": 0.588551
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.599939,
+    "p_state": 0.433114,
+    "p_blend": 0.516526
+   },
+   "gemini-3-flash": {
+    "p_text": 0.807046,
+    "p_state": 0.504212,
+    "p_blend": 0.655629
+   },
+   "kimi-k2-5": {
+    "p_text": 0.689397,
+    "p_state": 0.487917,
+    "p_blend": 0.588657
+   }
+  },
+  "instance_qutebrowser__qutebrowser-77c3557995704a683cdb67e2a3055f7547fa22c3-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.593565,
+    "p_state": 0.552466,
+    "p_blend": 0.573016
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.561564,
+    "p_state": 0.428718,
+    "p_blend": 0.495141
+   },
+   "gemini-3-flash": {
+    "p_text": 0.445885,
+    "p_state": 0.50905,
+    "p_blend": 0.477467
+   },
+   "kimi-k2-5": {
+    "p_text": 0.397917,
+    "p_state": 0.513754,
+    "p_blend": 0.455836
+   }
+  },
+  "instance_qutebrowser__qutebrowser-7b603dd6bf195e3e723ce08ff64a82b406e3f6b6-v9f8e9d96c85c85a605e382f1510bd08563afc566": {
+   "gpt-5-2-high": {
+    "p_text": 0.797049,
+    "p_state": 0.592568,
+    "p_blend": 0.694808
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.504912,
+    "p_state": 0.460372,
+    "p_blend": 0.482642
+   },
+   "gemini-3-flash": {
+    "p_text": 0.492581,
+    "p_state": 0.535035,
+    "p_blend": 0.513808
+   },
+   "kimi-k2-5": {
+    "p_text": 0.5207,
+    "p_state": 0.538497,
+    "p_blend": 0.529599
+   }
+  },
+  "instance_qutebrowser__qutebrowser-7f9713b20f623fc40473b7167a082d6db0f0fd40-va0fd88aac89cde702ec1ba84877234da33adce8a": {
+   "gpt-5-2-high": {
+    "p_text": 0.6006,
+    "p_state": 0.437326,
+    "p_blend": 0.518963
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.319546,
+    "p_state": 0.338019,
+    "p_blend": 0.328783
+   },
+   "gemini-3-flash": {
+    "p_text": 0.495671,
+    "p_state": 0.53477,
+    "p_blend": 0.51522
+   },
+   "kimi-k2-5": {
+    "p_text": 0.38641,
+    "p_state": 0.43944,
+    "p_blend": 0.412925
+   }
+  },
+  "instance_qutebrowser__qutebrowser-85b867fe8d4378c8e371f055c70452f546055854-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.544196,
+    "p_state": 0.647117,
+    "p_blend": 0.595657
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.486713,
+    "p_state": 0.481688,
+    "p_blend": 0.4842
+   },
+   "gemini-3-flash": {
+    "p_text": 0.557309,
+    "p_state": 0.533485,
+    "p_blend": 0.545397
+   },
+   "kimi-k2-5": {
+    "p_text": 0.46839,
+    "p_state": 0.540044,
+    "p_blend": 0.504217
+   }
+  },
+  "instance_qutebrowser__qutebrowser-8cd06741bb56cdca49f5cdc0542da97681154315-v5149fcda2a9a6fe1d35dfed1bade1444a11ef271": {
+   "gpt-5-2-high": {
+    "p_text": 0.35886,
+    "p_state": 0.600706,
+    "p_blend": 0.479783
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.229426,
+    "p_state": 0.451513,
+    "p_blend": 0.340469
+   },
+   "gemini-3-flash": {
+    "p_text": 0.365628,
+    "p_state": 0.514582,
+    "p_blend": 0.440105
+   },
+   "kimi-k2-5": {
+    "p_text": 0.207501,
+    "p_state": 0.523881,
+    "p_blend": 0.365691
+   }
+  },
+  "instance_qutebrowser__qutebrowser-8d05f0282a271bfd45e614238bd1b555c58b3fc1-v35616345bb8052ea303186706cec663146f0f184": {
+   "gpt-5-2-high": {
+    "p_text": 0.228387,
+    "p_state": 0.614827,
+    "p_blend": 0.421607
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.353372,
+    "p_state": 0.459724,
+    "p_blend": 0.406548
+   },
+   "gemini-3-flash": {
+    "p_text": 0.106872,
+    "p_state": 0.512863,
+    "p_blend": 0.309868
+   },
+   "kimi-k2-5": {
+    "p_text": 0.133339,
+    "p_state": 0.488218,
+    "p_blend": 0.310779
+   }
+  },
+  "instance_qutebrowser__qutebrowser-8f46ba3f6dc7b18375f7aa63c48a1fe461190430-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.856502,
+    "p_state": 0.588363,
+    "p_blend": 0.722433
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.46848,
+    "p_state": 0.431648,
+    "p_blend": 0.450064
+   },
+   "gemini-3-flash": {
+    "p_text": 0.718611,
+    "p_state": 0.503573,
+    "p_blend": 0.611092
+   },
+   "kimi-k2-5": {
+    "p_text": 0.660693,
+    "p_state": 0.47988,
+    "p_blend": 0.570287
+   }
+  },
+  "instance_qutebrowser__qutebrowser-96b997802e942937e81d2b8a32d08f00d3f4bc4e-v5fc38aaf22415ab0b70567368332beee7955b367": {
+   "gpt-5-2-high": {
+    "p_text": 0.561362,
+    "p_state": 0.586771,
+    "p_blend": 0.574066
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.768183,
+    "p_state": 0.446159,
+    "p_blend": 0.607171
+   },
+   "gemini-3-flash": {
+    "p_text": 0.649719,
+    "p_state": 0.502696,
+    "p_blend": 0.576207
+   },
+   "kimi-k2-5": {
+    "p_text": 0.693181,
+    "p_state": 0.502157,
+    "p_blend": 0.597669
+   }
+  },
+  "instance_qutebrowser__qutebrowser-99029144b5109bb1b2a53964a7c129e009980cd9-va0fd88aac89cde702ec1ba84877234da33adce8a": {
+   "gpt-5-2-high": {
+    "p_text": 0.515064,
+    "p_state": 0.462444,
+    "p_blend": 0.488754
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.331324,
+    "p_state": 0.375541,
+    "p_blend": 0.353433
+   },
+   "gemini-3-flash": {
+    "p_text": 0.279012,
+    "p_state": 0.494499,
+    "p_blend": 0.386755
+   },
+   "kimi-k2-5": {
+    "p_text": 0.20166,
+    "p_state": 0.431129,
+    "p_blend": 0.316395
+   }
+  },
+  "instance_qutebrowser__qutebrowser-996487c43e4fcc265b541f9eca1e7930e3c5cf05-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.239069,
+    "p_state": 0.647812,
+    "p_blend": 0.443441
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.300721,
+    "p_state": 0.525535,
+    "p_blend": 0.413128
+   },
+   "gemini-3-flash": {
+    "p_text": 0.283628,
+    "p_state": 0.514568,
+    "p_blend": 0.399098
+   },
+   "kimi-k2-5": {
+    "p_text": 0.516199,
+    "p_state": 0.506561,
+    "p_blend": 0.51138
+   }
+  },
+  "instance_qutebrowser__qutebrowser-9b71c1ea67a9e7eb70dd83214d881c2031db6541-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.466419,
+    "p_state": 0.434079,
+    "p_blend": 0.450249
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.347426,
+    "p_state": 0.331484,
+    "p_blend": 0.339455
+   },
+   "gemini-3-flash": {
+    "p_text": 0.476337,
+    "p_state": 0.502207,
+    "p_blend": 0.489272
+   },
+   "kimi-k2-5": {
+    "p_text": 0.274377,
+    "p_state": 0.419065,
+    "p_blend": 0.346721
+   }
+  },
+  "instance_qutebrowser__qutebrowser-9ed748effa8f3bcd804612d9291da017b514e12f-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.399068,
+    "p_state": 0.54869,
+    "p_blend": 0.473879
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.503625,
+    "p_state": 0.443746,
+    "p_blend": 0.473686
+   },
+   "gemini-3-flash": {
+    "p_text": 0.402028,
+    "p_state": 0.50692,
+    "p_blend": 0.454474
+   },
+   "kimi-k2-5": {
+    "p_text": 0.379297,
+    "p_state": 0.508054,
+    "p_blend": 0.443675
+   }
+  },
+  "instance_qutebrowser__qutebrowser-a25e8a09873838ca9efefd36ea8a45170bbeb95c-vc2f56a753b62a190ddb23cd330c257b9cf560d12": {
+   "gpt-5-2-high": {
+    "p_text": 0.788133,
+    "p_state": 0.582485,
+    "p_blend": 0.685309
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.629022,
+    "p_state": 0.43139,
+    "p_blend": 0.530206
+   },
+   "gemini-3-flash": {
+    "p_text": 0.547582,
+    "p_state": 0.50011,
+    "p_blend": 0.523846
+   },
+   "kimi-k2-5": {
+    "p_text": 0.443172,
+    "p_state": 0.484872,
+    "p_blend": 0.464022
+   }
+  },
+  "instance_qutebrowser__qutebrowser-a84ecfb80a00f8ab7e341372560458e3f9cfffa2-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.889709,
+    "p_state": 0.647207,
+    "p_blend": 0.768458
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.526418,
+    "p_state": 0.495217,
+    "p_blend": 0.510818
+   },
+   "gemini-3-flash": {
+    "p_text": 0.820226,
+    "p_state": 0.544345,
+    "p_blend": 0.682286
+   },
+   "kimi-k2-5": {
+    "p_text": 0.519437,
+    "p_state": 0.505651,
+    "p_blend": 0.512544
+   }
+  },
+  "instance_qutebrowser__qutebrowser-bedc9f7fadf93f83d8dee95feeecb9922b6f063f-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.561734,
+    "p_state": 0.744381,
+    "p_blend": 0.653057
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.264054,
+    "p_state": 0.574412,
+    "p_blend": 0.419233
+   },
+   "gemini-3-flash": {
+    "p_text": 0.350424,
+    "p_state": 0.614237,
+    "p_blend": 0.48233
+   },
+   "kimi-k2-5": {
+    "p_text": 0.18074,
+    "p_state": 0.625311,
+    "p_blend": 0.403026
+   }
+  },
+  "instance_qutebrowser__qutebrowser-bf045f7ec7c27709ea3ef61cf41a24e8fdd2e7da-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": {
+   "gpt-5-2-high": {
+    "p_text": 0.868245,
+    "p_state": 0.463313,
+    "p_blend": 0.665779
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.647819,
+    "p_state": 0.381023,
+    "p_blend": 0.514421
+   },
+   "gemini-3-flash": {
+    "p_text": 0.78375,
+    "p_state": 0.461694,
+    "p_blend": 0.622722
+   },
+   "kimi-k2-5": {
+    "p_text": 0.743921,
+    "p_state": 0.418389,
+    "p_blend": 0.581155
+   }
+  },
+  "instance_qutebrowser__qutebrowser-c09e1439f145c66ee3af574386e277dd2388d094-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.502833,
+    "p_state": 0.602298,
+    "p_blend": 0.552566
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.550906,
+    "p_state": 0.462982,
+    "p_blend": 0.506944
+   },
+   "gemini-3-flash": {
+    "p_text": 0.629182,
+    "p_state": 0.517911,
+    "p_blend": 0.573547
+   },
+   "kimi-k2-5": {
+    "p_text": 0.256039,
+    "p_state": 0.494387,
+    "p_blend": 0.375213
+   }
+  },
+  "instance_qutebrowser__qutebrowser-c0be28ebee3e1837aaf3f30ec534ccd6d038f129-v9f8e9d96c85c85a605e382f1510bd08563afc566": {
+   "gpt-5-2-high": {
+    "p_text": 0.77747,
+    "p_state": 0.545704,
+    "p_blend": 0.661587
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.545984,
+    "p_state": 0.418748,
+    "p_blend": 0.482366
+   },
+   "gemini-3-flash": {
+    "p_text": 0.612882,
+    "p_state": 0.511944,
+    "p_blend": 0.562413
+   },
+   "kimi-k2-5": {
+    "p_text": 0.50854,
+    "p_state": 0.513912,
+    "p_blend": 0.511226
+   }
+  },
+  "instance_qutebrowser__qutebrowser-c580ebf0801e5a3ecabc54f327498bb753c6d5f2-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.873752,
+    "p_state": 0.619399,
+    "p_blend": 0.746575
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.438229,
+    "p_state": 0.515141,
+    "p_blend": 0.476685
+   },
+   "gemini-3-flash": {
+    "p_text": 0.389549,
+    "p_state": 0.538769,
+    "p_blend": 0.464159
+   },
+   "kimi-k2-5": {
+    "p_text": 0.642205,
+    "p_state": 0.551974,
+    "p_blend": 0.597089
+   }
+  },
+  "instance_qutebrowser__qutebrowser-cc360cd4a34a126274c7b51f3b63afbaf3e05a02-v5fc38aaf22415ab0b70567368332beee7955b367": {
+   "gpt-5-2-high": {
+    "p_text": 0.383955,
+    "p_state": 0.60492,
+    "p_blend": 0.494437
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.723185,
+    "p_state": 0.444109,
+    "p_blend": 0.583647
+   },
+   "gemini-3-flash": {
+    "p_text": 0.513069,
+    "p_state": 0.512671,
+    "p_blend": 0.51287
+   },
+   "kimi-k2-5": {
+    "p_text": 0.572972,
+    "p_state": 0.515836,
+    "p_blend": 0.544404
+   }
+  },
+  "instance_qutebrowser__qutebrowser-cf06f4e3708f886032d4d2a30108c2fddb042d81-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.544206,
+    "p_state": 0.449173,
+    "p_blend": 0.49669
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.517635,
+    "p_state": 0.368124,
+    "p_blend": 0.44288
+   },
+   "gemini-3-flash": {
+    "p_text": 0.777219,
+    "p_state": 0.487159,
+    "p_blend": 0.632189
+   },
+   "kimi-k2-5": {
+    "p_text": 0.446109,
+    "p_state": 0.423748,
+    "p_blend": 0.434928
+   }
+  },
+  "instance_qutebrowser__qutebrowser-de4a1c1a2839b5b49c3d4ce21d39de48d24e2091-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.537914,
+    "p_state": 0.591116,
+    "p_blend": 0.564515
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.356091,
+    "p_state": 0.444968,
+    "p_blend": 0.400529
+   },
+   "gemini-3-flash": {
+    "p_text": 0.340466,
+    "p_state": 0.505284,
+    "p_blend": 0.422875
+   },
+   "kimi-k2-5": {
+    "p_text": 0.235077,
+    "p_state": 0.493142,
+    "p_blend": 0.36411
+   }
+  },
+  "instance_qutebrowser__qutebrowser-deeb15d6f009b3ca0c3bd503a7cef07462bd16b4-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.780286,
+    "p_state": 0.577645,
+    "p_blend": 0.678965
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.725924,
+    "p_state": 0.441999,
+    "p_blend": 0.583961
+   },
+   "gemini-3-flash": {
+    "p_text": 0.679398,
+    "p_state": 0.523742,
+    "p_blend": 0.60157
+   },
+   "kimi-k2-5": {
+    "p_text": 0.761589,
+    "p_state": 0.527446,
+    "p_blend": 0.644518
+   }
+  },
+  "instance_qutebrowser__qutebrowser-e15d26630934d0b6415ed2295ac42fd570a57620-va0fd88aac89cde702ec1ba84877234da33adce8a": {
+   "gpt-5-2-high": {
+    "p_text": 0.730838,
+    "p_state": 0.604953,
+    "p_blend": 0.667896
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.564688,
+    "p_state": 0.457282,
+    "p_blend": 0.510985
+   },
+   "gemini-3-flash": {
+    "p_text": 0.447476,
+    "p_state": 0.518049,
+    "p_blend": 0.482763
+   },
+   "kimi-k2-5": {
+    "p_text": 0.631772,
+    "p_state": 0.506102,
+    "p_blend": 0.568937
+   }
+  },
+  "instance_qutebrowser__qutebrowser-e34dfc68647d087ca3175d9ad3f023c30d8c9746-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.773269,
+    "p_state": 0.786292,
+    "p_blend": 0.779781
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.244324,
+    "p_state": 0.676165,
+    "p_blend": 0.460244
+   },
+   "gemini-3-flash": {
+    "p_text": 0.322125,
+    "p_state": 0.692701,
+    "p_blend": 0.507413
+   },
+   "kimi-k2-5": {
+    "p_text": 0.542188,
+    "p_state": 0.69349,
+    "p_blend": 0.617839
+   }
+  },
+  "instance_qutebrowser__qutebrowser-e5340c449f23608803c286da0563b62f58ba25b0-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": {
+   "gpt-5-2-high": {
+    "p_text": 0.613678,
+    "p_state": 0.583252,
+    "p_blend": 0.598465
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.721658,
+    "p_state": 0.432732,
+    "p_blend": 0.577195
+   },
+   "gemini-3-flash": {
+    "p_text": 0.431221,
+    "p_state": 0.499778,
+    "p_blend": 0.4655
+   },
+   "kimi-k2-5": {
+    "p_text": 0.499735,
+    "p_state": 0.488339,
+    "p_blend": 0.494037
+   }
+  },
+  "instance_qutebrowser__qutebrowser-e57b6e0eeeb656eb2c84d6547d5a0a7333ecee85-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.842581,
+    "p_state": 0.540023,
+    "p_blend": 0.691302
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.734038,
+    "p_state": 0.425298,
+    "p_blend": 0.579668
+   },
+   "gemini-3-flash": {
+    "p_text": 0.773421,
+    "p_state": 0.482836,
+    "p_blend": 0.628129
+   },
+   "kimi-k2-5": {
+    "p_text": 0.7134,
+    "p_state": 0.475374,
+    "p_blend": 0.594387
+   }
+  },
+  "instance_qutebrowser__qutebrowser-e64622cd2df5b521342cf4a62e0d4cb8f8c9ae5a-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.72957,
+    "p_state": 0.539714,
+    "p_blend": 0.634642
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.631676,
+    "p_state": 0.41162,
+    "p_blend": 0.521648
+   },
+   "gemini-3-flash": {
+    "p_text": 0.424647,
+    "p_state": 0.499863,
+    "p_blend": 0.462255
+   },
+   "kimi-k2-5": {
+    "p_text": 0.407473,
+    "p_state": 0.493147,
+    "p_blend": 0.45031
+   }
+  },
+  "instance_qutebrowser__qutebrowser-e70f5b03187bdd40e8bf70f5f3ead840f52d1f42-v02ad04386d5238fe2d1a1be450df257370de4b6a": {
+   "gpt-5-2-high": {
+    "p_text": 0.595742,
+    "p_state": 0.439488,
+    "p_blend": 0.517615
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.578889,
+    "p_state": 0.336581,
+    "p_blend": 0.457735
+   },
+   "gemini-3-flash": {
+    "p_text": 0.752929,
+    "p_state": 0.545904,
+    "p_blend": 0.649416
+   },
+   "kimi-k2-5": {
+    "p_text": 0.31182,
+    "p_state": 0.45413,
+    "p_blend": 0.382975
+   }
+  },
+  "instance_qutebrowser__qutebrowser-ebfe9b7aa0c4ba9d451f993e08955004aaec4345-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": {
+   "gpt-5-2-high": {
+    "p_text": 0.737176,
+    "p_state": 0.623831,
+    "p_blend": 0.680503
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.555072,
+    "p_state": 0.471764,
+    "p_blend": 0.513418
+   },
+   "gemini-3-flash": {
+    "p_text": 0.519959,
+    "p_state": 0.522333,
+    "p_blend": 0.521146
+   },
+   "kimi-k2-5": {
+    "p_text": 0.350535,
+    "p_state": 0.490791,
+    "p_blend": 0.420663
+   }
+  },
+  "instance_qutebrowser__qutebrowser-ec2dcfce9eee9f808efc17a1b99e227fc4421dea-v5149fcda2a9a6fe1d35dfed1bade1444a11ef271": {
+   "gpt-5-2-high": {
+    "p_text": 0.751285,
+    "p_state": 0.564879,
+    "p_blend": 0.658082
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.46732,
+    "p_state": 0.443905,
+    "p_blend": 0.455613
+   },
+   "gemini-3-flash": {
+    "p_text": 0.505105,
+    "p_state": 0.500428,
+    "p_blend": 0.502766
+   },
+   "kimi-k2-5": {
+    "p_text": 0.499459,
+    "p_state": 0.506704,
+    "p_blend": 0.503081
+   }
+  },
+  "instance_qutebrowser__qutebrowser-ed19d7f58b2664bb310c7cb6b52c5b9a06ea60b2-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": {
+   "gpt-5-2-high": {
+    "p_text": 0.422998,
+    "p_state": 0.580606,
+    "p_blend": 0.501802
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.267266,
+    "p_state": 0.439561,
+    "p_blend": 0.353414
+   },
+   "gemini-3-flash": {
+    "p_text": 0.467973,
+    "p_state": 0.494609,
+    "p_blend": 0.481291
+   },
+   "kimi-k2-5": {
+    "p_text": 0.423058,
+    "p_state": 0.468639,
+    "p_blend": 0.445849
+   }
+  },
+  "instance_qutebrowser__qutebrowser-ef5ba1a0360b39f9eff027fbdc57f363597c3c3b-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.533456,
+    "p_state": 0.572054,
+    "p_blend": 0.552755
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.39847,
+    "p_state": 0.440713,
+    "p_blend": 0.419591
+   },
+   "gemini-3-flash": {
+    "p_text": 0.430986,
+    "p_state": 0.494323,
+    "p_blend": 0.462655
+   },
+   "kimi-k2-5": {
+    "p_text": 0.334381,
+    "p_state": 0.450105,
+    "p_blend": 0.392243
+   }
+  },
+  "instance_qutebrowser__qutebrowser-f631cd4422744160d9dcf7a0455da532ce973315-v35616345bb8052ea303186706cec663146f0f184": {
+   "gpt-5-2-high": {
+    "p_text": 0.556482,
+    "p_state": 0.455556,
+    "p_blend": 0.506019
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.395097,
+    "p_state": 0.372886,
+    "p_blend": 0.383991
+   },
+   "gemini-3-flash": {
+    "p_text": 0.311486,
+    "p_state": 0.470587,
+    "p_blend": 0.391036
+   },
+   "kimi-k2-5": {
+    "p_text": 0.234438,
+    "p_state": 0.420027,
+    "p_blend": 0.327232
+   }
+  },
+  "instance_qutebrowser__qutebrowser-f7753550f2c1dcb2348e4779fd5287166754827e-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": {
+   "gpt-5-2-high": {
+    "p_text": 0.801575,
+    "p_state": 0.82839,
+    "p_blend": 0.814983
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.858199,
+    "p_state": 0.672173,
+    "p_blend": 0.765186
+   },
+   "gemini-3-flash": {
+    "p_text": 0.763312,
+    "p_state": 0.720736,
+    "p_blend": 0.742024
+   },
+   "kimi-k2-5": {
+    "p_text": 0.593548,
+    "p_state": 0.681408,
+    "p_blend": 0.637478
+   }
+  },
+  "instance_qutebrowser__qutebrowser-f8e7fea0becae25ae20606f1422068137189fe9e": {
+   "gpt-5-2-high": {
+    "p_text": 0.392726,
+    "p_state": 0.439304,
+    "p_blend": 0.416015
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.255091,
+    "p_state": 0.338152,
+    "p_blend": 0.296622
+   },
+   "gemini-3-flash": {
+    "p_text": 0.387722,
+    "p_state": 0.53306,
+    "p_blend": 0.460391
+   },
+   "kimi-k2-5": {
+    "p_text": 0.185322,
+    "p_state": 0.440097,
+    "p_blend": 0.312709
+   }
+  },
+  "instance_qutebrowser__qutebrowser-f91ace96223cac8161c16dd061907e138fe85111-v059c6fdc75567943479b23ebca7c07b5e9a7f34c": {
+   "gpt-5-2-high": {
+    "p_text": 0.775653,
+    "p_state": 0.598921,
+    "p_blend": 0.687287
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.65905,
+    "p_state": 0.459187,
+    "p_blend": 0.559118
+   },
+   "gemini-3-flash": {
+    "p_text": 0.628652,
+    "p_state": 0.518186,
+    "p_blend": 0.573419
+   },
+   "kimi-k2-5": {
+    "p_text": 0.611897,
+    "p_state": 0.492887,
+    "p_blend": 0.552392
+   }
+  },
+  "instance_qutebrowser__qutebrowser-fcfa069a06ade76d91bac38127f3235c13d78eb1-v5fc38aaf22415ab0b70567368332beee7955b367": {
+   "gpt-5-2-high": {
+    "p_text": 0.653312,
+    "p_state": 0.56203,
+    "p_blend": 0.607671
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.349544,
+    "p_state": 0.407794,
+    "p_blend": 0.378669
+   },
+   "gemini-3-flash": {
+    "p_text": 0.333553,
+    "p_state": 0.500224,
+    "p_blend": 0.416888
+   },
+   "kimi-k2-5": {
+    "p_text": 0.243402,
+    "p_state": 0.489082,
+    "p_blend": 0.366242
+   }
+  },
+  "instance_qutebrowser__qutebrowser-fd6790fe8c02b144ab2464f1fc8ab3d02ce3c476-v2ef375ac784985212b1805e1d0431dc8f1b3c171": {
+   "gpt-5-2-high": {
+    "p_text": 0.87631,
+    "p_state": 0.445705,
+    "p_blend": 0.661008
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.796163,
+    "p_state": 0.357451,
+    "p_blend": 0.576807
+   },
+   "gemini-3-flash": {
+    "p_text": 0.882329,
+    "p_state": 0.468834,
+    "p_blend": 0.675581
+   },
+   "kimi-k2-5": {
+    "p_text": 0.735015,
+    "p_state": 0.410902,
+    "p_blend": 0.572959
+   }
+  },
+  "instance_qutebrowser__qutebrowser-fea33d607fde83cf505b228238cf365936437a63-v9f8e9d96c85c85a605e382f1510bd08563afc566": {
+   "gpt-5-2-high": {
+    "p_text": 0.614422,
+    "p_state": 0.574943,
+    "p_blend": 0.594683
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.301551,
+    "p_state": 0.43846,
+    "p_blend": 0.370005
+   },
+   "gemini-3-flash": {
+    "p_text": 0.41971,
+    "p_state": 0.488674,
+    "p_blend": 0.454192
+   },
+   "kimi-k2-5": {
+    "p_text": 0.284475,
+    "p_state": 0.471725,
+    "p_blend": 0.3781
+   }
+  },
+  "instance_qutebrowser__qutebrowser-fec187c2cb53d769c2682b35ca77858a811414a8-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.789173,
+    "p_state": 0.562083,
+    "p_blend": 0.675628
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.519184,
+    "p_state": 0.429868,
+    "p_blend": 0.474526
+   },
+   "gemini-3-flash": {
+    "p_text": 0.526401,
+    "p_state": 0.508308,
+    "p_blend": 0.517355
+   },
+   "kimi-k2-5": {
+    "p_text": 0.729882,
+    "p_state": 0.497746,
+    "p_blend": 0.613814
+   }
+  },
+  "instance_qutebrowser__qutebrowser-ff1c025ad3210506fc76e1f604d8c8c27637d88e-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d": {
+   "gpt-5-2-high": {
+    "p_text": 0.260518,
+    "p_state": 0.569829,
+    "p_blend": 0.415173
+   },
+   "claude-4-6-opus": {
+    "p_text": 0.166958,
+    "p_state": 0.456712,
+    "p_blend": 0.311835
+   },
+   "gemini-3-flash": {
+    "p_text": 0.135264,
+    "p_state": 0.501748,
+    "p_blend": 0.318506
+   },
+   "kimi-k2-5": {
+    "p_text": 0.12797,
+    "p_state": 0.504732,
+    "p_blend": 0.316351
+   }
+  }
+ },
+ "probability_vectors_note": "per task x fixer: p_text (text-only head), p_state (hidden-state head), p_blend (uniform average of the two; the routing head). Deterministic outputs of the released frozen head over the released feature arrays, rounded to 6 decimals; enables re-thresholding and calibration analyses."
+}
