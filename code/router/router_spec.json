@@ -1,0 +1,81 @@
+{
+  "recipe": "blend — uniform probability average of (text head, hidden-state head)",
+  "frozen": "2026-07-29",
+  "seed": 42,
+  "pool": [
+    "gpt-5-2-high",
+    "claude-4-6-opus",
+    "gemini-3-flash",
+    "kimi-k2-5"
+  ],
+  "anchor": "gpt-5-2-high",
+  "theta": 0.3,
+  "theta_note": "Calibrated on the 99-task label-run with-handoff outcomes (matched-point rule); no evaluation-benchmark data in the selection.",
+  "text_only": {
+    "recipe": "text head only",
+    "theta": 0.425,
+    "claim_bearing": false
+  },
+  "cheap_order": [
+    "kimi-k2-5",
+    "gemini-3-flash",
+    "gpt-5-2-high",
+    "claude-4-6-opus"
+  ],
+  "mean_solo_cost_labelrun": {
+    "gpt-5-2-high": 0.4222,
+    "claude-4-6-opus": 0.7834,
+    "gemini-3-flash": 0.3654,
+    "kimi-k2-5": 0.2078
+  },
+  "route_rule": "first fixer in cheap_order with P(solve) >= theta, else anchor",
+  "feature_recipe": {
+    "vector": [
+      "cos(x,s)",
+      "cos(x,f)",
+      "cos(x,s)-cos(x,f)",
+      "p",
+      "cos(x,s)*p",
+      "(cos(x,s)-cos(x,f))*p"
+    ],
+    "centering": "UNCENTERED (prereg primary)",
+    "head": "StandardScaler + LogisticRegression(C=1.0, max_iter=1000)",
+    "text_embedding": "L2-normalized issue-text embedding (embedder below)",
+    "state_embedding": "hidden_states npz key state_pre_-4, L2-normalized"
+  },
+  "embedder": {
+    "id": "Qwen/Qwen3-Embedding-0.6B",
+    "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+    "max_seq_length": 4096,
+    "normalize": true,
+    "input": "problem_statement plain text, no instruction prefix"
+  },
+  "hidden_state": {
+    "key": "state_pre_-4",
+    "source": "replay-prefill final-token state, layer -4, pre-decode; captured by the calibration-run replay pipeline"
+  },
+  "fit_scope": {
+    "text_head": {
+      "rows": 1600,
+      "sources": [
+        "SWE-bench Multilingual 300 (benchmark, POOL4)",
+        "label-run fresh 100 (solo labels)"
+      ],
+      "held_out": false
+    },
+    "state_head": {
+      "rows": 396,
+      "tasks": 99,
+      "sources": [
+        "label-run fresh (solo labels) — states exist only here"
+      ],
+      "held_out": false
+    }
+  },
+  "inputs": {
+    "embeddings_issue.npz": "fit-time input (benchmark issue-text embeddings); not included in this release — the fitted head and its resume centroids are serialized in router_head.npz",
+    "embeddings_fresh.npz": "fit-time input (label-run issue-text embeddings); not included in this release — the fitted head and its resume centroids are serialized in router_head.npz",
+    "hidden_states_fresh.npz": "fit-time input (label-run searcher hidden states); not included in this release — the fitted head and its resume centroids are serialized in router_head.npz"
+  },
+  "firewall": "Scope: the fitted parameters (head weights, resume centroids, feature recipe). The fit reads nothing derived from the evaluation benchmark and ran before any evaluation-set data existed."
+}

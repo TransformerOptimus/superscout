@@ -1,0 +1,18 @@
+{
+  "README.md": {
+    "sha256": "b33f699c3b860c2911f345d8191e2ca6600d4dd441631cab8885fe7618a3400a",
+    "bytes": 4643
+  },
+  "infer.py": {
+    "sha256": "564580434d84a96cbf651d7f3939ac181ee812393c8f8c3e58c9eddd6e7e00ec",
+    "bytes": 5311
+  },
+  "router_head.npz": {
+    "sha256": "bf5a930e3bab5f3de0d2224909b02dc01b2d27e038c38aeff341d6b9c2db55d9",
+    "bytes": 151852
+  },
+  "router_spec.json": {
+    "sha256": "600f11ac3540410e80bb40300b64bf0aefe224301061eb1bde6f1226cc95b8d5",
+    "bytes": 2909
+  }
+}
