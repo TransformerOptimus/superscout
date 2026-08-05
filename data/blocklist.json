@@ -1,0 +1,32 @@
+{
+  "description": "The 23-repository contamination blocklist: every repository appearing in SWE-bench Pro (11) or SWE-bench Verified (12) was excluded from all training, RL, and routing-label data.",
+  "decided": "day one, before any training data was built",
+  "enforced_by": "programmatic gate verified zero hits in the frozen training file",
+  "swebench_pro": [
+    "ansible/ansible",
+    "internetarchive/openlibrary",
+    "flipt-io/flipt",
+    "qutebrowser/qutebrowser",
+    "gravitational/teleport",
+    "protonmail/webclients",
+    "future-architect/vuls",
+    "navidrome/navidrome",
+    "element-hq/element-web",
+    "NodeBB/NodeBB",
+    "tutao/tutanota"
+  ],
+  "swebench_verified": [
+    "astropy/astropy",
+    "django/django",
+    "matplotlib/matplotlib",
+    "mwaskom/seaborn",
+    "pallets/flask",
+    "psf/requests",
+    "pydata/xarray",
+    "pylint-dev/pylint",
+    "pytest-dev/pytest",
+    "scikit-learn/scikit-learn",
+    "sphinx-doc/sphinx",
+    "sympy/sympy"
+  ]
+}

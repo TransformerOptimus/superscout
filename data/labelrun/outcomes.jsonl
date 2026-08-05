@@ -1,0 +1,796 @@
+{"task_id": "agronholm__anyio-1121", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 1.018336}
+{"task_id": "agronholm__anyio-1121", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.298957}
+{"task_id": "agronholm__anyio-1121", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.339593}
+{"task_id": "agronholm__anyio-1121", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.132459}
+{"task_id": "agronholm__anyio-1121", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.871895}
+{"task_id": "agronholm__anyio-1121", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.656871}
+{"task_id": "agronholm__anyio-1121", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.383325}
+{"task_id": "agronholm__anyio-1121", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.170825}
+{"task_id": "alibaba__opensandbox-816", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.560689}
+{"task_id": "alibaba__opensandbox-816", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.682638}
+{"task_id": "alibaba__opensandbox-816", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.277222}
+{"task_id": "alibaba__opensandbox-816", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.05092}
+{"task_id": "alibaba__opensandbox-816", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.371692}
+{"task_id": "alibaba__opensandbox-816", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.394611}
+{"task_id": "alibaba__opensandbox-816", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.209056}
+{"task_id": "alibaba__opensandbox-816", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.167407}
+{"task_id": "apache__iceberg-python-3295", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.236531}
+{"task_id": "apache__iceberg-python-3295", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.141241}
+{"task_id": "apache__iceberg-python-3295", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.317531}
+{"task_id": "apache__iceberg-python-3295", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.030054}
+{"task_id": "apache__iceberg-python-3295", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.225797}
+{"task_id": "apache__iceberg-python-3295", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.225427}
+{"task_id": "apache__iceberg-python-3295", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.441279}
+{"task_id": "apache__iceberg-python-3295", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.036384}
+{"task_id": "ardupilot__methodicconfigurator-1201", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.559424}
+{"task_id": "ardupilot__methodicconfigurator-1201", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.37015}
+{"task_id": "ardupilot__methodicconfigurator-1201", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.290277}
+{"task_id": "ardupilot__methodicconfigurator-1201", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.107269}
+{"task_id": "ardupilot__methodicconfigurator-1201", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.687378}
+{"task_id": "ardupilot__methodicconfigurator-1201", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.528693}
+{"task_id": "ardupilot__methodicconfigurator-1201", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.287126}
+{"task_id": "ardupilot__methodicconfigurator-1201", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.24188}
+{"task_id": "astronomer__astronomer-cosmos-2332", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.920761}
+{"task_id": "astronomer__astronomer-cosmos-2332", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.581117}
+{"task_id": "astronomer__astronomer-cosmos-2332", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.357596}
+{"task_id": "astronomer__astronomer-cosmos-2332", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.231544}
+{"task_id": "astronomer__astronomer-cosmos-2332", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.438697}
+{"task_id": "astronomer__astronomer-cosmos-2332", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.309383}
+{"task_id": "astronomer__astronomer-cosmos-2332", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.276358}
+{"task_id": "astronomer__astronomer-cosmos-2332", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.23132}
+{"task_id": "astronomy-commons__lsdb-1349", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.936433}
+{"task_id": "astronomy-commons__lsdb-1349", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.756817}
+{"task_id": "astronomy-commons__lsdb-1349", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.705445}
+{"task_id": "astronomy-commons__lsdb-1349", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.269312}
+{"task_id": "astronomy-commons__lsdb-1349", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.029997}
+{"task_id": "astronomy-commons__lsdb-1349", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.460792}
+{"task_id": "astronomy-commons__lsdb-1349", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.565629}
+{"task_id": "astronomy-commons__lsdb-1349", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.501718}
+{"task_id": "aws-cloudformation__cfn-python-lint-4368", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.13641}
+{"task_id": "aws-cloudformation__cfn-python-lint-4368", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 1.421916}
+{"task_id": "aws-cloudformation__cfn-python-lint-4368", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.499011}
+{"task_id": "aws-cloudformation__cfn-python-lint-4368", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.401399}
+{"task_id": "aws-cloudformation__cfn-python-lint-4368", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 2.453854}
+{"task_id": "aws-cloudformation__cfn-python-lint-4368", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.198969}
+{"task_id": "aws-cloudformation__cfn-python-lint-4368", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.378466}
+{"task_id": "aws-cloudformation__cfn-python-lint-4368", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.500938}
+{"task_id": "azure-samples__azure-search-openai-demo-3025", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.311594}
+{"task_id": "azure-samples__azure-search-openai-demo-3025", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.300828}
+{"task_id": "azure-samples__azure-search-openai-demo-3025", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.15131}
+{"task_id": "azure-samples__azure-search-openai-demo-3025", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.304786}
+{"task_id": "azure-samples__azure-search-openai-demo-3025", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.307689}
+{"task_id": "azure-samples__azure-search-openai-demo-3025", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.343341}
+{"task_id": "azure-samples__azure-search-openai-demo-3025", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.17601}
+{"task_id": "azure-samples__azure-search-openai-demo-3025", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.422834}
+{"task_id": "beever-ai__beever-atlas-102", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.235053}
+{"task_id": "beever-ai__beever-atlas-102", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.27796}
+{"task_id": "beever-ai__beever-atlas-102", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.249911}
+{"task_id": "beever-ai__beever-atlas-102", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.034659}
+{"task_id": "beever-ai__beever-atlas-102", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.185346}
+{"task_id": "beever-ai__beever-atlas-102", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.305895}
+{"task_id": "beever-ai__beever-atlas-102", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.323148}
+{"task_id": "beever-ai__beever-atlas-102", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.028695}
+{"task_id": "beeware__briefcase-2651", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.135213}
+{"task_id": "beeware__briefcase-2651", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.223153}
+{"task_id": "beeware__briefcase-2651", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.239143}
+{"task_id": "beeware__briefcase-2651", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.038472}
+{"task_id": "beeware__briefcase-2651", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.1522}
+{"task_id": "beeware__briefcase-2651", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.202403}
+{"task_id": "beeware__briefcase-2651", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.207375}
+{"task_id": "beeware__briefcase-2651", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.019207}
+{"task_id": "conan-io__conan-19604", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.149618}
+{"task_id": "conan-io__conan-19604", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.102027}
+{"task_id": "conan-io__conan-19604", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.256685}
+{"task_id": "conan-io__conan-19604", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.041103}
+{"task_id": "conan-io__conan-19604", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.124379}
+{"task_id": "conan-io__conan-19604", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.166176}
+{"task_id": "conan-io__conan-19604", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.249233}
+{"task_id": "conan-io__conan-19604", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.029763}
+{"task_id": "conan-io__conan-19750", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.470478}
+{"task_id": "conan-io__conan-19750", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.202662}
+{"task_id": "conan-io__conan-19750", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.282827}
+{"task_id": "conan-io__conan-19750", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.081856}
+{"task_id": "conan-io__conan-19750", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.458049}
+{"task_id": "conan-io__conan-19750", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.275819}
+{"task_id": "conan-io__conan-19750", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.411365}
+{"task_id": "conan-io__conan-19750", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.082693}
+{"task_id": "copier-org__copier-2646", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.889298}
+{"task_id": "copier-org__copier-2646", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.687209}
+{"task_id": "copier-org__copier-2646", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.293605}
+{"task_id": "copier-org__copier-2646", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.130688}
+{"task_id": "copier-org__copier-2646", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.492593}
+{"task_id": "copier-org__copier-2646", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.296791}
+{"task_id": "copier-org__copier-2646", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.290412}
+{"task_id": "copier-org__copier-2646", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.063651}
+{"task_id": "cs-si__eodag-2176", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.286661}
+{"task_id": "cs-si__eodag-2176", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.304407}
+{"task_id": "cs-si__eodag-2176", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.311255}
+{"task_id": "cs-si__eodag-2176", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.095856}
+{"task_id": "cs-si__eodag-2176", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.399003}
+{"task_id": "cs-si__eodag-2176", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.234262}
+{"task_id": "cs-si__eodag-2176", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.372397}
+{"task_id": "cs-si__eodag-2176", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.056097}
+{"task_id": "dagster-io__dagster-33605", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 1.275248}
+{"task_id": "dagster-io__dagster-33605", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.637424}
+{"task_id": "dagster-io__dagster-33605", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.377273}
+{"task_id": "dagster-io__dagster-33605", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.437752}
+{"task_id": "dagster-io__dagster-33605", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.89871}
+{"task_id": "dagster-io__dagster-33605", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.431617}
+{"task_id": "dagster-io__dagster-33605", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.393109}
+{"task_id": "dagster-io__dagster-33605", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.228328}
+{"task_id": "databricks__dbt-databricks-1428", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.47646}
+{"task_id": "databricks__dbt-databricks-1428", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.298411}
+{"task_id": "databricks__dbt-databricks-1428", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.323835}
+{"task_id": "databricks__dbt-databricks-1428", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.361719}
+{"task_id": "databricks__dbt-databricks-1428", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.532801}
+{"task_id": "databricks__dbt-databricks-1428", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.453774}
+{"task_id": "databricks__dbt-databricks-1428", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.322991}
+{"task_id": "databricks__dbt-databricks-1428", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.18197}
+{"task_id": "deepset-ai__haystack-10547", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.142239}
+{"task_id": "deepset-ai__haystack-10547", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.165577}
+{"task_id": "deepset-ai__haystack-10547", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.395147}
+{"task_id": "deepset-ai__haystack-10547", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.11142}
+{"task_id": "deepset-ai__haystack-10547", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.0}
+{"task_id": "deepset-ai__haystack-10547", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.0}
+{"task_id": "deepset-ai__haystack-10547", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.0}
+{"task_id": "deepset-ai__haystack-10547", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.0}
+{"task_id": "delgan__loguru-1451", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.463569}
+{"task_id": "delgan__loguru-1451", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.486099}
+{"task_id": "delgan__loguru-1451", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.256354}
+{"task_id": "delgan__loguru-1451", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.085137}
+{"task_id": "delgan__loguru-1451", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.566508}
+{"task_id": "delgan__loguru-1451", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.274758}
+{"task_id": "delgan__loguru-1451", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.33375}
+{"task_id": "delgan__loguru-1451", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.105344}
+{"task_id": "docling-project__docling-2983", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.171687}
+{"task_id": "docling-project__docling-2983", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.168746}
+{"task_id": "docling-project__docling-2983", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.159192}
+{"task_id": "docling-project__docling-2983", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.022727}
+{"task_id": "docling-project__docling-2983", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.161319}
+{"task_id": "docling-project__docling-2983", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.296218}
+{"task_id": "docling-project__docling-2983", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.18545}
+{"task_id": "docling-project__docling-2983", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.017255}
+{"task_id": "gammapy__gammapy-6409", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.561153}
+{"task_id": "gammapy__gammapy-6409", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.428959}
+{"task_id": "gammapy__gammapy-6409", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.314383}
+{"task_id": "gammapy__gammapy-6409", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.103081}
+{"task_id": "gammapy__gammapy-6409", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.618206}
+{"task_id": "gammapy__gammapy-6409", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.311157}
+{"task_id": "gammapy__gammapy-6409", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.28818}
+{"task_id": "gammapy__gammapy-6409", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.106554}
+{"task_id": "geopython__pygeoapi-2338", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.514416}
+{"task_id": "geopython__pygeoapi-2338", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.142562}
+{"task_id": "geopython__pygeoapi-2338", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.294748}
+{"task_id": "geopython__pygeoapi-2338", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.061345}
+{"task_id": "geopython__pygeoapi-2338", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.53099}
+{"task_id": "geopython__pygeoapi-2338", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.214625}
+{"task_id": "geopython__pygeoapi-2338", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.265289}
+{"task_id": "geopython__pygeoapi-2338", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.073443}
+{"task_id": "getmoto__moto-9727", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.170706}
+{"task_id": "getmoto__moto-9727", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.193305}
+{"task_id": "getmoto__moto-9727", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.253582}
+{"task_id": "getmoto__moto-9727", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.071016}
+{"task_id": "getmoto__moto-9727", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.24164}
+{"task_id": "getmoto__moto-9727", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.269351}
+{"task_id": "getmoto__moto-9727", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.227276}
+{"task_id": "getmoto__moto-9727", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.122211}
+{"task_id": "getmoto__moto-9841", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.51941}
+{"task_id": "getmoto__moto-9841", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.082316}
+{"task_id": "getmoto__moto-9841", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.470024}
+{"task_id": "getmoto__moto-9841", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.046632}
+{"task_id": "getmoto__moto-9841", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.461434}
+{"task_id": "getmoto__moto-9841", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.172354}
+{"task_id": "getmoto__moto-9841", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.224396}
+{"task_id": "getmoto__moto-9841", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.098047}
+{"task_id": "getmoto__moto-9903", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.38288}
+{"task_id": "getmoto__moto-9903", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.133}
+{"task_id": "getmoto__moto-9903", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.248096}
+{"task_id": "getmoto__moto-9903", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.020418}
+{"task_id": "getmoto__moto-9903", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.191385}
+{"task_id": "getmoto__moto-9903", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.170056}
+{"task_id": "getmoto__moto-9903", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.178464}
+{"task_id": "getmoto__moto-9903", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.029338}
+{"task_id": "graphistry__pygraphistry-1277", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 3.013814}
+{"task_id": "graphistry__pygraphistry-1277", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 1.320638}
+{"task_id": "graphistry__pygraphistry-1277", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.770055}
+{"task_id": "graphistry__pygraphistry-1277", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.833496}
+{"task_id": "graphistry__pygraphistry-1277", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 3.002346}
+{"task_id": "graphistry__pygraphistry-1277", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 2.097438}
+{"task_id": "graphistry__pygraphistry-1277", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.793635}
+{"task_id": "graphistry__pygraphistry-1277", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.179001}
+{"task_id": "hkuds__openharness-217", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.202183}
+{"task_id": "hkuds__openharness-217", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.089639}
+{"task_id": "hkuds__openharness-217", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.131889}
+{"task_id": "hkuds__openharness-217", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.015874}
+{"task_id": "hkuds__openharness-217", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.161695}
+{"task_id": "hkuds__openharness-217", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.055877}
+{"task_id": "hkuds__openharness-217", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.137773}
+{"task_id": "hkuds__openharness-217", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.012293}
+{"task_id": "holoviz__param-1117", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 1.159471}
+{"task_id": "holoviz__param-1117", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.200611}
+{"task_id": "holoviz__param-1117", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.412283}
+{"task_id": "holoviz__param-1117", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.415673}
+{"task_id": "holoviz__param-1117", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.146754}
+{"task_id": "holoviz__param-1117", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.263076}
+{"task_id": "holoviz__param-1117", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.425826}
+{"task_id": "holoviz__param-1117", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.156169}
+{"task_id": "huggingface__huggingface_hub-4056", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.119227}
+{"task_id": "huggingface__huggingface_hub-4056", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.437473}
+{"task_id": "huggingface__huggingface_hub-4056", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.225452}
+{"task_id": "huggingface__huggingface_hub-4056", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.065625}
+{"task_id": "huggingface__huggingface_hub-4056", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.134342}
+{"task_id": "huggingface__huggingface_hub-4056", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.361702}
+{"task_id": "huggingface__huggingface_hub-4056", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.367582}
+{"task_id": "huggingface__huggingface_hub-4056", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.059949}
+{"task_id": "huggingface__transformers-44080", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.143659}
+{"task_id": "huggingface__transformers-44080", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.116856}
+{"task_id": "huggingface__transformers-44080", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.304072}
+{"task_id": "huggingface__transformers-44080", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.046213}
+{"task_id": "huggingface__transformers-44080", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.254669}
+{"task_id": "huggingface__transformers-44080", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.141177}
+{"task_id": "huggingface__transformers-44080", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.239668}
+{"task_id": "huggingface__transformers-44080", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.11068}
+{"task_id": "idaholab__montepy-882", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.797258}
+{"task_id": "idaholab__montepy-882", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.240046}
+{"task_id": "idaholab__montepy-882", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.471501}
+{"task_id": "idaholab__montepy-882", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.108134}
+{"task_id": "idaholab__montepy-882", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.217303}
+{"task_id": "idaholab__montepy-882", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.347527}
+{"task_id": "idaholab__montepy-882", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.417642}
+{"task_id": "idaholab__montepy-882", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.166845}
+{"task_id": "joke2k__django-environ-592", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.215062}
+{"task_id": "joke2k__django-environ-592", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.247648}
+{"task_id": "joke2k__django-environ-592", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.195909}
+{"task_id": "joke2k__django-environ-592", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.041022}
+{"task_id": "joke2k__django-environ-592", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.158932}
+{"task_id": "joke2k__django-environ-592", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.138152}
+{"task_id": "joke2k__django-environ-592", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.184201}
+{"task_id": "joke2k__django-environ-592", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.035573}
+{"task_id": "joke2k__faker-2309", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.308587}
+{"task_id": "joke2k__faker-2309", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.255697}
+{"task_id": "joke2k__faker-2309", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.235754}
+{"task_id": "joke2k__faker-2309", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.055904}
+{"task_id": "joke2k__faker-2309", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.310594}
+{"task_id": "joke2k__faker-2309", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.244037}
+{"task_id": "joke2k__faker-2309", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.436074}
+{"task_id": "joke2k__faker-2309", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.100738}
+{"task_id": "keras-team__keras-22138", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.153898}
+{"task_id": "keras-team__keras-22138", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.122323}
+{"task_id": "keras-team__keras-22138", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.198293}
+{"task_id": "keras-team__keras-22138", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.028731}
+{"task_id": "keras-team__keras-22138", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.22675}
+{"task_id": "keras-team__keras-22138", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.18601}
+{"task_id": "keras-team__keras-22138", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.168901}
+{"task_id": "keras-team__keras-22138", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.13908}
+{"task_id": "keras-team__keras-22316", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 1.077846}
+{"task_id": "keras-team__keras-22316", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.43167}
+{"task_id": "keras-team__keras-22316", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.325779}
+{"task_id": "keras-team__keras-22316", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.113956}
+{"task_id": "keras-team__keras-22316", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.124186}
+{"task_id": "keras-team__keras-22316", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.557509}
+{"task_id": "keras-team__keras-22316", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.41876}
+{"task_id": "keras-team__keras-22316", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.309989}
+{"task_id": "keras-team__keras-22330", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 1.025044}
+{"task_id": "keras-team__keras-22330", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.462747}
+{"task_id": "keras-team__keras-22330", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.310306}
+{"task_id": "keras-team__keras-22330", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.046023}
+{"task_id": "keras-team__keras-22330", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.875849}
+{"task_id": "keras-team__keras-22330", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.336436}
+{"task_id": "keras-team__keras-22330", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.422729}
+{"task_id": "keras-team__keras-22330", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.26655}
+{"task_id": "keras-team__keras-22642", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.666547}
+{"task_id": "keras-team__keras-22642", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.244666}
+{"task_id": "keras-team__keras-22642", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.407867}
+{"task_id": "keras-team__keras-22642", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.150169}
+{"task_id": "keras-team__keras-22642", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.269518}
+{"task_id": "keras-team__keras-22642", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.167914}
+{"task_id": "keras-team__keras-22642", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.226707}
+{"task_id": "keras-team__keras-22642", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.082097}
+{"task_id": "koxudaxi__datamodel-code-generator-2993", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.391122}
+{"task_id": "koxudaxi__datamodel-code-generator-2993", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.190158}
+{"task_id": "koxudaxi__datamodel-code-generator-2993", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.60851}
+{"task_id": "koxudaxi__datamodel-code-generator-2993", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.076782}
+{"task_id": "koxudaxi__datamodel-code-generator-2993", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.446831}
+{"task_id": "koxudaxi__datamodel-code-generator-2993", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.703053}
+{"task_id": "koxudaxi__datamodel-code-generator-2993", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.397215}
+{"task_id": "koxudaxi__datamodel-code-generator-2993", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.09392}
+{"task_id": "koxudaxi__datamodel-code-generator-2996", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.222676}
+{"task_id": "koxudaxi__datamodel-code-generator-2996", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 1.432535}
+{"task_id": "koxudaxi__datamodel-code-generator-2996", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.629212}
+{"task_id": "koxudaxi__datamodel-code-generator-2996", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.382365}
+{"task_id": "koxudaxi__datamodel-code-generator-2996", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.239388}
+{"task_id": "koxudaxi__datamodel-code-generator-2996", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.89675}
+{"task_id": "koxudaxi__datamodel-code-generator-2996", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.620686}
+{"task_id": "koxudaxi__datamodel-code-generator-2996", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.283878}
+{"task_id": "koxudaxi__datamodel-code-generator-2998", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 3.086851}
+{"task_id": "koxudaxi__datamodel-code-generator-2998", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 2.026487}
+{"task_id": "koxudaxi__datamodel-code-generator-2998", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.809915}
+{"task_id": "koxudaxi__datamodel-code-generator-2998", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 1.701422}
+{"task_id": "koxudaxi__datamodel-code-generator-3046", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.797519}
+{"task_id": "koxudaxi__datamodel-code-generator-3046", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.36782}
+{"task_id": "koxudaxi__datamodel-code-generator-3046", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.343325}
+{"task_id": "koxudaxi__datamodel-code-generator-3046", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.193652}
+{"task_id": "koxudaxi__datamodel-code-generator-3046", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.278382}
+{"task_id": "koxudaxi__datamodel-code-generator-3046", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.443667}
+{"task_id": "koxudaxi__datamodel-code-generator-3046", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.327728}
+{"task_id": "koxudaxi__datamodel-code-generator-3046", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.212688}
+{"task_id": "linkml__linkml-3098", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.736688}
+{"task_id": "linkml__linkml-3098", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.242891}
+{"task_id": "linkml__linkml-3098", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.351553}
+{"task_id": "linkml__linkml-3098", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.07447}
+{"task_id": "linkml__linkml-3098", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.775178}
+{"task_id": "linkml__linkml-3098", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.377333}
+{"task_id": "linkml__linkml-3098", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.224013}
+{"task_id": "linkml__linkml-3098", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.115569}
+{"task_id": "marimo-team__marimo-8401", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 3.041711}
+{"task_id": "marimo-team__marimo-8401", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.357635}
+{"task_id": "marimo-team__marimo-8401", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.431816}
+{"task_id": "marimo-team__marimo-8401", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.489537}
+{"task_id": "marimo-team__marimo-8401", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 3.0182}
+{"task_id": "marimo-team__marimo-8401", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.549078}
+{"task_id": "marimo-team__marimo-8401", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.47048}
+{"task_id": "marimo-team__marimo-8401", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.833974}
+{"task_id": "meltano__meltano-9950", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.398011}
+{"task_id": "meltano__meltano-9950", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.270078}
+{"task_id": "meltano__meltano-9950", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.232399}
+{"task_id": "meltano__meltano-9950", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.10482}
+{"task_id": "meltano__meltano-9950", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.424649}
+{"task_id": "meltano__meltano-9950", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.388126}
+{"task_id": "meltano__meltano-9950", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.318398}
+{"task_id": "meltano__meltano-9950", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.239866}
+{"task_id": "mempalace__mempalace-1004", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.217947}
+{"task_id": "mempalace__mempalace-1004", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.272757}
+{"task_id": "mempalace__mempalace-1004", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.162888}
+{"task_id": "mempalace__mempalace-1004", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.055475}
+{"task_id": "mempalace__mempalace-1004", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.467541}
+{"task_id": "mempalace__mempalace-1004", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.318929}
+{"task_id": "mempalace__mempalace-1004", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.290111}
+{"task_id": "mempalace__mempalace-1004", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.043248}
+{"task_id": "microsoft__qcodes-8039", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.153184}
+{"task_id": "microsoft__qcodes-8039", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.273203}
+{"task_id": "microsoft__qcodes-8039", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.22796}
+{"task_id": "microsoft__qcodes-8039", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.06689}
+{"task_id": "microsoft__qcodes-8039", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.180249}
+{"task_id": "microsoft__qcodes-8039", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.256495}
+{"task_id": "microsoft__qcodes-8039", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.427427}
+{"task_id": "microsoft__qcodes-8039", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.050575}
+{"task_id": "milvus-io__pymilvus-3273", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.13806}
+{"task_id": "milvus-io__pymilvus-3273", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.080699}
+{"task_id": "milvus-io__pymilvus-3273", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.11489}
+{"task_id": "milvus-io__pymilvus-3273", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.014063}
+{"task_id": "milvus-io__pymilvus-3273", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.151664}
+{"task_id": "milvus-io__pymilvus-3273", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.13181}
+{"task_id": "milvus-io__pymilvus-3273", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.137887}
+{"task_id": "milvus-io__pymilvus-3273", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.012924}
+{"task_id": "modelcontextprotocol__python-sdk-1864", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.254363}
+{"task_id": "modelcontextprotocol__python-sdk-1864", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.151797}
+{"task_id": "modelcontextprotocol__python-sdk-1864", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.159591}
+{"task_id": "modelcontextprotocol__python-sdk-1864", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.036855}
+{"task_id": "modelcontextprotocol__python-sdk-1864", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.266489}
+{"task_id": "modelcontextprotocol__python-sdk-1864", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.116232}
+{"task_id": "modelcontextprotocol__python-sdk-1864", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.197159}
+{"task_id": "modelcontextprotocol__python-sdk-1864", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.032812}
+{"task_id": "nesquena__hermes-webui-2056", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.572596}
+{"task_id": "nesquena__hermes-webui-2056", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.250233}
+{"task_id": "nesquena__hermes-webui-2056", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.36452}
+{"task_id": "nesquena__hermes-webui-2056", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.203062}
+{"task_id": "nesquena__hermes-webui-2056", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.765332}
+{"task_id": "nesquena__hermes-webui-2056", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.245367}
+{"task_id": "nesquena__hermes-webui-2056", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.327206}
+{"task_id": "nesquena__hermes-webui-2056", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.080721}
+{"task_id": "newton-physics__newton-1582", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.188187}
+{"task_id": "newton-physics__newton-1582", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.091003}
+{"task_id": "newton-physics__newton-1582", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.352851}
+{"task_id": "newton-physics__newton-1582", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.117773}
+{"task_id": "newton-physics__newton-1582", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.173702}
+{"task_id": "newton-physics__newton-1582", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.17826}
+{"task_id": "newton-physics__newton-1582", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.328515}
+{"task_id": "newton-physics__newton-1582", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.034851}
+{"task_id": "nolar__kopf-1225", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.653108}
+{"task_id": "nolar__kopf-1225", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.174014}
+{"task_id": "nolar__kopf-1225", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.435379}
+{"task_id": "nolar__kopf-1225", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.060331}
+{"task_id": "nolar__kopf-1225", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.54632}
+{"task_id": "nolar__kopf-1225", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.335139}
+{"task_id": "nolar__kopf-1225", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.372138}
+{"task_id": "nolar__kopf-1225", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.056764}
+{"task_id": "omni-us__jsonargparse-839", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 1.581056}
+{"task_id": "omni-us__jsonargparse-839", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.639952}
+{"task_id": "omni-us__jsonargparse-839", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.343107}
+{"task_id": "omni-us__jsonargparse-839", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.395084}
+{"task_id": "omni-us__jsonargparse-839", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.866399}
+{"task_id": "omni-us__jsonargparse-839", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.734732}
+{"task_id": "omni-us__jsonargparse-839", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.662354}
+{"task_id": "omni-us__jsonargparse-839", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.209839}
+{"task_id": "open-telemetry__opentelemetry-python-4891", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.601181}
+{"task_id": "open-telemetry__opentelemetry-python-4891", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.16787}
+{"task_id": "open-telemetry__opentelemetry-python-4891", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.328475}
+{"task_id": "open-telemetry__opentelemetry-python-4891", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.118033}
+{"task_id": "open-telemetry__opentelemetry-python-4891", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.793888}
+{"task_id": "open-telemetry__opentelemetry-python-4891", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.201923}
+{"task_id": "open-telemetry__opentelemetry-python-4891", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.304515}
+{"task_id": "open-telemetry__opentelemetry-python-4891", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.238995}
+{"task_id": "opsmill__infrahub-8407", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.144843}
+{"task_id": "opsmill__infrahub-8407", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.130688}
+{"task_id": "opsmill__infrahub-8407", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.196337}
+{"task_id": "opsmill__infrahub-8407", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.01625}
+{"task_id": "opsmill__infrahub-8407", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.149201}
+{"task_id": "opsmill__infrahub-8407", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.176877}
+{"task_id": "opsmill__infrahub-8407", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.177946}
+{"task_id": "opsmill__infrahub-8407", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.043441}
+{"task_id": "optuna__optuna-6428", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.548906}
+{"task_id": "optuna__optuna-6428", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.1043}
+{"task_id": "optuna__optuna-6428", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.310289}
+{"task_id": "optuna__optuna-6428", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.048447}
+{"task_id": "optuna__optuna-6428", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.254918}
+{"task_id": "optuna__optuna-6428", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.124777}
+{"task_id": "optuna__optuna-6428", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.219198}
+{"task_id": "optuna__optuna-6428", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.051363}
+{"task_id": "packit__packit-2684", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.452494}
+{"task_id": "packit__packit-2684", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.401589}
+{"task_id": "packit__packit-2684", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.591742}
+{"task_id": "packit__packit-2684", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.053668}
+{"task_id": "packit__packit-2684", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.524433}
+{"task_id": "packit__packit-2684", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.267964}
+{"task_id": "packit__packit-2684", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.415002}
+{"task_id": "packit__packit-2684", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.103789}
+{"task_id": "pandas-dev__pandas-64092", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.522371}
+{"task_id": "pandas-dev__pandas-64092", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.638844}
+{"task_id": "pandas-dev__pandas-64092", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.740685}
+{"task_id": "pandas-dev__pandas-64092", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.237736}
+{"task_id": "pandas-dev__pandas-64092", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.886615}
+{"task_id": "pandas-dev__pandas-64092", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.520538}
+{"task_id": "pandas-dev__pandas-64092", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.03593}
+{"task_id": "pandas-dev__pandas-64092", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.709577}
+{"task_id": "pandas-dev__pandas-64104", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.289451}
+{"task_id": "pandas-dev__pandas-64104", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.158106}
+{"task_id": "pandas-dev__pandas-64104", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.611744}
+{"task_id": "pandas-dev__pandas-64104", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.190962}
+{"task_id": "pandas-dev__pandas-64104", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.51901}
+{"task_id": "pandas-dev__pandas-64104", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.208316}
+{"task_id": "pandas-dev__pandas-64104", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.376901}
+{"task_id": "pandas-dev__pandas-64104", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.530443}
+{"task_id": "pandas-dev__pandas-64816", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.76066}
+{"task_id": "pandas-dev__pandas-64816", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.40796}
+{"task_id": "pandas-dev__pandas-64816", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.322407}
+{"task_id": "pandas-dev__pandas-64816", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.151125}
+{"task_id": "pandas-dev__pandas-64816", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.344402}
+{"task_id": "pandas-dev__pandas-64816", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.446133}
+{"task_id": "pandas-dev__pandas-64816", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.426529}
+{"task_id": "pandas-dev__pandas-64816", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.100803}
+{"task_id": "pdm-project__pdm-3759", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.306378}
+{"task_id": "pdm-project__pdm-3759", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.268267}
+{"task_id": "pdm-project__pdm-3759", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.747339}
+{"task_id": "pdm-project__pdm-3759", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.044923}
+{"task_id": "pdm-project__pdm-3759", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.581767}
+{"task_id": "pdm-project__pdm-3759", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.229372}
+{"task_id": "pdm-project__pdm-3759", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.394406}
+{"task_id": "pdm-project__pdm-3759", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.206638}
+{"task_id": "pennylaneai__pennylane-9298", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.103259}
+{"task_id": "pennylaneai__pennylane-9298", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.40651}
+{"task_id": "pennylaneai__pennylane-9298", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.173261}
+{"task_id": "pennylaneai__pennylane-9298", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.335103}
+{"task_id": "pennylaneai__pennylane-9298", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.69914}
+{"task_id": "pennylaneai__pennylane-9298", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.406386}
+{"task_id": "pennylaneai__pennylane-9298", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.448135}
+{"task_id": "pennylaneai__pennylane-9298", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.240881}
+{"task_id": "pgmpy__pgmpy-3137", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.249373}
+{"task_id": "pgmpy__pgmpy-3137", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.23591}
+{"task_id": "pgmpy__pgmpy-3137", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.211814}
+{"task_id": "pgmpy__pgmpy-3137", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.039608}
+{"task_id": "pgmpy__pgmpy-3137", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.437416}
+{"task_id": "pgmpy__pgmpy-3137", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.175145}
+{"task_id": "pgmpy__pgmpy-3137", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.146048}
+{"task_id": "pgmpy__pgmpy-3137", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.042749}
+{"task_id": "psd-tools__psd-tools-551", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.708513}
+{"task_id": "psd-tools__psd-tools-551", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.137715}
+{"task_id": "psd-tools__psd-tools-551", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.330888}
+{"task_id": "psd-tools__psd-tools-551", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.05411}
+{"task_id": "psd-tools__psd-tools-551", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.579442}
+{"task_id": "psd-tools__psd-tools-551", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.163506}
+{"task_id": "psd-tools__psd-tools-551", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.279287}
+{"task_id": "psd-tools__psd-tools-551", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.064408}
+{"task_id": "psd-tools__psd-tools-593", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 3.000844}
+{"task_id": "psd-tools__psd-tools-593", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.887901}
+{"task_id": "psd-tools__psd-tools-593", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.529375}
+{"task_id": "psd-tools__psd-tools-593", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.929547}
+{"task_id": "psd-tools__psd-tools-593", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 3.01708}
+{"task_id": "psd-tools__psd-tools-593", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.908134}
+{"task_id": "psd-tools__psd-tools-593", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.586862}
+{"task_id": "psd-tools__psd-tools-593", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.786484}
+{"task_id": "pydap__pydap-624", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.113221}
+{"task_id": "pydap__pydap-624", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.573333}
+{"task_id": "pydap__pydap-624", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.622485}
+{"task_id": "pydap__pydap-624", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.206206}
+{"task_id": "pydap__pydap-624", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.599022}
+{"task_id": "pydap__pydap-624", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.81387}
+{"task_id": "pydap__pydap-624", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.525676}
+{"task_id": "pydap__pydap-624", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.200047}
+{"task_id": "pyinfra-dev__pyinfra-1630", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.907388}
+{"task_id": "pyinfra-dev__pyinfra-1630", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.708338}
+{"task_id": "pyinfra-dev__pyinfra-1630", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.344264}
+{"task_id": "pyinfra-dev__pyinfra-1630", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.178787}
+{"task_id": "pyinfra-dev__pyinfra-1630", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.0924}
+{"task_id": "pyinfra-dev__pyinfra-1630", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.449072}
+{"task_id": "pyinfra-dev__pyinfra-1630", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.221526}
+{"task_id": "pyinfra-dev__pyinfra-1630", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.216406}
+{"task_id": "pyinfra-dev__pyinfra-1665", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.211374}
+{"task_id": "pyinfra-dev__pyinfra-1665", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.175164}
+{"task_id": "pyinfra-dev__pyinfra-1665", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.245983}
+{"task_id": "pyinfra-dev__pyinfra-1665", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.025662}
+{"task_id": "pyinfra-dev__pyinfra-1665", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.340141}
+{"task_id": "pyinfra-dev__pyinfra-1665", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.133858}
+{"task_id": "pyinfra-dev__pyinfra-1665", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.269883}
+{"task_id": "pyinfra-dev__pyinfra-1665", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.05938}
+{"task_id": "pypa__build-1027", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.474307}
+{"task_id": "pypa__build-1027", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.172985}
+{"task_id": "pypa__build-1027", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.320871}
+{"task_id": "pypa__build-1027", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.20624}
+{"task_id": "pypa__build-1027", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.234245}
+{"task_id": "pypa__build-1027", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.165006}
+{"task_id": "pypa__build-1027", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.194879}
+{"task_id": "pypa__build-1027", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.065537}
+{"task_id": "pypa__twine-1309", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.112073}
+{"task_id": "pypa__twine-1309", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.044504}
+{"task_id": "pypa__twine-1309", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.155997}
+{"task_id": "pypa__twine-1309", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.011485}
+{"task_id": "pypa__twine-1309", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.124671}
+{"task_id": "pypa__twine-1309", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.073021}
+{"task_id": "pypa__twine-1309", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.160663}
+{"task_id": "pypa__twine-1309", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.013936}
+{"task_id": "pytest-dev__pyfakefs-1269", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.391114}
+{"task_id": "pytest-dev__pyfakefs-1269", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.392381}
+{"task_id": "pytest-dev__pyfakefs-1269", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.549525}
+{"task_id": "pytest-dev__pyfakefs-1269", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.067186}
+{"task_id": "pytest-dev__pyfakefs-1269", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.417308}
+{"task_id": "pytest-dev__pyfakefs-1269", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.396696}
+{"task_id": "pytest-dev__pyfakefs-1269", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.555353}
+{"task_id": "pytest-dev__pyfakefs-1269", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.062848}
+{"task_id": "python-markdown__markdown-1587", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 3.038232}
+{"task_id": "python-markdown__markdown-1587", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.636063}
+{"task_id": "python-markdown__markdown-1587", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.625091}
+{"task_id": "python-markdown__markdown-1587", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.280993}
+{"task_id": "python-markdown__markdown-1587", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 3.025716}
+{"task_id": "python-markdown__markdown-1587", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.372926}
+{"task_id": "python-markdown__markdown-1587", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.452615}
+{"task_id": "python-markdown__markdown-1587", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.250765}
+{"task_id": "python-scim__scim2-models-126", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.38181}
+{"task_id": "python-scim__scim2-models-126", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.120883}
+{"task_id": "python-scim__scim2-models-126", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.271327}
+{"task_id": "python-scim__scim2-models-126", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.051985}
+{"task_id": "python-scim__scim2-models-126", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.293523}
+{"task_id": "python-scim__scim2-models-126", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.237364}
+{"task_id": "python-scim__scim2-models-126", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.380376}
+{"task_id": "python-scim__scim2-models-126", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.04438}
+{"task_id": "python-wheel-build__fromager-1106", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.308829}
+{"task_id": "python-wheel-build__fromager-1106", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.178334}
+{"task_id": "python-wheel-build__fromager-1106", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.144957}
+{"task_id": "python-wheel-build__fromager-1106", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.063748}
+{"task_id": "python-wheel-build__fromager-1106", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.275999}
+{"task_id": "python-wheel-build__fromager-1106", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.216159}
+{"task_id": "python-wheel-build__fromager-1106", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.159694}
+{"task_id": "python-wheel-build__fromager-1106", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.077065}
+{"task_id": "raullenchai__rapid-mlx-227", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.659721}
+{"task_id": "raullenchai__rapid-mlx-227", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.997745}
+{"task_id": "raullenchai__rapid-mlx-227", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.529912}
+{"task_id": "raullenchai__rapid-mlx-227", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 1.450759}
+{"task_id": "raullenchai__rapid-mlx-227", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.446474}
+{"task_id": "raullenchai__rapid-mlx-227", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.124835}
+{"task_id": "raullenchai__rapid-mlx-227", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.572531}
+{"task_id": "raullenchai__rapid-mlx-227", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.129264}
+{"task_id": "raullenchai__rapid-mlx-228", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 1.928978}
+{"task_id": "raullenchai__rapid-mlx-228", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 1.988365}
+{"task_id": "raullenchai__rapid-mlx-228", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.650033}
+{"task_id": "raullenchai__rapid-mlx-228", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 1.092728}
+{"task_id": "raullenchai__rapid-mlx-228", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.991389}
+{"task_id": "raullenchai__rapid-mlx-228", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 2.172142}
+{"task_id": "raullenchai__rapid-mlx-228", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.592818}
+{"task_id": "raullenchai__rapid-mlx-228", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.128275}
+{"task_id": "raullenchai__rapid-mlx-289", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.743201}
+{"task_id": "raullenchai__rapid-mlx-289", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.619051}
+{"task_id": "raullenchai__rapid-mlx-289", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.496921}
+{"task_id": "raullenchai__rapid-mlx-289", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.259058}
+{"task_id": "raullenchai__rapid-mlx-289", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 2.117788}
+{"task_id": "raullenchai__rapid-mlx-289", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.597409}
+{"task_id": "raullenchai__rapid-mlx-289", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.257458}
+{"task_id": "raullenchai__rapid-mlx-289", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.217072}
+{"task_id": "researchobject__ro-crate-py-248", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.231356}
+{"task_id": "researchobject__ro-crate-py-248", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.219099}
+{"task_id": "researchobject__ro-crate-py-248", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.174602}
+{"task_id": "researchobject__ro-crate-py-248", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.048615}
+{"task_id": "researchobject__ro-crate-py-248", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.227492}
+{"task_id": "researchobject__ro-crate-py-248", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.261536}
+{"task_id": "researchobject__ro-crate-py-248", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.286133}
+{"task_id": "researchobject__ro-crate-py-248", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.071005}
+{"task_id": "schemathesis__schemathesis-3778", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.176911}
+{"task_id": "schemathesis__schemathesis-3778", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 1.998193}
+{"task_id": "schemathesis__schemathesis-3778", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.618948}
+{"task_id": "schemathesis__schemathesis-3778", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.880344}
+{"task_id": "schemathesis__schemathesis-3778", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.278691}
+{"task_id": "schemathesis__schemathesis-3778", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.103239}
+{"task_id": "schemathesis__schemathesis-3778", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.413411}
+{"task_id": "schemathesis__schemathesis-3778", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.290306}
+{"task_id": "schemathesis__schemathesis-3933", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.652602}
+{"task_id": "schemathesis__schemathesis-3933", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.505248}
+{"task_id": "schemathesis__schemathesis-3933", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.555203}
+{"task_id": "schemathesis__schemathesis-3933", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.770026}
+{"task_id": "schemathesis__schemathesis-3933", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 3.012051}
+{"task_id": "schemathesis__schemathesis-3933", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.322609}
+{"task_id": "schemathesis__schemathesis-3933", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.377409}
+{"task_id": "schemathesis__schemathesis-3933", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.16872}
+{"task_id": "schemathesis__schemathesis-4087", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 3.00599}
+{"task_id": "schemathesis__schemathesis-4087", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 1.456896}
+{"task_id": "schemathesis__schemathesis-4087", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.528078}
+{"task_id": "schemathesis__schemathesis-4087", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 1.05021}
+{"task_id": "schemathesis__schemathesis-4087", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 3.030778}
+{"task_id": "schemathesis__schemathesis-4087", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.209792}
+{"task_id": "schemathesis__schemathesis-4087", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.74241}
+{"task_id": "schemathesis__schemathesis-4087", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.51601}
+{"task_id": "scipp__plopp-513", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.145792}
+{"task_id": "scipp__plopp-513", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.107983}
+{"task_id": "scipp__plopp-513", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.206958}
+{"task_id": "scipp__plopp-513", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.019601}
+{"task_id": "scipp__plopp-513", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.120846}
+{"task_id": "scipp__plopp-513", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.231176}
+{"task_id": "scipp__plopp-513", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.273713}
+{"task_id": "scipp__plopp-513", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.032993}
+{"task_id": "scipy__scipy-24454", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 3.013378}
+{"task_id": "scipy__scipy-24454", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.428281}
+{"task_id": "scipy__scipy-24454", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.387863}
+{"task_id": "scipy__scipy-24454", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.086469}
+{"task_id": "scipy__scipy-24454", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 1.240587}
+{"task_id": "scipy__scipy-24454", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.525124}
+{"task_id": "scipy__scipy-24454", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.387754}
+{"task_id": "scipy__scipy-24454", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 2.129087}
+{"task_id": "sciunto-org__python-bibtexparser-515", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.259271}
+{"task_id": "sciunto-org__python-bibtexparser-515", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.169047}
+{"task_id": "sciunto-org__python-bibtexparser-515", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.344993}
+{"task_id": "sciunto-org__python-bibtexparser-515", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.080311}
+{"task_id": "sciunto-org__python-bibtexparser-515", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.416635}
+{"task_id": "sciunto-org__python-bibtexparser-515", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.361198}
+{"task_id": "sciunto-org__python-bibtexparser-515", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.31418}
+{"task_id": "sciunto-org__python-bibtexparser-515", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.143174}
+{"task_id": "scrapy__scrapy-7255", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 1.338863}
+{"task_id": "scrapy__scrapy-7255", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.477936}
+{"task_id": "scrapy__scrapy-7255", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.219534}
+{"task_id": "scrapy__scrapy-7255", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.148052}
+{"task_id": "scrapy__scrapy-7255", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.915788}
+{"task_id": "scrapy__scrapy-7255", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.56816}
+{"task_id": "scrapy__scrapy-7255", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.293358}
+{"task_id": "scrapy__scrapy-7255", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.282763}
+{"task_id": "skrub-data__skrub-1899", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.183244}
+{"task_id": "skrub-data__skrub-1899", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.282448}
+{"task_id": "skrub-data__skrub-1899", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.444402}
+{"task_id": "skrub-data__skrub-1899", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.184627}
+{"task_id": "skrub-data__skrub-1899", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.716544}
+{"task_id": "skrub-data__skrub-1899", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.33802}
+{"task_id": "skrub-data__skrub-1899", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.60078}
+{"task_id": "skrub-data__skrub-1899", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.118235}
+{"task_id": "skypilot-org__skypilot-8908", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.193464}
+{"task_id": "skypilot-org__skypilot-8908", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.124813}
+{"task_id": "skypilot-org__skypilot-8908", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.205593}
+{"task_id": "skypilot-org__skypilot-8908", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.015515}
+{"task_id": "skypilot-org__skypilot-8908", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.217354}
+{"task_id": "skypilot-org__skypilot-8908", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.140139}
+{"task_id": "skypilot-org__skypilot-8908", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.325812}
+{"task_id": "skypilot-org__skypilot-8908", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.052817}
+{"task_id": "sqlfluff__sqlfluff-7615", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 1.666594}
+{"task_id": "sqlfluff__sqlfluff-7615", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.405272}
+{"task_id": "sqlfluff__sqlfluff-7615", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.432804}
+{"task_id": "sqlfluff__sqlfluff-7615", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.728831}
+{"task_id": "sqlfluff__sqlfluff-7615", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 2.602619}
+{"task_id": "sqlfluff__sqlfluff-7615", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.411899}
+{"task_id": "sqlfluff__sqlfluff-7615", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.453962}
+{"task_id": "sqlfluff__sqlfluff-7615", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.418304}
+{"task_id": "strands-agents__sdk-python-1734", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.372532}
+{"task_id": "strands-agents__sdk-python-1734", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.141968}
+{"task_id": "strands-agents__sdk-python-1734", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.141334}
+{"task_id": "strands-agents__sdk-python-1734", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.058752}
+{"task_id": "strands-agents__sdk-python-1734", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.230839}
+{"task_id": "strands-agents__sdk-python-1734", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.186491}
+{"task_id": "strands-agents__sdk-python-1734", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.275149}
+{"task_id": "strands-agents__sdk-python-1734", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.032095}
+{"task_id": "tobymao__sqlglot-7479", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 1.675163}
+{"task_id": "tobymao__sqlglot-7479", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.681593}
+{"task_id": "tobymao__sqlglot-7479", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.761304}
+{"task_id": "tobymao__sqlglot-7479", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.122026}
+{"task_id": "tobymao__sqlglot-7479", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 2.575674}
+{"task_id": "tobymao__sqlglot-7479", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.984832}
+{"task_id": "tobymao__sqlglot-7479", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.633599}
+{"task_id": "tobymao__sqlglot-7479", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.160441}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-606", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.350523}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-606", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.275153}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-606", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.326537}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-606", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.041559}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-606", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.304949}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-606", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.39585}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-606", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.345802}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-606", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.04657}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-607", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.180682}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-607", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.197146}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-607", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.189601}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-607", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.017955}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-607", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.191243}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-607", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.325512}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-607", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.269707}
+{"task_id": "tox-dev__sphinx-autodoc-typehints-607", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.040956}
+{"task_id": "tox-dev__tox-3683", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.71183}
+{"task_id": "tox-dev__tox-3683", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.193841}
+{"task_id": "tox-dev__tox-3683", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.193593}
+{"task_id": "tox-dev__tox-3683", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.127272}
+{"task_id": "tox-dev__tox-3683", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.805594}
+{"task_id": "tox-dev__tox-3683", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.082887}
+{"task_id": "tox-dev__tox-3683", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.273362}
+{"task_id": "tox-dev__tox-3683", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.118922}
+{"task_id": "tox-dev__tox-3810", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.543721}
+{"task_id": "tox-dev__tox-3810", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.196357}
+{"task_id": "tox-dev__tox-3810", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.357273}
+{"task_id": "tox-dev__tox-3810", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.108649}
+{"task_id": "tox-dev__tox-3810", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.544088}
+{"task_id": "tox-dev__tox-3810", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.233275}
+{"task_id": "tox-dev__tox-3810", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.183307}
+{"task_id": "tox-dev__tox-3810", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.076929}
+{"task_id": "tox-dev__tox-3846", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.301924}
+{"task_id": "tox-dev__tox-3846", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.247082}
+{"task_id": "tox-dev__tox-3846", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.299729}
+{"task_id": "tox-dev__tox-3846", "fixer": "Kimi K2.5", "arm": "solo", "solved": false, "cost_usd_pinned": 0.221777}
+{"task_id": "tox-dev__tox-3846", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.436112}
+{"task_id": "tox-dev__tox-3846", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.163882}
+{"task_id": "tox-dev__tox-3846", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.237075}
+{"task_id": "tox-dev__tox-3846", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.136017}
+{"task_id": "ucfopen__canvasapi-716", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.15791}
+{"task_id": "ucfopen__canvasapi-716", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.099769}
+{"task_id": "ucfopen__canvasapi-716", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.230345}
+{"task_id": "ucfopen__canvasapi-716", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.045899}
+{"task_id": "ucfopen__canvasapi-716", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.193072}
+{"task_id": "ucfopen__canvasapi-716", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.14183}
+{"task_id": "ucfopen__canvasapi-716", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.255052}
+{"task_id": "ucfopen__canvasapi-716", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.078154}
+{"task_id": "ultraplot__ultraplot-696", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.823858}
+{"task_id": "ultraplot__ultraplot-696", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 1.763733}
+{"task_id": "ultraplot__ultraplot-696", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 1.078542}
+{"task_id": "ultraplot__ultraplot-696", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.185501}
+{"task_id": "ultraplot__ultraplot-696", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 1.124247}
+{"task_id": "ultraplot__ultraplot-696", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.292965}
+{"task_id": "ultraplot__ultraplot-696", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.555261}
+{"task_id": "ultraplot__ultraplot-696", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.336251}
+{"task_id": "unit8co__darts-3065", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.30315}
+{"task_id": "unit8co__darts-3065", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.259673}
+{"task_id": "unit8co__darts-3065", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.278564}
+{"task_id": "unit8co__darts-3065", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.118261}
+{"task_id": "unit8co__darts-3065", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.217631}
+{"task_id": "unit8co__darts-3065", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.256412}
+{"task_id": "unit8co__darts-3065", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.246678}
+{"task_id": "unit8co__darts-3065", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.108347}
+{"task_id": "youssofal__mtplx-21", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.579572}
+{"task_id": "youssofal__mtplx-21", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.433094}
+{"task_id": "youssofal__mtplx-21", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.245225}
+{"task_id": "youssofal__mtplx-21", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.071347}
+{"task_id": "youssofal__mtplx-21", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.741384}
+{"task_id": "youssofal__mtplx-21", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.327719}
+{"task_id": "youssofal__mtplx-21", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.259182}
+{"task_id": "youssofal__mtplx-21", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.078629}
+{"task_id": "yt-project__unyt-628", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.440675}
+{"task_id": "yt-project__unyt-628", "fixer": "GPT-5.2", "arm": "solo", "solved": true, "cost_usd_pinned": 0.136048}
+{"task_id": "yt-project__unyt-628", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.656367}
+{"task_id": "yt-project__unyt-628", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.033446}
+{"task_id": "yt-project__unyt-628", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.229452}
+{"task_id": "yt-project__unyt-628", "fixer": "GPT-5.2", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.150363}
+{"task_id": "yt-project__unyt-628", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.74503}
+{"task_id": "yt-project__unyt-628", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.098411}
+{"task_id": "zarr-developers__virtualizarr-979", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": true, "cost_usd_pinned": 0.938561}
+{"task_id": "zarr-developers__virtualizarr-979", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.526562}
+{"task_id": "zarr-developers__virtualizarr-979", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": true, "cost_usd_pinned": 0.22947}
+{"task_id": "zarr-developers__virtualizarr-979", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.206958}
+{"task_id": "zarr-developers__virtualizarr-979", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.456858}
+{"task_id": "zarr-developers__virtualizarr-979", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.28459}
+{"task_id": "zarr-developers__virtualizarr-979", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.320209}
+{"task_id": "zarr-developers__virtualizarr-979", "fixer": "Kimi K2.5", "arm": "handoff", "solved": true, "cost_usd_pinned": 0.11804}
+{"task_id": "zauberzeug__nicegui-5914", "fixer": "Claude Opus 4.6", "arm": "solo", "solved": false, "cost_usd_pinned": 0.297077}
+{"task_id": "zauberzeug__nicegui-5914", "fixer": "GPT-5.2", "arm": "solo", "solved": false, "cost_usd_pinned": 0.261191}
+{"task_id": "zauberzeug__nicegui-5914", "fixer": "Gemini 3 Flash", "arm": "solo", "solved": false, "cost_usd_pinned": 0.164884}
+{"task_id": "zauberzeug__nicegui-5914", "fixer": "Kimi K2.5", "arm": "solo", "solved": true, "cost_usd_pinned": 0.129657}
+{"task_id": "zauberzeug__nicegui-5914", "fixer": "Claude Opus 4.6", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.396213}
+{"task_id": "zauberzeug__nicegui-5914", "fixer": "GPT-5.2", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.340396}
+{"task_id": "zauberzeug__nicegui-5914", "fixer": "Gemini 3 Flash", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.157085}
+{"task_id": "zauberzeug__nicegui-5914", "fixer": "Kimi K2.5", "arm": "handoff", "solved": false, "cost_usd_pinned": 0.104023}
