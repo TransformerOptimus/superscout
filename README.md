@@ -14,7 +14,8 @@ SuperScout, 158 for the best model) at about a fifth of the total cost per
 solve at a matched solve rate.
 
 This repository contains the paper source and the released artifacts that back
-its claims.
+its claims. The paper is published at
+[arXiv:2608.04804](https://arxiv.org/abs/2608.04804).
 
 ## Layout
 
@@ -79,8 +80,6 @@ In-text claims with staged receipts:
 
 ## Artifacts on HuggingFace
 
-Private until the paper release; the links are permanent.
-
 - SuperScout-7B weights:
   [`SuperAGI/SuperScout-7B`](https://huggingface.co/SuperAGI/SuperScout-7B)
   (model card mirrored at `hf/model-card.md`).
@@ -95,9 +94,11 @@ Private until the paper release; the links are permanent.
 
 ```bibtex
 @misc{superscout2026,
-  title  = {Scrouting: Cost-Aware Routing of Coding Agents by Scouting the Repository First},
-  author = {Ishaan Bhola and Adithyan Krishnan and Mukunda NS},
-  year   = {2026},
-  note   = {Preprint. Citation will be updated on release.}
+  title         = {Scrouting: Cost-Aware Routing of Coding Agents by Scouting the Repository First},
+  author        = {Ishaan Bhola and Adithyan Krishnan and Mukunda NS},
+  year          = {2026},
+  eprint        = {2608.04804},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.SE}
 }
 ```

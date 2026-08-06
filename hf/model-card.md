@@ -126,9 +126,11 @@ every gold file named in 24.8% of tasks.
 
 ```bibtex
 @misc{superscout2026,
-  title  = {Scrouting: Cost-Aware Routing of Coding Agents by Scouting the Repository First},
-  author = {Ishaan Bhola and Adithyan Krishnan and Mukunda NS},
-  year   = {2026},
-  note   = {Preprint. Citation will be updated on release.}
+  title         = {Scrouting: Cost-Aware Routing of Coding Agents by Scouting the Repository First},
+  author        = {Ishaan Bhola and Adithyan Krishnan and Mukunda NS},
+  year          = {2026},
+  eprint        = {2608.04804},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.SE}
 }
 ```
