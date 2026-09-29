@@ -24,10 +24,12 @@ paper/               LaTeX source of the paper (builds to main.pdf)
 code/
   gate/              verify-then-strip gate: module, unit tests, handoff JSON schema
   router/            frozen router: spec, serialized head (npz), numpy-only inference
+  scout/             searcher harness: dialect, prompts, Docker sandbox, local runner
 data/
   blocklist.json     23-repo contamination blocklist (11 SWE-bench Pro + 12 Verified)
   labelrun/          100-task calibration label run (tasks, handoffs, outcomes)
   receipts/          SWE-bench Pro Python-266 evidence layer (per-task receipts)
+  trajectories/      the 266 SuperScout-7B search episodes behind the receipts
 LICENSE              Apache-2.0 (code)
 data/LICENSE         CC-BY-4.0 (data)
 hf/                  upload-ready HuggingFace model and dataset cards
@@ -40,6 +42,22 @@ cd paper && make
 ```
 
 Output: `paper/main.pdf`.
+
+## Running the searcher
+
+`code/scout/` runs SuperScout-7B as a search agent on SWE-bench Pro tasks with the
+exact dialect, prompts, tools and sampling used for the paper's results; see
+`code/scout/README.md` for the vLLM command, a one-task run, and how to pass the
+handoff to `code/gate/`. Two settings matter most:
+
+- Sample at temperature 0.9 with the pinned tail in `code/scout/serving_config.json`,
+  set client-side. Greedy decoding, or a different tool-call format, gives the
+  searcher that explores but rarely commits to a handoff (paper §5.2).
+- Load SWE-bench Pro at revision `7ab5114912baf22bb098818e604c02fe7ad2c11f` (or the
+  `v1` config). The dataset's default config is now a newer task set whose texts differ.
+
+The 266 search episodes themselves (every model turn, tool call and tool result, and
+the emitted handoff) are in `data/trajectories/pro266/`.
 
 ## Claims-to-artifacts manifest
 
