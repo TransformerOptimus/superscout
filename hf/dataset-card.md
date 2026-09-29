@@ -80,6 +80,11 @@ all 450 issues of a held-out evaluation vault are excluded. Both exclusions were
 verified by a programmatic gate on the frozen file (zero hits), not assumed. The
 blocklist ships with the paper repository as `data/blocklist.json`.
 
+All 266-task results use `ScaleAI/SWE-bench_Pro` at revision
+`7ab5114912baf22bb098818e604c02fe7ad2c11f` (equivalently `config="v1"`). The
+dataset's default config changed on 2026-09-22 to a newer 642-task set whose tasks
+and task texts differ, so loading the default will not reproduce these rows.
+
 ## Citation
 
 ```bibtex

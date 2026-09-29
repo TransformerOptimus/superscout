@@ -7,6 +7,11 @@ solo fixer arms. Model id strings inside the data are the raw run identifiers:
 `gpt-5-2-high` (GPT-5.2), `claude-4-6-opus` (Claude Opus 4.6), `kimi-k2-5`
 (Kimi K2.5), `gemini-3-flash` (Gemini 3 Flash, routed cheap fixer only).
 
+All 266-task results use `ScaleAI/SWE-bench_Pro` at revision
+`7ab5114912baf22bb098818e604c02fe7ad2c11f` (equivalently `config="v1"`). The
+dataset's default config changed on 2026-09-22 to a newer 642-task set whose tasks
+and task texts differ, so loading the default will not reproduce these rows.
+
 Every main-paper table and figure over this benchmark is recomputable from the
 files below without access to raw trajectories. No measured number was altered
 in staging; the edits are naming scrubs, the key renames documented in the
