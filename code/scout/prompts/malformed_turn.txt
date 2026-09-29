@@ -1,0 +1,2 @@
+ERROR:
+Your last turn could not be parsed ({{error}}). Write plain-text reasoning then exactly ONE call: <function=NAME><parameter=KEY>VALUE</parameter></function>.

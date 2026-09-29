@@ -1,0 +1,1 @@
+Stop exploring now. Based on everything you have seen so far, emit your final handoff immediately, in exactly the format required: <files> (ranked, one per line) <repro> (command / reproduced / observed — only if you actually ran one) <notes> (key findings), ending with STOP on its own line. No function calls.

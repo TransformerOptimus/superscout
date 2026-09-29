@@ -1,0 +1,72 @@
+{
+  "model": {
+    "repo": "SuperAGI/SuperScout-7B",
+    "revision": "8249e92f2328d8a23f5daf5da08872a0c0e7377b",
+    "dtype": "bfloat16",
+    "served_model_name": "SuperScout-7B"
+  },
+  "vllm": {
+    "version": "0.10.2",
+    "transformers_version": "4.56.2",
+    "entrypoint": "python -m vllm.entrypoints.openai.api_server",
+    "args": [
+      "--model", "SuperAGI/SuperScout-7B",
+      "--revision", "8249e92f2328d8a23f5daf5da08872a0c0e7377b",
+      "--served-model-name", "SuperScout-7B",
+      "--dtype", "bfloat16",
+      "--max-model-len", "32768",
+      "--enforce-eager",
+      "--generation-config", "vllm",
+      "--host", "127.0.0.1",
+      "--port", "8000"
+    ],
+    "prefix_caching": "on (vLLM 0.10.2 V1 engine default; the reported runs' server log shows enable_prefix_caching=True)",
+    "generation_config": "vllm: neutral server defaults; the checkpoint's own generation_config.json (temperature 0.7, top_p 0.8, top_k 20, repetition_penalty 1.1) is not used",
+    "gpu_in_reported_runs": "1x 48 GB (NVIDIA RTX 6000 Ada), 20 concurrent episodes"
+  },
+  "sampling": {
+    "pinned_client_side": true,
+    "temperature": 0.9,
+    "max_tokens": 2048,
+    "stop": ["<|im_end|>"],
+    "top_p": 1.0,
+    "top_k": -1,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "draws_per_task": 1
+  },
+  "cache_salt": "per episode: <instance_id>-<8 random hex chars>, sent on every request of that episode",
+  "episode": {
+    "max_turns": 40,
+    "forced_emission": true,
+    "forced_emission_trigger": "no handoff after max_turns, or a model error; one extra request with the forced-handoff nudge; result tagged handoff_type=forced",
+    "observation_cap_chars": 8000,
+    "observation_cap_rule": "first 4000 + '\\n...[N chars truncated]...\\n' + last 4000",
+    "char_budget_before_fit": 90000,
+    "model_len": 32768,
+    "fit_target_tokens": 30464,
+    "fit_target_rule": "32768 - 2048 (completion) - 256 (margin)",
+    "overflow_retry_fit_tokens": 24371,
+    "fit_tokenizer": "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "episode_wall_clock_s": 1200,
+    "setup_timeout_s": 300
+  },
+  "sandbox": {
+    "images": "jefzda/sweap-images:<dockerhub_tag>",
+    "platform": "linux/amd64",
+    "entrypoint": "cleared",
+    "command": ["sleep", "infinity"],
+    "workdir": "/app",
+    "tool_env_prefix": "sandbox.TOOL_ENV",
+    "command_timeout_default_s": 60,
+    "command_timeout_max_s": 120,
+    "resources_in_reported_runs": "1-4 CPUs, 5-30 GiB memory per task"
+  },
+  "dataset": {
+    "name": "ScaleAI/SWE-bench_Pro",
+    "split": "test",
+    "revision": "7ab5114912baf22bb098818e604c02fe7ad2c11f",
+    "note": "original 731-task release; the 266 Python tasks were evaluated. The later default config (642 tasks) changes task text and drops 29 of the 266."
+  }
+}

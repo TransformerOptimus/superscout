@@ -1,0 +1,8 @@
+<uploaded_files>
+{{workdir}}
+</uploaded_files>
+I've uploaded a {{language}} code repository in the directory {{workdir}}. Consider the following PR description:
+
+<pr_description>
+{{problem_statement}}
+</pr_description>
