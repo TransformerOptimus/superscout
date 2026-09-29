@@ -1,0 +1,14 @@
+{
+  "note": "SHA-256 manifest over the files in this directory (excluding this manifest).",
+  "n_files": 2,
+  "files": {
+    "README.md": {
+      "bytes": 5046,
+      "sha256": "a5b908d7e4f224720e9a0d61df79891a82e558bf41055bb9fb14c1d01256244c"
+    },
+    "episodes.jsonl": {
+      "bytes": 23027042,
+      "sha256": "cff329ea51e426f8750ab92aa5925729d763dec920e3b321e461a32c4a03eaf3"
+    }
+  }
+}
